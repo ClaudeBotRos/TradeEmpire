@@ -1,0 +1,29 @@
+{
+  "trade_id": "idea_ETHUSDT_20260301151120",
+  "symbol": "ETHUSDT",
+  "direction": "SHORT",
+  "score_global": 80,
+  "scores": {
+    "macro_trend": 1,
+    "structure_htf": 1,
+    "volume": 0,
+    "funding": 1,
+    "sentiment": 1,
+    "rr": 0.6,
+    "invalidation": 1,
+    "confidence": 0.7
+  },
+  "entry": 2054.8,
+  "invalid": 2075.35,
+  "targets": [
+    {
+      "price": 2030.14,
+      "rr": 1.2
+    },
+    {
+      "price": 2005.48,
+      "rr": 2.4
+    }
+  ],
+  "timestamp_utc": "2026-03-01T15:11:20.371Z"
+}

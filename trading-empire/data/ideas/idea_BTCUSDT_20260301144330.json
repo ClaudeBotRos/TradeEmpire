@@ -1,0 +1,65 @@
+{
+  "timestamp_utc": "2026-03-01T14:43:30.963Z",
+  "symbol": "BTCUSDT",
+  "timeframe": "4h",
+  "direction": "SHORT",
+  "setup_name": "breakout_retest",
+  "entry": {
+    "type": "limit",
+    "price": 68199.99
+  },
+  "invalid": {
+    "type": "price",
+    "price": 68881.99,
+    "description": "invalidation level"
+  },
+  "targets": [
+    {
+      "price": 67381.59,
+      "rr": 1.2
+    },
+    {
+      "price": 66563.19,
+      "rr": 2.4
+    }
+  ],
+  "confidence": 0.7,
+  "evidence": {
+    "technicals": [
+      "trend down",
+      "support levels",
+      "resistance levels"
+    ],
+    "sentiment": [
+      "sentiment neutral",
+      "bullish mentions"
+    ],
+    "smart_money": [
+      "funding neutral"
+    ]
+  },
+  "risk": {
+    "max_loss_usd": 50,
+    "position_size_usd": 500,
+    "leverage": 1
+  },
+  "constraints": {
+    "max_positions_open": 3
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    },
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    },
+    {
+      "type": "stub",
+      "ref": "sentiment_digest"
+    }
+  ],
+  "status": "APPROVED",
+  "trade_id": "idea_BTCUSDT_20260301144330"
+}

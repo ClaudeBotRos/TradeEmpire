@@ -1,0 +1,20 @@
+{
+  "trade_id": "idea_BTCUSDT_20260301153007",
+  "outcome": "pending",
+  "approved_at": "2026-03-01T15:30:07.747Z",
+  "symbol": "BTCUSDT",
+  "direction": "SHORT",
+  "entry": 68199.99,
+  "invalid": 68881.99,
+  "targets": [
+    {
+      "price": 67381.59,
+      "rr": 1.2
+    },
+    {
+      "price": 66563.19,
+      "rr": 2.4
+    }
+  ],
+  "note": "Remplir outcome (win|loss|invalid_hit|target_hit), optionnel: exit_price, closed_at, note."
+}

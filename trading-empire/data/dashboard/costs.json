@@ -1,0 +1,33 @@
+{
+  "fixed_costs": [],
+  "api_costs": [
+    {
+      "id": "x_twitter",
+      "name": "X (Twitter) API",
+      "provider": "Twitter / X",
+      "type": "subscription",
+      "cost": null,
+      "currency": "USD",
+      "last_updated": null,
+      "notes": "Recherche recent, sentiment (SENTIMENT_X, Intel). Renseigner coût mensuel si abonnement."
+    },
+    {
+      "id": "clawrouter",
+      "name": "ClawRouter",
+      "provider": "OpenClaw",
+      "type": "usage",
+      "cost": null,
+      "currency": "USD",
+      "last_updated": null,
+      "notes": "Routage LLM / appels. Renseigner coût par usage ou mensuel."
+    }
+  ],
+  "trading": {
+    "fees": 0,
+    "funding_paid": 0,
+    "slippage": 0,
+    "drawdown": 0,
+    "roi_by_strategy": {}
+  },
+  "updated_at": null
+}

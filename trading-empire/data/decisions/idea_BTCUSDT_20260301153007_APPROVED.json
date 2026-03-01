@@ -1,0 +1,7 @@
+{
+  "trade_id": "idea_BTCUSDT_20260301153007",
+  "status": "APPROVED",
+  "timestamp_utc": "2026-03-01T15:30:07.747Z",
+  "reason": "Conforms to risk_rules",
+  "idea_ref": "data/ideas/idea_BTCUSDT_20260301153007.json"
+}

@@ -1,0 +1,10 @@
+[
+  {"id":"boss","name":"BOSS","skills":"Chef, orientation, priorités, amélioration dashboard chaque nuit, consolidation Besoins API","photo":"boss.png","apis_used":[]},
+  {"id":"orchestrator","name":"Lucy","skills":"Consolidation signaux, production idées TRADE_IDEA","photo":"orchestrator.png","apis_used":["Lecture data/signals/* (technicals, smart_money, sentiment)"]},
+  {"id":"sentiment_x","name":"Melissa","skills":"Digest sentiment X, narratifs, risk_signals","photo":"sentiment_X.png","apis_used":["Stub (flux X à brancher)"]},
+  {"id":"smart_money","name":"Lucas","skills":"Funding, OI, signaux smart money","photo":"smart_money.png","apis_used":["Binance Futures — premiumIndex (funding rate, mark price)"]},
+  {"id":"technicals","name":"Alicia","skills":"OHLCV, trend, levels, volatilité, signaux techniques","photo":"technicals.png","apis_used":["Binance — klines (OHLCV public)"]},
+  {"id":"risk_journal","name":"Pierre-Jaque","skills":"Risk rules, APPROVE/REJECT, journal quotidien","photo":"risk.png","apis_used":["Lecture rules/, data/ideas/"]},
+  {"id":"chase","name":"Chase","skills":"Tracker post-mortem, feedback aux agents","photo":"chase.png","apis_used":["data/tracker/"]},
+  {"id":"intel","name":"Daphnée","skills":"Trend Cards X + YouTube crypto, module Intel","photo":"intel.png","apis_used":["X (Twitter API v2)", "YouTube (youtube-watcher)"]}
+]

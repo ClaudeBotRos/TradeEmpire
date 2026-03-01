@@ -1,0 +1,20 @@
+{
+  "trade_id": "idea_ETHUSDT_20260301151119",
+  "outcome": "pending",
+  "approved_at": "2026-03-01T15:11:19.417Z",
+  "symbol": "ETHUSDT",
+  "direction": "SHORT",
+  "entry": 2054.8,
+  "invalid": 2075.35,
+  "targets": [
+    {
+      "price": 2030.14,
+      "rr": 1.2
+    },
+    {
+      "price": 2005.48,
+      "rr": 2.4
+    }
+  ],
+  "note": "Remplir outcome (win|loss|invalid_hit|target_hit), optionnel: exit_price, closed_at, note."
+}

@@ -1,0 +1,421 @@
+{
+  "timestamp_utc": "2026-03-01T20:36:43.746Z",
+  "summary": {
+    "roadmap_current": "v2",
+    "roadmap_steps_done": 7,
+    "api_requests_count": 0,
+    "agent_exchanges_count": 25,
+    "has_kanban": true,
+    "has_costs": true
+  },
+  "roadmap": {
+    "steps": [
+      {
+        "id": "v1-paper",
+        "label": "V1 Paper (idées + journal)",
+        "done": true
+      },
+      {
+        "id": "ohlcv",
+        "label": "Connexion OHLCV (Binance)",
+        "done": true
+      },
+      {
+        "id": "signaux",
+        "label": "Signaux complets (technicals + smart_money + sentiment)",
+        "done": true
+      },
+      {
+        "id": "risk",
+        "label": "Risk validé (décisions + journal)",
+        "done": true
+      },
+      {
+        "id": "dashboard",
+        "label": "Dashboard opérationnel (modules PRD)",
+        "done": true
+      },
+      {
+        "id": "boss-night",
+        "label": "BOSS tâche nocturne + Besoins API",
+        "done": true
+      },
+      {
+        "id": "wire",
+        "label": "Wire (échanges agents enregistrés)",
+        "done": true
+      },
+      {
+        "id": "v2",
+        "label": "V2 Exécution (si décision)",
+        "done": false
+      }
+    ],
+    "current_step_id": "v2",
+    "updated_at": "2026-03-01"
+  },
+  "api_requests": [],
+  "agent_exchanges": [
+    {
+      "id": "wire-202603011438002-technicals",
+      "timestamp_utc": "2026-03-01T14:38:00.261Z",
+      "from_agent": "TECHNICALS",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+      "content_ref": "data/signals/technicals/"
+    },
+    {
+      "id": "wire-202603011438007-smart_money",
+      "timestamp_utc": "2026-03-01T14:38:00.743Z",
+      "from_agent": "SMART_MONEY",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux smart money (funding) écrits.",
+      "content_ref": "data/signals/smart_money/"
+    },
+    {
+      "id": "wire-202603011438012-sentiment_x",
+      "timestamp_utc": "2026-03-01T14:38:01.238Z",
+      "from_agent": "SENTIMENT_X",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux sentiment (narratives X) écrits.",
+      "content_ref": "data/signals/sentiment/"
+    },
+    {
+      "id": "wire-202603011438012-orchestrator",
+      "timestamp_utc": "2026-03-01T14:38:01.275Z",
+      "from_agent": "ORCHESTRATOR",
+      "to_agent": "RISK_JOURNAL",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+      "content_ref": "data/ideas/"
+    },
+    {
+      "id": "wire-202603011438013-risk_journal",
+      "timestamp_utc": "2026-03-01T14:38:01.312Z",
+      "from_agent": "RISK_JOURNAL",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+      "content_ref": "data/decisions/ et data/journal/"
+    },
+    {
+      "id": "wire-202603011442557-technicals",
+      "timestamp_utc": "2026-03-01T14:42:55.741Z",
+      "from_agent": "TECHNICALS",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+      "content_ref": "data/signals/technicals/"
+    },
+    {
+      "id": "wire-202603011442562-smart_money",
+      "timestamp_utc": "2026-03-01T14:42:56.205Z",
+      "from_agent": "SMART_MONEY",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux smart money (funding) écrits.",
+      "content_ref": "data/signals/smart_money/"
+    },
+    {
+      "id": "wire-202603011442567-sentiment_x",
+      "timestamp_utc": "2026-03-01T14:42:56.726Z",
+      "from_agent": "SENTIMENT_X",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux sentiment (narratives X) écrits.",
+      "content_ref": "data/signals/sentiment/"
+    },
+    {
+      "id": "wire-202603011442567-orchestrator",
+      "timestamp_utc": "2026-03-01T14:42:56.766Z",
+      "from_agent": "ORCHESTRATOR",
+      "to_agent": "RISK_JOURNAL",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+      "content_ref": "data/ideas/"
+    },
+    {
+      "id": "wire-202603011442568-risk_journal",
+      "timestamp_utc": "2026-03-01T14:42:56.801Z",
+      "from_agent": "RISK_JOURNAL",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+      "content_ref": "data/decisions/ et data/journal/"
+    },
+    {
+      "id": "wire-202603011443315-technicals",
+      "timestamp_utc": "2026-03-01T14:43:31.552Z",
+      "from_agent": "TECHNICALS",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+      "content_ref": "data/signals/technicals/"
+    },
+    {
+      "id": "wire-202603011443320-smart_money",
+      "timestamp_utc": "2026-03-01T14:43:32.026Z",
+      "from_agent": "SMART_MONEY",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux smart money (funding) écrits.",
+      "content_ref": "data/signals/smart_money/"
+    },
+    {
+      "id": "wire-202603011443325-sentiment_x",
+      "timestamp_utc": "2026-03-01T14:43:32.537Z",
+      "from_agent": "SENTIMENT_X",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux sentiment (narratives X) écrits.",
+      "content_ref": "data/signals/sentiment/"
+    },
+    {
+      "id": "wire-202603011443325-orchestrator",
+      "timestamp_utc": "2026-03-01T14:43:32.575Z",
+      "from_agent": "ORCHESTRATOR",
+      "to_agent": "RISK_JOURNAL",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+      "content_ref": "data/ideas/"
+    },
+    {
+      "id": "wire-202603011443326-risk_journal",
+      "timestamp_utc": "2026-03-01T14:43:32.614Z",
+      "from_agent": "RISK_JOURNAL",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+      "content_ref": "data/decisions/ et data/journal/"
+    },
+    {
+      "id": "wire-202603011511250-technicals",
+      "timestamp_utc": "2026-03-01T15:11:25.012Z",
+      "from_agent": "TECHNICALS",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+      "content_ref": "data/signals/technicals/"
+    },
+    {
+      "id": "wire-202603011511254-smart_money",
+      "timestamp_utc": "2026-03-01T15:11:25.479Z",
+      "from_agent": "SMART_MONEY",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux smart money (funding) écrits.",
+      "content_ref": "data/signals/smart_money/"
+    },
+    {
+      "id": "wire-202603011511259-sentiment_x",
+      "timestamp_utc": "2026-03-01T15:11:25.952Z",
+      "from_agent": "SENTIMENT_X",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux sentiment (narratives X) écrits.",
+      "content_ref": "data/signals/sentiment/"
+    },
+    {
+      "id": "wire-202603011511259-orchestrator",
+      "timestamp_utc": "2026-03-01T15:11:25.989Z",
+      "from_agent": "ORCHESTRATOR",
+      "to_agent": "RISK_JOURNAL",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+      "content_ref": "data/ideas/"
+    },
+    {
+      "id": "wire-202603011511260-risk_journal",
+      "timestamp_utc": "2026-03-01T15:11:26.026Z",
+      "from_agent": "RISK_JOURNAL",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+      "content_ref": "data/decisions/ et data/journal/"
+    },
+    {
+      "id": "wire-202603011511336-technicals",
+      "timestamp_utc": "2026-03-01T15:11:33.615Z",
+      "from_agent": "TECHNICALS",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+      "content_ref": "data/signals/technicals/"
+    },
+    {
+      "id": "wire-202603011511341-smart_money",
+      "timestamp_utc": "2026-03-01T15:11:34.104Z",
+      "from_agent": "SMART_MONEY",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux smart money (funding) écrits.",
+      "content_ref": "data/signals/smart_money/"
+    },
+    {
+      "id": "wire-202603011511345-sentiment_x",
+      "timestamp_utc": "2026-03-01T15:11:34.568Z",
+      "from_agent": "SENTIMENT_X",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Signaux sentiment (narratives X) écrits.",
+      "content_ref": "data/signals/sentiment/"
+    },
+    {
+      "id": "wire-202603011511346-orchestrator",
+      "timestamp_utc": "2026-03-01T15:11:34.605Z",
+      "from_agent": "ORCHESTRATOR",
+      "to_agent": "RISK_JOURNAL",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+      "content_ref": "data/ideas/"
+    },
+    {
+      "id": "wire-202603011511346-risk_journal",
+      "timestamp_utc": "2026-03-01T15:11:34.644Z",
+      "from_agent": "RISK_JOURNAL",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+      "content_ref": "data/decisions/ et data/journal/"
+    }
+  ],
+  "kanban": {
+    "columns": [
+      {
+        "id": "todo",
+        "title": "À faire"
+      },
+      {
+        "id": "wip",
+        "title": "En cours"
+      },
+      {
+        "id": "review",
+        "title": "En revue"
+      },
+      {
+        "id": "done",
+        "title": "Fait"
+      }
+    ],
+    "tasks": []
+  },
+  "costs": {
+    "fixed_costs": [],
+    "api_costs": [
+      {
+        "id": "x_twitter",
+        "name": "X (Twitter) API",
+        "provider": "Twitter / X",
+        "type": "subscription",
+        "cost": null,
+        "currency": "USD",
+        "last_updated": null,
+        "notes": "Recherche recent, sentiment (SENTIMENT_X, Intel). Renseigner coût mensuel si abonnement."
+      },
+      {
+        "id": "clawrouter",
+        "name": "ClawRouter",
+        "provider": "OpenClaw",
+        "type": "usage",
+        "cost": null,
+        "currency": "USD",
+        "last_updated": null,
+        "notes": "Routage LLM / appels. Renseigner coût par usage ou mensuel."
+      }
+    ],
+    "trading": {
+      "fees": 0,
+      "funding_paid": 0,
+      "slippage": 0,
+      "drawdown": 0,
+      "roi_by_strategy": {}
+    },
+    "updated_at": null
+  },
+  "instructions": [
+    "Lire ce contexte et les fichiers dans data/dashboard/ si besoin.",
+    "Mettre à jour dashboard/spec/ (ex. spec/evolutions.md) avec des propositions d’amélioration dashboard.",
+    "Prioriser les Besoins API et écrire le résultat dans dashboard/config/api_needs_priority.md.",
+    "Si tu proposes de nouvelles règles, tâches ou specs (créations nocturnes), écris-les dans data/dashboard/boss_proposals.json : { \"timestamp_utc\": \"<ISO>\", \"proposals\": [ { \"title\": \"...\", \"description\": \"...\", \"type\": \"rule\"|\"task\"|\"spec\" } ] }. Validation humaine requise avant application.",
+    "Répondre par une ligne de synthèse (ex. « BOSS nuit OK — 3 besoins API priorisés, 2 idées spec »)."
+  ]
+}

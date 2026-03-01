@@ -1,0 +1,65 @@
+{
+  "timestamp_utc": "2026-03-01T14:42:56.753Z",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "direction": "SHORT",
+  "setup_name": "breakout_retest",
+  "entry": {
+    "type": "limit",
+    "price": 2054.8
+  },
+  "invalid": {
+    "type": "price",
+    "price": 2075.35,
+    "description": "invalidation level"
+  },
+  "targets": [
+    {
+      "price": 2030.14,
+      "rr": 1.2
+    },
+    {
+      "price": 2005.48,
+      "rr": 2.4
+    }
+  ],
+  "confidence": 0.7,
+  "evidence": {
+    "technicals": [
+      "trend down",
+      "support levels",
+      "resistance levels"
+    ],
+    "sentiment": [
+      "sentiment neutral",
+      "mixed_or_neutral"
+    ],
+    "smart_money": [
+      "no smart_money"
+    ]
+  },
+  "risk": {
+    "max_loss_usd": 50,
+    "position_size_usd": 500,
+    "leverage": 1
+  },
+  "constraints": {
+    "max_positions_open": 3
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    },
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    },
+    {
+      "type": "stub",
+      "ref": "sentiment_digest"
+    }
+  ],
+  "status": "APPROVED",
+  "trade_id": "idea_ETHUSDT_20260301144256"
+}

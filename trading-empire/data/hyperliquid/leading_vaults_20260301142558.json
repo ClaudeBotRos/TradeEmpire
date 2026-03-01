@@ -1,0 +1,17 @@
+{
+  "timestamp_utc": "2026-03-01T14:25:58.360Z",
+  "source": "hyperliquid_info",
+  "leading_vaults": [
+    {
+      "name": "COBIEWANKENOBI",
+      "vaultAddress": "0xab7b7504dc26ffd9000c1f2bce1927e6ff40b937",
+      "leader": "0x19671b09b5c9fd3f7d4aa91dfba482d88037f8f1",
+      "tvl": "10000.0",
+      "isClosed": false,
+      "relationship": {
+        "type": "normal"
+      },
+      "createTimeMillis": 1772368002403
+    }
+  ]
+}

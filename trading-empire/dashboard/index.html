@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TradeEmpire — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --bg-panel: #111114;
+      --bg-card: #16161a;
+      --bg-card-hover: #1a1a1f;
+      --border: #27272a;
+      --border-subtle: #1f1f23;
+      --text: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --accent: #f97316;
+      --accent-hover: #ea580c;
+      --accent-glow: rgba(249, 115, 22, 0.15);
+      --success: #22c55e;
+      --success-bg: rgba(34, 197, 94, 0.1);
+      --danger: #ef4444;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --sidebar-w: 260px;
+      --header-h: 56px;
+      --dash-bar-h: 52px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    /* ----- Header (page) ----- */
+    .page-header {
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .page-header .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .page-header .logo span { color: var(--text-secondary); font-weight: 500; }
+    .page-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .page-header .meta { font-size: 0.8rem; color: var(--text-muted); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-ghost { background: transparent; color: var(--text-secondary); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.06); color: var(--text); }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+
+    /* ----- Dashboard block (main container) ----- */
+    .dashboard-wrap {
+      flex: 1;
+      display: flex;
+      min-height: 0;
+      padding: 1.25rem;
+    }
+    .dashboard-block {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    /* ----- Dashboard top bar ----- */
+    .dashboard-topbar {
+      height: var(--dash-bar-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      flex-shrink: 0;
+    }
+    .dashboard-topbar .logo-mini { font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+    .dashboard-topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .avatar-placeholder {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ----- Sidebar ----- */
+    .dashboard-body { display: flex; flex: 1; min-height: 0; }
+    .sidebar {
+      width: var(--sidebar-w);
+      border-right: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      padding: 1rem 0;
+      flex-shrink: 0;
+      overflow-y: auto;
+    }
+    .sidebar-btn-new {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 0 0.75rem 1rem;
+      padding: 0.65rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .sidebar-btn-new:hover { background: var(--accent-hover); }
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      opacity: 0.85;
+      flex-shrink: 0;
+    }
+    .sidebar nav { display: flex; flex-direction: column; gap: 2px; }
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 1rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      margin-left: 0;
+      transition: color 0.15s, background 0.15s;
+    }
+    .sidebar a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+    .sidebar a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-glow); }
+    .nav-sep { height: 1px; background: var(--border-subtle); margin: 0.75rem 1rem; }
+    .nav-label {
+      padding: 0.5rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    /* ----- Main content ----- */
+    main.dash-main {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .dash-headline {
+      padding: 1.25rem 1.5rem 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .dash-content {
+      flex: 1;
+      padding: 0 1.5rem 1.5rem;
+      overflow: auto;
+    }
+    .dash-content .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .dash-content .card:hover { border-color: var(--border); background: var(--bg-card-hover); }
+
+    .meta { color: var(--text-muted); font-size: 0.875rem; }
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .cost-table th, .cost-table td { padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+    .cost-table th { color: var(--text-secondary); font-weight: 600; }
+    .cost-table .cost-value { font-weight: 600; color: var(--accent); }
+    .cost-table .cost-empty { color: var(--text-muted); font-style: italic; }
+    .cost-section-title { font-size: 1rem; font-weight: 600; margin: 1rem 0 0.5rem; color: var(--text); }
+    .cost-section-title:first-of-type { margin-top: 0; }
+    .loading { color: var(--text-muted); }
+    .error, .trend-down { color: var(--danger); }
+    .trend-up { color: var(--success); }
+    .trend-range { color: var(--text-muted); }
+
+    /* Roadmap */
+    .roadmap { display: flex; flex-direction: column; gap: 0.5rem; }
+    .roadmap-step {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+    .roadmap-step.done { border-color: var(--success); background: var(--success-bg); }
+    .roadmap-step.current { border-color: var(--accent); background: var(--accent-glow); }
+    .roadmap-step.todo { opacity: 0.75; }
+    .roadmap-step .icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .roadmap-step.done .icon { background: var(--success); color: #fff; }
+    .roadmap-step.current .icon { background: var(--accent); color: #fff; }
+    .roadmap-step.todo .icon { background: var(--border); color: var(--text-muted); }
+    .roadmap-summary {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      background: var(--accent-glow);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--accent);
+      font-size: 0.95rem;
+    }
+
+    /* Team grid */
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .team-card {
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      background: var(--bg-card);
+      transition: border-color 0.15s;
+    }
+    .team-card:hover { border-color: var(--border); }
+    .team-card .team-card-img { display: flex; justify-content: center; margin-bottom: 0.75rem; }
+    .team-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
+    .team-card .name { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.25rem; }
+    .team-card .skills { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.4; }
+    .team-card .team-card-body { text-align: left; margin-top: 0.5rem; border-top: 1px solid var(--border-subtle); padding-top: 0.75rem; }
+    .team-card .apis-title, .team-files-title { color: var(--text-muted); font-size: 0.75rem; margin-bottom: 0.25rem; }
+    .team-file-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 0.85rem; flex-wrap: wrap; }
+    .team-file-row a { color: var(--accent); text-decoration: none; }
+    .team-file-row a:hover { text-decoration: underline; }
+    .team-file-path { font-size: 0.72rem; color: var(--text-muted); font-family: ui-monospace, monospace; word-break: break-all; }
+    .team-file-content { margin-top: 0.4rem; padding: 0.6rem; background: var(--bg); border-radius: 6px; font-size: 0.78rem; white-space: pre-wrap; max-height: 180px; overflow: auto; border: 1px solid var(--border); }
+
+    /* Wire */
+    .wire-item {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+    }
+    .wire-item:last-child { border-bottom: none; }
+    .empty-state { padding: 2.5rem; text-align: center; color: var(--text-muted); font-size: 0.95rem; }
+    .legend-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem 1.25rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-secondary); }
+    .legend-box strong { color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .idea-card { margin-bottom: 1rem; }
+    .idea-card .idea-head { font-weight: 700; margin-bottom: 0.5rem; }
+    .idea-card .idea-desc { font-size: 0.9rem; line-height: 1.5; color: var(--text-secondary); margin: 0.75rem 0; padding-left: 0.5rem; border-left: 3px solid var(--border); }
+    .idea-card .idea-meta { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .signal-row {
+      display: grid;
+      grid-template-columns: 1fr 80px 100px 1fr 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+    }
+    .signal-row:last-child { border-bottom: none; }
+
+    /* Mobile */
+    .hamburger {
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+    }
+    .hamburger:hover { background: rgba(255,255,255,0.06); }
+    .sidebar-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 99;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .sidebar-backdrop.visible { display: block; opacity: 1; }
+    @media (max-width: 900px) {
+      .sidebar { position: fixed; left: 0; top: var(--header-h); bottom: 0; z-index: 100; transform: translateX(-100%); transition: transform 0.2s; box-shadow: 4px 0 24px rgba(0,0,0,0.3); }
+      .sidebar.open { transform: translateX(0); }
+      .page-header .hamburger { display: flex !important; }
+      .sidebar-backdrop.visible { display: block; opacity: 1; }
+      .dashboard-wrap { padding: 0.75rem; }
+      .dash-headline { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <button type="button" class="hamburger" id="hamburger" aria-label="Menu" style="display:none;">☰</button>
+    <span class="logo">Trade<span>Empire</span></span>
+    <div class="page-header-actions">
+      <span class="meta" id="dashboardUrl" title="Adresse du dashboard">—</span>
+      <button type="button" class="btn btn-primary" id="btnBrief">Brief du jour</button>
+    </div>
+  </header>
+
+  <div class="dashboard-wrap">
+    <div class="dashboard-block">
+      <div class="dashboard-topbar">
+        <span class="logo-mini">Dashboard</span>
+        <div class="dashboard-topbar-actions">
+          <button type="button" class="btn btn-ghost" id="btnExport">Export</button>
+          <div class="avatar-placeholder" title="Profil">OP</div>
+        </div>
+      </div>
+
+      <div class="dashboard-body">
+        <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+        <aside class="sidebar" id="sidebar">
+          <button type="button" class="sidebar-btn-new" id="btnNewTask">+ Nouvelle tâche</button>
+          <nav>
+            <span class="nav-label">Navigation</span>
+            <a href="#" class="active" data-view="avancement">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              Avancement
+            </a>
+            <a href="#" data-view="timeline">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              TimeLine
+            </a>
+            <a href="#" data-view="team">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Team
+            </a>
+            <a href="#" data-view="wire">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Wire
+            </a>
+            <span class="nav-sep"></span>
+            <span class="nav-label">Modules</span>
+            <a href="#" data-view="niches">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+              Niches
+            </a>
+            <a href="#" data-view="intel">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              OpenClaw Intel
+            </a>
+            <a href="#" data-view="cost">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Cost
+            </a>
+            <a href="#" data-view="api_requests">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3.78a1.65 1.65 0 0 0-1.51 1 1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82 1.65 1.65 0 0 0 1.51 1H17.22a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 0-2.83l.06-.06z"/></svg>
+              Besoins API
+            </a>
+            <a href="#" data-view="boss_proposals">Propositions BOSS</a>
+            <span class="nav-sep"></span>
+            <span class="nav-label">Données</span>
+            <a href="#" data-view="agent_status">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              Rapport agents
+            </a>
+            <a href="#" data-view="technicals">Signaux techniques</a>
+            <a href="#" data-view="smart_money">Smart money</a>
+            <a href="#" data-view="sentiment">Sentiment</a>
+            <a href="#" data-view="ideas">Idées</a>
+            <a href="#" data-view="decisions">Décisions</a>
+            <a href="#" data-view="journal">Journal</a>
+            <a href="#" data-view="chase">Chase (Tracker)</a>
+          </nav>
+        </aside>
+
+        <main class="dash-main">
+          <h1 class="dash-headline" id="viewTitle">Avancement</h1>
+          <div id="content" class="dash-content"><div class="card"><p class="loading">Chargement…</p></div></div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const content = document.getElementById('content');
+    const viewTitle = document.getElementById('viewTitle');
+    const sidebar = document.getElementById('sidebar');
+
+    const TITLES = {
+      avancement: 'Avancement',
+      team: 'Team',
+      timeline: 'TimeLine',
+      wire: 'Wire (échanges entre agents)',
+      niches: 'Niches',
+      intel: 'OpenClaw Intel',
+      cost: 'Cost',
+      api_requests: 'Besoins API',
+      boss_proposals: 'Propositions BOSS (validation humaine)',
+      technicals: 'Signaux techniques',
+      smart_money: 'Smart money',
+      sentiment: 'Sentiment',
+      ideas: 'Idées',
+      decisions: 'Décisions',
+      journal: 'Journal',
+      chase: 'Chase (Tracker) — Post-mortem et feedback',
+      agent_status: 'Rapport de situation — Agents'
+    };
+
+    let agentDisplayNames = {};
+    async function ensureAgentDisplayNames() {
+      if (Object.keys(agentDisplayNames).length) return;
+      const team = await fetchJson('/api/team');
+      if (team && team.length) team.forEach((a) => { agentDisplayNames[a.id.toUpperCase()] = a.name; });
+    }
+    function agentName(key) { return agentDisplayNames[key] || key; }
+
+    async function fetchJson(url) {
+      const r = await fetch(url);
+      if (!r.ok) return null;
+      return r.json();
+    }
+
+    async function viewAvancement() {
+      const data = await fetchJson('/api/roadmap');
+      const steps = (data && data.steps) || [];
+      const currentId = (data && data.current_step_id) || '';
+      let html = '<div class="roadmap">';
+      steps.forEach((s) => {
+        let cls = 'todo';
+        if (s.done) cls = 'done';
+        else if (s.id === currentId) cls = 'current';
+        const icon = s.done ? '✓' : (s.id === currentId ? '●' : '○');
+        html += `<div class="roadmap-step ${cls}"><span class="icon">${icon}</span><span>${s.label || s.id}</span></div>`;
+      });
+      html += '</div>';
+      const doneCount = steps.filter((s) => s.done).length;
+      html += `<div class="roadmap-summary"><strong>Résumé</strong> — ${doneCount}/${steps.length} étapes réalisées. Flux matin opérationnel ; Wire alimenté à chaque run. Prochaine étape : notification (brief), puis V2 exécution si décision.</div>`;
+      content.innerHTML = html;
+    }
+
+    async function viewTeam() {
+      const team = await fetchJson('/api/team');
+      if (!team || !team.length) {
+        content.innerHTML = '<p class="empty-state">Aucune config team (dashboard/config/team.json).</p>';
+        return;
+      }
+      let html = '<div class="team-grid">';
+      for (const a of team) {
+        const photoUrl = (window.location.origin || '') + '/api/agent-photo/' + encodeURIComponent(a.id);
+        const apis = (a.apis_used && a.apis_used.length) ? a.apis_used.join(' ; ') : '—';
+        const files = await fetchJson('/api/agent-files/' + encodeURIComponent(a.id)) || [];
+        const basePath = 'agents/' + a.id + '/';
+        html += '<div class="team-card" data-agent-id="' + a.id + '">';
+        html += '<div class="team-card-img"><img src="' + photoUrl + '" alt="' + (a.name || a.id) + '" loading="lazy" decoding="async" onerror="this.style.display=\'none\'"></div>';
+        html += '<div class="name">' + a.name + '</div>';
+        html += '<div class="skills">' + (a.skills || '—') + '</div>';
+        html += '<div class="team-card-body">';
+        html += '<div class="apis"><span class="apis-title">APIs utilisées</span><div>' + apis + '</div></div>';
+        html += '<div class="team-files"><span class="team-files-title">Fichiers (voir / éditer)</span>';
+        files.forEach((f) => {
+          html += '<div class="team-file-row"><a href="#" class="team-file-view" data-agent="' + a.id + '" data-file="' + f + '">Voir</a> <span class="team-file-path">' + basePath + f + '</span></div>';
+          html += '<div class="team-file-content" id="team-file-' + a.id + '-' + f.replace(/\./g,'-') + '" style="display:none;"></div>';
+        });
+        if (!files.length) html += '<div class="team-file-path">Aucun .md dans agents/' + a.id + '/</div>';
+        html += '</div></div></div>';
+      }
+      html += '</div>';
+      content.innerHTML = html;
+      content.querySelectorAll('.team-file-view').forEach((el) => {
+        el.addEventListener('click', async (e) => {
+          e.preventDefault();
+          const agentId = el.dataset.agent;
+          const file = el.dataset.file;
+          const id = 'team-file-' + agentId + '-' + file.replace(/\./g,'-');
+          const block = document.getElementById(id);
+          if (!block) return;
+          if (block.style.display === 'block') { block.style.display = 'none'; return; }
+          const r = await fetch('/api/agent-file/' + encodeURIComponent(agentId) + '/' + encodeURIComponent(file));
+          block.textContent = r.ok ? await r.text() : 'Non trouvé';
+          block.style.display = 'block';
+        });
+      });
+    }
+
+    async function postJson(url, body) {
+      const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      return r.ok ? r.json() : null;
+    }
+    async function patchJson(url, body) {
+      const r = await fetch(url, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      return r.ok ? r.json() : null;
+    }
+    async function deleteJson(url) {
+      const r = await fetch(url, { method: 'DELETE' });
+      return r.ok ? r.json() : null;
+    }
+    async function viewTimeline() {
+      const data = await fetchJson('/api/kanban');
+      const cols = (data && data.columns) || [];
+      const tasks = (data && data.tasks) || [];
+      let html = '<p class="meta">Board des tâches (amélioration continue). Données : data/dashboard/kanban.json</p>';
+      html += '<div class="card kanban-form"><strong>Nouvelle tâche</strong> ';
+      html += '<input type="text" id="kanbanNewTitle" placeholder="Titre" style="margin:0 0.5rem; padding:0.4rem 0.6rem; border-radius:6px; border:1px solid var(--border); min-width:200px;"> ';
+      html += '<select id="kanbanNewCol" style="padding:0.4rem; border-radius:6px; border:1px solid var(--border);">';
+      cols.forEach((c) => { html += '<option value="' + c.id + '">' + (c.title || c.id) + '</option>'; });
+      html += '</select> <button type="button" class="btn btn-primary" id="kanbanAddBtn" style="margin-left:0.5rem;">Ajouter</button></div>';
+      html += '<div class="kanban-board" style="display:grid; grid-template-columns: repeat(' + cols.length + ', 1fr); gap:1rem; margin-top:1rem;">';
+      cols.forEach((col) => {
+        const colTasks = tasks.filter((t) => t.columnId === col.id);
+        html += '<div class="card" style="min-height:120px;"><div class="idea-head" style="margin-bottom:0.5rem;">' + (col.title || col.id) + '</div>';
+        colTasks.forEach((t) => {
+          html += '<div class="kanban-task" data-task-id="' + t.id + '" style="padding:0.5rem; margin-bottom:0.4rem; background:var(--bg); border-radius:6px; border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">';
+          html += '<span>' + (t.title || '—') + '</span>';
+          html += '<span><select class="kanban-task-col" data-id="' + t.id + '" style="font-size:0.8rem; padding:0.2rem;">';
+          cols.forEach((c) => { html += '<option value="' + c.id + '"' + (c.id === t.columnId ? ' selected' : '') + '>' + (c.title || c.id) + '</option>'; });
+          html += '</select> <button type="button" class="kanban-task-del btn btn-ghost" data-id="' + t.id + '" style="padding:0.2rem 0.4rem; font-size:0.8rem;">Suppr.</button></span></div>';
+        });
+        html += '</div>';
+      });
+      html += '</div>';
+      content.innerHTML = html;
+      document.getElementById('kanbanAddBtn').onclick = async () => {
+        const title = document.getElementById('kanbanNewTitle').value.trim() || 'Sans titre';
+        const columnId = document.getElementById('kanbanNewCol').value;
+        const updated = await postJson('/api/kanban/task', { title, columnId });
+        if (updated) { document.getElementById('kanbanNewTitle').value = ''; viewTimeline(); }
+      };
+      content.querySelectorAll('.kanban-task-col').forEach((sel) => {
+        sel.onchange = async () => {
+          const id = sel.dataset.id;
+          const updated = await patchJson('/api/kanban/task/' + id, { columnId: sel.value });
+          if (updated) viewTimeline();
+        };
+      });
+      content.querySelectorAll('.kanban-task-del').forEach((btn) => {
+        btn.onclick = async () => {
+          if (!confirm('Supprimer cette tâche ?')) return;
+          const id = btn.dataset.id;
+          const updated = await deleteJson('/api/kanban/task/' + id);
+          if (updated) viewTimeline();
+        };
+      });
+    }
+
+    async function viewWire() {
+      const list = await fetchJson('/api/wire');
+      if (!list || !list.length) {
+        content.innerHTML = '<p class="empty-state">Aucun échange enregistré. Lancez run-morning.js pour alimenter le Wire.</p>';
+        return;
+      }
+      await ensureAgentDisplayNames();
+      const sorted = [...list].sort((a, b) => (b.timestamp_utc || '').localeCompare(a.timestamp_utc || ''));
+      let html = '<div class="card" style="padding:0;">' + sorted.map((e) => {
+        const ctx = e.context && Object.keys(e.context).length ? ' <span class="meta">' + JSON.stringify(e.context) + '</span>' : '';
+        const ref = e.content_ref ? ` <span class="meta">→ ${e.content_ref}</span>` : '';
+        const from = agentName(e.from_agent);
+        const to = agentName(e.to_agent);
+        return `<div class="wire-item"><strong>${from}</strong> → ${to} <span class="meta">(${e.type})</span> — ${e.content_summary || ''}${ctx}${ref} <span class="meta">${e.timestamp_utc ? new Date(e.timestamp_utc).toLocaleString('fr-FR') : ''}</span></div>`;
+      }).join('') + '</div>';
+      content.innerHTML = html;
+    }
+
+    async function viewNiches() {
+      const [ideas, fiches] = await Promise.all([fetchJson('/api/ideas'), fetchJson('/api/niches')]);
+      let html = '<p class="meta">Fiches Niches scorées (build-niches-fiches.js) + idées du jour. Matrice : macro, trend, structure, volume, funding, sentiment, R:R, score.</p>' + ideaLegend();
+      if (fiches && fiches.length) {
+        html += '<div class="card"><strong>Fiches scorées</strong> (' + fiches.length + ')</div>';
+        fiches.slice(0, 15).forEach((f) => {
+          const sc = f.scores || {};
+          html += '<div class="card idea-card"><div class="idea-head">' + (f.trade_id || f.symbol) + ' — ' + (f.symbol || '') + ' ' + (f.direction || '') + ' | Score global ' + (f.score_global ?? '—') + '/100</div>';
+          html += '<div class="idea-meta">confidence ' + (sc.confidence != null ? (sc.confidence * 100).toFixed(0) + '%' : '—') + ' | R:R ' + (sc.rr != null ? sc.rr : '—') + ' | trend ' + (sc.macro_trend ? '1' : '0') + ' | structure ' + (sc.structure_htf ? '1' : '0') + ' | funding ' + (sc.funding ? '1' : '0') + ' | sentiment ' + (sc.sentiment ? '1' : '0') + '</div></div>';
+        });
+        if (fiches.length > 15) html += '<p class="meta">… et ' + (fiches.length - 15) + ' autres fiches.</p>';
+      }
+      if (ideas && ideas.length) {
+        html += '<div class="card" style="margin-top:1rem;"><strong>Idées du jour</strong></div>';
+        ideas.forEach((i) => { html += renderIdeaCard(i); });
+      } else if (!fiches || !fiches.length) {
+        html += '<p class="empty-state">Aucune idée ni fiche. Lancez run-morning.js puis build-niches-fiches.js.</p>';
+      }
+      content.innerHTML = html;
+    }
+
+    async function viewIntel() {
+      const data = await fetchJson('/api/intel');
+      const items = (data && data.items) ? data.items : (Array.isArray(data) ? data : []);
+      const trendCardsDate = data && data.trend_cards_date;
+      if (!items.length) {
+        content.innerHTML = '<p class="empty-state">OpenClaw Intel (Daphnée) : Trend Cards X + top vidéos crypto. Exécuter <code>node scripts/intel-scan.js</code> pour alimenter les cartes. Config vidéos : dashboard/config/intel_youtube_urls.json.</p>';
+        return;
+      }
+      let html = '<p class="meta">Trend Cards (Daphnée) — X + YouTube.';
+      if (trendCardsDate) html += ' Dernière mise à jour : ' + trendCardsDate + '.';
+      html += ' Classement : indispensable / borderline / rejeté.</p>';
+      html += '<div class="card" style="padding:0;">';
+      items.forEach((item) => {
+        const cls = item.classification === 'indispensable' ? 'trend-up' : item.classification === 'rejeté' ? 'trend-down' : '';
+        const sourceLabel = item.source === 'x' ? 'X' : item.source === 'youtube' ? 'YouTube' : (item.source || '');
+        html += '<div class="wire-item"><strong>' + (item.title || item.id) + '</strong> <span class="' + cls + '">' + (item.classification || '') + '</span> | ' + sourceLabel + ' <span class="meta">' + (item.date || '') + '</span>';
+        if (item.url) html += ' <a href="' + item.url + '" target="_blank" rel="noopener">Lien</a>';
+        html += '</div>';
+        if (item.summary) html += '<div class="meta" style="margin-left:1rem; margin-bottom:0.5rem;">' + (item.summary.slice(0, 300) + (item.summary.length > 300 ? '…' : '')) + '</div>';
+      });
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    async function viewCost() {
+      const data = await fetchJson('/api/costs');
+      if (!data) {
+        content.innerHTML = '<p class="empty-state">Aucune donnée (data/dashboard/costs.json).</p>';
+        return;
+      }
+      let html = '';
+      const apiCosts = Array.isArray(data.api_costs) ? data.api_costs : [];
+      html += '<p class="meta">Suivi des API payantes et coûts trading. Données : data/dashboard/costs.json</p>';
+      html += '<div class="card"><h3 class="cost-section-title">API payantes</h3>';
+      if (apiCosts.length) {
+        html += '<table class="cost-table"><thead><tr><th>API</th><th>Type</th><th>Coût</th><th>Dernière MAJ</th><th>Notes</th></tr></thead><tbody>';
+        apiCosts.forEach((api) => {
+          const costStr = api.cost != null && api.cost !== '' ? (api.currency ? api.currency + ' ' : '') + api.cost : '';
+          const costCell = costStr ? '<span class="cost-value">' + costStr + '</span>' : '<span class="cost-empty">Non renseigné</span>';
+          const updated = api.last_updated ? new Date(api.last_updated).toLocaleDateString('fr-FR') : '—';
+          const typeLabel = api.type === 'subscription' ? 'Abonnement' : api.type === 'usage' ? 'Usage' : (api.type || '—');
+          html += '<tr><td><strong>' + (api.name || api.id || '') + '</strong></td><td>' + typeLabel + '</td><td>' + costCell + '</td><td>' + updated + '</td><td class="meta">' + (api.notes || '') + '</td></tr>';
+        });
+        html += '</tbody></table>';
+      } else {
+        html += '<p class="meta">Aucune API enregistrée. Ajouter des entrées dans costs.json (api_costs) : X (Twitter), ClawRouter, etc.</p>';
+      }
+      html += '</div>';
+      if (data.fixed_costs && data.fixed_costs.length) {
+        html += '<div class="card"><h3 class="cost-section-title">Coûts fixes</h3><ul>';
+        data.fixed_costs.forEach((c) => { html += '<li>' + (c.label || c.name || JSON.stringify(c)) + (c.amount != null ? ' : ' + c.amount + (c.currency || '') : '') + '</li>'; });
+        html += '</ul></div>';
+      }
+      const t = data.trading || {};
+      html += '<div class="card"><h3 class="cost-section-title">Trading</h3>';
+      html += '<p class="meta">Fees: ' + (t.fees != null ? t.fees : '—') + ' | Funding payé: ' + (t.funding_paid != null ? t.funding_paid : '—') + ' | Slippage: ' + (t.slippage != null ? t.slippage : '—') + ' | Drawdown: ' + (t.drawdown != null ? t.drawdown : '—') + '</p>';
+      if (t.roi_by_strategy && Object.keys(t.roi_by_strategy).length) {
+        html += '<p class="meta">ROI par stratégie: ' + JSON.stringify(t.roi_by_strategy) + '</p>';
+      }
+      html += '</div>';
+      if (data.updated_at) {
+        html += '<p class="meta">Fichier mis à jour : ' + new Date(data.updated_at).toLocaleString('fr-FR') + '</p>';
+      }
+      content.innerHTML = html;
+    }
+
+    async function viewAgentStatus() {
+      let report;
+      try {
+        report = await fetchJson('/api/agent_status_report');
+      } catch (e) {
+        content.innerHTML = '<p class="empty-state">Erreur chargement rapport. Vérifiez que le serveur dashboard tourne et que data/dashboard/agent_status_report.json existe.</p>';
+        return;
+      }
+      if (!report || !report.agents) {
+        content.innerHTML = '<p class="empty-state">Aucun rapport. Depuis <code>trading-empire/</code>, exécutez : <code>node scripts/agent-status-report.js</code> (ou <code>--light</code>). Puis rafraîchissez.</p>';
+        return;
+      }
+      await ensureAgentDisplayNames();
+      const ts = report.timestamp_utc ? new Date(report.timestamp_utc).toLocaleString('fr-FR') : '';
+      let html = `<p class="meta">Dernier rapport : ${ts}</p>`;
+      for (const [name, r] of Object.entries(report.agents)) {
+        const displayName = agentName(name);
+        const statusClass = r.status === 'ok' ? 'trend-up' : r.status === 'warning' ? '' : 'trend-down';
+        const statusLabel = (s) => (s === 'skip' ? 'non exécuté' : s);
+        html += `<div class="card"><strong>${displayName}</strong> <span class="${statusClass}">${r.status.toUpperCase()}</span> — ${r.message}`;
+        html += '<div class="meta" style="margin-top:0.5rem;">APIs: ' + (r.api_connections || []).map((a) => `${a.name} (${a.status})`).join(', ') + ' | Compétences: ' + (r.competencies || []).map((c) => `${c.name} (${statusLabel(c.status)})`).join(', ') + '</div></div>';
+      }
+      content.innerHTML = html;
+    }
+
+    async function viewApiRequests() {
+      const list = await fetchJson('/api/api_requests');
+      if (!list || !list.length) {
+        content.innerHTML = '<p class="empty-state">Aucun besoin API déposé. Les agents écrivent dans data/dashboard/api_requests.json.</p>';
+        return;
+      }
+      let html = list.map((r) => `<div class="card"><strong>${r.agent_id}</strong> — ${r.api_description || ''} | ${r.reason || ''} | ${r.status || 'REQUESTED'}</div>`).join('');
+      content.innerHTML = html;
+    }
+    async function viewBossProposals() {
+      const data = await fetchJson('/api/boss_proposals');
+      const proposals = (data && data.proposals) || [];
+      if (!proposals.length) {
+        content.innerHTML = '<p class="empty-state">Aucune proposition BOSS. Les créations nocturnes (règles, tâches, specs) sont écrites dans data/dashboard/boss_proposals.json après la tâche 01:00. <strong>Validation humaine requise</strong> avant application.</p>';
+        return;
+      }
+      let html = '<p class="meta">Créations nocturnes — <strong>validation humaine requise</strong> avant d’appliquer ces propositions (règles, tâches, specs).</p>';
+      html += '<p class="meta">' + (data.timestamp_utc ? new Date(data.timestamp_utc).toLocaleString('fr-FR') : '') + '</p>';
+      proposals.forEach((p) => {
+        html += '<div class="card"><strong>' + (p.title || 'Sans titre') + '</strong> <span class="meta">' + (p.type || '') + '</span><div class="idea-desc">' + (p.description || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div></div>';
+      });
+      content.innerHTML = html;
+    }
+
+    function renderSignals(list, type) {
+      if (!list.length) return '<p class="empty-state">Aucun signal.</p>';
+      if (type === 'technicals') {
+        return '<div class="card" style="padding:0;"><div class="signal-row" style="color: var(--text-muted); font-size:0.8rem;"><span>Symbole</span><span>TF</span><span>Tendance</span><span>Levels</span><span>Volatilité</span><span>Date</span></div>' +
+          list.map((s) => {
+            const trendClass = s.trend === 'up' ? 'trend-up' : s.trend === 'down' ? 'trend-down' : 'trend-range';
+            const sup = (s.levels && s.levels.support && s.levels.support.length) ? s.levels.support.slice(-2).join(', ') : '—';
+            const res = (s.levels && s.levels.resistance && s.levels.resistance.length) ? s.levels.resistance.slice(-2).join(', ') : '—';
+            return `<div class="signal-row"><span><strong>${s.symbol || '—'}</strong></span><span>${s.timeframe || '—'}</span><span class="${trendClass}">${s.trend || '—'}</span><span class="meta">S: ${sup} / R: ${res}</span><span class="meta">${s.volatility != null ? s.volatility.toFixed(2) : '—'}</span><span class="meta">${s.timestamp_utc ? new Date(s.timestamp_utc).toLocaleString('fr-FR') : ''}</span></div>`;
+          }).join('') + '</div>';
+      }
+      return list.map((s) => `<div class="card" style="margin-bottom:0.5rem;">${s.symbol || s.date || '—'} — ${(s.signals || s.narratives || []).join(', ') || JSON.stringify(s).slice(0, 120)} <span class="meta">${s.timestamp_utc ? new Date(s.timestamp_utc).toLocaleString('fr-FR') : ''}</span></div>`).join('');
+    }
+
+    async function viewTechnicals() {
+      const list = await fetchJson('/api/signals/technicals');
+      content.innerHTML = renderSignals(list || [], 'technicals');
+    }
+    async function viewSmartMoney() {
+      const list = await fetchJson('/api/signals/smart_money');
+      content.innerHTML = renderSignals(list || [], 'smart_money');
+    }
+    async function viewSentiment() {
+      const list = await fetchJson('/api/signals/sentiment');
+      content.innerHTML = renderSignals(list || [], 'sentiment');
+    }
+    function ideaLegend() {
+      return '<div class="legend-box"><strong>Référence</strong><br>' +
+        '<strong>R:R</strong> (Risk:Reward) = ratio gain cible / perte max (ex: 1,2 = pour 1€ risqué, gain cible 1,20€).<br>' +
+        '<strong>Confidence</strong> = score 0–100% basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding).<br>' +
+        '<strong>Invalidation</strong> = niveau de prix qui invalide l’idée (stop).</div>';
+    }
+    function renderIdeaCard(i) {
+      const rr = i.targets && i.targets[0] ? i.targets[0].rr : '—';
+      const conf = i.confidence != null ? (i.confidence * 100).toFixed(0) + '%' : '—';
+      const desc = i.description || '';
+      const head = `${i.trade_id} — ${i.symbol} ${i.direction} (${i.setup_name || '—'}) | entry ${i.entry?.price ?? '—'} | invalid ${i.invalid?.price ?? '—'} | R:R ${rr} | confidence ${conf} | ${i.status}`;
+      let html = '<div class="card idea-card"><div class="idea-head">' + head + '</div>';
+      if (desc) html += '<div class="idea-desc">' + desc.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div>';
+      html += '<div class="meta">' + (i.timestamp_utc ? new Date(i.timestamp_utc).toLocaleString('fr-FR') : '') + '</div></div>';
+      return html;
+    }
+    async function viewIdeas() {
+      const list = await fetchJson('/api/ideas');
+      if (!list || !list.length) { content.innerHTML = '<p class="empty-state">Aucune idée.</p>'; return; }
+      content.innerHTML = ideaLegend() + list.map((i) => renderIdeaCard(i)).join('');
+    }
+    async function viewDecisions() {
+      const list = await fetchJson('/api/decisions');
+      if (!list || !list.length) { content.innerHTML = '<p class="empty-state">Aucune décision.</p>'; return; }
+      content.innerHTML = list.map((d) => `<div class="card"><strong>${d.trade_id}</strong> — ${d.status} | ${d.reason || ''} <span class="meta">${d.timestamp_utc ? new Date(d.timestamp_utc).toLocaleString('fr-FR') : ''}</span></div>`).join('');
+    }
+    async function viewJournal() {
+      const date = new Date().toISOString().slice(0, 10);
+      const r = await fetch('/api/journal/' + date);
+      if (r.status === 404) { content.innerHTML = '<p class="empty-state">Aucun journal pour ce jour.</p>'; return; }
+      const text = await r.text();
+      content.innerHTML = '<pre style="white-space:pre-wrap; margin:0; font-size:0.9rem;">' + text.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</pre>';
+    }
+    async function viewChase() {
+      const [feedback, postMortems] = await Promise.all([fetchJson('/api/chase_feedback'), fetchJson('/api/chase_post_mortems')]);
+      let html = '<p class="meta">Chase (Tracker) : suit les idées APPROVED, post-mortem (bonne/mauvaise) et feedback vers les agents. Remplir data/tracker/outcomes/{trade_id}.json avec outcome (win|loss|invalid_hit|target_hit) puis lancer <code>node scripts/chase-tracker.js</code>.</p>';
+      if (feedback && (feedback.post_mortem_count > 0 || Object.keys(feedback.by_agent || {}).length)) {
+        html += '<div class="card"><strong>Feedback par agent</strong> (dernier run Chase)</div>';
+        for (const [agent, text] of Object.entries(feedback.by_agent || {})) {
+          html += '<div class="card idea-card"><div class="idea-head">' + agent + '</div><div class="idea-meta">' + (text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div></div>';
+        }
+      }
+      if (postMortems && postMortems.length) {
+        html += '<div class="card" style="margin-top:1rem;"><strong>Post-mortems</strong> (' + postMortems.length + ')</div>';
+        postMortems.slice(0, 20).forEach((p) => {
+          html += '<div class="card"><a href="#" class="chase-pm-link" data-id="' + p.id + '">' + p.id + '</a></div>';
+        });
+      }
+      if ((!feedback || feedback.post_mortem_count === 0) && (!postMortems || !postMortems.length)) {
+        html += '<p class="empty-state">Aucun post-mortem ni feedback. Approuvez des idées (RISK_JOURNAL), remplissez data/tracker/outcomes/{trade_id}.json (outcome: win|loss|invalid_hit|target_hit), puis exécutez chase-tracker.js.</p>';
+      }
+      content.innerHTML = html;
+      content.querySelectorAll('.chase-pm-link').forEach((a) => {
+        a.onclick = async (e) => {
+          e.preventDefault();
+          const r = await fetch('/api/chase_post_mortem/' + a.dataset.id);
+          const text = await r.text();
+          content.innerHTML = '<pre style="white-space:pre-wrap;">' + text.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</pre><button type="button" class="btn btn-ghost chase-back">Retour Chase</button>';
+          content.querySelector('.chase-back').onclick = () => viewChase();
+        };
+      });
+    }
+
+    const VIEW_LOADERS = {
+      avancement: viewAvancement,
+      team: viewTeam,
+      timeline: viewTimeline,
+      wire: viewWire,
+      niches: viewNiches,
+      intel: viewIntel,
+      cost: viewCost,
+      api_requests: viewApiRequests,
+      boss_proposals: viewBossProposals,
+      agent_status: viewAgentStatus,
+      technicals: viewTechnicals,
+      smart_money: viewSmartMoney,
+      sentiment: viewSentiment,
+      ideas: viewIdeas,
+      decisions: viewDecisions,
+      journal: viewJournal,
+      chase: viewChase
+    };
+
+    async function load(view) {
+      const title = TITLES[view] || view;
+      viewTitle.textContent = title;
+      content.innerHTML = '<div class="card"><p class="loading">Chargement…</p></div>';
+      const fn = VIEW_LOADERS[view];
+      if (fn) await fn();
+      else content.innerHTML = '<p class="empty-state">Vue non implémentée.</p>';
+    }
+
+    document.querySelectorAll('.sidebar a[data-view]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const view = a.dataset.view;
+        document.querySelectorAll('.sidebar a[data-view]').forEach((x) => x.classList.remove('active'));
+        a.classList.add('active');
+        load(view);
+        sidebar.classList.remove('open');
+        document.getElementById('sidebarBackdrop').classList.remove('visible');
+      });
+    });
+
+    document.getElementById('hamburger').addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      document.getElementById('sidebarBackdrop').classList.toggle('visible', sidebar.classList.contains('open'));
+    });
+    document.getElementById('sidebarBackdrop').addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      document.getElementById('sidebarBackdrop').classList.remove('visible');
+    });
+    document.getElementById('btnBrief').addEventListener('click', () => { load('journal'); document.querySelector('.sidebar a[data-view="journal"]') && document.querySelectorAll('.sidebar a[data-view]').forEach((x) => { x.classList.remove('active'); if (x.dataset.view === 'journal') x.classList.add('active'); }); });
+    document.getElementById('btnNewTask').addEventListener('click', () => { load('timeline'); document.querySelectorAll('.sidebar a[data-view]').forEach((x) => { x.classList.remove('active'); if (x.dataset.view === 'timeline') x.classList.add('active'); }); });
+    document.getElementById('btnExport').addEventListener('click', () => window.open('/api/roadmap', '_blank'));
+
+    document.getElementById('dashboardUrl').textContent = window.location.origin + (window.location.port ? ' (port ' + window.location.port + ')' : '');
+    load('avancement');
+  </script>
+</body>
+</html>

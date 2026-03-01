@@ -1,0 +1,6 @@
+{
+  "timestamp_utc": "2026-03-01T14:24:48.978Z",
+  "source": "hyperliquid_info_leadingVaults",
+  "error": "Hyperliquid API 422: Failed to deserialize the JSON body into the target type",
+  "leading_vaults": []
+}

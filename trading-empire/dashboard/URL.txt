@@ -1,0 +1,11 @@
+Dashboard TradeEmpire — Adresse et port
+
+En service permanent (recommandé) :
+  http://127.0.0.1:3580
+  Gestion : ./scripts/dashboard-service.sh {start|stop|status|enable-linger}
+
+Lancement manuel :
+  node scripts/dashboard-server.js 3580  → http://127.0.0.1:3580
+  node scripts/dashboard-server.js       → http://127.0.0.1:3579 (défaut)
+
+L’URL s’affiche aussi dans l’en-tête du dashboard une fois la page ouverte.

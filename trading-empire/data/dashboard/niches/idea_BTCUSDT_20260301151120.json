@@ -1,0 +1,29 @@
+{
+  "trade_id": "idea_BTCUSDT_20260301151120",
+  "symbol": "BTCUSDT",
+  "direction": "SHORT",
+  "score_global": 80,
+  "scores": {
+    "macro_trend": 1,
+    "structure_htf": 1,
+    "volume": 0,
+    "funding": 1,
+    "sentiment": 1,
+    "rr": 0.6,
+    "invalidation": 1,
+    "confidence": 0.7
+  },
+  "entry": 68199.99,
+  "invalid": 68881.99,
+  "targets": [
+    {
+      "price": 67381.59,
+      "rr": 1.2
+    },
+    {
+      "price": 66563.19,
+      "rr": 2.4
+    }
+  ],
+  "timestamp_utc": "2026-03-01T15:11:20.371Z"
+}

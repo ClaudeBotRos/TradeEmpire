@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-01T20:36:43.195Z",
+  "date": "2026-03-01",
+  "narratives": [
+    "bullish mentions",
+    "bearish mentions"
+  ],
+  "sentiment_by_symbol": {
+    "BTCUSDT": "neutral"
+  },
+  "risk_signals": [],
+  "sources": [
+    {
+      "type": "x",
+      "ref": "twitter_api_v2_search_recent"
+    }
+  ],
+  "low_confidence": false
+}

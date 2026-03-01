@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Environment & secrets (ne pas commiter les clés API)
+.env
+.env.*
+!.env.example
+
+# Logs & OS
+*.log
+.DS_Store
+Thumbs.db
+
+# Build / cache
+.cache/
+dist/
+*.tsbuildinfo

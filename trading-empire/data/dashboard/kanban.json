@@ -1,0 +1,9 @@
+{
+  "columns": [
+    { "id": "todo", "title": "À faire" },
+    { "id": "wip", "title": "En cours" },
+    { "id": "review", "title": "En revue" },
+    { "id": "done", "title": "Fait" }
+  ],
+  "tasks": []
+}

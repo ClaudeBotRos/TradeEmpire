@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-01T14:41:50.248Z",
+  "symbol": "BTCUSDT",
+  "signals": [
+    "funding neutral"
+  ],
+  "metrics": {
+    "funding": 0.00005242,
+    "mark_price": 66909.72477536,
+    "next_funding_time": 1772380800000
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    }
+  ],
+  "low_confidence": false
+}

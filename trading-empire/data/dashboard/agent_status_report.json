@@ -1,0 +1,169 @@
+{
+  "timestamp_utc": "2026-03-01T20:36:41.076Z",
+  "agents": {
+    "TECHNICALS": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "Binance (klines)",
+          "status": "ok",
+          "detail": "OK"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "technicals-scan.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        }
+      ],
+      "message": "APIs et script OK"
+    },
+    "SMART_MONEY": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "Binance Futures (funding)",
+          "status": "ok",
+          "detail": "OK"
+        },
+        {
+          "name": "Hyperliquid (vaultSummaries)",
+          "status": "ok",
+          "detail": "OK (1)"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "smart-money-scan.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        }
+      ],
+      "message": "APIs et script OK"
+    },
+    "SENTIMENT_X": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "Twitter/X API v2",
+          "status": "ok",
+          "detail": "OK (10 tweets)"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "sentiment-scan.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        }
+      ],
+      "message": "Script OK"
+    },
+    "ORCHESTRATOR": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "Fichiers locaux (signaux, idées)",
+          "status": "ok",
+          "detail": "technicals:true smart_money:true sentiment:true ideas:true"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "Lecture signaux + production idées",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        }
+      ],
+      "message": "Dépendances et script OK"
+    },
+    "RISK_JOURNAL": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "Fichiers locaux (idées, rules)",
+          "status": "ok",
+          "detail": "OK"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "risk-journal-scan.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        }
+      ],
+      "message": "Règles et script OK"
+    },
+    "BOSS": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "Dashboard (lecture/écriture)",
+          "status": "ok",
+          "detail": "roadmap, spec, config"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "boss-night.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        }
+      ],
+      "message": "Contexte et script OK"
+    },
+    "INTEL": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "X (Twitter API v2)",
+          "status": "ok",
+          "detail": "OK (10 tweets)"
+        },
+        {
+          "name": "YouTube (youtube-watcher)",
+          "status": "ok",
+          "detail": "Config URLs présente"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "intel-scan.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        }
+      ],
+      "message": "Trend Cards X + YouTube OK"
+    },
+    "CHASE": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "data/decisions (APPROVED)",
+          "status": "ok",
+          "detail": "Dossier lisible"
+        },
+        {
+          "name": "data/ideas",
+          "status": "ok",
+          "detail": "Dossier lisible"
+        },
+        {
+          "name": "data/tracker (outcomes, post_mortem, feedback)",
+          "status": "ok",
+          "detail": "Sortie Chase"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "chase-tracker.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        }
+      ],
+      "message": "Sync outcomes + post-mortem + feedback OK"
+    }
+  }
+}
