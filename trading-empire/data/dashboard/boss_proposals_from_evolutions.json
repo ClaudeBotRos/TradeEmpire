@@ -1,0 +1,32 @@
+{
+  "timestamp_utc": "2026-03-02",
+  "proposals": [
+    {
+      "title": "Visualisation des coûts API",
+      "description": "ajouter un tableau récapitulatif des coûts API (section `costs.api_costs`) avec mise à jour automatique chaque nuit.",
+      "type": "spec"
+    },
+    {
+      "title": "Intégration des Trend Cards X",
+      "description": "créer un widget affichant le titre, le résumé et le lien (si disponible) de la dernière Trend Card X (voir `intel_trend_cards`).",
+      "type": "spec"
+    },
+    {
+      "title": "Résumé du feedback Chase",
+      "description": "ajouter un panneau résumant le nombre de post‑mortems et les commentaires par agent (source `chase_feedback`).",
+      "type": "spec"
+    },
+    {
+      "title": "Statistiques des échanges d'agents",
+      "description": "afficher le nombre total d'échanges (`agent_exchanges_count`) et les top 3 paires d'agents les plus actives.",
+      "type": "spec"
+    },
+    {
+      "title": "Kanban dynamique",
+      "description": "mettre à jour la colonne \"À faire\" avec les tâches issues des besoins API priorisés.",
+      "type": "spec"
+    }
+  ],
+  "_source": "dashboard/spec/evolutions.md",
+  "_updated": "2026-03-02"
+}

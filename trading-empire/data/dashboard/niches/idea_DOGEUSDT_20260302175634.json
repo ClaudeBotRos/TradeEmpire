@@ -1,0 +1,46 @@
+{
+  "trade_id": "idea_DOGEUSDT_20260302175634",
+  "symbol": "DOGEUSDT",
+  "direction": "SHORT",
+  "score_global": 80,
+  "scores": {
+    "macro_trend": 1,
+    "structure_htf": 1,
+    "volume": 0,
+    "funding": 1,
+    "sentiment": 1,
+    "rr": 0.6,
+    "invalidation": 1,
+    "confidence": 0.7
+  },
+  "entry": 0.1,
+  "invalid": 0.1,
+  "targets": [
+    {
+      "price": 0.1,
+      "rr": 1.2
+    },
+    {
+      "price": 0.1,
+      "rr": 2.4
+    }
+  ],
+  "timestamp_utc": "2026-03-02T17:56:34.937Z",
+  "description": "SHORT DOGEUSDT sur timeframe 4h. Entrée proposée: 0.1, invalidation si le prix atteint 0.1 (niveau d’invalidation). Objectif 1: 0.1 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : Dernières tendances X (crypto/bitcoin) : bullish, bearish. 25 tweets récents. | Macro: Aujourd'hui : US Test event aujou….",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "Dernières tendances X (crypto/bitcoin) : bullish, bearish. 25 tweets récents. | Macro: Aujourd'hui : US Test event aujourd'hui",
+    "themes": [
+      "bullish",
+      "bearish",
+      "macro"
+    ],
+    "aligns_with_narrative": null,
+    "source": "data/dashboard/intel/trend_cards.json"
+  },
+  "status": "PROPOSED"
+}

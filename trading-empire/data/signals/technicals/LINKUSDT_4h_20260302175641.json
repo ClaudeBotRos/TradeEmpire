@@ -1,0 +1,28 @@
+{
+  "timestamp_utc": "2026-03-02T17:56:41.697Z",
+  "symbol": "LINKUSDT",
+  "timeframe": "4h",
+  "trend": "range",
+  "levels": {
+    "support": [
+      8.05,
+      8.21,
+      8.35,
+      8.6
+    ],
+    "resistance": [
+      9,
+      9.05,
+      9.25,
+      9.59
+    ]
+  },
+  "volatility": 0.284837,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

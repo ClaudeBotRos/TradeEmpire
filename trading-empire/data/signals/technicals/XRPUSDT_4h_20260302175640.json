@@ -1,0 +1,28 @@
+{
+  "timestamp_utc": "2026-03-02T17:56:40.828Z",
+  "symbol": "XRPUSDT",
+  "timeframe": "4h",
+  "trend": "down",
+  "levels": {
+    "support": [
+      1.27,
+      1.3124,
+      1.3341,
+      1.3775
+    ],
+    "resistance": [
+      1.4333,
+      1.4642,
+      1.4935,
+      1.6714
+    ]
+  },
+  "volatility": 0.057501,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

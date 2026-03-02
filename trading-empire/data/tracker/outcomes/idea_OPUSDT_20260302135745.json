@@ -1,0 +1,20 @@
+{
+  "trade_id": "idea_OPUSDT_20260302135745",
+  "outcome": "pending",
+  "approved_at": "2026-03-02T13:57:45.823Z",
+  "symbol": "OPUSDT",
+  "direction": "SHORT",
+  "entry": 0.13,
+  "invalid": 0.14,
+  "targets": [
+    {
+      "price": 0.13,
+      "rr": 1.2
+    },
+    {
+      "price": 0.13,
+      "rr": 2.4
+    }
+  ],
+  "note": "Remplir outcome (win|loss|invalid_hit|target_hit), optionnel: exit_price, closed_at, note."
+}

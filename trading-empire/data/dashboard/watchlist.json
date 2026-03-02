@@ -1,0 +1,21 @@
+{
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "DOGEUSDT",
+    "XRPUSDT",
+    "AVAXUSDT",
+    "LINKUSDT",
+    "ARBUSDT",
+    "OPUSDT",
+    "SUIUSDT",
+    "ADAUSDT",
+    "MATICUSDT",
+    "DOTUSDT",
+    "ATOMUSDT",
+    "LTCUSDT"
+  ],
+  "updated_at": "2026-03-02",
+  "note": "Grosses crypto (BTC, ETH) + petites/alt pour scan technique, smart_money et sentiment. Modifiable depuis le dashboard ou ce fichier."
+}

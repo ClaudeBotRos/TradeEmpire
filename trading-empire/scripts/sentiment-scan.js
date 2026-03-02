@@ -4,6 +4,7 @@
  * Si X_BEARER_TOKEN (workspace/.env) est défini : appelle Twitter API v2 search recent (crypto/bitcoin).
  * Sinon : stub (narratives neutres, low_confidence).
  * Usage: node sentiment-scan.js [SYMBOL1] [SYMBOL2] ...
+ *   Sans args : charge la watchlist (data/dashboard/watchlist.json) — grosses + petites crypto.
  */
 
 const fs = require('fs');
@@ -12,7 +13,22 @@ const path = require('path');
 require('./load-workspace-env.js');
 
 const ROOT = path.join(__dirname, '..');
-const WATCHLIST = process.argv.slice(2).length ? process.argv.slice(2) : ['BTCUSDT'];
+const WATCHLIST_PATH = path.join(ROOT, 'data', 'dashboard', 'watchlist.json');
+const DEFAULT_SYMBOLS = ['BTCUSDT', 'ETHUSDT'];
+
+function loadWatchlist() {
+  if (process.argv.slice(2).length) return process.argv.slice(2).map((s) => String(s).toUpperCase());
+  if (!fs.existsSync(WATCHLIST_PATH)) return DEFAULT_SYMBOLS;
+  try {
+    const data = JSON.parse(fs.readFileSync(WATCHLIST_PATH, 'utf8'));
+    const symbols = Array.isArray(data.symbols) ? data.symbols : DEFAULT_SYMBOLS;
+    return symbols.filter((s) => s && String(s).toUpperCase() === s);
+  } catch (_) {
+    return DEFAULT_SYMBOLS;
+  }
+}
+
+const WATCHLIST = loadWatchlist();
 const SIGNALS_DIR = path.join(ROOT, 'data', 'signals', 'sentiment');
 
 async function fetchTwitterRecent() {

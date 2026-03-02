@@ -4,21 +4,21 @@
 
 ## Dernière mise à jour
 
-- **Date** : —
+- **Date** : 2026-03-02
 - **Source** : BOSS tâche nocturne
 
 ## Priorité 1 (à traiter en premier)
 
-- *(À remplir par le BOSS)*
+- *Aucun besoin API enregistré.*
 
 ## Priorité 2
 
-- *(À remplir par le BOSS)*
+- *Aucun besoin API enregistré.*
 
 ## Priorité 3 / Plus tard
 
-- *(À remplir par le BOSS)*
+- *Aucun besoin API enregistré.*
 
 ## Notes
 
-- Consulter `data/dashboard/api_requests.json` pour la liste des besoins enregistrés.
+- Le fichier `data/dashboard/api_requests.json` était vide au moment de l'exécution nocturne.

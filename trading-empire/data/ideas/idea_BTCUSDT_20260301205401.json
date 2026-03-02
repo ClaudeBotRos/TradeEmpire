@@ -1,0 +1,84 @@
+{
+  "timestamp_utc": "2026-03-01T20:54:01.659Z",
+  "symbol": "BTCUSDT",
+  "timeframe": "4h",
+  "direction": "SHORT",
+  "setup_name": "breakout_retest",
+  "entry": {
+    "type": "limit",
+    "price": 68199.99
+  },
+  "invalid": {
+    "type": "price",
+    "price": 68881.99,
+    "description": "invalidation level"
+  },
+  "targets": [
+    {
+      "price": 67381.59,
+      "rr": 1.2
+    },
+    {
+      "price": 66563.19,
+      "rr": 2.4
+    }
+  ],
+  "confidence": 0.7,
+  "evidence": {
+    "technicals": [
+      "trend down",
+      "support levels",
+      "resistance levels"
+    ],
+    "sentiment": [
+      "sentiment neutral",
+      "bullish mentions"
+    ],
+    "smart_money": [
+      "funding neutral"
+    ],
+    "intel": [
+      "Trend Cards du jour prises en compte (thèmes: bullish, bearish, régulation)"
+    ]
+  },
+  "risk": {
+    "max_loss_usd": 50,
+    "position_size_usd": 500,
+    "leverage": 1
+  },
+  "constraints": {
+    "max_positions_open": 3
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    },
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    },
+    {
+      "type": "stub",
+      "ref": "sentiment_digest"
+    }
+  ],
+  "status": "APPROVED",
+  "trade_id": "idea_BTCUSDT_20260301205401",
+  "description": "SHORT BTCUSDT sur timeframe 4h. Entrée proposée: 68199.99, invalidation si le prix atteint 68881.99 (niveau d’invalidation). Objectif 1: 67381.59 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : Dernières tendances X (crypto/bitcoin) : bullish, bearish, régulation. 25 tweets récents..",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "Dernières tendances X (crypto/bitcoin) : bullish, bearish, régulation. 25 tweets récents.",
+    "themes": [
+      "bullish",
+      "bearish",
+      "régulation"
+    ],
+    "aligns_with_narrative": null,
+    "source": "data/dashboard/intel/trend_cards.json"
+  }
+}

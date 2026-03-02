@@ -12,6 +12,7 @@ const TECHNICALS_DIR = path.join(ROOT, 'data', 'signals', 'technicals');
 const SMART_MONEY_DIR = path.join(ROOT, 'data', 'signals', 'smart_money');
 const SENTIMENT_DIR = path.join(ROOT, 'data', 'signals', 'sentiment');
 const IDEAS_DIR = path.join(ROOT, 'data', 'ideas');
+const TREND_CARDS_PATH = path.join(ROOT, 'data', 'dashboard', 'intel', 'trend_cards.json');
 const MAX_IDEAS = 7;
 const MIN_RR = 1.2;
 const MAX_LOSS_USD = 50;
@@ -62,6 +63,58 @@ function loadSentimentDigest(date) {
   } catch (_) {
     return null;
   }
+}
+
+/** Charge les Trend Cards Intel (Daphnée) pour narrative du jour et pondération. */
+function loadTrendCards() {
+  if (!fs.existsSync(TREND_CARDS_PATH)) return null;
+  try {
+    const raw = JSON.parse(fs.readFileSync(TREND_CARDS_PATH, 'utf8'));
+    const cards = Array.isArray(raw.cards) ? raw.cards : [];
+    const xCard = cards.find((c) => c.source === 'x');
+    let narrativeSummary = '';
+    const themes = [];
+    if (xCard && xCard.summary) {
+      narrativeSummary = xCard.summary;
+      const lower = (xCard.summary || '').toLowerCase();
+      if (lower.includes('bullish') || lower.includes('bull')) themes.push('bullish');
+      if (lower.includes('bearish') || lower.includes('bear')) themes.push('bearish');
+      if (lower.includes('etf')) themes.push('ETF');
+      if (lower.includes('régulation') || lower.includes('regulation')) themes.push('régulation');
+      if (lower.includes('defi')) themes.push('DeFi');
+      if (lower.includes('halving')) themes.push('halving');
+      if (lower.includes('mixed') || lower.includes('neutral')) themes.push('neutral');
+      if (!themes.length) themes.push('mixed');
+    }
+    const youtubeCards = cards.filter((c) => c.source === 'youtube');
+    const macroCard = cards.find((c) => c.source === 'economic_calendar');
+    if (macroCard && macroCard.summary) {
+      narrativeSummary = (narrativeSummary ? narrativeSummary + ' | ' : '') + 'Macro: ' + macroCard.summary;
+      if (!themes.includes('macro')) themes.push('macro');
+    }
+    return {
+      date: raw.date,
+      narrative_summary: narrativeSummary || 'Aucune Trend Card Intel du jour.',
+      themes,
+      x_card: xCard || null,
+      macro_card: macroCard || null,
+      youtube_count: youtubeCards.length,
+    };
+  } catch (_) {
+    return null;
+  }
+}
+
+/** Indique si l'idée est alignée avec la narrative Intel (LONG + bullish, SHORT + bearish). */
+function intelAlignsWithIdea(direction, intel) {
+  if (!intel || !intel.themes || !intel.themes.length) return null;
+  const hasBull = intel.themes.some((t) => t === 'bullish');
+  const hasBear = intel.themes.some((t) => t === 'bearish');
+  if (direction === 'LONG' && hasBull && !hasBear) return true;
+  if (direction === 'SHORT' && hasBear && !hasBull) return true;
+  if (direction === 'LONG' && hasBear && !hasBull) return false;
+  if (direction === 'SHORT' && hasBull && !hasBear) return false;
+  return null;
 }
 
 function buildEvidence(tech, sm, sentiment, symbol) {
@@ -160,10 +213,38 @@ function buildIdea(symbol, timeframe, tech, sm, sentiment) {
   ].join(' ');
   idea.glossary = {
     rr: 'R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).',
-    confidence: 'Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding).',
+    confidence: 'Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.',
     invalid: 'Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux).',
   };
 
+  return idea;
+}
+
+/** Enrichit une idée avec les Trend Cards Intel (narrative, thèmes, alignement, pondération confidence). */
+function enrichIdeaWithIntel(idea, intel) {
+  if (!idea || !intel) return idea;
+  const aligns = intelAlignsWithIdea(idea.direction, intel);
+  idea.intel = {
+    narrative_summary: intel.narrative_summary,
+    themes: intel.themes,
+    aligns_with_narrative: aligns,
+    source: 'data/dashboard/intel/trend_cards.json',
+  };
+  if (aligns === true) {
+    idea.confidence = Math.min(1, (idea.confidence || 0.5) + 0.05);
+    idea.evidence = idea.evidence || {};
+    idea.evidence.intel = ['narrative alignée avec Trend Cards (Intel)'];
+  } else if (aligns === false) {
+    idea.confidence = Math.max(0.2, (idea.confidence || 0.5) - 0.05);
+    idea.evidence = idea.evidence || {};
+    idea.evidence.intel = ['narrative Intel en décalage avec le sens de l\'idée — prudence'];
+  } else {
+    idea.evidence = idea.evidence || {};
+    idea.evidence.intel = ['Trend Cards du jour prises en compte (thèmes: ' + (intel.themes.join(', ') || '—') + ')'];
+  }
+  if (idea.description) {
+    idea.description += ' Contexte Intel (Daphnée) : ' + intel.narrative_summary.slice(0, 120) + (intel.narrative_summary.length > 120 ? '…' : '') + '.';
+  }
   return idea;
 }
 
@@ -174,6 +255,7 @@ function main() {
   const technicalsByKey = loadLatestTechnicalsBySymbol();
   const smartMoneyBySymbol = loadLatestBySymbol(SMART_MONEY_DIR, (d) => d.symbol);
   const sentiment = loadSentimentDigest(date);
+  const intel = loadTrendCards();
 
   if (!fs.existsSync(IDEAS_DIR)) {
     fs.mkdirSync(IDEAS_DIR, { recursive: true });
@@ -193,8 +275,11 @@ function main() {
     if (ideas.length >= MAX_IDEAS) break;
     const tech = bySymbol[symbol];
     const sm = smartMoneyBySymbol[symbol] || null;
-    const idea = buildIdea(symbol, tech.timeframe, tech, sm, sentiment);
-    if (idea) ideas.push(idea);
+    let idea = buildIdea(symbol, tech.timeframe, tech, sm, sentiment);
+    if (idea) {
+      if (intel) idea = enrichIdeaWithIntel(idea, intel);
+      ideas.push(idea);
+    }
   }
 
   for (const idea of ideas) {
@@ -203,6 +288,9 @@ function main() {
     console.log('OK', filepath);
   }
 
+  if (intel) {
+    console.log('Intel (Trend Cards) : narrative du jour prise en compte —', intel.themes.join(', ') || '—');
+  }
   if (!ideas.length) {
     console.log('No ideas produced (no technicals with trend or levels).');
   }

@@ -15,3 +15,6 @@ Thumbs.db
 .cache/
 dist/
 *.tsbuildinfo
+
+# Python venv (calendrier économique)
+trading-empire/.venv-econ/

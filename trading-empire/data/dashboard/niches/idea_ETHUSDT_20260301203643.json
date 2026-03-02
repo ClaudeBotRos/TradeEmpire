@@ -1,0 +1,36 @@
+{
+  "trade_id": "idea_ETHUSDT_20260301203643",
+  "symbol": "ETHUSDT",
+  "direction": "SHORT",
+  "score_global": 80,
+  "scores": {
+    "macro_trend": 1,
+    "structure_htf": 1,
+    "volume": 0,
+    "funding": 1,
+    "sentiment": 1,
+    "rr": 0.6,
+    "invalidation": 1,
+    "confidence": 0.7
+  },
+  "entry": 2054.8,
+  "invalid": 2075.35,
+  "targets": [
+    {
+      "price": 2030.14,
+      "rr": 1.2
+    },
+    {
+      "price": 2005.48,
+      "rr": 2.4
+    }
+  ],
+  "timestamp_utc": "2026-03-01T20:36:43.673Z",
+  "description": "SHORT ETHUSDT sur timeframe 1h. Entrée proposée: 2054.8, invalidation si le prix atteint 2075.35 (niveau d’invalidation). Objectif 1: 2030.14 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables.",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding).",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "status": "APPROVED"
+}

@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-03-01T20:36:41.076Z",
+  "timestamp_utc": "2026-03-02T13:57:30.906Z",
   "agents": {
     "TECHNICALS": {
       "status": "ok",
@@ -30,7 +30,7 @@
         {
           "name": "Hyperliquid (vaultSummaries)",
           "status": "ok",
-          "detail": "OK (1)"
+          "detail": "OK (2)"
         }
       ],
       "competencies": [
@@ -123,9 +123,14 @@
           "detail": "OK (10 tweets)"
         },
         {
+          "name": "YouTube Data API v3",
+          "status": "error",
+          "detail": "YouTube Data API v3 has not been used in project 451757686034 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/youtube.googleapis.com/overview?project=451757686034 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+        },
+        {
           "name": "YouTube (youtube-watcher)",
           "status": "ok",
-          "detail": "Config URLs présente"
+          "detail": "Transcript (skill)"
         }
       ],
       "competencies": [

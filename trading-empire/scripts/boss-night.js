@@ -43,6 +43,8 @@ function main() {
   const agentExchanges = readJson(path.join(DATA_DASH, 'agent_exchanges.json'));
   const kanban = readJson(path.join(DATA_DASH, 'kanban.json'));
   const costs = readJson(path.join(DATA_DASH, 'costs.json'));
+  const trendCards = readJson(path.join(DATA_DASH, 'intel', 'trend_cards.json'));
+  const chaseFeedback = readJson(path.join(DATA_DASH, 'chase_feedback.json'));
 
   const exchanges = Array.isArray(agentExchanges) ? agentExchanges : [];
   const lastExchanges = exchanges.slice(-50);
@@ -56,18 +58,23 @@ function main() {
       agent_exchanges_count: exchanges.length,
       has_kanban: !!kanban,
       has_costs: !!costs,
+      intel_trend_cards_count: trendCards?.cards?.length ?? 0,
+      chase_post_mortem_count: chaseFeedback?.post_mortem_count ?? 0,
     },
     roadmap,
     api_requests: apiRequests,
     agent_exchanges: lastExchanges,
     kanban,
     costs,
+    intel_trend_cards: trendCards ? { date: trendCards.date, cards_count: trendCards.cards?.length ?? 0, cards: (trendCards.cards || []).slice(0, 10) } : null,
+    chase_feedback: chaseFeedback ? { post_mortem_count: chaseFeedback.post_mortem_count, by_agent: chaseFeedback.by_agent } : null,
     instructions: [
-      'Lire ce contexte et les fichiers dans data/dashboard/ si besoin.',
+      'Lire ce contexte et les fichiers dans data/dashboard/ si besoin. Tu disposes aussi de intel_trend_cards (Trend Cards X/YouTube) et chase_feedback (post-mortems et retours par agent) pour les prendre en compte dans tes propositions.',
       'Mettre à jour dashboard/spec/ (ex. spec/evolutions.md) avec des propositions d’amélioration dashboard.',
       'Prioriser les Besoins API et écrire le résultat dans dashboard/config/api_needs_priority.md.',
       'Si tu proposes de nouvelles règles, tâches ou specs (créations nocturnes), écris-les dans data/dashboard/boss_proposals.json : { "timestamp_utc": "<ISO>", "proposals": [ { "title": "...", "description": "...", "type": "rule"|"task"|"spec" } ] }. Validation humaine requise avant application.',
-      'Répondre par une ligne de synthèse (ex. « BOSS nuit OK — 3 besoins API priorisés, 2 idées spec »).',
+      'Kanban : les tâches en colonne "À faire" (columnId todo), notamment celles avec source "boss_proposal", ont été validées par l’humain. Implémente-les (modifications code, spec, config selon title + description). Après chaque tâche réalisée, ajoute son id dans data/dashboard/kanban_completed.json : { "completed_ids": ["task-xxx", ...] }. Un script déplacera ces tâches en "Fait" après ta réponse.',
+      'Répondre par une ligne de synthèse (ex. « BOSS nuit OK — 2 tâches Kanban implémentées, 3 besoins API priorisés »).',
     ],
   };
 

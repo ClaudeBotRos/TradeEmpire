@@ -1,0 +1,83 @@
+{
+  "timestamp_utc": "2026-03-02T13:57:45.782Z",
+  "symbol": "DOTUSDT",
+  "timeframe": "4h",
+  "direction": "LONG",
+  "setup_name": "breakout_retest",
+  "entry": {
+    "type": "limit",
+    "price": 1.46
+  },
+  "invalid": {
+    "type": "price",
+    "price": 1.44,
+    "description": "invalidation level"
+  },
+  "targets": [
+    {
+      "price": 1.48,
+      "rr": 1.2
+    },
+    {
+      "price": 1.49,
+      "rr": 2.4
+    }
+  ],
+  "confidence": 0.7,
+  "evidence": {
+    "technicals": [
+      "trend up",
+      "support levels",
+      "resistance levels"
+    ],
+    "sentiment": [
+      "sentiment neutral",
+      "bearish mentions"
+    ],
+    "smart_money": [
+      "funding negative"
+    ],
+    "intel": [
+      "Trend Cards du jour prises en compte (thèmes: régulation, DeFi)"
+    ]
+  },
+  "risk": {
+    "max_loss_usd": 50,
+    "position_size_usd": 500,
+    "leverage": 1
+  },
+  "constraints": {
+    "max_positions_open": 3
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    },
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    },
+    {
+      "type": "stub",
+      "ref": "sentiment_digest"
+    }
+  ],
+  "status": "APPROVED",
+  "trade_id": "idea_DOTUSDT_20260302135745",
+  "description": "LONG DOTUSDT sur timeframe 4h. Entrée proposée: 1.46, invalidation si le prix atteint 1.44 (niveau d’invalidation). Objectif 1: 1.48 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : Dernières tendances X (crypto/bitcoin) : régulation, DeFi. 25 tweets récents..",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "Dernières tendances X (crypto/bitcoin) : régulation, DeFi. 25 tweets récents.",
+    "themes": [
+      "régulation",
+      "DeFi"
+    ],
+    "aligns_with_narrative": null,
+    "source": "data/dashboard/intel/trend_cards.json"
+  }
+}

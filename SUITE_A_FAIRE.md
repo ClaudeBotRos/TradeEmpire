@@ -58,7 +58,10 @@
 - **Soir** : Récap WhatsApp activé (20:30) : `evening-brief.js` après `risk-journal-scan.js`, livraison WhatsApp. Cron `tradeempire-evening` mis à jour.
 - **Dashboard TimeLine** : Kanban éditable (POST/PATCH/DELETE /api/kanban/task), formulaire « Nouvelle tâche » + déplacer colonne + supprimer.
 - **Niches** : Fiches scorées (`build-niches-fiches.js`, `data/dashboard/niches/`), API `/api/niches`, vue Niches avec score global et détail. Fiches reconstruites dans `run-morning` après orchestrator.
-- **Intel (Daphnée)** : Agent **Daphnée** produit des **Trend Cards** (X + top vidéos crypto). Script `intel-scan.js` (X API v2 + YouTube via skill youtube-watcher), sortie `data/dashboard/intel/trend_cards.json`. Config vidéos : `dashboard/config/intel_youtube_urls.json`. Vue Intel fusionne `intel_feed.json` et Trend Cards. Voir `docs/INTEL_DAPHNEE.md`.
+- **Intel (Daphnée)** : Agent **Daphnée** produit des **Trend Cards** (X + top vidéos crypto). Script `intel-scan.js` (X API v2 + YouTube via skill youtube-watcher), sortie `data/dashboard/intel/trend_cards.json`. Config vidéos : `dashboard/config/intel_youtube_urls.json`. Vue Intel fusionne `intel_feed.json` et Trend Cards. **Cron** `tradeempire-intel` 09:00. Wire alimenté en fin de run. Voir `docs/INTEL_DAPHNEE.md`.
+- **Chase (Tracker)** : **Cron** `tradeempire-chase` 21:00. Wire alimenté en fin de run. BOSS reçoit `chase_feedback` dans le contexte nocturne.
+- **Audit app** : `trading-empire/docs/AUDIT_APP.md` — tour complet des étapes, interactions, crons et actions réalisées (Intel/Chase dans le flux, BOSS + Intel/Chase).
+- **Orchestrator + Intel (complément point 2)** : run-morning lance `intel-scan.js` en premier ; l'orchestrator lit les Trend Cards, enrichit les idées (champ `intel`, pondération confidence, description), dashboard affiche Aligné/Décalé Intel et thèmes sur les cartes idées.
 - **Créations Nocturnes** : BOSS peut écrire dans `data/dashboard/boss_proposals.json` ; vue dashboard « Propositions BOSS » avec mention « validation humaine requise ».
 - **Chase (Tracker)** : Nouvel agent post-mortem. Idées APPROVED enregistrées dans `data/tracker/outcomes/` (pending) ; après remplissage outcome (win/loss/…), `chase-tracker.js` génère post-mortems et feedback par agent. Vue dashboard Chase. Voir `docs/CHASE_TRACKER.md`.
 

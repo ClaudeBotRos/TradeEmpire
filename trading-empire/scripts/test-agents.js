@@ -189,9 +189,9 @@ function validateWire() {
   }
   if (!Array.isArray(list)) return { ok: false, message: 'agent_exchanges.json doit être un tableau' };
   const morning = list.filter((e) => e.context && e.context.window === 'morning_brief');
-  if (morning.length < 5) return { ok: false, message: `Wire: attendu au moins 5 entrées morning_brief, trouvé ${morning.length}` };
+  if (morning.length < 6) return { ok: false, message: `Wire: attendu au moins 6 entrées morning_brief (Intel + 5 agents), trouvé ${morning.length}` };
   const agents = new Set(morning.map((e) => e.from_agent));
-  const expected = new Set(['TECHNICALS', 'SMART_MONEY', 'SENTIMENT_X', 'ORCHESTRATOR', 'RISK_JOURNAL']);
+  const expected = new Set(['INTEL', 'TECHNICALS', 'SMART_MONEY', 'SENTIMENT_X', 'ORCHESTRATOR', 'RISK_JOURNAL']);
   for (const a of expected) {
     if (!agents.has(a)) return { ok: false, message: `Wire: aucun échange from ${a}` };
   }

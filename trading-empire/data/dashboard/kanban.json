@@ -1,9 +1,54 @@
 {
   "columns": [
-    { "id": "todo", "title": "À faire" },
-    { "id": "wip", "title": "En cours" },
-    { "id": "review", "title": "En revue" },
-    { "id": "done", "title": "Fait" }
+    {
+      "id": "todo",
+      "title": "À faire"
+    },
+    {
+      "id": "wip",
+      "title": "En cours"
+    },
+    {
+      "id": "review",
+      "title": "En revue"
+    },
+    {
+      "id": "done",
+      "title": "Fait"
+    }
   ],
-  "tasks": []
+  "tasks": [
+    {
+      "id": "task-1772463660808",
+      "title": "Visualisation des coûts API",
+      "columnId": "todo",
+      "description": "ajouter un tableau récapitulatif des coûts API (section `costs.api_costs`) avec mise à jour automatique chaque nuit.",
+      "source": "boss_proposal",
+      "type": "spec"
+    },
+    {
+      "id": "task-1772463663452",
+      "title": "Intégration des Trend Cards X",
+      "columnId": "todo",
+      "description": "créer un widget affichant le titre, le résumé et le lien (si disponible) de la dernière Trend Card X (voir `intel_trend_cards`).",
+      "source": "boss_proposal",
+      "type": "spec"
+    },
+    {
+      "id": "task-1772463665620",
+      "title": "Résumé du feedback Chase",
+      "columnId": "todo",
+      "description": "ajouter un panneau résumant le nombre de post‑mortems et les commentaires par agent (source `chase_feedback`).",
+      "source": "boss_proposal",
+      "type": "spec"
+    },
+    {
+      "id": "task-1772463672676",
+      "title": "Statistiques des échanges d’agents",
+      "columnId": "todo",
+      "description": "afficher le nombre total d’échanges (`agent_exchanges_count`) et les top 3 paires d’agents les plus actives.",
+      "source": "boss_proposal",
+      "type": "spec"
+    }
+  ]
 }

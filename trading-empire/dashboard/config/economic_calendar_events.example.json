@@ -1,0 +1,22 @@
+{
+  "events": [
+    {
+      "date": "2026-03-06",
+      "time_utc": "14:30",
+      "country": "US",
+      "event": "Non-Farm Payrolls",
+      "importance": "high",
+      "forecast": "200K",
+      "previous": "195K"
+    },
+    {
+      "date": "2026-03-12",
+      "time_utc": "19:00",
+      "country": "US",
+      "event": "CPI (MoM)",
+      "importance": "high",
+      "forecast": "0.3%",
+      "previous": "0.2%"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-02T17:56:45.247Z",
+  "symbol": "ARBUSDT",
+  "signals": [
+    "funding negative"
+  ],
+  "metrics": {
+    "funding": -0.00027315,
+    "mark_price": 0.1045632,
+    "next_funding_time": 1772496000000
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    }
+  ],
+  "low_confidence": false
+}

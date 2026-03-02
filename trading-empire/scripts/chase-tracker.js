@@ -113,6 +113,7 @@ function main() {
     SENTIMENT_X: 'Retours Chase : ' + postMortems.map((p) => `${p.trade_id} → ${p.outcome}`).join(' ; ') || 'Aucun post-mortem. Affiner narratives et sentiment.',
     ORCHESTRATOR: 'Retours Chase : ' + postMortems.map((p) => `${p.trade_id} → ${p.outcome}`).join(' ; ') || 'Aucun post-mortem. Consolider signaux et idées selon feedback.',
     RISK_JOURNAL: 'Retours Chase : ' + postMortems.map((p) => `${p.trade_id} → ${p.outcome}`).join(' ; ') || 'Aucun post-mortem. Maintenir règles et validation.',
+    tibo: 'Retours Chase (post-mortem) : ' + (postMortems.length ? postMortems.map((p) => `${p.trade_id} → ${p.outcome}`).join(' ; ') : '') + (() => { try { const fp = path.join(ROOT, 'data', 'dashboard', 'tibo_report.json'); if (fs.existsSync(fp)) { const tr = JSON.parse(fs.readFileSync(fp, 'utf8')); return ` Exécution : ${tr.orders_today || 0} ordre(s) aujourd\'hui, ${tr.pending_tp_count || 0} TP en attente.`; } } catch (_) {} return ''; })() || 'Consulter tibo_report.json et executed_orders.json pour améliorer exécution et TP.',
   };
   const feedbackJson = {
     timestamp_utc: new Date().toISOString(),
@@ -124,6 +125,17 @@ function main() {
     const fdPath = path.join(FEEDBACK_DIR, `${agent}.md`);
     fs.writeFileSync(fdPath, `# Feedback Chase pour ${agent}\n\n${text}\n`, 'utf8');
   }
+  try {
+    const { appendWire } = require('./wire-log.js');
+    appendWire({
+      from_agent: 'CHASE',
+      to_agent: 'BROADCAST',
+      type: 'SHARE_SIGNAL',
+      context: { window: 'chase_feedback' },
+      content_summary: `Post-mortems : ${postMortems.length} | feedback écrit pour ${Object.keys(feedbackByAgent).length} agents.`,
+      content_ref: 'data/dashboard/chase_feedback.json',
+    });
+  } catch (_) {}
   console.log('Chase: post-mortems', postMortems.length, '| feedback écrit dans data/tracker/feedback/ et data/dashboard/chase_feedback.json');
 }
 

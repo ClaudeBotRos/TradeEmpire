@@ -237,23 +237,49 @@ async function runBossChecks() {
   };
 }
 
+async function checkYouTubeDataAPI() {
+  const key = (process.env.YOUTUBE_API_KEY || process.env.GOOGLE_API_KEY || '').trim();
+  if (!key) return { configured: false, ok: false, message: 'YOUTUBE_API_KEY non défini', count: 0 };
+  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=crypto&key=${key}`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.error) {
+      return { configured: true, ok: false, message: data.error.message || 'API non activée', count: 0 };
+    }
+    const count = (data.items || []).length;
+    return { configured: true, ok: true, message: count ? 'Recherche OK' : 'Aucun résultat', count };
+  } catch (e) {
+    return { configured: true, ok: false, message: (e && e.message) || 'Erreur réseau', count: 0 };
+  }
+}
+
 async function runIntelChecks() {
   const twitter = await checkTwitterAPI();
+  const youtubeApi = await checkYouTubeDataAPI();
   const intelDir = path.join(ROOT, 'data', 'dashboard', 'intel');
   const configPath = path.join(CONFIG_DIR, 'intel_youtube_urls.json');
   const configOk = fs.existsSync(configPath);
   const competency = runScriptSuccess('intel-scan.js');
   const apiStatus = twitter.configured === false ? 'warning' : twitter.ok ? 'ok' : 'error';
+  const ytDataStatus = youtubeApi.configured ? (youtubeApi.ok ? 'ok' : 'error') : 'warning';
   const apis = [
     { name: 'X (Twitter API v2)', status: apiStatus, detail: twitter.configured ? (twitter.ok ? `OK (${twitter.tweets} tweets)` : twitter.message) : 'Non configuré' },
-    { name: 'YouTube (youtube-watcher)', status: configOk ? 'ok' : 'warning', detail: configOk ? 'Config URLs présente' : 'intel_youtube_urls.json optionnel' },
+    { name: 'YouTube Data API v3', status: ytDataStatus, detail: youtubeApi.configured ? (youtubeApi.ok ? 'Recherche auto OK' : youtubeApi.message) : 'YOUTUBE_API_KEY optionnel' },
+    { name: 'YouTube (youtube-watcher)', status: configOk ? 'ok' : 'warning', detail: configOk ? 'Transcript (skill)' : 'intel_youtube_urls.json optionnel' },
   ];
+  const ecoCalPath = path.join(intelDir, 'economic_calendar.json');
+  const ecoCalOk = fs.existsSync(ecoCalPath);
+  const ecoCalCompetency = runScriptSuccess('economic-calendar-scan.js');
   const status = (competency.ok === true || competency.ok === null) && (twitter.ok || !twitter.configured) ? (competency.ok === null ? 'warning' : 'ok') : competency.ok === false ? 'error' : 'warning';
   return {
     status,
     api_connections: apis,
-    competencies: [{ name: 'intel-scan.js', status: competency.ok === true ? 'ok' : competency.ok === null ? 'skip' : 'error', detail: competency.message }],
-    message: status === 'ok' ? 'Trend Cards X + YouTube OK' : !twitter.configured ? 'X non configuré' : twitter.message || competency.message,
+    competencies: [
+      { name: 'intel-scan.js', status: competency.ok === true ? 'ok' : competency.ok === null ? 'skip' : 'error', detail: competency.message },
+      { name: 'economic-calendar-scan.js', status: ecoCalOk ? 'ok' : (ecoCalCompetency.ok === true ? 'ok' : 'skip'), detail: ecoCalOk ? 'Calendrier éco (investing.com)' : 'Exécuter pour alimenter macro' },
+    ],
+    message: status === 'ok' ? 'Trend Cards X + YouTube + calendrier éco OK' : !twitter.configured ? 'X non configuré' : twitter.message || competency.message,
   };
 }
 
@@ -278,6 +304,34 @@ async function runChaseChecks() {
   };
 }
 
+async function runTiboChecks() {
+  const apiKey = (process.env.ASTER_API_KEY || '').trim();
+  const apiSecret = (process.env.ASTER_SECRET_KEY || '').trim();
+  const asterConfigured = Boolean(apiKey && apiSecret);
+  const configPath = path.join(DATA_DASH, 'execution_config.json');
+  const configOk = fs.existsSync(configPath);
+  const executorComp = runScriptSuccess('executor-run.js', 60000);
+  const scrutatorComp = runScriptSuccess('executor-tp-scrutator.js', 15000);
+  const apis = [
+    { name: 'ASTER (futures)', status: asterConfigured ? 'ok' : 'warning', detail: asterConfigured ? 'API key/secret configurés' : 'ASTER_API_KEY / ASTER_SECRET_KEY (DTO/app/.env ou workspace)' },
+    { name: 'execution_config.json', status: configOk ? 'ok' : 'warning', detail: configOk ? 'Config marge / levier' : 'data/dashboard/execution_config.json' },
+  ];
+  const compOk1 = executorComp.ok === true;
+  const compOk2 = scrutatorComp.ok === true;
+  const compSkip1 = executorComp.ok === null;
+  const compSkip2 = scrutatorComp.ok === null;
+  const status = asterConfigured && configOk && (compOk1 || compSkip1) && (compOk2 || compSkip2) ? (compSkip1 || compSkip2 ? 'warning' : 'ok') : !asterConfigured ? 'warning' : 'error';
+  return {
+    status,
+    api_connections: apis,
+    competencies: [
+      { name: 'executor-run.js', status: executorComp.ok === true ? 'ok' : executorComp.ok === null ? 'skip' : 'error', detail: executorComp.message },
+      { name: 'executor-tp-scrutator.js', status: scrutatorComp.ok === true ? 'ok' : scrutatorComp.ok === null ? 'skip' : 'error', detail: scrutatorComp.message },
+    ],
+    message: status === 'ok' ? 'Executor + Scrutator OK' : !asterConfigured ? 'ASTER non configuré' : executorComp.ok === false ? executorComp.message : scrutatorComp.message,
+  };
+}
+
 async function main() {
   const timestampUtc = now();
   if (!fs.existsSync(DATA_DASH)) fs.mkdirSync(DATA_DASH, { recursive: true });
@@ -294,6 +348,7 @@ async function main() {
       BOSS: await runBossChecks(),
       INTEL: await runIntelChecks(),
       CHASE: await runChaseChecks(),
+      TIBO: await runTiboChecks(),
     },
   };
 

@@ -1,0 +1,46 @@
+{
+  "trade_id": "idea_ATOMUSDT_20260302175634",
+  "symbol": "ATOMUSDT",
+  "direction": "SHORT",
+  "score_global": 80,
+  "scores": {
+    "macro_trend": 1,
+    "structure_htf": 1,
+    "volume": 0,
+    "funding": 1,
+    "sentiment": 1,
+    "rr": 0.6,
+    "invalidation": 1,
+    "confidence": 0.7
+  },
+  "entry": 2.41,
+  "invalid": 2.44,
+  "targets": [
+    {
+      "price": 2.38,
+      "rr": 1.2
+    },
+    {
+      "price": 2.36,
+      "rr": 2.4
+    }
+  ],
+  "timestamp_utc": "2026-03-02T17:56:34.937Z",
+  "description": "SHORT ATOMUSDT sur timeframe 4h. Entrée proposée: 2.41, invalidation si le prix atteint 2.44 (niveau d’invalidation). Objectif 1: 2.38 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : Dernières tendances X (crypto/bitcoin) : bullish, bearish. 25 tweets récents. | Macro: Aujourd'hui : US Test event aujou….",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "Dernières tendances X (crypto/bitcoin) : bullish, bearish. 25 tweets récents. | Macro: Aujourd'hui : US Test event aujourd'hui",
+    "themes": [
+      "bullish",
+      "bearish",
+      "macro"
+    ],
+    "aligns_with_narrative": null,
+    "source": "data/dashboard/intel/trend_cards.json"
+  },
+  "status": "PROPOSED"
+}

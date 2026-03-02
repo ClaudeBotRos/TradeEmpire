@@ -1,0 +1,22 @@
+{
+  "updated_at": "2026-03-02T14:47:38.329Z",
+  "agent": "Tibo",
+  "balance_snapshot": {
+    "available_balance_usdt": 39.2775883,
+    "total_wallet_balance_usdt": 2.00640394,
+    "total_unrealized_profit_usdt": -0.24648844,
+    "updated_at": "2026-03-02T14:28:15.741Z"
+  },
+  "executed_orders_count": 2,
+  "orders_today": 2,
+  "orders_today_ids": [
+    "idea_ATOMUSDT_20260302135745",
+    "idea_BTCUSDT_20260301135025"
+  ],
+  "pending_tp_count": 0,
+  "pending_tp_entries": [],
+  "with_tp_placed": 0,
+  "without_tp_yet": 2,
+  "last_scrutator_run_at": "2026-03-02T14:45:03.031Z",
+  "last_executor_run_at": "2026-03-02T14:45:03.031Z"
+}

@@ -1,0 +1,84 @@
+{
+  "timestamp_utc": "2026-03-02T17:56:52.696Z",
+  "symbol": "OPUSDT",
+  "timeframe": "4h",
+  "direction": "SHORT",
+  "setup_name": "breakout_retest",
+  "entry": {
+    "type": "limit",
+    "price": 0.13
+  },
+  "invalid": {
+    "type": "price",
+    "price": 0.13,
+    "description": "invalidation level"
+  },
+  "targets": [
+    {
+      "price": 0.13,
+      "rr": 1.2
+    },
+    {
+      "price": 0.13,
+      "rr": 2.4
+    }
+  ],
+  "confidence": 0.6499999999999999,
+  "evidence": {
+    "technicals": [
+      "trend down",
+      "support levels",
+      "resistance levels"
+    ],
+    "sentiment": [
+      "sentiment neutral",
+      "bullish mentions"
+    ],
+    "smart_money": [
+      "funding negative"
+    ],
+    "intel": [
+      "narrative Intel en décalage avec le sens de l'idée — prudence"
+    ]
+  },
+  "risk": {
+    "max_loss_usd": 50,
+    "position_size_usd": 500,
+    "leverage": 1
+  },
+  "constraints": {
+    "max_positions_open": 3
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    },
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    },
+    {
+      "type": "stub",
+      "ref": "sentiment_digest"
+    }
+  ],
+  "status": "REJECTED",
+  "trade_id": "idea_OPUSDT_20260302175652",
+  "description": "SHORT OPUSDT sur timeframe 4h. Entrée proposée: 0.13, invalidation si le prix atteint 0.13 (niveau d’invalidation). Objectif 1: 0.13 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : Dernières tendances X (crypto/bitcoin) : bullish, DeFi. 25 tweets récents. | Macro: Aujourd'hui : US Test event aujourd'….",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "Dernières tendances X (crypto/bitcoin) : bullish, DeFi. 25 tweets récents. | Macro: Aujourd'hui : US Test event aujourd'hui",
+    "themes": [
+      "bullish",
+      "DeFi",
+      "macro"
+    ],
+    "aligns_with_narrative": false,
+    "source": "data/dashboard/intel/trend_cards.json"
+  }
+}

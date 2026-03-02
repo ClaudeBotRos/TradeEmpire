@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "2026-03-02T17:56:41.262Z",
+  "symbol": "AVAXUSDT",
+  "timeframe": "4h",
+  "trend": "range",
+  "levels": {
+    "support": [
+      8.18,
+      8.42,
+      8.66
+    ],
+    "resistance": [
+      9.45,
+      9.75,
+      9.84
+    ]
+  },
+  "volatility": 0.336099,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

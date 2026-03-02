@@ -12,6 +12,8 @@ const { appendWire } = require('./wire-log.js');
 
 const ROOT = path.join(__dirname, '..');
 const STEPS = [
+  { script: 'economic-calendar-scan.js', from: 'INTEL', to: 'ORCHESTRATOR', summary: 'Calendrier économique (dates/heures clés, actuals).', ref: 'data/dashboard/intel/economic_calendar.json' },
+  { script: 'intel-scan.js', from: 'INTEL', to: 'ORCHESTRATOR', summary: 'Trend Cards X + YouTube + macro (narrative du jour pour orchestrator).', ref: 'data/dashboard/intel/trend_cards.json' },
   { script: 'technicals-scan.js', from: 'TECHNICALS', to: 'ORCHESTRATOR', summary: 'Signaux techniques (OHLCV, trend, levels) écrits.', ref: 'data/signals/technicals/' },
   { script: 'smart-money-scan.js', from: 'SMART_MONEY', to: 'ORCHESTRATOR', summary: 'Signaux smart money (funding) écrits.', ref: 'data/signals/smart_money/' },
   { script: 'sentiment-scan.js', from: 'SENTIMENT_X', to: 'ORCHESTRATOR', summary: 'Signaux sentiment (narratives X) écrits.', ref: 'data/signals/sentiment/' },

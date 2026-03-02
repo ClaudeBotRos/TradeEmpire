@@ -298,5 +298,449 @@
     },
     "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
     "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603012049057-intel",
+    "timestamp_utc": "2026-03-01T20:49:05.702Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603012049058-chase",
+    "timestamp_utc": "2026-03-01T20:49:05.809Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 0 | feedback écrit pour 5 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603012054001-intel",
+    "timestamp_utc": "2026-03-01T20:54:00.111Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603012054001-intel",
+    "timestamp_utc": "2026-03-01T20:54:00.192Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603012054006-technicals",
+    "timestamp_utc": "2026-03-01T20:54:00.659Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603012054011-smart_money",
+    "timestamp_utc": "2026-03-01T20:54:01.153Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603012054016-sentiment_x",
+    "timestamp_utc": "2026-03-01T20:54:01.632Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603012054016-orchestrator",
+    "timestamp_utc": "2026-03-01T20:54:01.670Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603012054017-orchestrator",
+    "timestamp_utc": "2026-03-01T20:54:01.710Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603012054017-risk_journal",
+    "timestamp_utc": "2026-03-01T20:54:01.750Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603012054021-intel",
+    "timestamp_utc": "2026-03-01T20:54:02.185Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603012054022-chase",
+    "timestamp_utc": "2026-03-01T20:54:02.284Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 0 | feedback écrit pour 5 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603020715084-intel",
+    "timestamp_utc": "2026-03-02T07:15:08.495Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603020715085-intel",
+    "timestamp_utc": "2026-03-02T07:15:08.576Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603020715090-technicals",
+    "timestamp_utc": "2026-03-02T07:15:09.067Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603020715095-smart_money",
+    "timestamp_utc": "2026-03-02T07:15:09.573Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603020715100-sentiment_x",
+    "timestamp_utc": "2026-03-02T07:15:10.045Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603020715100-orchestrator",
+    "timestamp_utc": "2026-03-02T07:15:10.083Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603020715101-orchestrator",
+    "timestamp_utc": "2026-03-02T07:15:10.125Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603020715101-risk_journal",
+    "timestamp_utc": "2026-03-02T07:15:10.163Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603020800046-intel",
+    "timestamp_utc": "2026-03-02T08:00:04.621Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603021223197-intel",
+    "timestamp_utc": "2026-03-02T12:23:19.743Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603021238311-intel",
+    "timestamp_utc": "2026-03-02T12:38:31.103Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603021357467-intel",
+    "timestamp_utc": "2026-03-02T13:57:46.713Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603021357467-chase",
+    "timestamp_utc": "2026-03-02T13:57:46.754Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 0 | feedback écrit pour 5 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603021756217-intel",
+    "timestamp_utc": "2026-03-02T17:56:21.718Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603021756317-intel",
+    "timestamp_utc": "2026-03-02T17:56:31.784Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603021756379-intel",
+    "timestamp_utc": "2026-03-02T17:56:37.978Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603021756385-intel",
+    "timestamp_utc": "2026-03-02T17:56:38.505Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603021756385-intel",
+    "timestamp_utc": "2026-03-02T17:56:38.514Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603021756452-technicals",
+    "timestamp_utc": "2026-03-02T17:56:45.218Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603021756521-smart_money",
+    "timestamp_utc": "2026-03-02T17:56:52.194Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603021756526-sentiment_x",
+    "timestamp_utc": "2026-03-02T17:56:52.664Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603021756527-orchestrator",
+    "timestamp_utc": "2026-03-02T17:56:52.708Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603021756527-orchestrator",
+    "timestamp_utc": "2026-03-02T17:56:52.754Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603021756527-risk_journal",
+    "timestamp_utc": "2026-03-02T17:56:52.799Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603022000030-chase",
+    "timestamp_utc": "2026-03-02T20:00:03.009Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 0 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
   }
 ]

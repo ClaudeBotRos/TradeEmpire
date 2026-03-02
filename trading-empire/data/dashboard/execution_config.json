@@ -1,0 +1,11 @@
+{
+  "real_mode": true,
+  "notional_usd": 5,
+  "default_leverage": 5,
+  "max_trades_per_day": 5,
+  "notional_by_symbol": {
+    "BTCUSDT": 5,
+    "ETHUSDT": 5
+  },
+  "updated_at": "2026-03-02T00:00:00.000Z"
+}

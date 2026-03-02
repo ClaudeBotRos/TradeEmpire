@@ -3,7 +3,8 @@
  * TradeEmpire — Scan technique : récupère OHLCV Binance, calcule trend/levels/volatility,
  * écrit data/signals/technicals/{symbol}_{tf}_{timestamp}.json
  * Usage: node technicals-scan.js [SYMBOL] [INTERVAL]
- * Default: BTCUSDT 4h
+ *   Sans args : charge la watchlist (data/dashboard/watchlist.json) et scanne toutes les symboles (BTC, ETH, alts).
+ *   Avec SYMBOL : scanne uniquement ce symbole (comportement legacy).
  */
 
 const fs = require('fs');
@@ -11,13 +12,23 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..');
-const SYMBOL = process.argv[2] || 'BTCUSDT';
-const TF = process.argv[3] || '4h';
-const BINANCE_INTERVAL = TF === '1D' ? '1d' : TF.toLowerCase();
+const WATCHLIST_PATH = path.join(ROOT, 'data', 'dashboard', 'watchlist.json');
+const DEFAULT_SYMBOLS = ['BTCUSDT', 'ETHUSDT'];
 
-function fetchOHLCV() {
+function loadWatchlist() {
+  if (!fs.existsSync(WATCHLIST_PATH)) return DEFAULT_SYMBOLS;
+  try {
+    const data = JSON.parse(fs.readFileSync(WATCHLIST_PATH, 'utf8'));
+    const symbols = Array.isArray(data.symbols) ? data.symbols : DEFAULT_SYMBOLS;
+    return symbols.filter((s) => s && String(s).toUpperCase() === s);
+  } catch (_) {
+    return DEFAULT_SYMBOLS;
+  }
+}
+
+function fetchOHLCV(symbol, binanceInterval) {
   const out = execSync(
-    `node "${path.join(__dirname, 'fetch-ohlcv.js')}" "${SYMBOL}" "${BINANCE_INTERVAL}" 100`,
+    `node "${path.join(__dirname, 'fetch-ohlcv.js')}" "${symbol}" "${binanceInterval}" 100`,
     { encoding: 'utf8', cwd: ROOT }
   );
   return JSON.parse(out);
@@ -62,11 +73,17 @@ function computeVolatility(candles) {
   return Math.sqrt(variance);
 }
 
-function main() {
-  const candles = fetchOHLCV();
+function runForSymbol(symbol, tf, binanceInterval) {
+  let candles;
+  try {
+    candles = fetchOHLCV(symbol, binanceInterval);
+  } catch (e) {
+    console.error('Skip', symbol, e.message || e);
+    return;
+  }
   if (!candles.length) {
-    console.error('No candles received');
-    process.exit(1);
+    console.error('Skip', symbol, '(no candles)');
+    return;
   }
 
   const trend = computeTrend(candles);
@@ -79,13 +96,13 @@ function main() {
 
   const signal = {
     timestamp_utc: timestampUtc,
-    symbol: SYMBOL,
-    timeframe: TF,
+    symbol,
+    timeframe: tf,
     trend,
     levels,
     volatility: Math.round(volatility * 1e6) / 1e6,
     setup_candidates: [],
-    sources: [{ type: 'exchange', ref: 'binance_klines_' + BINANCE_INTERVAL }],
+    sources: [{ type: 'exchange', ref: 'binance_klines_' + binanceInterval }],
   };
 
   const outDir = path.join(ROOT, 'data', 'signals', 'technicals');
@@ -93,11 +110,23 @@ function main() {
     fs.mkdirSync(outDir, { recursive: true });
   }
 
-  const filename = `${SYMBOL}_${TF}_${timestamp}.json`;
+  const filename = `${symbol}_${tf}_${timestamp}.json`;
   const filepath = path.join(outDir, filename);
   fs.writeFileSync(filepath, JSON.stringify(signal, null, 2), 'utf8');
+  console.log('OK', symbol, filepath);
+}
 
-  console.log('OK', filepath);
+function main() {
+  const singleSymbol = process.argv[2];
+  const tf = process.argv[3] || '4h';
+  const binanceInterval = tf === '1D' ? '1d' : tf.toLowerCase();
+
+  const symbols = singleSymbol ? [String(singleSymbol).toUpperCase()] : loadWatchlist();
+  console.log('Technicals scan:', symbols.length, 'symbol(s)', symbols.join(', '));
+
+  for (const symbol of symbols) {
+    runForSymbol(symbol, tf, binanceInterval);
+  }
 }
 
 main();

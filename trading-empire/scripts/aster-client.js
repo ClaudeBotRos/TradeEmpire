@@ -45,6 +45,34 @@ function signedRequest(method, path, params = {}) {
   });
 }
 
+/** Exchange info (public) — symboles, quantityPrecision, pricePrecision. */
+async function getExchangeInfo() {
+  const url = `${BASE}/fapi/v1/exchangeInfo`;
+  const res = await fetch(url).then((r) => r.json());
+  if (!res || !res.symbols) throw new Error('ASTER exchangeInfo: invalid response');
+  return res;
+}
+
+/** Précisions quantité/prix pour un symbole (pour arrondir ordres). Inclut minNotional (MIN_NOTIONAL) comme DTO. */
+function getSymbolPrecision(exchangeInfo, symbol) {
+  const sym = String(symbol).toUpperCase();
+  const s = (exchangeInfo.symbols || []).find((x) => x.symbol === sym);
+  if (!s) return { quantityPrecision: 3, pricePrecision: 2, minQty: 0, stepSize: 0.001, minNotional: 5 };
+  const qty = Math.max(0, parseInt(s.quantityPrecision, 10) || 3);
+  const pr = Math.max(0, parseInt(s.pricePrecision, 10) ?? 2);
+  let minQty = 0;
+  let stepSize = 0.001;
+  let minNotional = 5;
+  const lotSize = (s.filters || []).find((f) => f.filterType === 'LOT_SIZE');
+  if (lotSize) {
+    minQty = parseFloat(lotSize.minQty) || 0;
+    stepSize = parseFloat(lotSize.stepSize) || 0.001;
+  }
+  const minNotionalFilter = (s.filters || []).find((f) => f.filterType === 'MIN_NOTIONAL');
+  if (minNotionalFilter && typeof minNotionalFilter.notional !== 'undefined') minNotional = parseFloat(minNotionalFilter.notional) || 5;
+  return { quantityPrecision: qty, pricePrecision: pr, minQty, stepSize, minNotional };
+}
+
 /** Prix mark (public). */
 async function getMarkPrice(symbol) {
   const url = `${BASE}/fapi/v1/premiumIndex?symbol=${encodeURIComponent(String(symbol).toUpperCase())}`;
@@ -110,7 +138,7 @@ async function placeOrder(params) {
   return signedRequest('POST', '/fapi/v1/order', body);
 }
 
-/** Placer ordre STOP_MARKET (signé). */
+/** Placer ordre STOP_MARKET (signé). Utilisable pour entrée trigger : quand le prix atteint stopPrice, exécution au marché. */
 async function placeStopMarketOrder(params) {
   const body = {
     symbol: String(params.symbol).toUpperCase(),
@@ -122,12 +150,36 @@ async function placeStopMarketOrder(params) {
   return signedRequest('POST', '/fapi/v1/order', body);
 }
 
+/** Placer ordre TAKE_PROFIT (trigger). Quand le prix atteint stopPrice, ordre limit à price. reduceOnly pour fermer une position. */
+async function placeTakeProfitOrder(params) {
+  const body = {
+    symbol: String(params.symbol).toUpperCase(),
+    side: params.side,
+    type: 'TAKE_PROFIT',
+    timeInForce: params.timeInForce || 'GTC',
+    quantity: String(params.quantity),
+    price: String(params.price),
+    stopPrice: String(params.stopPrice),
+  };
+  if (params.reduceOnly === true) body.reduceOnly = 'true';
+  return signedRequest('POST', '/fapi/v1/order', body);
+}
+
 /** Annuler un ordre (signé). */
 async function cancelOrder(symbol, orderId) {
   return signedRequest('DELETE', '/fapi/v1/order', {
     symbol: String(symbol).toUpperCase(),
     orderId: String(orderId),
   });
+}
+
+/** Récupérer le statut d'un ordre (pour le scrutateur TP). */
+async function getOrder(symbol, orderId) {
+  const data = await signedRequest('GET', '/fapi/v1/order', {
+    symbol: String(symbol).toUpperCase(),
+    orderId: String(orderId),
+  });
+  return { status: data?.status ?? 'UNKNOWN' };
 }
 
 /** Définir le levier (signé). */
@@ -138,13 +190,29 @@ async function setLeverage(symbol, leverage) {
   });
 }
 
+/** Lire le levier actuellement configuré pour un symbole (signé). Retourne un nombre ou null si indisponible. */
+async function getLeverage(symbol) {
+  const sym = String(symbol).toUpperCase();
+  const data = await signedRequest('GET', '/fapi/v2/positionRisk', { symbol: sym });
+  const list = Array.isArray(data) ? data : [];
+  const row = list.find((p) => (p.symbol || '').toUpperCase() === sym) || list[0];
+  if (!row || row.leverage == null) return null;
+  const lev = parseInt(String(row.leverage), 10);
+  return Number.isFinite(lev) && lev > 0 ? lev : null;
+}
+
 module.exports = {
   getMarkPrice,
+  getExchangeInfo,
+  getSymbolPrecision,
   getAccount,
   getOpenOrders,
+  getOrder,
   placeOrder,
   placeStopMarketOrder,
+  placeTakeProfitOrder,
   cancelOrder,
   setLeverage,
+  getLeverage,
   getConfig,
 };

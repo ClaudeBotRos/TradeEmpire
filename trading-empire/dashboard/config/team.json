@@ -6,5 +6,6 @@
   {"id":"technicals","name":"Alicia","skills":"OHLCV, trend, levels, volatilité, signaux techniques","photo":"technicals.png","apis_used":["Binance — klines (OHLCV public)"]},
   {"id":"risk_journal","name":"Pierre-Jaque","skills":"Risk rules, APPROVE/REJECT, journal quotidien","photo":"risk.png","apis_used":["Lecture rules/, data/ideas/"]},
   {"id":"chase","name":"Chase","skills":"Tracker post-mortem, feedback aux agents","photo":"chase.png","apis_used":["data/tracker/"]},
-  {"id":"intel","name":"Daphnée","skills":"Trend Cards X + YouTube crypto, module Intel","photo":"intel.png","apis_used":["X (Twitter API v2)", "YouTube (youtube-watcher)"]}
+  {"id":"tibo","name":"Tibo","skills":"Executor + Scrutator TP, exécution ASTER, rapport au BOSS, relu par Chase","photo":"tibo.png","apis_used":["ASTER (futures) — ordres, balance, leverage"]},
+  {"id":"intel","name":"Daphnée","skills":"Trend Cards X + YouTube crypto, calendrier économique (investing.com), module Intel","photo":"intel.png","apis_used":["X (Twitter API v2)", "YouTube Data API v3 (recherche auto)", "YouTube (youtube-watcher, transcript)", "Calendrier économique (investing.com)"]}
 ]

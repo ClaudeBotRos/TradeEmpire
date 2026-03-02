@@ -36,7 +36,7 @@ function scoreFiche(idea) {
   const score = Math.min(100, Math.round(
     conf * 40 + Math.min(rr / 2, 1) * 20 + (tech ? 15 : 0) + (sentiment ? 10 : 0) + (sm ? 10 : 0) + trendScore * 5
   ));
-  return {
+  const fiche = {
     trade_id: idea.trade_id,
     symbol: idea.symbol,
     direction: idea.direction,
@@ -56,6 +56,11 @@ function scoreFiche(idea) {
     targets: idea.targets,
     timestamp_utc: idea.timestamp_utc,
   };
+  if (idea.description) fiche.description = idea.description;
+  if (idea.glossary && typeof idea.glossary === 'object') fiche.glossary = idea.glossary;
+  if (idea.intel && typeof idea.intel === 'object') fiche.intel = idea.intel;
+  if (idea.status) fiche.status = idea.status;
+  return fiche;
 }
 
 function main() {

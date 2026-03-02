@@ -10,8 +10,7 @@
 ## Univers
 
 - Crypto spot + perp (watchlist ci-dessous).
-- **Watchlist MVP** : BTCUSDT.
-- **Watchlist V1** : BTC, ETH + jusqu’à 10 alts (à définir dans les règles).
+- **Watchlist** : définie dans `data/dashboard/watchlist.json` (symbols). Par défaut : BTC, ETH + alts (SOL, DOGE, XRP, AVAX, LINK, ARB, OP, SUI, ADA, MATIC, DOT, ATOM, LTC). Les scripts technicals, smart_money et sentiment chargent cette liste lorsqu’ils sont lancés sans arguments (ex. par run-morning).
 
 ## Cadence
 

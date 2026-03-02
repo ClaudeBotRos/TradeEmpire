@@ -85,8 +85,8 @@ const KANBAN_PATH = path.join(DATA.dashboard, 'kanban.json');
 
 const server = http.createServer((req, res) => {
   const parsed = url.parse(req.url, true);
-  const pathname = parsed.pathname;
-  const method = req.method || 'GET';
+  let pathname = (parsed.pathname || '/').replace(/\/$/, '') || '/';
+  const method = (req.method || 'GET').toUpperCase();
 
   const corsJson = () => {
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
@@ -182,6 +182,32 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify(Array.isArray(data) ? data : []));
     return;
   }
+  const wireContentMatch = pathname.match(/^\/api\/wire-content$/);
+  if (wireContentMatch && method === 'GET') {
+    const pathParam = (parsed.query && parsed.query.path) || '';
+    const safePath = pathParam.replace(/^\.+\//, '').replace(/\/\.+/g, '');
+    if (!safePath.startsWith('data/') || safePath.includes('..')) {
+      res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin': '*' });
+      res.end(JSON.stringify({ error: 'Chemin non autorisé' }));
+      return;
+    }
+    const filePath = path.join(ROOT, safePath);
+    if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+      res.writeHead(404, { 'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin': '*' });
+      res.end(JSON.stringify({ error: 'Fichier introuvable' }));
+      return;
+    }
+    try {
+      const raw = fs.readFileSync(filePath, 'utf8');
+      cors();
+      res.setHeader('Content-Type', 'application/json; charset=utf-8');
+      res.end(JSON.stringify({ path: safePath, content: raw }));
+    } catch (e) {
+      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin': '*' });
+      res.end(JSON.stringify({ error: e.message }));
+    }
+    return;
+  }
   if (pathname === '/api/kanban') {
     cors();
     const data = readJsonFile(DATA.dashboard, 'kanban.json') || { columns: [], tasks: [] };
@@ -195,7 +221,11 @@ const server = http.createServer((req, res) => {
         const kanban = readJsonFile(DATA.dashboard, 'kanban.json') || { columns: [], tasks: [] };
         if (!kanban.tasks) kanban.tasks = [];
         const id = 'task-' + Date.now();
-        kanban.tasks.push({ id, title: body.title || 'Sans titre', columnId: body.columnId || 'todo' });
+        const task = { id, title: body.title || 'Sans titre', columnId: body.columnId || 'todo' };
+        if (body.description != null) task.description = body.description;
+        if (body.source != null) task.source = body.source;
+        if (body.type != null) task.type = body.type;
+        kanban.tasks.push(task);
         fs.writeFileSync(KANBAN_PATH, JSON.stringify(kanban, null, 2), 'utf8');
         corsJson();
         res.end(JSON.stringify(kanban));
@@ -270,14 +300,79 @@ const server = http.createServer((req, res) => {
   }
   if (pathname === '/api/api_requests') {
     cors();
-    const data = readJsonFile(DATA.dashboard, 'api_requests.json') || [];
-    res.end(JSON.stringify(Array.isArray(data) ? data : []));
+    const requests = readJsonFile(DATA.dashboard, 'api_requests.json') || [];
+    const list = Array.isArray(requests) ? requests : [];
+    const priorityPath = path.join(DASHBOARD_DIR, 'config', 'api_needs_priority.md');
+    let priority_md = '';
+    if (fs.existsSync(priorityPath)) {
+      try {
+        priority_md = fs.readFileSync(priorityPath, 'utf8');
+      } catch (_) {}
+    }
+    res.end(JSON.stringify({ requests: list, priority_md }));
     return;
   }
   if (pathname === '/api/costs') {
     cors();
     const data = readJsonFile(DATA.dashboard, 'costs.json') || {};
     res.end(JSON.stringify(data));
+    return;
+  }
+  if (pathname === '/api/execution_config') {
+    const configPath = path.join(DATA.dashboard, 'execution_config.json');
+    const defaultConfig = { real_mode: false, notional_usd: 5, notional_by_symbol: {}, updated_at: null };
+    if (method === 'GET') {
+      cors();
+      const data = readJsonFile(DATA.dashboard, 'execution_config.json') || defaultConfig;
+      if (!data.notional_by_symbol) data.notional_by_symbol = {};
+      res.end(JSON.stringify(data));
+      return;
+    }
+    if (method === 'PATCH') {
+      readBody(req).then((bodyStr) => {
+        try {
+          const body = JSON.parse(bodyStr || '{}');
+          let data = { ...defaultConfig };
+          if (fs.existsSync(configPath)) {
+            try {
+              const existing = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+              data = { ...defaultConfig, ...existing };
+            } catch (_) {}
+          }
+          if (typeof body.real_mode === 'boolean') data.real_mode = body.real_mode;
+          if (typeof body.notional_usd === 'number' && body.notional_usd > 0) data.notional_usd = body.notional_usd;
+          if (body.notional_by_symbol && typeof body.notional_by_symbol === 'object') data.notional_by_symbol = body.notional_by_symbol;
+          data.updated_at = new Date().toISOString();
+          fs.writeFileSync(configPath, JSON.stringify(data, null, 2), 'utf8');
+          corsJson();
+          res.end(JSON.stringify(data));
+        } catch (e) {
+          res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin': '*' });
+          res.end(JSON.stringify({ error: e.message }));
+        }
+      }).catch(() => {
+        res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin': '*' });
+        res.end(JSON.stringify({ error: 'Bad request' }));
+      });
+      return;
+    }
+  }
+  if (pathname === '/api/executed_orders') {
+    cors();
+    const data = readJsonFile(DATA.dashboard, 'executed_orders.json') || [];
+    res.end(JSON.stringify(Array.isArray(data) ? data : []));
+    return;
+  }
+  if (pathname === '/api/executor_balance') {
+    cors();
+    const data = readJsonFile(DATA.dashboard, 'executor_balance.json') || null;
+    res.end(JSON.stringify(data || { available_balance_usdt: null, total_wallet_balance_usdt: null, updated_at: null, _message: 'Exécuter executor-run.js pour mettre à jour le solde.' }));
+    return;
+  }
+  if (pathname === '/api/tibo_report') {
+    cors();
+    const data = readJsonFile(DATA.dashboard, 'tibo_report.json') || null;
+    res.end(JSON.stringify(data || { agent: 'Tibo', updated_at: null, _message: 'Aucun rapport. Exécuter executor-run.js ou executor-tp-scrutator.js pour générer tibo_report.json.' }));
     return;
   }
   if (pathname === '/api/niches') {
@@ -292,6 +387,7 @@ const server = http.createServer((req, res) => {
     const intelDir = path.join(DATA.dashboard, 'intel');
     const feedPath = path.join(intelDir, 'intel_feed.json');
     const trendCardsPath = path.join(intelDir, 'trend_cards.json');
+    const scanStatusPath = path.join(intelDir, 'intel_scan_status.json');
     let feed = [];
     if (fs.existsSync(feedPath)) {
       try {
@@ -299,22 +395,148 @@ const server = http.createServer((req, res) => {
         feed = Array.isArray(raw) ? raw : [];
       } catch (_) { feed = []; }
     }
-    let trendCards = { date: null, cards: [] };
+    let trendCards = { timestamp_utc: null, date: null, cards: [] };
     if (fs.existsSync(trendCardsPath)) {
       try {
         const raw = JSON.parse(fs.readFileSync(trendCardsPath, 'utf8'));
-        trendCards = { date: raw.date || null, cards: Array.isArray(raw.cards) ? raw.cards : [] };
+        trendCards = { timestamp_utc: raw.timestamp_utc || null, date: raw.date || null, cards: Array.isArray(raw.cards) ? raw.cards : [] };
       } catch (_) {}
     }
+    let scan_status = null;
+    if (fs.existsSync(scanStatusPath)) {
+      try {
+        scan_status = JSON.parse(fs.readFileSync(scanStatusPath, 'utf8'));
+      } catch (_) {}
+    }
+    if (!scan_status && (trendCards.timestamp_utc || trendCards.date)) {
+      scan_status = {
+        last_run_utc: trendCards.timestamp_utc || (trendCards.date ? trendCards.date + 'T12:00:00.000Z' : null),
+        x: { status: 'unknown', message: 'Exécuter intel-scan.js pour mettre à jour le statut' },
+        youtube: { status: 'unknown', count_ok: 0, count_fail: 0, errors: [] },
+      };
+    }
     const items = [...feed, ...trendCards.cards];
-    res.end(JSON.stringify({ items, trend_cards_date: trendCards.date }));
+    res.end(JSON.stringify({
+      items,
+      trend_cards: trendCards,
+      trend_cards_date: trendCards.date,
+      scan_status: scan_status,
+    }));
     return;
   }
-  if (pathname === '/api/boss_proposals') {
+  function readEvolutionsAsProposals(evolutionsPath) {
+    if (!fs.existsSync(evolutionsPath)) return null;
+    try {
+      const md = fs.readFileSync(evolutionsPath, 'utf8');
+      const lines = md.split('\n');
+      let inSection = false;
+      let dateLine = null;
+      const proposals = [];
+      for (const line of lines) {
+        if (line.startsWith('## Dernière mise à jour')) { inSection = false; continue; }
+        if (line.startsWith('- **Date** :')) { dateLine = line.replace(/^-\s*\*\*Date\*\*\s*:\s*/i, '').trim(); continue; }
+        if (line.startsWith('## Propositions en attente')) { inSection = true; continue; }
+        if (line.startsWith('## ')) inSection = false;
+        if (inSection && line.startsWith('- **')) {
+          const match = line.match(/^-\s*\*\*(.+?)\*\*\s*[:\-]\s*(.*)$/);
+          if (match) proposals.push({ title: match[1].trim(), description: match[2].trim(), type: 'spec' });
+        }
+      }
+      return { timestamp_utc: dateLine || null, proposals };
+    } catch (_) {
+      return null;
+    }
+  }
+
+  if (pathname === '/api/boss_proposals' || pathname === '/api/evolutions') {
     cors();
     const proposalsPath = path.join(DATA.dashboard, 'boss_proposals.json');
-    const data = fs.existsSync(proposalsPath) ? JSON.parse(fs.readFileSync(proposalsPath, 'utf8')) : { timestamp_utc: null, proposals: [] };
+    const fallbackJsonPath = path.join(DATA.dashboard, 'boss_proposals_from_evolutions.json');
+    const evolutionsPaths = [
+      path.join(__dirname, '..', 'dashboard', 'spec', 'evolutions.md'),
+      path.join(DASHBOARD_DIR, 'spec', 'evolutions.md'),
+    ];
+    let data = { timestamp_utc: null, proposals: [] };
+    if (pathname === '/api/boss_proposals' && fs.existsSync(proposalsPath)) {
+      try {
+        const raw = JSON.parse(fs.readFileSync(proposalsPath, 'utf8'));
+        data = { timestamp_utc: raw.timestamp_utc || null, proposals: Array.isArray(raw.proposals) ? raw.proposals : [] };
+      } catch (_) {}
+    }
+    if (!data.proposals.length) {
+      for (const p of evolutionsPaths) {
+        const parsed = readEvolutionsAsProposals(p);
+        if (parsed && parsed.proposals.length) {
+          data = parsed;
+          break;
+        }
+      }
+    }
+    if (!data.proposals.length && fs.existsSync(fallbackJsonPath)) {
+      try {
+        const raw = JSON.parse(fs.readFileSync(fallbackJsonPath, 'utf8'));
+        if (Array.isArray(raw.proposals) && raw.proposals.length) {
+          data = { timestamp_utc: raw.timestamp_utc || null, proposals: raw.proposals };
+        }
+      } catch (_) {}
+    }
+    const validatedPath = path.join(DATA.dashboard, 'boss_proposals_validated.json');
+    if (fs.existsSync(validatedPath)) {
+      try {
+        const validated = JSON.parse(fs.readFileSync(validatedPath, 'utf8'));
+        const byTitle = (Array.isArray(validated) ? validated : []).reduce((acc, v) => { acc[v.title] = v.validated_at; return acc; }, {});
+        data.proposals = data.proposals.map((p) => ({ ...p, validated_at: byTitle[p.title] || null }));
+      } catch (_) {}
+    }
     res.end(JSON.stringify(data));
+    return;
+  }
+  if (pathname === '/api/boss_proposals/validate') {
+    if (method === 'OPTIONS') {
+      res.writeHead(204, { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' });
+      res.end();
+      return;
+    }
+    if (method !== 'POST') {
+      res.writeHead(405, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+      res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+      return;
+    }
+    cors();
+    let body = '';
+    req.on('data', (chunk) => { body += chunk; });
+    req.on('end', () => {
+      const validatedPath = path.join(DATA.dashboard, 'boss_proposals_validated.json');
+      let list = [];
+      if (fs.existsSync(validatedPath)) {
+        try { list = JSON.parse(fs.readFileSync(validatedPath, 'utf8')); } catch (_) {}
+      }
+      if (!Array.isArray(list)) list = [];
+      try {
+        const payload = JSON.parse(body || '{}');
+        const title = (payload.title || '').trim();
+        if (title) {
+          if (!list.some((e) => e.title === title)) {
+            list.push({ title, validated_at: new Date().toISOString() });
+            fs.writeFileSync(validatedPath, JSON.stringify(list, null, 2), 'utf8');
+          }
+          const kanban = readJsonFile(DATA.dashboard, 'kanban.json') || { columns: [], tasks: [] };
+          if (!kanban.tasks) kanban.tasks = [];
+          const id = 'task-' + Date.now();
+          kanban.tasks.push({
+            id,
+            title,
+            columnId: 'todo',
+            description: payload.description || '',
+            source: 'boss_proposal',
+            type: payload.type || 'spec',
+          });
+          fs.writeFileSync(KANBAN_PATH, JSON.stringify(kanban, null, 2), 'utf8');
+        }
+      } catch (_) {}
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: true }));
+    });
     return;
   }
   if (pathname === '/api/chase_feedback') {

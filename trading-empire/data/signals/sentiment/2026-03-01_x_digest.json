@@ -1,9 +1,8 @@
 {
-  "timestamp_utc": "2026-03-01T20:36:43.195Z",
+  "timestamp_utc": "2026-03-01T20:54:01.179Z",
   "date": "2026-03-01",
   "narratives": [
-    "bullish mentions",
-    "bearish mentions"
+    "bullish mentions"
   ],
   "sentiment_by_symbol": {
     "BTCUSDT": "neutral"

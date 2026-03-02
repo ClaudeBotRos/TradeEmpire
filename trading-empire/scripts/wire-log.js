@@ -12,7 +12,7 @@ const ROOT = path.join(__dirname, '..');
 const WIRE_FILE = path.join(ROOT, 'data', 'dashboard', 'agent_exchanges.json');
 const MAX_ENTRIES = 500;
 
-const AGENTS = ['BOSS', 'ORCHESTRATOR', 'SENTIMENT_X', 'SMART_MONEY', 'TECHNICALS', 'RISK_JOURNAL'];
+const AGENTS = ['BOSS', 'ORCHESTRATOR', 'SENTIMENT_X', 'SMART_MONEY', 'TECHNICALS', 'RISK_JOURNAL', 'INTEL', 'CHASE'];
 const TYPES = ['REQUEST', 'RESPONSE', 'SHARE_SIGNAL', 'BROADCAST'];
 
 function appendWire(entry) {

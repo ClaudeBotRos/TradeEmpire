@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-03-02T17:56:42.992Z",
+  "symbol": "SUIUSDT",
+  "timeframe": "4h",
+  "trend": "down",
+  "levels": {
+    "support": [
+      0.8262,
+      0.8412,
+      0.8958,
+      0.9475
+    ],
+    "resistance": [
+      0.978,
+      1.0259,
+      1.0498
+    ]
+  },
+  "volatility": 0.043805,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

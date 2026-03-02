@@ -1,11 +1,12 @@
 {
-  "timestamp_utc": "2026-03-01T20:36:44.556Z",
+  "timestamp_utc": "2026-03-02T20:00:03.007Z",
   "post_mortem_count": 0,
   "by_agent": {
     "TECHNICALS": "Retours Chase (post-mortem) : ",
     "SMART_MONEY": "Retours Chase : ",
     "SENTIMENT_X": "Retours Chase : ",
     "ORCHESTRATOR": "Retours Chase : ",
-    "RISK_JOURNAL": "Retours Chase : "
+    "RISK_JOURNAL": "Retours Chase : ",
+    "tibo": "Retours Chase (post-mortem) :  Exécution : 2 ordre(s) aujourd'hui, 0 TP en attente."
   }
 }

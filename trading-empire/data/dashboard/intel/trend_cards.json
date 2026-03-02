@@ -1,16 +1,26 @@
 {
-  "timestamp_utc": "2026-03-01T20:36:44.012Z",
-  "date": "2026-03-01",
+  "timestamp_utc": "2026-03-02T17:56:38.009Z",
+  "date": "2026-03-02",
   "cards": [
     {
-      "id": "x-2026-03-01-1772397404441",
+      "id": "x-2026-03-02-1772474198424",
       "source": "x",
       "title": "Tendances X — crypto du jour",
-      "summary": "Dernières tendances X (crypto/bitcoin) : bullish, bearish, régulation, DeFi. 25 tweets récents.",
+      "summary": "Dernières tendances X (crypto/bitcoin) : bullish, DeFi. 25 tweets récents.",
       "url": null,
       "classification": "borderline",
-      "date": "2026-03-01",
-      "timestamp_utc": "2026-03-01T20:36:44.012Z"
+      "date": "2026-03-02",
+      "timestamp_utc": "2026-03-02T17:56:38.009Z"
+    },
+    {
+      "id": "macro-2026-03-02-1772474198504",
+      "source": "economic_calendar",
+      "title": "Calendrier économique (macro)",
+      "summary": "Aujourd'hui : US Test event aujourd'hui",
+      "url": "https://www.investing.com/economic-calendar",
+      "classification": "borderline",
+      "date": "2026-03-02",
+      "timestamp_utc": "2026-03-02T17:56:38.009Z"
     }
   ]
 }
