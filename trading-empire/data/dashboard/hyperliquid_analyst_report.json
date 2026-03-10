@@ -1,0 +1,298 @@
+{
+  "timestamp_utc": "2026-03-10T13:01:39.079Z",
+  "source": "hyperliquid_analyst_trend",
+  "symbols_analyzed": 139,
+  "commodities_count": 139,
+  "main_dex_count": 1,
+  "hip3_count": 138,
+  "dexes": [
+    "xyz",
+    "flx",
+    "vntl",
+    "hyna",
+    "km",
+    "abcd",
+    "cash"
+  ],
+  "first_trend": "Actifs suivis : 139 (main: 1, HIP-3: 138). DEX HIP-3 : xyz, flx, vntl, hyna, km, abcd, cash. Exemples : xyz:GOLD, xyz:SILVER, xyz:BRENTOIL, flx:OIL.",
+  "recommendations": [
+    {
+      "symbol": "GAS",
+      "side": "—",
+      "reason": "Premier actif main dex avec données (mark, funding). Contexte : news + HIP-3 disponibles.",
+      "confidence": "low",
+      "data_sources": [
+        "commodities_meta.json",
+        "news_scan_report.json",
+        "trend_cards.json",
+        "economic_calendar.json",
+        "hip3_rss_feeds"
+      ]
+    },
+    {
+      "symbol": "xyz:GOLD",
+      "side": "—",
+      "reason": "Actif or tokenisé. Catalysts Parvati liés or/oil/macro : 9 titre(s). ",
+      "confidence": "low",
+      "data_sources": [
+        "commodities_meta.json",
+        "news_scan_report.json",
+        "trend_cards.json",
+        "economic_calendar.json",
+        "hip3_rss_feeds"
+      ]
+    },
+    {
+      "symbol": "xyz:BRENTOIL",
+      "side": "—",
+      "reason": "Actif pétrole tokenisé. Catalysts Parvati liés or/oil/macro : 9 titre(s). Aucun événement macro aujourd'hui ou demain.",
+      "confidence": "low",
+      "data_sources": [
+        "commodities_meta.json",
+        "news_scan_report.json",
+        "trend_cards.json",
+        "economic_calendar.json",
+        "hip3_rss_feeds"
+      ]
+    }
+  ],
+  "summary": "Actifs suivis : 139 (main: 1, HIP-3: 138). DEX HIP-3 : xyz, flx, vntl, hyna, km, abcd, cash. Exemples : xyz:GOLD, xyz:SILVER, xyz:BRENTOIL, flx:OIL.",
+  "context_news": {
+    "source_file": "intel/news_scan_report.json",
+    "catalysts_count": 26,
+    "relevant_titles": [
+      "[CoinDesk] Bitcoin climbs to $71,000 as dollar, oil weaken after Trump comments on Iran war",
+      "[CoinDesk] Hyperliquid’s tokenized futures hit $1.2B as traders bet on oil, stocks",
+      "[CoinDesk] Ether treasury firm Bitmine moves $19.5 million in ETH to Coinbase Prime",
+      "[CoinDesk] Here's how traders and big buyers stepped in to keep bitcoin steady during the oil shock",
+      "[CoinDesk] Ether, solana, XRP jump higher as Trump signals Iran war nearing end",
+      "[CoinDesk] How the war in Iran and trader positioning could be behind the surge in Circle's stock",
+      "[CoinDesk] Crypto and stocks add to gains as Trump says Iran war could be over soon",
+      "[CoinDesk] Bitcoin could be the big winner if the U.S.-Iran conflict drags on for months",
+      "[CoinDesk] Bitcoin rises to $69,000, stocks reverse big early losses, as crude oil sinks back below $100"
+    ],
+    "relevant_rss": [
+      {
+        "title": "Bitcoin climbs to $71,000 as dollar, oil weaken after Trump comments on Iran war",
+        "url": "https://www.coindesk.com/markets/2026/03/10/bitcoin-climbs-to-usd71-000-as-dollar-oil-weaken-after-trump-comments-on-iran-war",
+        "source": "CoinDesk"
+      },
+      {
+        "title": "Hyperliquid’s tokenized futures hit $1.2B as traders bet on oil, stocks",
+        "url": "https://www.coindesk.com/markets/2026/03/10/hyperliquid-s-permissionless-market-smashes-usd1-2-billion-in-open-positions-as-oil-and-equity-futures-boom",
+        "source": "CoinDesk"
+      },
+      {
+        "title": "Ether treasury firm Bitmine moves $19.5 million in ETH to Coinbase Prime",
+        "url": "https://www.coindesk.com/markets/2026/03/10/bitmine-moves-roughly-9-600-eth-worth-usd19-5-million-to-coinbase-prime-as-ether-treasury-firm-shuffles-holdings",
+        "source": "CoinDesk"
+      },
+      {
+        "title": "Here's how traders and big buyers stepped in to keep bitcoin steady during the oil shock",
+        "url": "https://www.coindesk.com/markets/2026/03/10/here-s-how-traders-and-big-buyers-stepped-in-to-keep-bitcoin-steady-during-the-oil-shock",
+        "source": "CoinDesk"
+      },
+      {
+        "title": "Ether, solana, XRP jump higher as Trump signals Iran war nearing end",
+        "url": "https://www.coindesk.com/markets/2026/03/10/ether-solana-xrp-jump-higher-as-trump-signals-iran-war-nearing-end",
+        "source": "CoinDesk"
+      },
+      {
+        "title": "How the war in Iran and trader positioning could be behind the surge in Circle's stock",
+        "url": "https://www.coindesk.com/markets/2026/03/09/how-the-war-in-iran-and-trader-positioning-could-be-behind-the-surge-in-circle-s-stock",
+        "source": "CoinDesk"
+      },
+      {
+        "title": "Crypto and stocks add to gains as Trump says Iran war could be over soon",
+        "url": "https://www.coindesk.com/markets/2026/03/09/crypto-and-stocks-add-to-gains-as-trump-says-iran-war-could-be-over-soon",
+        "source": "CoinDesk"
+      },
+      {
+        "title": "Bitcoin could be the big winner if the U.S.-Iran conflict drags on for months",
+        "url": "https://www.coindesk.com/markets/2026/03/09/bitcoin-could-be-the-big-winner-if-the-u-s-iran-conflict-drags-on-for-months",
+        "source": "CoinDesk"
+      },
+      {
+        "title": "Bitcoin rises to $69,000, stocks reverse big early losses, as crude oil sinks back below $100",
+        "url": "https://www.coindesk.com/markets/2026/03/09/bitcoin-rises-to-usd69-000-stocks-reverse-big-early-losses-as-crude-oil-sinks-back-below-usd100",
+        "source": "CoinDesk"
+      },
+      {
+        "title": "Nasdaq partners with Boerse Stuttgart&#8217;s Seturion to advance tokenized settlement in Europe",
+        "url": "https://www.theblock.co/post/392931/nasdaq-boerse-stuttgarts-tokenized-settlement-europe?utm_source=rss&amp;utm_medium=rss",
+        "source": "The Block"
+      },
+      {
+        "title": "Bitcoin floats near $70,000 as dollar strength and oil volatility pressure risk assets: analysts",
+        "url": "https://www.theblock.co/post/392858/bitcoin-floats-below-70000-dollar-strength-oil-volatility-risk-assets-analysts?utm_source=rss&amp;utm_medium=rss",
+        "source": "The Block"
+      },
+      {
+        "title": "Bitmine lifts Ethereum treasury to 4.53 million ETH after adding 60,976 tokens in a week amid ‘mini-crypto winter’",
+        "url": "https://www.theblock.co/post/392831/bitmine-lifts-ethereum-treasury-to-4-53-million-eth-after-adding-60976-tokens-in-a-week-amid-mini-crypto-winter?utm_source=rss&amp;utm_medium=rss",
+        "source": "The Block"
+      },
+      {
+        "title": "Tokenized stocks surpass $1B as Ondo, xStocks dominate sector",
+        "url": "https://cointelegraph.com/news/tokenized-stocks-surpass-1b-ondo-xstocks-dominate-sector?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+        "source": "Cointelegraph"
+      }
+    ],
+    "summary": "Catalysts Parvati liés or/oil/macro : 9 titre(s)."
+  },
+  "context_intel": {
+    "source_file": "intel/trend_cards.json",
+    "situation_summary": "X : bullish, régulation. 5 vidéo(s) : Bitcoin, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Cry… Reddit : pas de données.",
+    "themes": [
+      "X : bullish, régulation.",
+      "Macro : pas d’événement du jour."
+    ]
+  },
+  "context_macro": {
+    "source_file": "intel/economic_calendar.json",
+    "today_events": [],
+    "summary": "Aucun événement macro aujourd'hui ou demain."
+  },
+  "context_hip3_news": {
+    "precious_metals": [],
+    "equities": [
+      {
+        "title": "Stock Market Today: Dow Dips After Trump's Iran Comments As Oil Prices Tumble (Live Coverage)",
+        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-iran-oil-prices-tsmc/?src=A00220&amp;yptr=yahoo",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "CNBC’s Deirdre Bosa Warns Oracle Investors: A $523 Billion Backlog May Not Be What It Seems",
+        "url": "https://finance.yahoo.com/news/cnbc-deirdre-bosa-warns-oracle-125039103.html",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "UMB Financial Corporation (UMBF) Established an Excellent Financial Stewardship",
+        "url": "https://finance.yahoo.com/news/umb-financial-corporation-umbf-established-124338159.html",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "Stock market today: Dow, S&amp;P 500, Nasdaq futures retreat, oil sinks as Wall Street weighs Iran war signals",
+        "url": "https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-retreat-oil-sinks-as-wall-street-weighs-iran-war-signals-224255968.html",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "Amprius Technologies (AMPX) Reports Earnings &amp; Sees Analyst Coverage",
+        "url": "https://finance.yahoo.com/news/amprius-technologies-ampx-reports-earnings-123207306.html",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "Daily – Vickers Top Insider Picks for 03/10/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_46380_InsiderActivity_1773142736000?yptr=yahoo&amp;ncid=yahooproperties_plusresear_nm5q6ze1cei",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "Energizer (ENR) Under Focus Of Analysts After Earnings Report",
+        "url": "https://finance.yahoo.com/news/energizer-enr-under-focus-analysts-123155990.html",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "Best Stock to Buy and Hold Forever: Costco vs. Home Depot",
+        "url": "https://finance.yahoo.com/news/best-stock-buy-hold-forever-125000599.html",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "QuantumScape (QS)’s Pilot Product Draws Analyst Attention",
+        "url": "https://finance.yahoo.com/news/quantumscape-qs-pilot-product-draws-123148636.html",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "Electrovaya (ELVA)’s Shareholder Meeting Sees Key Resolution Approvals",
+        "url": "https://finance.yahoo.com/news/electrovaya-elva-shareholder-meeting-sees-123138477.html",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "Stem, Inc. (STEM) Narrows Net Loss In Latest Earnings",
+        "url": "https://finance.yahoo.com/news/stem-inc-stem-narrows-net-123119678.html",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "Daily – Vickers Top Buyers &amp; Sellers for 03/10/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_46381_TopBottomInsiderActivity_1773142736000?yptr=yahoo&amp;ncid=yahooproperties_plusresear_nm5q6ze1cei",
+        "source": "Yahoo Finance"
+      },
+      {
+        "title": "Here’s What Propelled Warrior Met Coal (HCC) Shares in Q4",
+        "url": "https://finance.yahoo.com/news/propelled-warrior-met-coal-hcc-123005314.html",
+        "source": "Yahoo Finance"
+      }
+    ],
+    "energy": [
+      {
+        "title": "Aramco Warns of Catastrophic Consequences from Hormuz Crisis",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Aramco-Warns-of-Catastrophic-Consequences-from-Hormuz-Crisis.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "GPS Jamming Chaos Grips Vital Oil Chokepoint",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/GPS-Jamming-Chaos-Grips-Vital-Oil-Chokepoint.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "Little-Known US Company Lands Important Pentagon Contract in Rare Earth Race",
+        "url": "https://oilprice.com/Energy/Energy-General/Little-Known-US-Company-Lands-Important-Pentagon-Contract-in-Rare-Earth-Race.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "Gulf Producers Slash Oil Output by 5 Million Bpd",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Gulf-Producers-Slash-Oil-Output-by-5-Million-Bpd.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "China Boosted Oil Imports Nearly 16% in Early 2026",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/China-Boosted-Oil-Imports-Nearly-16-in-Early-2026.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "Saudi Aramco Profits Fall 12% to $104.7 Billion as Oil Prices Weigh",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Aramco-Profits-Fall-12-to-1047-Billion-as-Oil-Prices-Weigh.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "Iran Warns No Oil Will Leave the Middle East Until U.S. and Israeli Attacks Stop",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Iran-Warns-No-Oil-Will-Leave-the-Middle-East-Until-US-and-Israeli-Attacks-Stop.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "Oil Prices Tumble After Trump Signals Iran War Could End Soon",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Tumble-After-Trump-Signals-Iran-War-Could-End-Soon.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "Energy Equities Mixed Despite Oil’s Biggest Rally Since 2022",
+        "url": "https://oilprice.com/Energy/Crude-Oil/Energy-Equities-Mixed-Despite-Oils-Biggest-Rally-Since-2022.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "The Chokepoint Economy: What Happens When Everything Breaks at Once",
+        "url": "https://oilprice.com/Energy/Energy-General/The-Chokepoint-Economy-What-Happens-When-Everything-Breaks-at-Once.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "What Will Iran Do Next?",
+        "url": "https://oilprice.com/Energy/Energy-General/What-Will-Iran-Do-Next.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "Oil Shock Spreads Through Global Economy",
+        "url": "https://oilprice.com/Energy/Crude-Oil/Oil-Shock-Spreads-Through-Global-Economy.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "America&#039;s Abandoned Coal Mines Could Become Giant Underground Batteries",
+        "url": "https://oilprice.com/Energy/Energy-General/Americas-Abandoned-Coal-Mines-Could-Become-Giant-Underground-Batteries.html",
+        "source": "Oilprice.com"
+      },
+      {
+        "title": "Why This War With Iran May Be Far Longer Than Markets Expect",
+        "url": "https://oilprice.com/Energy/Energy-General/Why-This-War-With-Iran-May-Be-Far-Longer-Than-Markets-Expect.html",
+        "source": "Oilprice.com"
+      }
+    ]
+  }
+}

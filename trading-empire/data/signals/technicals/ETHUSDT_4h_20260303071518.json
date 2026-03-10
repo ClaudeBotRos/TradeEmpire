@@ -1,0 +1,29 @@
+{
+  "timestamp_utc": "2026-03-03T07:15:18.162Z",
+  "symbol": "ETHUSDT",
+  "timeframe": "4h",
+  "trend": "range",
+  "levels": {
+    "support": [
+      1800,
+      1835.36,
+      1907,
+      1928.88
+    ],
+    "resistance": [
+      1995.56,
+      2039.05,
+      2090,
+      2103.32,
+      2148.39
+    ]
+  },
+  "volatility": 60.262305,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

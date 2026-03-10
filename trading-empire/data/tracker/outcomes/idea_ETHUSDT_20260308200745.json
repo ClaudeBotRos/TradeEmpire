@@ -1,0 +1,22 @@
+{
+  "trade_id": "idea_ETHUSDT_20260308200745",
+  "outcome": "revoked",
+  "approved_at": "2026-03-08T20:07:46.017Z",
+  "symbol": "ETHUSDT",
+  "direction": "LONG",
+  "entry": 1925.06,
+  "invalid": 1905.81,
+  "targets": [
+    {
+      "price": 1948.16,
+      "rr": 1.2
+    },
+    {
+      "price": 1971.26,
+      "rr": 2.4
+    }
+  ],
+  "note": "Invalidation ou clôture sans perte (realizedPnl ≈ 0) — pas une perte, bon pour les bénéfices.",
+  "closed_at": "2026-03-09",
+  "exit_price": 1995.6
+}

@@ -1,0 +1,84 @@
+{
+  "last_updated_utc": "2026-03-10T07:15:42.209Z",
+  "source": "crypto-technical-analysis-indicator-apis-for-trading.p.rapidapi.com",
+  "timeframe": "4h",
+  "by_symbol": {
+    "BTCUSDT": null,
+    "ETHUSDT": null,
+    "SOLUSDT": null,
+    "DOGEUSDT": null,
+    "XRPUSDT": null,
+    "AVAXUSDT": null,
+    "LINKUSDT": null,
+    "ARBUSDT": null,
+    "OPUSDT": null,
+    "SUIUSDT": null,
+    "ADAUSDT": null,
+    "MATICUSDT": null,
+    "DOTUSDT": null,
+    "ATOMUSDT": null,
+    "LTCUSDT": null
+  },
+  "errors": [
+    {
+      "symbol": "BTCUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for All other Indicators on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysi"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysis-indicator-"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for All other Indicators on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysi"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysis-indicator-"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for All other Indicators on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysi"
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for All other Indicators on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysi"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysis-indicator-"
+    },
+    {
+      "symbol": "ARBUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for All other Indicators on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysi"
+    },
+    {
+      "symbol": "OPUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysis-indicator-"
+    },
+    {
+      "symbol": "SUIUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for All other Indicators on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysi"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysis-indicator-"
+    },
+    {
+      "symbol": "MATICUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysis-indicator-"
+    },
+    {
+      "symbol": "DOTUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysis-indicator-"
+    },
+    {
+      "symbol": "ATOMUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for All other Indicators on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysi"
+    },
+    {
+      "symbol": "LTCUSDT",
+      "error": "HTTP 429: {\"message\":\"You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\\/\\/rapidapi.com\\/arjunravi868\\/api\\/crypto-technical-analysis-indicator-"
+    }
+  ]
+}

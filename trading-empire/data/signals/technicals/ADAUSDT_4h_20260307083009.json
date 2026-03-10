@@ -1,0 +1,28 @@
+{
+  "timestamp_utc": "2026-03-07T08:30:09.725Z",
+  "symbol": "ADAUSDT",
+  "timeframe": "4h",
+  "trend": "range",
+  "levels": {
+    "support": [
+      0.2536,
+      0.2555,
+      0.2584,
+      0.2594,
+      0.267
+    ],
+    "resistance": [
+      0.285,
+      0.2938,
+      0.3136
+    ]
+  },
+  "volatility": 0.010082,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

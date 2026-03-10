@@ -1,0 +1,7 @@
+{
+  "trade_id": "idea_ARBUSDT_20260309083019",
+  "status": "REJECTED",
+  "timestamp_utc": "2026-03-09T08:30:19.504Z",
+  "reason": "LONG: entry must be above invalid",
+  "idea_ref": "data/ideas/idea_ARBUSDT_20260309083019.json"
+}

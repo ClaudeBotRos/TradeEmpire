@@ -1,0 +1,458 @@
+{
+  "updated_at": "2026-03-10T08:41:12.893Z",
+  "source": "defillama",
+  "chain": "Arbitrum",
+  "protocol": "uniswap-v3",
+  "top_by_tvl": [
+    {
+      "symbol": "WBTC-WETH",
+      "tvlUsd": 57503432,
+      "apy": 19.62493,
+      "apyBase": 19.62493,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "bb7e9353-129f-4e01-b822-f4250d0abb8a",
+      "poolMeta": "0.05%"
+    },
+    {
+      "symbol": "WETH-USDC",
+      "tvlUsd": 48443043,
+      "apy": 43.85101,
+      "apyBase": 43.85101,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "a14bd201-764c-40a5-86b8-2928b2461232",
+      "poolMeta": "0.05%"
+    },
+    {
+      "symbol": "WETH-USDT",
+      "tvlUsd": 14004632,
+      "apy": 40.45027,
+      "apyBase": 40.45027,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "49bdce2c-65d0-4bb7-bdc0-dc0d642317e6",
+      "poolMeta": "0.05%"
+    },
+    {
+      "symbol": "WBTC-USDT",
+      "tvlUsd": 12050635,
+      "apy": 54.29283,
+      "apyBase": 54.29283,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "af3cd3a9-a9b8-483e-82c6-bf4fceb66584",
+      "poolMeta": "0.05%"
+    },
+    {
+      "symbol": "WBTC-USDC",
+      "tvlUsd": 7686623,
+      "apy": 0,
+      "apyBase": 0,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "7127db96-afba-4089-8c9d-daa93c116856",
+      "poolMeta": "0.05%"
+    },
+    {
+      "symbol": "WETH-USDC",
+      "tvlUsd": 6754860,
+      "apy": 23.35596,
+      "apyBase": 23.35596,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "94594b8f-fd0c-48c3-b760-87c8e56b64fa",
+      "poolMeta": "0.3%"
+    },
+    {
+      "symbol": "WETH-GMX",
+      "tvlUsd": 5650541,
+      "apy": 13.87099,
+      "apyBase": 13.87099,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "5921fee6-b25f-4cd9-9cc4-fb07fe83ea89",
+      "poolMeta": "1%"
+    },
+    {
+      "symbol": "RAIN-WETH",
+      "tvlUsd": 3688691,
+      "apy": 2.61868,
+      "apyBase": 2.61868,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "67e1af02-d186-47bd-bd0f-584f1d115548",
+      "poolMeta": "0.01%"
+    },
+    {
+      "symbol": "USDC-USDT",
+      "tvlUsd": 2549963,
+      "apy": 3.03305,
+      "apyBase": 3.03305,
+      "apyReward": null,
+      "ilRisk": "no",
+      "stablecoin": true,
+      "pool": "ba3fb5f5-684e-4834-afca-d58668395b02",
+      "poolMeta": "0.01%"
+    },
+    {
+      "symbol": "WBTC-ARB",
+      "tvlUsd": 2223245,
+      "apy": 0,
+      "apyBase": 0,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "b318f61c-b1b1-4bed-9fcd-421c50dcd1c3",
+      "poolMeta": "0.3%"
+    },
+    {
+      "symbol": "USDC-THBILL",
+      "tvlUsd": 1996985,
+      "apy": 0,
+      "apyBase": 0,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "6bc0ba8d-4c5d-4d34-bd66-990692f75c3f",
+      "poolMeta": "0.01%"
+    },
+    {
+      "symbol": "WETH-ARB",
+      "tvlUsd": 1879970,
+      "apy": 78.70493,
+      "apyBase": 78.70493,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "3e9da80c-274d-4f55-8421-7439d4ef429d",
+      "poolMeta": "0.05%"
+    },
+    {
+      "symbol": "HEGIC-WETH",
+      "tvlUsd": 1719448,
+      "apy": 0.06481,
+      "apyBase": 0.06481,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "e72b5f97-7631-4f13-a251-39d798750f6a",
+      "poolMeta": "0.05%"
+    },
+    {
+      "symbol": "WBTC-CBBTC",
+      "tvlUsd": 1592163,
+      "apy": 0,
+      "apyBase": 0,
+      "apyReward": null,
+      "ilRisk": "no",
+      "stablecoin": false,
+      "pool": "ea24c06e-aac9-4ee8-9bf0-04f16535c632",
+      "poolMeta": "0.01%"
+    },
+    {
+      "symbol": "WBTC-TBTC",
+      "tvlUsd": 1480366,
+      "apy": 0,
+      "apyBase": 0,
+      "apyReward": null,
+      "ilRisk": "no",
+      "stablecoin": false,
+      "pool": "f0e3e18f-fa0a-457e-b3d2-6ce74551c39e",
+      "poolMeta": "0.05%"
+    },
+    {
+      "symbol": "LON-USDC",
+      "tvlUsd": 1390059,
+      "apy": 0,
+      "apyBase": 0,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "9924c11e-fc09-4420-8248-c929a0124018",
+      "poolMeta": "0.3%"
+    },
+    {
+      "symbol": "WETH-USDC.E",
+      "tvlUsd": 1382133,
+      "apy": 15.94194,
+      "apyBase": 15.94194,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "9fb44210-2b23-4b7d-8f2f-aba82b93843e",
+      "poolMeta": "0.05%"
+    },
+    {
+      "symbol": "CAPX-USDC",
+      "tvlUsd": 1346709,
+      "apy": 0,
+      "apyBase": 0,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "0d29be76-ba86-400f-961b-8dbccbd8cd56",
+      "poolMeta": "0.01%"
+    },
+    {
+      "symbol": "WETH-LINK",
+      "tvlUsd": 1203448,
+      "apy": 11.44419,
+      "apyBase": 11.44419,
+      "apyReward": null,
+      "ilRisk": "yes",
+      "stablecoin": false,
+      "pool": "cd7dd7fa-e34c-4cf0-af2b-6d13438f3852",
+      "poolMeta": "0.3%"
+    },
+    {
+      "symbol": "WSTETH-WETH",
+      "tvlUsd": 1112331,
+      "apy": 1.06702,
+      "apyBase": 1.06702,
+      "apyReward": null,
+      "ilRisk": "no",
+      "stablecoin": false,
+      "pool": "2ec84b50-59e5-49e6-ab12-41e99ed32a8c",
+      "poolMeta": "0.01%"
+    }
+  ],
+  "top_stables_no_il": [
+    {
+      "symbol": "ETHFI-WETH",
+      "tvlUsd": 49145,
+      "apy": 44.98721,
+      "ilRisk": "no",
+      "stablecoin": false,
+      "pool": "127c022f-93bd-4902-ba13-a6015418e5ca"
+    },
+    {
+      "symbol": "DAI-USDT",
+      "tvlUsd": 222325,
+      "apy": 11.80744,
+      "ilRisk": "no",
+      "stablecoin": true,
+      "pool": "ad98abba-0691-4392-a1a5-3a3eaefc78cb"
+    },
+    {
+      "symbol": "USDC-DAI",
+      "tvlUsd": 149744,
+      "apy": 8.80334,
+      "ilRisk": "no",
+      "stablecoin": true,
+      "pool": "e1db0dbc-b530-4525-a407-ec9d930929e7"
+    },
+    {
+      "symbol": "EZETH-WETH",
+      "tvlUsd": 21874,
+      "apy": 7.76013,
+      "ilRisk": "no",
+      "stablecoin": false,
+      "pool": "1cd19be5-0021-4d2c-b4fe-f633e8de61ff"
+    },
+    {
+      "symbol": "DAI-USDC.E",
+      "tvlUsd": 49839,
+      "apy": 5.89318,
+      "ilRisk": "no",
+      "stablecoin": true,
+      "pool": "7cf9c463-7ab4-4bd8-a3ee-7bf11668209a"
+    },
+    {
+      "symbol": "DAI-USDT",
+      "tvlUsd": 19691,
+      "apy": 5.55924,
+      "ilRisk": "no",
+      "stablecoin": true,
+      "pool": "65dceabd-4add-4160-8490-6d12eca3e1b7"
+    },
+    {
+      "symbol": "DAI-USDC.E",
+      "tvlUsd": 54145,
+      "apy": 3.88472,
+      "ilRisk": "no",
+      "stablecoin": true,
+      "pool": "44213a47-ba05-4428-866a-f5d08378cbd4"
+    },
+    {
+      "symbol": "USDC-USDT",
+      "tvlUsd": 2549963,
+      "apy": 3.03305,
+      "ilRisk": "no",
+      "stablecoin": true,
+      "pool": "ba3fb5f5-684e-4834-afca-d58668395b02"
+    },
+    {
+      "symbol": "WETH-RETH",
+      "tvlUsd": 107115,
+      "apy": 2.49668,
+      "ilRisk": "no",
+      "stablecoin": false,
+      "pool": "cd3afedc-3dd3-43cc-9729-9a15db508683"
+    },
+    {
+      "symbol": "USDT-USDC.E",
+      "tvlUsd": 49075,
+      "apy": 2.42348,
+      "ilRisk": "no",
+      "stablecoin": true,
+      "pool": "6927e9ff-7957-40d5-84a7-b195a6f5d21d"
+    },
+    {
+      "symbol": "USDC-USDT",
+      "tvlUsd": 14561,
+      "apy": 1.69947,
+      "ilRisk": "no",
+      "stablecoin": true,
+      "pool": "3f37fb6b-d693-4b7a-8f3e-c92eb92aadb7"
+    },
+    {
+      "symbol": "WSTETH-WETH",
+      "tvlUsd": 1112331,
+      "apy": 1.06702,
+      "ilRisk": "no",
+      "stablecoin": false,
+      "pool": "2ec84b50-59e5-49e6-ab12-41e99ed32a8c"
+    },
+    {
+      "symbol": "WEETH-WETH",
+      "tvlUsd": 102730,
+      "apy": 0.97355,
+      "ilRisk": "no",
+      "stablecoin": false,
+      "pool": "fe3e33f2-7ad0-4b65-a953-d13a32b76a03"
+    },
+    {
+      "symbol": "USDC.E-USDC",
+      "tvlUsd": 104033,
+      "apy": 0.75458,
+      "ilRisk": "no",
+      "stablecoin": true,
+      "pool": "1e0c7c45-44e1-4489-9715-4d9cc60537be"
+    },
+    {
+      "symbol": "WSTETH-WETH",
+      "tvlUsd": 22667,
+      "apy": 0.35441,
+      "ilRisk": "no",
+      "stablecoin": false,
+      "pool": "b0d6e314-24d6-40ee-a320-16dd3db80ffd"
+    }
+  ],
+  "top_stablecoin_pools": [
+    {
+      "symbol": "USDC-USDT",
+      "tvlUsd": 2549963,
+      "apy": 3.03305,
+      "ilRisk": "no",
+      "pool": "ba3fb5f5-684e-4834-afca-d58668395b02"
+    },
+    {
+      "symbol": "PUSD-USDT",
+      "tvlUsd": 540149,
+      "apy": 0,
+      "ilRisk": "no",
+      "pool": "cf2ff3ba-0ff8-45c4-8566-9214312c6c2a"
+    },
+    {
+      "symbol": "DOC-USDT",
+      "tvlUsd": 349129,
+      "apy": 0.15682,
+      "ilRisk": "no",
+      "pool": "f4696767-bb9b-47ff-bd5e-2a6c7fa49e3b"
+    },
+    {
+      "symbol": "DAI-USDT",
+      "tvlUsd": 222325,
+      "apy": 11.80744,
+      "ilRisk": "no",
+      "pool": "ad98abba-0691-4392-a1a5-3a3eaefc78cb"
+    },
+    {
+      "symbol": "LUAUSD-USDT",
+      "tvlUsd": 215088,
+      "apy": 0,
+      "ilRisk": "no",
+      "pool": "837a6127-e5e2-41b5-a22f-505ec5888ce5"
+    },
+    {
+      "symbol": "USDD-USDC.E",
+      "tvlUsd": 194804,
+      "apy": 0.00304,
+      "ilRisk": "no",
+      "pool": "90a8b221-8f2f-4aa9-a0d4-236eb55ebff9"
+    },
+    {
+      "symbol": "TUSD-USDC.E",
+      "tvlUsd": 192951,
+      "apy": 0,
+      "ilRisk": "no",
+      "pool": "a29db313-6acc-4bae-867d-d49a139a2a96"
+    },
+    {
+      "symbol": "USDRIF-USDT",
+      "tvlUsd": 158328,
+      "apy": 0,
+      "ilRisk": "no",
+      "pool": "731d3126-d2b7-48a9-894d-ceec5ac1f647"
+    },
+    {
+      "symbol": "USDC-DAI",
+      "tvlUsd": 149744,
+      "apy": 8.80334,
+      "ilRisk": "no",
+      "pool": "e1db0dbc-b530-4525-a407-ec9d930929e7"
+    },
+    {
+      "symbol": "USDS-USDC.E",
+      "tvlUsd": 110667,
+      "apy": 0.11766,
+      "ilRisk": "no",
+      "pool": "bb832f3a-6404-486d-bbfe-475a2f72a886"
+    },
+    {
+      "symbol": "USDE-USDC",
+      "tvlUsd": 105051,
+      "apy": 0,
+      "ilRisk": "no",
+      "pool": "c59df033-9554-4b6a-b489-c7ef2384d01b"
+    },
+    {
+      "symbol": "USDC.E-USDC",
+      "tvlUsd": 104033,
+      "apy": 0.75458,
+      "ilRisk": "no",
+      "pool": "1e0c7c45-44e1-4489-9715-4d9cc60537be"
+    },
+    {
+      "symbol": "GHO-USDC",
+      "tvlUsd": 90116,
+      "apy": 0,
+      "ilRisk": "no",
+      "pool": "52bad33c-c204-4400-9736-01aa63d1b4d7"
+    },
+    {
+      "symbol": "FRAX-USDT",
+      "tvlUsd": 83727,
+      "apy": 0.02016,
+      "ilRisk": "no",
+      "pool": "7e8dbe2c-8330-40ca-8fcd-e6f2574d1ac4"
+    },
+    {
+      "symbol": "SSUPERUSD-USDC",
+      "tvlUsd": 66700,
+      "apy": 0,
+      "ilRisk": "no",
+      "pool": "ca11c853-bf79-423c-b002-12aa98f53fe0"
+    }
+  ],
+  "total_pools": 290
+}

@@ -1,0 +1,46 @@
+{
+  "trade_id": "idea_AVAXUSDT_20260308071551",
+  "symbol": "AVAXUSDT",
+  "direction": "LONG",
+  "score_global": 82,
+  "scores": {
+    "macro_trend": 1,
+    "structure_htf": 1,
+    "volume": 0,
+    "funding": 1,
+    "sentiment": 1,
+    "rr": 0.6,
+    "invalidation": 1,
+    "confidence": 0.75
+  },
+  "entry": 8.42,
+  "invalid": 8.34,
+  "targets": [
+    {
+      "price": 8.52,
+      "rr": 1.2
+    },
+    {
+      "price": 8.62,
+      "rr": 2.4
+    }
+  ],
+  "timestamp_utc": "2026-03-08T07:15:51.830Z",
+  "description": "LONG AVAXUSDT sur timeframe 4h. Entrée proposée: 8.42, invalidation si le prix atteint 8.34 (niveau d’invalidation). Objectif 1: 8.52 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : X : bullish. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top way….",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "X : bullish. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top ways to earn crypto in 2026: Choose what fits you — Earn Daily Interest on USDT in 2026: Fixe… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "themes": [
+      "bullish",
+      "reddit",
+      "cryptodaily"
+    ],
+    "aligns_with_narrative": true,
+    "source": "data/dashboard/intel/trend_cards.json"
+  },
+  "status": "APPROVED"
+}

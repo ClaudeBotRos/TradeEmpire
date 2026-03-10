@@ -1,0 +1,20 @@
+{
+  "trade_id": "idea_LINKUSDT_20260308205210",
+  "outcome": "pending",
+  "approved_at": "2026-03-08T20:52:10.221Z",
+  "symbol": "LINKUSDT",
+  "direction": "LONG",
+  "entry": 8.5,
+  "invalid": 8.41,
+  "targets": [
+    {
+      "price": 8.6,
+      "rr": 1.2
+    },
+    {
+      "price": 8.7,
+      "rr": 2.4
+    }
+  ],
+  "note": "Remplir outcome (win|loss|invalid_hit|target_hit), optionnel: exit_price, closed_at, note."
+}

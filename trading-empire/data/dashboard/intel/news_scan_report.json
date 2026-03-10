@@ -1,0 +1,421 @@
+{
+  "timestamp_utc": "2026-03-10T11:00:13.822Z",
+  "source": "rss_aggregate",
+  "cryptodaily": [],
+  "coindesk": [
+    {
+      "title": "CoinDesk: Bitcoin, Ethereum, Crypto News and Price Data",
+      "url": "https://www.coindesk.com/"
+    },
+    {
+      "title": "CoinDesk: Bitcoin, Ethereum, Crypto News and Price Data",
+      "url": "https://www.coindesk.com/"
+    },
+    {
+      "title": "Bitcoin climbs to $71,000 as dollar, oil weaken after Trump comments on Iran war",
+      "url": "https://www.coindesk.com/markets/2026/03/10/bitcoin-climbs-to-usd71-000-as-dollar-oil-weaken-after-trump-comments-on-iran-war"
+    },
+    {
+      "title": "Strategy logs record STRC equity issuance on Monday, buys estimated 1,420 bitcoin",
+      "url": "https://www.coindesk.com/markets/2026/03/10/strategy-logs-record-strc-equity-issuance-on-monday-buys-estimated-1-420-bitcoin"
+    },
+    {
+      "title": "Hyperliquid’s tokenized futures hit $1.2B as traders bet on oil, stocks",
+      "url": "https://www.coindesk.com/markets/2026/03/10/hyperliquid-s-permissionless-market-smashes-usd1-2-billion-in-open-positions-as-oil-and-equity-futures-boom"
+    },
+    {
+      "title": "Ether treasury firm Bitmine moves $19.5 million in ETH to Coinbase Prime",
+      "url": "https://www.coindesk.com/markets/2026/03/10/bitmine-moves-roughly-9-600-eth-worth-usd19-5-million-to-coinbase-prime-as-ether-treasury-firm-shuffles-holdings"
+    },
+    {
+      "title": "Pudgy Penguins launches its 'Club Penguin' moment, and the game doesn't feel like crypto at all",
+      "url": "https://www.coindesk.com/tech/2026/03/10/pudgy-penguins-launches-its-club-penguin-moment-and-the-game-doesn-t-feel-like-crypto-at-all"
+    },
+    {
+      "title": "Here's how traders and big buyers stepped in to keep bitcoin steady during the oil shock",
+      "url": "https://www.coindesk.com/markets/2026/03/10/here-s-how-traders-and-big-buyers-stepped-in-to-keep-bitcoin-steady-during-the-oil-shock"
+    },
+    {
+      "title": "AI tokens rally after Nvidia open-source agent plan, beat CoinDesk 20",
+      "url": "https://www.coindesk.com/markets/2026/03/10/ai-tokens-rally-after-nvidia-open-source-agent-plan-beating-coindesk-20"
+    },
+    {
+      "title": "Bhutan sells $42.5 million of bitcoin in 2026 as national stack drops 58% from peak",
+      "url": "https://www.coindesk.com/markets/2026/03/10/bhutan-s-bitcoin-stack-drops-below-5-400-btc-as-sovereign-seller-quietly-unloads-usd42-5-million-in-2026"
+    },
+    {
+      "title": "Ether, solana, XRP jump higher as Trump signals Iran war nearing end",
+      "url": "https://www.coindesk.com/markets/2026/03/10/ether-solana-xrp-jump-higher-as-trump-signals-iran-war-nearing-end"
+    },
+    {
+      "title": "Bitcoin jumps past $70,000 as war volatility fades",
+      "url": "https://www.coindesk.com/markets/2026/03/10/bitcoin-jumps-past-usd70-000-as-war-volatility-fades"
+    },
+    {
+      "title": "Trump's threat to block Congress over voter-ID law leaves crypto bill on shakier ground",
+      "url": "https://www.coindesk.com/news-analysis/2026/03/09/trump-s-threat-to-block-congress-over-voter-id-law-leaves-crypto-bill-on-shakier-ground"
+    },
+    {
+      "title": "How the war in Iran and trader positioning could be behind the surge in Circle's stock",
+      "url": "https://www.coindesk.com/markets/2026/03/09/how-the-war-in-iran-and-trader-positioning-could-be-behind-the-surge-in-circle-s-stock"
+    },
+    {
+      "title": "Crypto and stocks add to gains as Trump says Iran war could be over soon",
+      "url": "https://www.coindesk.com/markets/2026/03/09/crypto-and-stocks-add-to-gains-as-trump-says-iran-war-could-be-over-soon"
+    },
+    {
+      "title": "Bitcoin could be the big winner if the U.S.-Iran conflict drags on for months",
+      "url": "https://www.coindesk.com/markets/2026/03/09/bitcoin-could-be-the-big-winner-if-the-u-s-iran-conflict-drags-on-for-months"
+    },
+    {
+      "title": "Bitcoin rises to $69,000, stocks reverse big early losses, as crude oil sinks back below $100",
+      "url": "https://www.coindesk.com/markets/2026/03/09/bitcoin-rises-to-usd69-000-stocks-reverse-big-early-losses-as-crude-oil-sinks-back-below-usd100"
+    },
+    {
+      "title": "Josh Swihart's Zcash Open Development Lab raises $25 million in seed funding",
+      "url": "https://www.coindesk.com/business/2026/03/09/josh-swihart-s-zcash-open-development-lab-raises-usd25-million-in-seed-funding"
+    },
+    {
+      "title": "Global insurance broker Aon tests stablecoin payments with Coinbase, Paxos",
+      "url": "https://www.coindesk.com/business/2026/03/09/global-insurance-broker-aon-tests-stablecoin-payments-with-coinbase-paxos"
+    },
+    {
+      "title": "Stock market volatility hits one-year high, possibly marking bitcoin bottom",
+      "url": "https://www.coindesk.com/markets/2026/03/09/stock-market-volatility-hits-one-year-high-possibly-marking-bitcoin-bottom"
+    }
+  ],
+  "rss_aggregate": [
+    {
+      "title": "CoinDesk: Bitcoin, Ethereum, Crypto News and Price Data",
+      "url": "https://www.coindesk.com/",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "CoinDesk: Bitcoin, Ethereum, Crypto News and Price Data",
+      "url": "https://www.coindesk.com/",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Bitcoin climbs to $71,000 as dollar, oil weaken after Trump comments on Iran war",
+      "url": "https://www.coindesk.com/markets/2026/03/10/bitcoin-climbs-to-usd71-000-as-dollar-oil-weaken-after-trump-comments-on-iran-war",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Strategy logs record STRC equity issuance on Monday, buys estimated 1,420 bitcoin",
+      "url": "https://www.coindesk.com/markets/2026/03/10/strategy-logs-record-strc-equity-issuance-on-monday-buys-estimated-1-420-bitcoin",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Hyperliquid’s tokenized futures hit $1.2B as traders bet on oil, stocks",
+      "url": "https://www.coindesk.com/markets/2026/03/10/hyperliquid-s-permissionless-market-smashes-usd1-2-billion-in-open-positions-as-oil-and-equity-futures-boom",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Ether treasury firm Bitmine moves $19.5 million in ETH to Coinbase Prime",
+      "url": "https://www.coindesk.com/markets/2026/03/10/bitmine-moves-roughly-9-600-eth-worth-usd19-5-million-to-coinbase-prime-as-ether-treasury-firm-shuffles-holdings",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Pudgy Penguins launches its 'Club Penguin' moment, and the game doesn't feel like crypto at all",
+      "url": "https://www.coindesk.com/tech/2026/03/10/pudgy-penguins-launches-its-club-penguin-moment-and-the-game-doesn-t-feel-like-crypto-at-all",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Here's how traders and big buyers stepped in to keep bitcoin steady during the oil shock",
+      "url": "https://www.coindesk.com/markets/2026/03/10/here-s-how-traders-and-big-buyers-stepped-in-to-keep-bitcoin-steady-during-the-oil-shock",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "AI tokens rally after Nvidia open-source agent plan, beat CoinDesk 20",
+      "url": "https://www.coindesk.com/markets/2026/03/10/ai-tokens-rally-after-nvidia-open-source-agent-plan-beating-coindesk-20",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Bhutan sells $42.5 million of bitcoin in 2026 as national stack drops 58% from peak",
+      "url": "https://www.coindesk.com/markets/2026/03/10/bhutan-s-bitcoin-stack-drops-below-5-400-btc-as-sovereign-seller-quietly-unloads-usd42-5-million-in-2026",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Ether, solana, XRP jump higher as Trump signals Iran war nearing end",
+      "url": "https://www.coindesk.com/markets/2026/03/10/ether-solana-xrp-jump-higher-as-trump-signals-iran-war-nearing-end",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Bitcoin jumps past $70,000 as war volatility fades",
+      "url": "https://www.coindesk.com/markets/2026/03/10/bitcoin-jumps-past-usd70-000-as-war-volatility-fades",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Trump's threat to block Congress over voter-ID law leaves crypto bill on shakier ground",
+      "url": "https://www.coindesk.com/news-analysis/2026/03/09/trump-s-threat-to-block-congress-over-voter-id-law-leaves-crypto-bill-on-shakier-ground",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "How the war in Iran and trader positioning could be behind the surge in Circle's stock",
+      "url": "https://www.coindesk.com/markets/2026/03/09/how-the-war-in-iran-and-trader-positioning-could-be-behind-the-surge-in-circle-s-stock",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Crypto and stocks add to gains as Trump says Iran war could be over soon",
+      "url": "https://www.coindesk.com/markets/2026/03/09/crypto-and-stocks-add-to-gains-as-trump-says-iran-war-could-be-over-soon",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Bitcoin could be the big winner if the U.S.-Iran conflict drags on for months",
+      "url": "https://www.coindesk.com/markets/2026/03/09/bitcoin-could-be-the-big-winner-if-the-u-s-iran-conflict-drags-on-for-months",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Bitcoin rises to $69,000, stocks reverse big early losses, as crude oil sinks back below $100",
+      "url": "https://www.coindesk.com/markets/2026/03/09/bitcoin-rises-to-usd69-000-stocks-reverse-big-early-losses-as-crude-oil-sinks-back-below-usd100",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Josh Swihart's Zcash Open Development Lab raises $25 million in seed funding",
+      "url": "https://www.coindesk.com/business/2026/03/09/josh-swihart-s-zcash-open-development-lab-raises-usd25-million-in-seed-funding",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Global insurance broker Aon tests stablecoin payments with Coinbase, Paxos",
+      "url": "https://www.coindesk.com/business/2026/03/09/global-insurance-broker-aon-tests-stablecoin-payments-with-coinbase-paxos",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Stock market volatility hits one-year high, possibly marking bitcoin bottom",
+      "url": "https://www.coindesk.com/markets/2026/03/09/stock-market-volatility-hits-one-year-high-possibly-marking-bitcoin-bottom",
+      "date": null,
+      "source": "CoinDesk"
+    },
+    {
+      "title": "The Block",
+      "url": "https://www.theblock.co/rss.xml",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "The Block | Bitcoin, Ethereum, and Crypto News",
+      "url": "https://www.theblock.co",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Bernstein sees 70% upside for Circle as stablecoin adoption expands across payments and AI",
+      "url": "https://www.theblock.co/post/392962/bernstein-sees-70-upside-for-circle-as-stablecoin-adoption-expands-across-payments-and-ai?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Trust Wallet launches automatic Address Poisoning Protection to help prevent increasingly common attack",
+      "url": "https://www.theblock.co/post/392749/trust-wallet-launches-automatic-address-poisoning-protection-prevent-common-attack?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "South Korean prosecutors sell $21.5 million in seized bitcoin once lost to phishing attack",
+      "url": "https://www.theblock.co/post/392951/south-korean-prosecutors-sell-seized-bitcoin?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "&#8216;America is now the crypto capital of the world,&#8217; CFTC&#8217;s Selig says as digital asset rules take shape",
+      "url": "https://www.theblock.co/post/392945/america-crypto-capital-cftc-selig?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Nasdaq partners with Boerse Stuttgart&#8217;s Seturion to advance tokenized settlement in Europe",
+      "url": "https://www.theblock.co/post/392931/nasdaq-boerse-stuttgarts-tokenized-settlement-europe?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "US prosecutors seek October 2026 retrial for Tornado Cash co-founder Roman Storm",
+      "url": "https://www.theblock.co/post/392937/roman-storm-tornado-cash-retrial?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Blockchain.com expands operations to Ghana in push for African growth",
+      "url": "https://www.theblock.co/post/392919/blockchain-com-ghana?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "NFT platform Gondi moves to make users whole after $230,000 contract exploit",
+      "url": "https://www.theblock.co/post/392909/nft-platform-gondi-moves-users-whole-230000-contract-exploit?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Bhutan moves nearly $12 million in bitcoin as 2026 outflows pile up",
+      "url": "https://www.theblock.co/post/392891/bhutan-moves-12-million-bitcoin-2026-outflows-pile-up?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "The Daily: Bitcoin&#8217;s mined supply tops 20 million BTC, Nasdaq partners with Kraken on tokenization initiative, and more",
+      "url": "https://www.theblock.co/post/392896/the-daily-bitcoins-mined-supply-tops-20-million-btc-nasdaq-partners-with-kraken-on-tokenization-initiative-and-more?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Coinbase and Paxos tap USDC, PYUSD stablecoins to pay Aon insurance premiums",
+      "url": "https://www.theblock.co/post/392893/coinbase-paxos-usdc-pyusd-stablecoins-pay-aon-insurance-premiums?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Zcash Open Development Lab raises $25 million from leading crypto investors Paradigm, a16z and others",
+      "url": "https://www.theblock.co/post/392878/zcash-open-development-lab-raises-25-million-crypto-investors-paradigm-a16z-others?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Consensys-backed SharpLink reports $734 million loss as ETH holdings climb",
+      "url": "https://www.theblock.co/post/392851/consensys-backed-sharplink-reports-734-million-loss-eth-holdings-climb?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Bitcoin floats near $70,000 as dollar strength and oil volatility pressure risk assets: analysts",
+      "url": "https://www.theblock.co/post/392858/bitcoin-floats-below-70000-dollar-strength-oil-volatility-risk-assets-analysts?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Sonic Labs taps Frax infrastructure for native network stablecoin",
+      "url": "https://www.theblock.co/post/392860/sonic-labs-taps-frax-infrastructure-native-network-stablecoin?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "South Korea crypto exchange Bithumb hit with suspension, CEO faces disciplinary action: report",
+      "url": "https://www.theblock.co/post/392846/south-korea-crypto-exchange-bithumb-suspension-ceo-disciplinary-action-report?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "US banking lobby weighs lawsuit against OCC over crypto, fintech national trust charters: report",
+      "url": "https://www.theblock.co/post/392839/us-banking-lobby-weighs-lawsuit-against-occ-over-crypto-fintech-national-trust-charters-report?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Bitmine lifts Ethereum treasury to 4.53 million ETH after adding 60,976 tokens in a week amid ‘mini-crypto winter’",
+      "url": "https://www.theblock.co/post/392831/bitmine-lifts-ethereum-treasury-to-4-53-million-eth-after-adding-60976-tokens-in-a-week-amid-mini-crypto-winter?utm_source=rss&amp;utm_medium=rss",
+      "date": null,
+      "source": "The Block"
+    },
+    {
+      "title": "Cointelegraph.com News",
+      "url": "https://cointelegraph.com",
+      "date": null,
+      "source": "Cointelegraph"
+    },
+    {
+      "title": "Cointelegraph.com News",
+      "url": "https://cointelegraph.com",
+      "date": null,
+      "source": "Cointelegraph"
+    },
+    {
+      "title": "Tokenized stocks surpass $1B as Ondo, xStocks dominate sector",
+      "url": "https://cointelegraph.com/news/tokenized-stocks-surpass-1b-ondo-xstocks-dominate-sector?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": null,
+      "source": "Cointelegraph"
+    },
+    {
+      "title": "Thailand crypto platforms freeze 10K accounts in AML crackdown: Report",
+      "url": "https://cointelegraph.com/news/thai-crypto-operators-freeze-10-000-accounts-aml?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": null,
+      "source": "Cointelegraph"
+    },
+    {
+      "title": "US Bitcoin ETFs add $167M as altcoin funds extend outflows",
+      "url": "https://cointelegraph.com/news/bitcoin-etf-167-million-inflows-altcoin-funds-bleed?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": null,
+      "source": "Cointelegraph"
+    },
+    {
+      "title": "Blackstone-owned AirTrunk secures record $1.24B loan for Tokyo AI data center",
+      "url": "https://cointelegraph.com/news/blackstone-airtrunk-1-24b-loan-tokyo-ai-data-center-expansion?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": null,
+      "source": "Cointelegraph"
+    },
+    {
+      "title": "Tron joins Agentic AI Foundation as founder sees future in AI",
+      "url": "https://cointelegraph.com/news/tron-joins-agentic-ai-foundation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": null,
+      "source": "Cointelegraph"
+    },
+    {
+      "title": "Bhutan moves $11.8M in BTC from its national stash: Arkham",
+      "url": "https://cointelegraph.com/news/bhutan-moves-11-8m-btc-from-national-stash-arkham?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": null,
+      "source": "Cointelegraph"
+    },
+    {
+      "title": "Vitalik Buterin envisions ‘one-click’ Ether staking for institutions",
+      "url": "https://cointelegraph.com/news/vitalik-distributed-validator-technology-lite-simplify-institutional-eth-staking?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": null,
+      "source": "Cointelegraph"
+    },
+    {
+      "title": "US prosecutors seek Roman Storm retrial after mixed verdict",
+      "url": "https://cointelegraph.com/news/us-prosecutors-seek-retrial-tornado-cash-roman-storm-after-mixed-verdict?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": null,
+      "source": "Cointelegraph"
+    }
+  ],
+  "x_trending": {
+    "summary": "Dernières tendances X (crypto/bitcoin) : bullish, régulation. 50 tweets récents.",
+    "themes": []
+  },
+  "catalysts": [
+    "[CoinDesk] CoinDesk: Bitcoin, Ethereum, Crypto News and Price Data",
+    "[CoinDesk] CoinDesk: Bitcoin, Ethereum, Crypto News and Price Data",
+    "[CoinDesk] Bitcoin climbs to $71,000 as dollar, oil weaken after Trump comments on Iran war",
+    "[CoinDesk] Strategy logs record STRC equity issuance on Monday, buys estimated 1,420 bitcoin",
+    "[CoinDesk] Hyperliquid’s tokenized futures hit $1.2B as traders bet on oil, stocks",
+    "[CoinDesk] Ether treasury firm Bitmine moves $19.5 million in ETH to Coinbase Prime",
+    "[CoinDesk] Pudgy Penguins launches its 'Club Penguin' moment, and the game doesn't feel like crypto at all",
+    "[CoinDesk] Here's how traders and big buyers stepped in to keep bitcoin steady during the oil shock",
+    "[CoinDesk] AI tokens rally after Nvidia open-source agent plan, beat CoinDesk 20",
+    "[CoinDesk] Bhutan sells $42.5 million of bitcoin in 2026 as national stack drops 58% from peak",
+    "[CoinDesk] Ether, solana, XRP jump higher as Trump signals Iran war nearing end",
+    "[CoinDesk] Bitcoin jumps past $70,000 as war volatility fades",
+    "[CoinDesk] Trump's threat to block Congress over voter-ID law leaves crypto bill on shakier ground",
+    "[CoinDesk] How the war in Iran and trader positioning could be behind the surge in Circle's stock",
+    "[CoinDesk] Crypto and stocks add to gains as Trump says Iran war could be over soon",
+    "[CoinDesk] Bitcoin could be the big winner if the U.S.-Iran conflict drags on for months",
+    "[CoinDesk] Bitcoin rises to $69,000, stocks reverse big early losses, as crude oil sinks back below $100",
+    "[CoinDesk] Josh Swihart's Zcash Open Development Lab raises $25 million in seed funding",
+    "[CoinDesk] Global insurance broker Aon tests stablecoin payments with Coinbase, Paxos",
+    "[CoinDesk] Stock market volatility hits one-year high, possibly marking bitcoin bottom",
+    "[The Block] The Block",
+    "[The Block] The Block | Bitcoin, Ethereum, and Crypto News",
+    "[The Block] Bernstein sees 70% upside for Circle as stablecoin adoption expands across payments and AI",
+    "[The Block] Trust Wallet launches automatic Address Poisoning Protection to help prevent increasingly common attack",
+    "[The Block] South Korean prosecutors sell $21.5 million in seized bitcoin once lost to phishing attack",
+    "[X] Dernières tendances X (crypto/bitcoin) : bullish, régulation. 50 tweets récents."
+  ]
+}

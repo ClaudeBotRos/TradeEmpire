@@ -1,0 +1,86 @@
+{
+  "timestamp_utc": "2026-03-09T18:18:46.499Z",
+  "symbol": "ARBUSDT",
+  "timeframe": "4h",
+  "direction": "LONG",
+  "setup_name": "breakout_retest",
+  "entry": {
+    "type": "limit",
+    "price": 0.09
+  },
+  "invalid": {
+    "type": "price",
+    "price": 0.09,
+    "description": "invalidation level"
+  },
+  "targets": [
+    {
+      "price": 0.09,
+      "rr": 1.2
+    },
+    {
+      "price": 0.1,
+      "rr": 2.4
+    }
+  ],
+  "confidence": 0.75,
+  "evidence": {
+    "technicals": [
+      "trend up",
+      "support levels",
+      "resistance levels"
+    ],
+    "sentiment": [
+      "sentiment neutral",
+      "pression neutre",
+      "bullish mentions"
+    ],
+    "smart_money": [
+      "funding neutral"
+    ],
+    "intel": [
+      "narrative alignée avec Trend Cards (Intel)"
+    ]
+  },
+  "risk": {
+    "max_loss_usd": 50,
+    "position_size_usd": 500,
+    "leverage": 1
+  },
+  "constraints": {
+    "max_positions_open": 3
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    },
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    },
+    {
+      "type": "stub",
+      "ref": "sentiment_digest"
+    }
+  ],
+  "status": "REJECTED",
+  "trade_id": "idea_ARBUSDT_20260309181846",
+  "description": "LONG ARBUSDT sur timeframe 4h. Entrée proposée: 0.09, invalidation si le prix atteint 0.09 (niveau d’invalidation). Objectif 1: 0.09 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : X : bullish, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. Cry….",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "X : bullish, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "themes": [
+      "bullish",
+      "régulation",
+      "DeFi",
+      "cryptodaily"
+    ],
+    "aligns_with_narrative": true,
+    "source": "data/dashboard/intel/trend_cards.json"
+  }
+}

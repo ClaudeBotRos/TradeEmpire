@@ -1,0 +1,9 @@
+{
+  "last_updated_utc": "2026-03-10T07:15:57.017Z",
+  "source": "binance-copy-trading-leaderboard-api.p.rapidapi.com",
+  "leaderboard": null,
+  "portfolios": [],
+  "errors": [
+    "leaderboard: Endpoint non disponible ou abonnement"
+  ]
+}

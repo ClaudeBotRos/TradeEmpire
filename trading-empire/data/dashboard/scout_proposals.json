@@ -1,0 +1,53 @@
+{
+  "timestamp_utc": "2026-03-10T14:26:00.479Z",
+  "current_watchlist": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "DOGEUSDT",
+    "XRPUSDT",
+    "AVAXUSDT",
+    "LINKUSDT",
+    "ARBUSDT",
+    "OPUSDT",
+    "SUIUSDT",
+    "ADAUSDT",
+    "MATICUSDT",
+    "DOTUSDT",
+    "ATOMUSDT",
+    "LTCUSDT",
+    "BNBUSDT",
+    "NEARUSDT",
+    "INJUSDT"
+  ],
+  "timeframes_scanned": [
+    "4h"
+  ],
+  "proposals": [
+    {
+      "symbol": "TIAUSDT",
+      "timeframe": null,
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension"
+    },
+    {
+      "symbol": "APTUSDT",
+      "timeframe": null,
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension"
+    },
+    {
+      "symbol": "FILUSDT",
+      "timeframe": null,
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension"
+    },
+    {
+      "symbol": "STXUSDT",
+      "timeframe": null,
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension"
+    }
+  ],
+  "summary": "Scout : 4 proposition(s) (paires hors watchlist, timeframes supplémentaires). Intel : X : bullish, régulation. 5 vidéo(s) : Bitcoin, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Cr"
+}

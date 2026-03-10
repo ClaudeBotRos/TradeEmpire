@@ -1,0 +1,21 @@
+{
+  "trade_id": "idea_ATOMUSDT_20260310071604",
+  "outcome": "revoked",
+  "approved_at": "2026-03-10T07:16:04.936Z",
+  "symbol": "ATOMUSDT",
+  "direction": "SHORT",
+  "entry": 1.93,
+  "invalid": 1.95,
+  "targets": [
+    {
+      "price": 1.9,
+      "rr": 1.2
+    },
+    {
+      "price": 1.88,
+      "rr": 2.4
+    }
+  ],
+  "note": "Ordre annulé avant exécution (recovery ou manuel) — pas une perte, action saine.",
+  "closed_at": "2026-03-10"
+}

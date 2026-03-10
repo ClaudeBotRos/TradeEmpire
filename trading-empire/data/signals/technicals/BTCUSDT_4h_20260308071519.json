@@ -1,0 +1,25 @@
+{
+  "timestamp_utc": "2026-03-08T07:15:19.899Z",
+  "symbol": "BTCUSDT",
+  "timeframe": "4h",
+  "trend": "up",
+  "levels": {
+    "support": [
+      62510.28,
+      63030
+    ],
+    "resistance": [
+      68698.7,
+      69988.83,
+      74050
+    ]
+  },
+  "volatility": 2187.207544,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

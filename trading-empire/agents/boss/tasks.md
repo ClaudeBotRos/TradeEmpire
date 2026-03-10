@@ -1,6 +1,12 @@
 # Tâches BOSS (V1+)
 
-- Tâche nocturne (1h–7h) : amélioration du dashboard (spec/config), consolidation des besoins API.
-- Lire le rapport Tibo (`data/dashboard/tibo_report.json`) pour le suivi exécution (ordres placés, TP en attente, solde).
+TradeEmpire est à but lucratif ; l’objectif est de **faire des bénéfices**. Le BOSS et chaque agent y contribuent. Les agents peuvent suggérer des pistes de bénéfices aux autres (trading ou autre) ; le BOSS en tient compte (charte : `docs/TRADEEMPIRE_CHARTER.md`).
+
+- **Rationalisation coûts X (Daphnée)** : Déterminer la quantité de tweets que Daphnée a le droit de scraper (max_results) en fonction de la balance. Lire `workspace/TradeEmpire/trading-empire/data/dashboard/costs.json` : calculer la balance (gains.total_gains_usd ou trading.realized_pnl_usd moins total des coûts API + fixes + fees). Éditer `workspace/TradeEmpire/trading-empire/dashboard/config/intel_x_limits.json` : `x_max_results_intel` (Daphnée, 5–100), `x_max_results_sentiment` (5–50), `x_max_results_agent_status` (5–20). Si balance négative ou faible : réduire (ex. 15, 10, 5). Si balance positive et confortable : autoriser jusqu’à 50, 20, 10. Objectif : ne pas dépenser plus en API X qu’on ne gagne.
+- **Tâche nocturne (01:00)** : consolidation — amélioration du dashboard (spec/config), priorisation des besoins API, Kanban, brief de nuit. Pas de vision/expansion la nuit (découplée).
+- **Tâche visionnaire / expansion (09:45, avant 10h)** : en journée. Accès au solde et au PnL (boss_vision_context.json). Chercher toutes les méthodes pour faire fructifier le capital ; écrire dans boss_expansion_proposals.md et boss_proposals.json. Résumé court (WhatsApp possible).
+- **Au-delà du trading** : le BOSS ne se contente pas du trading (TradeEmpire). Il a le droit de s’étendre à d’autres activités qu’il peut créer (nouveaux domaines, nouveaux flux, nouvelles sources de revenus ou d’efficacité).
+- **Création d’agents** : quand le besoin s’en fait sentir, le BOSS peut **créer un agent** directement : écrire `data/dashboard/boss_create_agent_spec.json` (agent_id, display_name, skills_short, soul_md, tasks_md, tools_md ; optionnel cron_schedule, cron_message) puis exécuter `node scripts/create-agent-from-spec.js`. Le nouvel agent est créé sous `agents/<id>/` et ajouté au team dashboard ; un snippet cron suggéré est écrit si demandé. Il peut aussi seulement proposer via boss_proposals.json (type `agent`) pour validation humaine.
+- Lire le rapport Tibo (`data/dashboard/tibo_report.json`) pour le suivi exécution (nuit et jour).
 - Orientation et priorités pour les autres agents ; arbitrage en cas de conflit.
 - Ne jamais trader.

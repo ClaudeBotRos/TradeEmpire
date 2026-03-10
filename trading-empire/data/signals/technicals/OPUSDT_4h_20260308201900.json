@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-03-08T20:19:00.217Z",
+  "symbol": "OPUSDT",
+  "timeframe": "4h",
+  "trend": "range",
+  "levels": {
+    "support": [
+      0.1092,
+      0.1132,
+      0.1143
+    ],
+    "resistance": [
+      0.13,
+      0.1323,
+      0.1338,
+      0.1357
+    ]
+  },
+  "volatility": 0.004896,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

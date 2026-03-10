@@ -14,8 +14,11 @@
     "MATICUSDT",
     "DOTUSDT",
     "ATOMUSDT",
-    "LTCUSDT"
+    "LTCUSDT",
+    "BNBUSDT",
+    "NEARUSDT",
+    "INJUSDT"
   ],
-  "updated_at": "2026-03-02",
+  "updated_at": "2026-03-10",
   "note": "Grosses crypto (BTC, ETH) + petites/alt pour scan technique, smart_money et sentiment. Modifiable depuis le dashboard ou ce fichier."
 }

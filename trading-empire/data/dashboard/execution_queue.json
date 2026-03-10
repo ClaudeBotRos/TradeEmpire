@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-10T14:17:26.596Z",
+  "built_at": 1773152246596,
+  "entries": [
+    {
+      "trade_id": "idea_LINKUSDT_20260308200815",
+      "symbol": "LINKUSDT",
+      "side": "BUY",
+      "close_side": "SELL",
+      "entry_price": 8.5,
+      "invalid_price": 8.41,
+      "target_price": 8.6,
+      "leverage": 5,
+      "quantity": 2.94,
+      "margin_usd": 4.997999999999999,
+      "notional_usd": 24.99
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "trade_id": "idea_AVAXUSDT_20260307071558",
+  "symbol": "AVAXUSDT",
+  "direction": "LONG",
+  "score_global": 80,
+  "scores": {
+    "macro_trend": 1,
+    "structure_htf": 1,
+    "volume": 0,
+    "funding": 1,
+    "sentiment": 1,
+    "rr": 0.6,
+    "invalidation": 1,
+    "confidence": 0.7
+  },
+  "entry": 8.88,
+  "invalid": 8.79,
+  "targets": [
+    {
+      "price": 8.99,
+      "rr": 1.2
+    },
+    {
+      "price": 9.09,
+      "rr": 2.4
+    }
+  ],
+  "timestamp_utc": "2026-03-07T07:15:58.650Z",
+  "description": "LONG AVAXUSDT sur timeframe 4h. Entrée proposée: 8.88, invalidation si le prix atteint 8.79 (niveau d’invalidation). Objectif 1: 8.99 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : Dernières tendances X (crypto/bitcoin) : ETF / spot, bullish, bearish, régulation. 50 tweets récents. | Reddit: CryptoCu….",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "Dernières tendances X (crypto/bitcoin) : ETF / spot, bullish, bearish, régulation. 50 tweets récents. | Reddit: CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarkets, crypto_currency, EarnCryptocurrency, ethtrader, btc, CryptoCurrencyTrading, cryptocurrency_ja, dogecoin, Buttcoin, Cryp | CryptoDaily: How to store cryptocurrency securely in 2026 — Zero-Interest Crypto Loans in 2026: Borrow Against Bitcoin With Clapp — Clarity Act and GENIUS Act Explained: What the New U.S. Crypto Rules Mean for Fou",
+    "themes": [
+      "bullish",
+      "bearish",
+      "ETF",
+      "régulation",
+      "reddit",
+      "cryptodaily"
+    ],
+    "aligns_with_narrative": null,
+    "source": "data/dashboard/intel/trend_cards.json"
+  },
+  "status": "APPROVED"
+}

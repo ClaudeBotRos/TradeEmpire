@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-03-10T14:31:14.969Z",
+  "symbol": "ARBUSDT",
+  "timeframe": "4h",
+  "trend": "up",
+  "levels": {
+    "support": [
+      0.0883,
+      0.0909,
+      0.0934
+    ],
+    "resistance": [
+      0.1012,
+      0.1074,
+      0.1087,
+      0.113
+    ]
+  },
+  "volatility": 0.004029,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

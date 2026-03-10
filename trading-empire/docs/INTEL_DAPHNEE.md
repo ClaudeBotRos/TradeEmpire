@@ -3,7 +3,7 @@
 Agent **Daphnée** documente le module OpenClaw Intel avec des **Trend Cards** issues de :
 
 1. **X (Twitter)** : dernières tendances crypto/bitcoin (API v2 search recent), thèmes dérivés (ETF, bullish/bearish, halving, régulation, DeFi, etc.).
-2. **YouTube** : top vidéos crypto du jour — URLs listées dans `dashboard/config/intel_youtube_urls.json` ; pour chaque URL, le script récupère le transcript via la skill **youtube-watcher** (yt-dlp) et produit une carte avec résumé.
+2. **YouTube** : **Scrape quotidien** — récupération du **top 30–50 vidéos crypto** (veille si API Google : `order=date` + `publishedAfter`). Une carte n’est créée que si un **transcript** est disponible (sinon aucun agent ne peut utiliser le contenu). Avec les transcripts, Daphnée pourra ensuite éliminer les vidéos inutiles et le placement crypto par influenceurs pour une vue claire de la cryptosphère YouTube. Limites configurables : `INTEL_YOUTUBE_VIDEOS_PER_DAY` (défaut 50), `INTEL_YOUTUBE_MAX_CARDS` (défaut 30). Transcript : skill **youtube-watcher** (yt-dlp), puis npm **youtube-transcript**, puis **yt-dlp** en direct.
 
 ## Fichiers
 

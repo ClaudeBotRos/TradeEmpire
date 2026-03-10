@@ -32,6 +32,7 @@ const AGENTS = [
   { id: 'orchestrator', script: 'orchestrator-scan.js', validate: validateOrchestrator },
   { id: 'risk_journal', script: 'risk-journal-scan.js', validate: validateRiskJournal },
   { id: 'intel', script: 'intel-scan.js', validate: validateIntel },
+  { id: 'news_scan', script: 'news-scan.js', validate: validateNewsScan },
   { id: 'chase', script: 'chase-tracker.js', validate: validateChase },
 ];
 
@@ -161,6 +162,22 @@ function validateIntel() {
   return { ok: true, detail: `${data.cards.length} carte(s) (X: ${data.cards.filter((c) => c.source === 'x').length}, YouTube: ${data.cards.filter((c) => c.source === 'youtube').length})` };
 }
 
+function validateNewsScan() {
+  const reportPath = path.join(DATA.intel, 'news_scan_report.json');
+  if (!fs.existsSync(reportPath)) return { ok: false, message: 'news_scan_report.json absent (data/dashboard/intel/)' };
+  let data;
+  try {
+    data = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+  } catch (_) {
+    return { ok: false, message: 'news_scan_report.json invalide' };
+  }
+  if (!data.timestamp_utc) return { ok: false, message: 'Champ timestamp_utc manquant' };
+  if (!Array.isArray(data.catalysts)) return { ok: false, message: 'Champ catalysts (array) manquant' };
+  const hasNews = (data.rss_aggregate && data.rss_aggregate.length) || (data.cryptodaily && data.cryptodaily.length) || data.catalysts.length > 0;
+  if (!hasNews && !data.catalysts.length) return { ok: false, message: 'Aucun catalyst ni source RSS/cryptodaily' };
+  return { ok: true, detail: `${data.catalysts.length} catalyst(s), source=${data.source || 'rss_aggregate'}` };
+}
+
 function validateChase() {
   if (!fs.existsSync(DATA.tracker)) return { ok: false, message: 'data/tracker/ absent' };
   const outcomes = path.join(DATA.tracker, 'outcomes');
@@ -189,9 +206,9 @@ function validateWire() {
   }
   if (!Array.isArray(list)) return { ok: false, message: 'agent_exchanges.json doit être un tableau' };
   const morning = list.filter((e) => e.context && e.context.window === 'morning_brief');
-  if (morning.length < 6) return { ok: false, message: `Wire: attendu au moins 6 entrées morning_brief (Intel + 5 agents), trouvé ${morning.length}` };
+  if (morning.length < 7) return { ok: false, message: `Wire: attendu au moins 7 entrées morning_brief (Intel + Parvati + 5 agents), trouvé ${morning.length}` };
   const agents = new Set(morning.map((e) => e.from_agent));
-  const expected = new Set(['INTEL', 'TECHNICALS', 'SMART_MONEY', 'SENTIMENT_X', 'ORCHESTRATOR', 'RISK_JOURNAL']);
+  const expected = new Set(['INTEL', 'NEWS_SCAN', 'TECHNICALS', 'SMART_MONEY', 'SENTIMENT_X', 'ORCHESTRATOR', 'RISK_JOURNAL']);
   for (const a of expected) {
     if (!agents.has(a)) return { ok: false, message: `Wire: aucun échange from ${a}` };
   }
@@ -244,7 +261,7 @@ function main() {
 
   const toRun = args.length ? AGENTS.filter((a) => args.includes(a.id)) : AGENTS;
   if (toRun.length === 0) {
-    console.error('Usage: node test-agents.js [--full] [technicals|smart_money|sentiment|orchestrator|risk_journal|intel|chase]...');
+    console.error('Usage: node test-agents.js [--full] [technicals|smart_money|sentiment|orchestrator|risk_journal|intel|news_scan|chase]...');
     process.exit(1);
   }
 

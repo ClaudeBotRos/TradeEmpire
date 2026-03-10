@@ -1,0 +1,14 @@
+{
+  "last_updated_utc": "2026-03-10T07:15:19.002Z",
+  "source": "reddit34.p.rapidapi.com",
+  "endpoint": "getSimilarSubreddits",
+  "subreddits": [],
+  "by_query": {
+    "cryptocurrency": [],
+    "bitcoin": [],
+    "ethereum": [],
+    "CryptoCurrency": [],
+    "defi": []
+  },
+  "count": 0
+}

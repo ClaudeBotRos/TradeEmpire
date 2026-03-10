@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-03-02T13:57:30.906Z",
+  "timestamp_utc": "2026-03-10T08:40:23.525Z",
   "agents": {
     "TECHNICALS": {
       "status": "ok",
@@ -15,6 +15,16 @@
           "name": "technicals-scan.js",
           "status": "ok",
           "detail": "Script exécuté avec succès"
+        },
+        {
+          "name": "tradingview-events-calendar.js",
+          "status": "ok",
+          "detail": "Calendrier événements par symbole (RapidAPI)"
+        },
+        {
+          "name": "crypto-indicators-rapidapi.js",
+          "status": "ok",
+          "detail": "RSI, MACD, EMA (RapidAPI)"
         }
       ],
       "message": "APIs et script OK"
@@ -30,7 +40,7 @@
         {
           "name": "Hyperliquid (vaultSummaries)",
           "status": "ok",
-          "detail": "OK (2)"
+          "detail": "OK (0)"
         }
       ],
       "competencies": [
@@ -38,6 +48,16 @@
           "name": "smart-money-scan.js",
           "status": "ok",
           "detail": "Script exécuté avec succès"
+        },
+        {
+          "name": "dexscreener-top-traders.js",
+          "status": "ok",
+          "detail": "Dexscreener holders (RapidAPI)"
+        },
+        {
+          "name": "binance-copy-leaderboard.js",
+          "status": "ok",
+          "detail": "Binance Copy leaderboard (RapidAPI)"
         }
       ],
       "message": "APIs et script OK"
@@ -138,9 +158,24 @@
           "name": "intel-scan.js",
           "status": "ok",
           "detail": "Script exécuté avec succès"
+        },
+        {
+          "name": "economic-calendar-scan.js",
+          "status": "ok",
+          "detail": "Calendrier éco (investing.com)"
+        },
+        {
+          "name": "cryptodaily-news.js",
+          "status": "ok",
+          "detail": "CryptoDaily (RapidAPI)"
+        },
+        {
+          "name": "reddit-intel.js",
+          "status": "ok",
+          "detail": "Reddit subreddits (RapidAPI)"
         }
       ],
-      "message": "Trend Cards X + YouTube OK"
+      "message": "Trend Cards X + YouTube + calendrier éco OK"
     },
     "CHASE": {
       "status": "ok",
@@ -169,6 +204,141 @@
         }
       ],
       "message": "Sync outcomes + post-mortem + feedback OK"
+    },
+    "TIBO": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "ASTER (futures)",
+          "status": "ok",
+          "detail": "API key/secret configurés"
+        },
+        {
+          "name": "execution_config.json",
+          "status": "ok",
+          "detail": "Config marge / levier"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "executor-run.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        },
+        {
+          "name": "executor-tp-scrutator.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        }
+      ],
+      "message": "Executor + Scrutator OK"
+    },
+    "OPPORTUNITY_SCOUT": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "scout_proposals.json",
+          "status": "ok",
+          "detail": "Propositions Clarissa (Scout)"
+        },
+        {
+          "name": "scout_validation_status.json",
+          "status": "ok",
+          "detail": "Statut validation"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "scout-validation-status.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        }
+      ],
+      "message": "Clarissa (Scout) — Données et script OK"
+    },
+    "RECOVERY_ANALYST": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "recovery_report.json",
+          "status": "ok",
+          "detail": "Rapport Killian (Recovery)"
+        },
+        {
+          "name": "recovery_intraday_report.json",
+          "status": "ok",
+          "detail": "Revue intraday"
+        },
+        {
+          "name": "data/tracker/outcomes",
+          "status": "ok",
+          "detail": "Outcomes Chase"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "Recovery (Killian)",
+          "status": "ok",
+          "detail": "Agrégation outcomes + intraday"
+        }
+      ],
+      "message": "Killian (Recovery) — Données OK"
+    },
+    "YIELD_FARMER": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "yield_farmer_report.json",
+          "status": "ok",
+          "detail": "Rapport Gary (Yield)"
+        },
+        {
+          "name": "uniswap_v3_arbitrum_pools.json",
+          "status": "ok",
+          "detail": "Pools Arbitrum (DeFiLlama)"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "yield-fetch-pools-arbitrum.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        },
+        {
+          "name": "yield-report.js",
+          "status": "ok",
+          "detail": "Rapport Yield"
+        }
+      ],
+      "message": "Gary (Yield) — Données et scripts OK"
+    },
+    "HYPERLIQUID_ANALYST": {
+      "status": "ok",
+      "api_connections": [
+        {
+          "name": "commodities_meta.json",
+          "status": "ok",
+          "detail": "Actifs tokenisés (main + HIP-3)"
+        },
+        {
+          "name": "hyperliquid_analyst_report.json",
+          "status": "ok",
+          "detail": "Rapport Eva (Hyperliquid)"
+        }
+      ],
+      "competencies": [
+        {
+          "name": "hyperliquid-commodities-scan.js",
+          "status": "ok",
+          "detail": "Script exécuté avec succès"
+        },
+        {
+          "name": "hyperliquid-analyst-trend.js",
+          "status": "ok",
+          "detail": "Tendance générée"
+        }
+      ],
+      "message": "Eva (Hyperliquid) — Données et scripts OK"
     }
   }
 }

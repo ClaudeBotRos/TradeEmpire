@@ -1,0 +1,22 @@
+{
+  "trade_id": "idea_DOTUSDT_20260307071558",
+  "outcome": "loss",
+  "approved_at": "2026-03-07T08:32:35.314Z",
+  "symbol": "DOTUSDT",
+  "direction": "LONG",
+  "entry": 1.47,
+  "invalid": 1.46,
+  "targets": [
+    {
+      "price": 1.49,
+      "rr": 1.2
+    },
+    {
+      "price": 1.51,
+      "rr": 2.4
+    }
+  ],
+  "note": "SL détecté (Chase via ASTER)",
+  "exit_price": 1.458,
+  "closed_at": "2026-03-08"
+}

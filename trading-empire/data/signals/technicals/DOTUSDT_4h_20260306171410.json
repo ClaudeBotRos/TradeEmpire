@@ -1,0 +1,29 @@
+{
+  "timestamp_utc": "2026-03-06T17:14:10.519Z",
+  "symbol": "DOTUSDT",
+  "timeframe": "4h",
+  "trend": "up",
+  "levels": {
+    "support": [
+      1.225,
+      1.26,
+      1.453,
+      1.458,
+      1.473
+    ],
+    "resistance": [
+      1.372,
+      1.398,
+      1.681,
+      1.752
+    ]
+  },
+  "volatility": 0.129121,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

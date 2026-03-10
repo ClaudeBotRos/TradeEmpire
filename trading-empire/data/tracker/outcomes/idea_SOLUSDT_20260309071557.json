@@ -1,0 +1,21 @@
+{
+  "trade_id": "idea_SOLUSDT_20260309071557",
+  "outcome": "revoked",
+  "approved_at": "2026-03-09T07:15:57.267Z",
+  "symbol": "SOLUSDT",
+  "direction": "LONG",
+  "entry": 80.26,
+  "invalid": 79.46,
+  "targets": [
+    {
+      "price": 81.22,
+      "rr": 1.2
+    },
+    {
+      "price": 82.19,
+      "rr": 2.4
+    }
+  ],
+  "note": "Ordre annulé avant exécution (recovery ou manuel) — pas une perte, action saine.",
+  "closed_at": "2026-03-09"
+}

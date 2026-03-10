@@ -1,0 +1,21 @@
+{
+  "trade_id": "idea_DOGEUSDT_20260309071557",
+  "outcome": "revoked",
+  "approved_at": "2026-03-09T07:15:57.267Z",
+  "symbol": "DOGEUSDT",
+  "direction": "SHORT",
+  "entry": 0.1,
+  "invalid": 0.11,
+  "targets": [
+    {
+      "price": 0.1,
+      "rr": 1.2
+    },
+    {
+      "price": 0.1,
+      "rr": 2.4
+    }
+  ],
+  "note": "Ordre annulé avant exécution (recovery ou manuel) — pas une perte, action saine.",
+  "closed_at": "2026-03-09"
+}

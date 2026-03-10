@@ -1,0 +1,7 @@
+{
+  "trade_id": "idea_ETHUSDT_20260309083019",
+  "status": "APPROVED",
+  "timestamp_utc": "2026-03-09T08:30:19.504Z",
+  "reason": "Conforms to risk_rules",
+  "idea_ref": "data/ideas/idea_ETHUSDT_20260309083019.json"
+}

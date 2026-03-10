@@ -28,23 +28,13 @@ function loadWatchlist() {
   }
 }
 
+const { getCachedXPosts } = require('./x-posts-cache.js');
 const WATCHLIST = loadWatchlist();
 const SIGNALS_DIR = path.join(ROOT, 'data', 'signals', 'sentiment');
 
 async function fetchTwitterRecent() {
-  const token = process.env.X_BEARER_TOKEN;
-  if (!token) return null;
-  const query = encodeURIComponent('crypto OR bitcoin OR BTC -is:retweet lang:en');
-  const url = `https://api.twitter.com/2/tweets/search/recent?query=${query}&max_results=20&tweet.fields=created_at,text`;
-  try {
-    const res = await fetch(url, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    if (!res.ok) return null;
-    return await res.json();
-  } catch (_) {
-    return null;
-  }
+  const r = await getCachedXPosts();
+  return r.data || null;
 }
 
 function deriveNarratives(tweets) {

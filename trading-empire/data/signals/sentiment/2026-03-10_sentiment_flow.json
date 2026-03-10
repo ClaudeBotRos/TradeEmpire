@@ -1,0 +1,68 @@
+{
+  "timestamp_utc": "2026-03-10T07:16:04.724Z",
+  "date": "2026-03-10",
+  "narratives": [
+    "mixed_or_neutral"
+  ],
+  "sentiment_by_symbol": {
+    "BTCUSDT": "neutral",
+    "ETHUSDT": "neutral",
+    "SOLUSDT": "neutral",
+    "DOGEUSDT": "neutral",
+    "XRPUSDT": "neutral",
+    "AVAXUSDT": "neutral",
+    "LINKUSDT": "neutral",
+    "ARBUSDT": "neutral",
+    "OPUSDT": "neutral",
+    "SUIUSDT": "neutral",
+    "ADAUSDT": "neutral",
+    "MATICUSDT": "neutral",
+    "DOTUSDT": "neutral",
+    "ATOMUSDT": "neutral",
+    "LTCUSDT": "neutral"
+  },
+  "risk_signals": [],
+  "sources": [
+    {
+      "type": "x",
+      "ref": "twitter_api_v2_search_recent"
+    }
+  ],
+  "low_confidence": false,
+  "enriched_at": 1773126964724,
+  "funding_rate_by_symbol": {
+    "BTCUSDT": 0.0000032,
+    "ETHUSDT": 0.00006893,
+    "SOLUSDT": 0.00007059,
+    "DOGEUSDT": -0.00007595,
+    "XRPUSDT": 0.00002014,
+    "AVAXUSDT": 0.0001,
+    "LINKUSDT": 0.0001,
+    "ARBUSDT": 0.0001,
+    "OPUSDT": -0.00003905,
+    "SUIUSDT": -0.0000228,
+    "ADAUSDT": -0.0000498,
+    "MATICUSDT": 0.0001,
+    "DOTUSDT": -0.00019732,
+    "ATOMUSDT": -0.0002968,
+    "LTCUSDT": 0.00008065
+  },
+  "buy_sell_pressure_by_symbol": {
+    "BTCUSDT": "neutre",
+    "ETHUSDT": "neutre",
+    "SOLUSDT": "neutre",
+    "DOGEUSDT": "neutre",
+    "XRPUSDT": "neutre",
+    "AVAXUSDT": "neutre",
+    "LINKUSDT": "neutre",
+    "ARBUSDT": "neutre",
+    "OPUSDT": "neutre",
+    "SUIUSDT": "neutre",
+    "ADAUSDT": "neutre",
+    "MATICUSDT": "neutre",
+    "DOTUSDT": "acheteurs",
+    "ATOMUSDT": "acheteurs",
+    "LTCUSDT": "neutre"
+  },
+  "interpretation": "Funding > 0 : vendeurs (longs paient, shorts dominants). Funding < 0 : acheteurs (shorts paient, longs dominants). À croiser avec sentiment X et techniques."
+}

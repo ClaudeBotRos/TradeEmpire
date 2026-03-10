@@ -1,0 +1,21 @@
+{
+  "trade_id": "idea_AVAXUSDT_20260308071551",
+  "outcome": "revoked",
+  "approved_at": "2026-03-08T07:15:51.942Z",
+  "symbol": "AVAXUSDT",
+  "direction": "LONG",
+  "entry": 8.42,
+  "invalid": 8.34,
+  "targets": [
+    {
+      "price": 8.52,
+      "rr": 1.2
+    },
+    {
+      "price": 8.62,
+      "rr": 2.4
+    }
+  ],
+  "note": "Ordre annulé avant exécution (recovery ou manuel) — pas une perte, action saine.",
+  "closed_at": "2026-03-09"
+}

@@ -1,0 +1,21 @@
+{
+  "trade_id": "idea_DOTUSDT_20260307083019",
+  "outcome": "revoked",
+  "approved_at": "2026-03-07T08:32:35.314Z",
+  "symbol": "DOTUSDT",
+  "direction": "LONG",
+  "entry": 1.47,
+  "invalid": 1.46,
+  "targets": [
+    {
+      "price": 1.49,
+      "rr": 1.2
+    },
+    {
+      "price": 1.51,
+      "rr": 2.4
+    }
+  ],
+  "note": "Ordre annulé avant exécution (recovery ou manuel) — pas une perte, action saine.",
+  "closed_at": "2026-03-09"
+}

@@ -16,21 +16,53 @@ const RISK_RULES_PATH = path.join(ROOT, 'rules', 'risk_rules.md');
 
 const MAX_LOSS_PER_TRADE = 50;
 const MAX_LOSS_PER_DAY = 150;
-const MAX_LEVERAGE = 2;
+const MAX_LEVERAGE = 5;
 const MIN_RR = 1.2;
+const MIN_RR_AFTER_LOSS = 1.2;
+const MAX_LEVERAGE_AFTER_LOSS = 5;
+
+let chaseFeedbackLoader;
+try {
+  chaseFeedbackLoader = require('./chase-feedback-loader.js');
+} catch (_) {
+  chaseFeedbackLoader = null;
+}
 
 function parseRiskRules() {
   if (!fs.existsSync(RISK_RULES_PATH)) {
-    return { maxLossPerTrade: MAX_LOSS_PER_TRADE, maxLeverage: MAX_LEVERAGE, minRR: MIN_RR };
+    return applyChaseTightening({
+      maxLossPerTrade: MAX_LOSS_PER_TRADE,
+      maxLeverage: MAX_LEVERAGE,
+      maxLeverageHighConfidence: 10,
+      minRR: MIN_RR,
+    });
   }
   const content = fs.readFileSync(RISK_RULES_PATH, 'utf8');
   const maxLossMatch = content.match(/Max perte par trade\s*:\s*(\d+)/i);
   const leverageMatch = content.match(/Leverage max\s*:\s*(\d+)/i);
+  const leverageHighMatch = content.match(/Leverage max\s*\([^)]*confiance[^)]*\)\s*:\s*(\d+)/i);
   const rrMatch = content.match(/R:R minimum\s*\(?ex\.\s*(\d+(?:\.\d+)?)/i);
-  return {
+  const baseLev = leverageMatch ? parseInt(leverageMatch[1], 10) : MAX_LEVERAGE;
+  const base = {
     maxLossPerTrade: maxLossMatch ? parseInt(maxLossMatch[1], 10) : MAX_LOSS_PER_TRADE,
-    maxLeverage: leverageMatch ? parseInt(leverageMatch[1], 10) : MAX_LEVERAGE,
+    maxLeverage: baseLev,
+    maxLeverageHighConfidence: leverageHighMatch ? parseInt(leverageHighMatch[1], 10) : Math.min(10, baseLev * 2),
     minRR: rrMatch ? parseFloat(rrMatch[1]) : MIN_RR,
+  };
+  return applyChaseTightening(base);
+}
+
+function applyChaseTightening(rules) {
+  if (!chaseFeedbackLoader || !chaseFeedbackLoader.hasRecentLosses()) return rules;
+  const lossCount = chaseFeedbackLoader.getLossCount();
+  if (lossCount < 1) return rules;
+  return {
+    ...rules,
+    minRR: Math.max(rules.minRR, MIN_RR_AFTER_LOSS),
+    maxLeverage: Math.min(rules.maxLeverage, MAX_LEVERAGE_AFTER_LOSS),
+    maxLeverageHighConfidence: rules.maxLeverageHighConfidence != null ? Math.min(rules.maxLeverageHighConfidence, MAX_LEVERAGE_AFTER_LOSS) : MAX_LEVERAGE_AFTER_LOSS,
+    _chase_tightened: true,
+    _chase_loss_count: lossCount,
   };
 }
 
@@ -52,8 +84,11 @@ function validateIdea(idea, rules) {
   if (idea.risk.max_loss_usd > rules.maxLossPerTrade) {
     return { status: 'REJECTED', reason: `max_loss_usd ${idea.risk.max_loss_usd} exceeds max ${rules.maxLossPerTrade}` };
   }
-  if ((idea.risk.leverage || 1) > rules.maxLeverage) {
-    return { status: 'REJECTED', reason: `leverage ${idea.risk.leverage} exceeds max ${rules.maxLeverage}` };
+  const effectiveMaxLeverage = (idea.confidence >= 0.8 && !rules._chase_tightened && rules.maxLeverageHighConfidence != null)
+    ? rules.maxLeverageHighConfidence
+    : rules.maxLeverage;
+  if ((idea.risk.leverage || 1) > effectiveMaxLeverage) {
+    return { status: 'REJECTED', reason: `leverage ${idea.risk.leverage} exceeds max ${effectiveMaxLeverage}` };
   }
   if (!idea.targets || !idea.targets.length) {
     return { status: 'NEED_MORE_INFO', reason: 'Missing targets' };
@@ -78,6 +113,9 @@ function validateIdea(idea, rules) {
 
 function main() {
   const rules = parseRiskRules();
+  if (rules._chase_tightened) {
+    console.log('Chase (post-mortem loss) : règles renforcées — min R:R', rules.minRR, ', max levier', rules.maxLeverage);
+  }
   const ideas = getProposedIdeas();
 
   if (!fs.existsSync(DECISIONS_DIR)) fs.mkdirSync(DECISIONS_DIR, { recursive: true });
@@ -124,7 +162,7 @@ function main() {
           entry: idea.entry?.price,
           invalid: idea.invalid?.price,
           targets: idea.targets,
-          note: 'Remplir outcome (win|loss|invalid_hit|target_hit), optionnel: exit_price, closed_at, note.',
+          note: 'Remplir outcome (win|loss|invalid_hit|target_hit|revoked), optionnel: exit_price, closed_at, note. revoked = ordre annulé avant exécution (pas une perte).',
         };
         fs.writeFileSync(outcomePath, JSON.stringify(outcome, null, 2), 'utf8');
       }

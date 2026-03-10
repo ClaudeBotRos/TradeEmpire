@@ -1,0 +1,29 @@
+{
+  "timestamp_utc": "2026-03-08T20:26:27.031Z",
+  "dryRun": false,
+  "steps": [
+    {
+      "step": "read_queue_before",
+      "count": 0
+    },
+    {
+      "step": "push_test_message",
+      "message_preview": "[TEST TradeEmpire] Si tu reçois ceci, le flux file → WhatsAp…"
+    },
+    {
+      "step": "send_whatsapp_pending",
+      "exitCode": 0,
+      "stdout": "{\"ok\":true,\"sent\":1,\"remaining\":0}"
+    },
+    {
+      "step": "read_queue_after",
+      "count": 0
+    }
+  ],
+  "queueBefore": 0,
+  "queueAfter": 0,
+  "sendStdout": "{\"ok\":true,\"sent\":1,\"remaining\":0}",
+  "sendStderr": null,
+  "sendExitCode": 0,
+  "conclusion": "OK: 1 message(s) envoyé(s) (openclaw message send a réussi). Vérifie ton WhatsApp pour le message [TEST TradeEmpire]."
+}

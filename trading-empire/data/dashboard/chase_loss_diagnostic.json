@@ -1,0 +1,87 @@
+{
+  "timestamp_utc": "2026-03-10T08:40:59.845Z",
+  "total_losses": 4,
+  "by_symbol": [
+    {
+      "symbol": "AVAXUSDT",
+      "loss_count": 1
+    },
+    {
+      "symbol": "DOTUSDT",
+      "loss_count": 1
+    },
+    {
+      "symbol": "ETHUSDT",
+      "loss_count": 1
+    },
+    {
+      "symbol": "LINKUSDT",
+      "loss_count": 1
+    }
+  ],
+  "by_direction": {
+    "LONG": 4,
+    "SHORT": 0
+  },
+  "by_timeframe": {
+    "4h": 4
+  },
+  "avg_confidence_losses": "0.70",
+  "losses": [
+    {
+      "trade_id": "idea_AVAXUSDT_20260307071558",
+      "symbol": "AVAXUSDT",
+      "direction": "LONG",
+      "closed_at": "2026-03-08",
+      "entry": 8.88,
+      "exit_price": 8.79,
+      "invalid": 8.79,
+      "confidence": 0.7,
+      "setup_name": "breakout_retest"
+    },
+    {
+      "trade_id": "idea_DOTUSDT_20260307071558",
+      "symbol": "DOTUSDT",
+      "direction": "LONG",
+      "closed_at": "2026-03-08",
+      "entry": 1.47,
+      "exit_price": 1.458,
+      "invalid": 1.46,
+      "confidence": 0.7,
+      "setup_name": "breakout_retest"
+    },
+    {
+      "trade_id": "idea_ETHUSDT_20260307071558",
+      "symbol": "ETHUSDT",
+      "direction": "LONG",
+      "closed_at": "2026-03-08",
+      "entry": 1955.95,
+      "exit_price": 1936.1,
+      "invalid": 1936.39,
+      "confidence": 0.7,
+      "setup_name": "breakout_retest"
+    },
+    {
+      "trade_id": "idea_LINKUSDT_20260307071558",
+      "symbol": "LINKUSDT",
+      "direction": "LONG",
+      "closed_at": "2026-03-08",
+      "entry": 8.67,
+      "exit_price": 8.564,
+      "invalid": 8.58,
+      "confidence": 0.7,
+      "setup_name": "breakout_retest"
+    }
+  ],
+  "possible_causes": [
+    "Signaux défaillants : vérifier les idées à faible confidence ou setup récurrent en perte.",
+    "Symboles les plus touchés : AVAXUSDT, DOTUSDT, ETHUSDT, LINKUSDT — renforcer les filtres ou le risk sur ces paires.",
+    "Timing : entrées trop précoces ou invalidation trop serrée (entry vs invalid).",
+    "Conditions marché : tendance contraire (LONG en baisse, SHORT en hausse) — aligner avec Intel/technicals."
+  ],
+  "recommendations": [
+    "Réviser les signaux (TECHNICALS, SMART_MONEY, SENTIMENT_X) sur les paires avec le plus de pertes.",
+    "Envisager un cooldown ou un levier réduit sur les symboles à pertes répétées.",
+    "Consulter les post-mortems (data/tracker/post_mortem/YYYY-MM-DD.md) pour le détail par trade."
+  ]
+}

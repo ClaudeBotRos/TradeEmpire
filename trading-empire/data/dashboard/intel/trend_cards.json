@@ -1,26 +1,84 @@
 {
-  "timestamp_utc": "2026-03-02T17:56:38.009Z",
-  "date": "2026-03-02",
+  "timestamp_utc": "2026-03-10T10:43:48.366Z",
+  "date": "2026-03-10",
+  "situation_summary": "X : bullish, régulation. 5 vidéo(s) : Bitcoin, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Cry… Reddit : pas de données.",
+  "situation_by_source": {
+    "x": "X : bullish, régulation.",
+    "youtube": "5 vidéo(s) : Bitcoin, altcoins.",
+    "macro": "Macro : pas d’événement du jour.",
+    "cryptodaily": "CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Cry…",
+    "reddit": "Reddit : pas de données."
+  },
   "cards": [
     {
-      "id": "x-2026-03-02-1772474198424",
+      "id": "x-2026-03-10-1773139428757",
       "source": "x",
       "title": "Tendances X — crypto du jour",
-      "summary": "Dernières tendances X (crypto/bitcoin) : bullish, DeFi. 25 tweets récents.",
+      "summary": "Dernières tendances X (crypto/bitcoin) : bullish, régulation. 50 tweets récents.",
       "url": null,
       "classification": "borderline",
-      "date": "2026-03-02",
-      "timestamp_utc": "2026-03-02T17:56:38.009Z"
+      "date": "2026-03-10",
+      "timestamp_utc": "2026-03-10T10:43:48.366Z"
     },
     {
-      "id": "macro-2026-03-02-1772474198504",
-      "source": "economic_calendar",
-      "title": "Calendrier économique (macro)",
-      "summary": "Aujourd'hui : US Test event aujourd'hui",
-      "url": "https://www.investing.com/economic-calendar",
+      "id": "yt-2026-03-10-0-1773139429847",
+      "source": "youtube",
+      "title": "BITCOIN PRICE JUST FLIPPED (This is Next)!!! - Bitcoin News Today, Ethereum & Altcoins",
+      "summary": "Welcome back to the crypto channel everyone. My name is Josh and right now Bitcoin is continuing the perfect bounce from this exact area of support after perfectly wiping out the downside liquidity just over the last 1 day. But we're now heading towards this upside liquidity which we are now wiping out at the same time as running into a crucial area of resistance in the immediate short term. An…",
+      "url": "https://www.youtube.com/watch?v=i7V9o6KPUgs",
       "classification": "borderline",
-      "date": "2026-03-02",
-      "timestamp_utc": "2026-03-02T17:56:38.009Z"
+      "date": "2026-03-10",
+      "timestamp_utc": "2026-03-10T10:43:48.366Z"
+    },
+    {
+      "id": "yt-2026-03-10-1-1773139430125",
+      "source": "youtube",
+      "title": "Bitcoin Reclaims $69K | Oil Surges & SPX Hits Our Target",
+      "summary": "Heat. Heat. [music] Heat. Heat. Heat. Heat. Heat. Heat. [music] [music] [music] >> [music] [music] >> Heat. Heat. Heat. Heat. Heat. [music] Heat. >> [music] [music] [music] [music] >> Heat. >> [music] >> Heat up here. [music] [music] Heat [music] up here. [music] >> [music] [music] >> Heat. Heat. [music] Heat. Heat. N. [music] [music] >> [music] [music] >> Heat Heat. Heat. [music] [music] Heat.…",
+      "url": "https://www.youtube.com/watch?v=BF0qa5JfC4Y",
+      "classification": "borderline",
+      "date": "2026-03-10",
+      "timestamp_utc": "2026-03-10T10:43:48.366Z"
+    },
+    {
+      "id": "yt-2026-03-10-2-1773139430378",
+      "source": "youtube",
+      "title": "Massive Bitcoin Long (Trump Insiders)",
+      "summary": "Which one's the best crypto asset? Best crypto asset. Which one's the best crypto asset? Best crypto asset. Which one's the best? Which one's the best? Which one's the best? Which one's the best? Which one? Which one's the best? Which one's the best? Which one's the best? Which one's the best? Which one's the best? Which one? What's the second best? >> This is Discover Crypto. We have a huge sh…",
+      "url": "https://www.youtube.com/watch?v=K_op7nsuRV4",
+      "classification": "borderline",
+      "date": "2026-03-10",
+      "timestamp_utc": "2026-03-10T10:43:48.366Z"
+    },
+    {
+      "id": "yt-2026-03-10-3-1773139430536",
+      "source": "youtube",
+      "title": "Bitcoin & Ethereum Are About To Wake Up (Watch Immediately)",
+      "summary": "We've got a war in Iran. We've got a spike, at least for now, 8day spike in energy prices. Uh we've got AI disruption concerns. We've got cracks cracks in private credit. And we have a weaker jobs report. How do you invest right now? >> Buy Bitcoin. >> Now is the time to buy Bitcoin. Guys, smash the like button. Anthony Pompiano took to CNBC today to put his reputation on the line to articulate…",
+      "url": "https://www.youtube.com/watch?v=4nDVYeU6SRw",
+      "classification": "borderline",
+      "date": "2026-03-10",
+      "timestamp_utc": "2026-03-10T10:43:48.366Z"
+    },
+    {
+      "id": "yt-2026-03-10-4-1773139430718",
+      "source": "youtube",
+      "title": "Recession Fears Skyrocket!🚀Crypto Market Update",
+      "summary": "Recession fears are starting to surge. Could the Fed actually do a rate increase? We'll break it all down for you today. And I do want to get started. Let's go into self-custody because this is one of the things I think in hard times, one of the things you will do is get into self-custody. If you're in crypto and digital assets, this is a great time to do it. Jump over to tandem.com. You guys c…",
+      "url": "https://www.youtube.com/watch?v=4wAvBx8aZj0",
+      "classification": "borderline",
+      "date": "2026-03-10",
+      "timestamp_utc": "2026-03-10T10:43:48.366Z"
+    },
+    {
+      "id": "cryptodaily-2026-03-10-1773139433379",
+      "source": "cryptodaily",
+      "title": "Actualités crypto (CryptoDaily)",
+      "summary": "Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Crypto HODLers 2026 — PR for Crypto Wallets: What Drives Media Coverage and User Growth — Bitcoin Falls Back Below $69K Major Level: Can Bulls Reclaim It or Is $60K Next? – BTC TA March 9, 2026 — Types of crypto exchanges: choose the right platform 2026",
+      "url": "https://rapidapi.com/cryptocurrency-news2/api/cryptodaily",
+      "classification": "borderline",
+      "date": "2026-03-10",
+      "timestamp_utc": "2026-03-10T10:43:48.366Z"
     }
   ]
 }

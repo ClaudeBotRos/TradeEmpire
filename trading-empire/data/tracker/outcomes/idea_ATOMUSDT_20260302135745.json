@@ -1,6 +1,6 @@
 {
   "trade_id": "idea_ATOMUSDT_20260302135745",
-  "outcome": "pending",
+  "outcome": "revoked",
   "approved_at": "2026-03-02T13:57:45.823Z",
   "symbol": "ATOMUSDT",
   "direction": "SHORT",
@@ -16,5 +16,6 @@
       "rr": 2.4
     }
   ],
-  "note": "Remplir outcome (win|loss|invalid_hit|target_hit), optionnel: exit_price, closed_at, note."
+  "note": "Ordre annulé avant exécution (recovery ou manuel) — pas une perte, action saine.",
+  "closed_at": "2026-03-09"
 }

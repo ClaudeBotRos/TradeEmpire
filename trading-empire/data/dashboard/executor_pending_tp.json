@@ -1,0 +1,58 @@
+[
+  {
+    "entryOrderId": 16719889912,
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "quantity": "0.013",
+    "takeProfitPrice": 1979.42,
+    "trade_id": "idea_ETHUSDT_20260307071558"
+  },
+  {
+    "entryOrderId": 16719890878,
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "quantity": "0.013",
+    "takeProfitPrice": 1953.16,
+    "trade_id": "idea_ETHUSDT_20260308083038"
+  },
+  {
+    "entryOrderId": 1407958692,
+    "symbol": "LINKUSDT",
+    "side": "long",
+    "quantity": "2.88",
+    "takeProfitPrice": 8.77,
+    "trade_id": "idea_LINKUSDT_20260307071558"
+  },
+  {
+    "entryOrderId": 16738199060,
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "quantity": "0.013",
+    "takeProfitPrice": 1979.42,
+    "trade_id": "idea_ETHUSDT_20260307083019"
+  },
+  {
+    "entryOrderId": 16738200413,
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "quantity": "0.014",
+    "takeProfitPrice": 1857.38,
+    "trade_id": "idea_ETHUSDT_20260308071551"
+  },
+  {
+    "entryOrderId": 16738202049,
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "quantity": "0.013",
+    "takeProfitPrice": 1948.16,
+    "trade_id": "idea_ETHUSDT_20260308200745"
+  },
+  {
+    "entryOrderId": 16782111730,
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "quantity": "0.013",
+    "takeProfitPrice": 1948.16,
+    "trade_id": "idea_ETHUSDT_20260308200815"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "last_updated_utc": "2026-03-10T07:15:49.048Z",
+  "source": "tradingview18.p.rapidapi.com",
+  "endpoint": "symbols/get-events-calendar",
+  "by_symbol": {
+    "BTCUSDT": [],
+    "ETHUSDT": [],
+    "SOLUSDT": [],
+    "DOGEUSDT": [],
+    "XRPUSDT": [],
+    "AVAXUSDT": [],
+    "LINKUSDT": [],
+    "ARBUSDT": [],
+    "OPUSDT": [],
+    "SUIUSDT": [],
+    "ADAUSDT": [],
+    "MATICUSDT": [],
+    "DOTUSDT": [],
+    "ATOMUSDT": [],
+    "LTCUSDT": []
+  }
+}

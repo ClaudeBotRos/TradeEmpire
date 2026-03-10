@@ -1,0 +1,45 @@
+{
+  "proposals": [
+    {
+      "id": "yield-farmer-agent",
+      "type": "agent",
+      "title": "YIELD_FARMER",
+      "description": "Agent dédié au yield farming DeFi sur stablecoins. Surveille les pools Aave/Compound/Curve, alloue le capital dormant (nuits/weekends) sur des yields 5-15% APY. Auto-compound quotidien, alerts si APY < 5% ou impermanent loss détecté.",
+      "suggested_id": "YIELD_FARMER",
+      "priority": "medium",
+      "estimated_setup": "2-3h"
+    },
+    {
+      "id": "position-size-increase",
+      "type": "rule",
+      "title": "Augmentation taille positions - Signaux haute confiance",
+      "description": "Pour les trades avec consensus ≥ 3 agents (ORCHESTRATOR), autoriser positions 3-5% du capital au lieu de 1-2% actuel. RISK_JOURNAL valide le max per trade.",
+      "priority": "high"
+    },
+    {
+      "id": "news-scan-agent",
+      "type": "agent",
+      "title": "NEWS_SCAN",
+      "description": "Agent de veille crypto/news en temps réel. Scrapes CryptoDaily, Coindesk, X trending, Binance announcements. Alimente SENTIMENT_X avec catalysts macro/micro. Alerts sur breaking news (regulation, ETF, hacks).",
+      "suggested_id": "NEWS_SCAN",
+      "priority": "high",
+      "estimated_setup": "3-4h"
+    },
+    {
+      "id": "leverage-increase-high-confidence",
+      "type": "rule",
+      "title": "Levier 2x sur signaux ≥80% confiance",
+      "description": "Pour les trades avec confiance ≥80% (ORCHESTRATOR consensus + 3+ indicateurs alignés), autoriser levier max 2x au lieu de 1x. RISK_JOURNAL maintient R:R min 1.5.",
+      "priority": "medium"
+    },
+    {
+      "id": "watchlist-expansion",
+      "type": "task",
+      "title": "Élargir watchlist - 2-3 paires additionnelles",
+      "description": "Ajouter SOLUSDT, AVAXUSDT après validation critères: volume 24h >$50M, funding rate stable, liquidité order book. Scout fournit analyse hebdo.",
+      "priority": "low"
+    }
+  ],
+  "updated_at": "2026-03-10T09:00:00Z",
+  "updated_by": "BOSS"
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "trade_id": "idea_ATOMUSDT_20260302135745",
+    "outcome": "loss",
+    "exit_price": null,
+    "closed_at": "2026-03-02",
+    "note": "Exemple : position fermée manuellement. Remplacer par vos trades clôturés."
+  }
+]

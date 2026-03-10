@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2026-03-03T08:30:25.782Z",
+  "date": "2026-03-03",
+  "narratives": [
+    "bullish mentions",
+    "ETF narrative"
+  ],
+  "sentiment_by_symbol": {
+    "BTCUSDT": "neutral",
+    "ETHUSDT": "neutral",
+    "SOLUSDT": "neutral",
+    "DOGEUSDT": "neutral",
+    "XRPUSDT": "neutral",
+    "AVAXUSDT": "neutral",
+    "LINKUSDT": "neutral",
+    "ARBUSDT": "neutral",
+    "OPUSDT": "neutral",
+    "SUIUSDT": "neutral",
+    "ADAUSDT": "neutral",
+    "MATICUSDT": "neutral",
+    "DOTUSDT": "neutral",
+    "ATOMUSDT": "neutral",
+    "LTCUSDT": "neutral"
+  },
+  "risk_signals": [],
+  "sources": [
+    {
+      "type": "x",
+      "ref": "twitter_api_v2_search_recent"
+    }
+  ],
+  "low_confidence": false
+}

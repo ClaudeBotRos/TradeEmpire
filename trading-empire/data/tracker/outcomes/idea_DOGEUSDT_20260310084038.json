@@ -1,0 +1,20 @@
+{
+  "trade_id": "idea_DOGEUSDT_20260310084038",
+  "outcome": "pending",
+  "approved_at": "2026-03-10T08:40:38.567Z",
+  "symbol": "DOGEUSDT",
+  "direction": "SHORT",
+  "entry": 0.1,
+  "invalid": 0.11,
+  "targets": [
+    {
+      "price": 0.1,
+      "rr": 1.2
+    },
+    {
+      "price": 0.1,
+      "rr": 2.4
+    }
+  ],
+  "note": "Remplir outcome (win|loss|invalid_hit|target_hit|revoked), optionnel: exit_price, closed_at, note. revoked = ordre annulé avant exécution (pas une perte)."
+}

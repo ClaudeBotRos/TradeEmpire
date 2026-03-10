@@ -15,6 +15,8 @@ const ROOT = path.join(__dirname, '..');
 const CONFIG_PATH = path.join(ROOT, 'data', 'dashboard', 'execution_config.json');
 const EXECUTED_PATH = path.join(ROOT, 'data', 'dashboard', 'executed_orders.json');
 const PENDING_TP_PATH = path.join(ROOT, 'data', 'dashboard', 'executor_pending_tp.json');
+const QUEUE_PATH = path.join(ROOT, 'data', 'dashboard', 'execution_queue.json');
+const QUEUE_MAX_AGE_MS = 15 * 60 * 1000;
 const RISK_RULES_PATH = path.join(ROOT, 'rules', 'risk_rules.md');
 const DECISIONS_DIR = path.join(ROOT, 'data', 'decisions');
 const IDEAS_DIR = path.join(ROOT, 'data', 'ideas');
@@ -56,20 +58,23 @@ function getMaxTradesPerDay(configFromFile) {
 }
 
 function loadConfig() {
-  if (!fs.existsSync(CONFIG_PATH)) return { real_mode: false, notional_usd: 5, notional_by_symbol: {}, max_trades_per_day: 5, default_leverage: 5 };
+  if (!fs.existsSync(CONFIG_PATH)) return { real_mode: false, notional_usd: 5, notional_by_symbol: {}, max_trades_per_day: 5, default_leverage: 5, entry_price_refresh: false, tight_spread_pct: 0.2 };
   try {
     const c = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
     const maxTrades = getMaxTradesPerDay(c);
     const defaultLeverage = typeof c.default_leverage === 'number' && c.default_leverage >= 1 ? c.default_leverage : 5;
+    const tightPct = typeof c.tight_spread_pct === 'number' ? Math.max(0.01, Math.min(2, c.tight_spread_pct)) : 0.2;
     return {
       real_mode: !!c.real_mode,
       notional_usd: c.notional_usd ?? 5,
       notional_by_symbol: c.notional_by_symbol || {},
       max_trades_per_day: maxTrades,
       default_leverage: defaultLeverage,
+      entry_price_refresh: c.entry_price_refresh === true,
+      tight_spread_pct: tightPct,
     };
   } catch (_) {
-    return { real_mode: false, notional_usd: 5, notional_by_symbol: {}, max_trades_per_day: 5, default_leverage: 5 };
+    return { real_mode: false, notional_usd: 5, notional_by_symbol: {}, max_trades_per_day: 5, default_leverage: 5, entry_price_refresh: false, tight_spread_pct: 0.2 };
   }
 }
 
@@ -98,6 +103,18 @@ function countExecutedToday(executedList) {
   return executedList.filter((e) => (e.executed_at || '').slice(0, 10) === today).length;
 }
 
+/** Ensemble "SYMBOL|BUY" et "SYMBOL|SELL" déjà exécutés aujourd'hui (max 1 ordre par sens et par paire par jour). */
+function getExecutedTodaySymbolSides(executedList) {
+  const today = new Date().toISOString().slice(0, 10);
+  const set = new Set();
+  for (const e of executedList) {
+    if ((e.executed_at || '').slice(0, 10) !== today) continue;
+    const side = e.side || (() => { const idea = loadIdea(e.trade_id); const d = (idea && idea.direction) || 'LONG'; return d === 'LONG' ? 'BUY' : 'SELL'; })();
+    set.add(String(e.symbol || '').toUpperCase() + '|' + side);
+  }
+  return set;
+}
+
 function saveExecuted(list) {
   const dir = path.dirname(EXECUTED_PATH);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
@@ -120,14 +137,26 @@ function savePendingTp(list) {
   fs.writeFileSync(PENDING_TP_PATH, JSON.stringify(list, null, 2), 'utf8');
 }
 
+function getRevokedTradeIds() {
+  if (!fs.existsSync(DECISIONS_DIR)) return new Set();
+  const files = fs.readdirSync(DECISIONS_DIR).filter((f) => f.endsWith('_REVOKED.json'));
+  const ids = new Set();
+  for (const f of files) {
+    const m = f.match(/^(.+)_REVOKED\.json$/);
+    if (m) ids.add(m[1]);
+  }
+  return ids;
+}
+
 function getApprovedDecisions() {
   if (!fs.existsSync(DECISIONS_DIR)) return [];
+  const revokedIds = getRevokedTradeIds();
   const files = fs.readdirSync(DECISIONS_DIR).filter((f) => f.endsWith('_APPROVED.json'));
   const out = [];
   for (const f of files) {
     try {
       const data = JSON.parse(fs.readFileSync(path.join(DECISIONS_DIR, f), 'utf8'));
-      if (data.status === 'APPROVED' && data.trade_id) out.push(data);
+      if (data.status === 'APPROVED' && data.trade_id && !revokedIds.has(data.trade_id)) out.push(data);
     } catch (_) {}
   }
   return out;
@@ -143,30 +172,23 @@ function loadIdea(tradeId) {
   }
 }
 
+function loadExecutionQueue() {
+  if (!fs.existsSync(QUEUE_PATH)) return null;
+  try {
+    const data = JSON.parse(fs.readFileSync(QUEUE_PATH, 'utf8'));
+    if (!Array.isArray(data.entries) || !data.entries.length) return null;
+    const age = Date.now() - (data.built_at || 0);
+    if (age > QUEUE_MAX_AGE_MS) return null;
+    return data;
+  } catch (_) {
+    return null;
+  }
+}
+
 async function main() {
   const config = loadConfig();
   if (!config.real_mode) {
     console.log('Mode réel désactivé. Activer depuis le dashboard (Exécution).');
-    return;
-  }
-
-  const executed = loadExecuted();
-  const executedIds = new Set(executed.map((e) => e.trade_id));
-  const executedToday = countExecutedToday(executed);
-  const maxPerDay = config.max_trades_per_day || 5;
-  if (executedToday >= maxPerDay) {
-    console.log('Limite du jour atteinte :', executedToday, '/', maxPerDay, 'ordres. Relance demain ou ajuster max_trades_per_day.');
-    return;
-  }
-
-  let decisions = getApprovedDecisions().filter((d) => !executedIds.has(d.trade_id));
-  const slotsLeft = maxPerDay - executedToday;
-  if (decisions.length > slotsLeft) {
-    console.log('Limite du jour :', maxPerDay, '- exécutés aujourd\'hui :', executedToday, '→ on place au plus', slotsLeft, 'ordre(s).');
-    decisions = decisions.slice(0, slotsLeft);
-  }
-  if (!decisions.length) {
-    console.log('Aucune idée APPROVED à exécuter.');
     return;
   }
 
@@ -178,7 +200,7 @@ async function main() {
     process.exit(1);
   }
 
-  const { getAccount, getLeverage, setLeverage, placeOrder, placeStopMarketOrder, placeTakeProfitOrder, getMarkPrice, getExchangeInfo, getSymbolPrecision } = aster;
+  const { getAccount, setLeverage, placeOrder, placeStopMarketOrder, placeMarketOrder } = aster;
 
   const balancePath = path.join(ROOT, 'data', 'dashboard', 'executor_balance.json');
   try {
@@ -201,61 +223,115 @@ async function main() {
     console.log('Solde ASTER non récupéré:', e.message);
   }
 
-  let exchangeInfo;
-  try {
-    exchangeInfo = await getExchangeInfo();
-  } catch (e) {
-    console.error('Impossible de récupérer exchangeInfo (précisions):', e.message);
-    process.exit(1);
+  const executed = loadExecuted();
+  const executedIds = new Set(executed.map((e) => e.trade_id));
+  const executedToday = countExecutedToday(executed);
+  const executedTodaySymbolSides = getExecutedTodaySymbolSides(executed);
+  const maxPerDay = config.max_trades_per_day || 5;
+  if (executedToday >= maxPerDay) {
+    console.log('Limite du jour atteinte :', executedToday, '/', maxPerDay, 'ordres. Relance demain ou ajuster max_trades_per_day.');
+    const { spawnSync } = require('child_process');
+    spawnSync(process.execPath, [path.join(__dirname, 'tibo-report.js'), 'executor'], { cwd: ROOT, stdio: 'inherit', env: process.env });
+    return;
   }
+
   const now = new Date().toISOString();
-  const seenKey = new Set();
+  const queue = loadExecutionQueue();
+  let entriesToRun = [];
 
-  for (const dec of decisions) {
-    const idea = loadIdea(dec.trade_id);
-    if (!idea || !idea.entry?.price || !idea.invalid?.price || !idea.targets?.length) {
-      console.log('Skip', dec.trade_id, '(idée invalide ou champs manquants)');
-      continue;
+  if (queue && queue.entries && queue.entries.length > 0) {
+    entriesToRun = queue.entries
+      .filter((e) => !executedIds.has(e.trade_id))
+      .filter((e) => !executedTodaySymbolSides.has((e.symbol || '').toUpperCase() + '|' + (e.side || 'BUY')))
+      .slice(0, maxPerDay - executedToday);
+    if (entriesToRun.length > 0) {
+      console.log('Exécution depuis la queue (mise en commun des données) —', entriesToRun.length, 'trade(s).');
     }
+  }
 
-    const symbol = String(idea.symbol || '').toUpperCase();
-    const direction = idea.direction || 'LONG';
-    const entryPriceRaw = Number(idea.entry.price);
-    const dedupeKey = symbol + '|' + direction + '|' + entryPriceRaw.toFixed(2);
-    if (seenKey.has(dedupeKey)) {
-      console.log('Skip', dec.trade_id, symbol, '(même symbole, direction et prix qu\'une idée déjà traitée)');
-      continue;
+  if (entriesToRun.length === 0) {
+    const decisions = getApprovedDecisions().filter((d) => !executedIds.has(d.trade_id));
+    const slotsLeft = maxPerDay - executedToday;
+    let decisionsFiltered = decisions.filter((d) => {
+      const idea = loadIdea(d.trade_id);
+      if (!idea) return false;
+      const sym = String(idea.symbol || '').toUpperCase();
+      const side = (idea.direction || 'LONG') === 'LONG' ? 'BUY' : 'SELL';
+      return !executedTodaySymbolSides.has(sym + '|' + side);
+    });
+    let decisionsSlice = decisionsFiltered.length > slotsLeft ? decisionsFiltered.slice(0, slotsLeft) : decisionsFiltered;
+    if (!decisionsSlice.length) {
+      console.log('Aucune idée APPROVED à exécuter.');
+      try {
+        const { spawnSync } = require('child_process');
+        spawnSync(process.execPath, [path.join(__dirname, 'tibo-report.js'), 'executor'], { cwd: ROOT, stdio: 'inherit', env: process.env });
+      } catch (_) {}
+      return;
     }
-    seenKey.add(dedupeKey);
-    const marginUsd = getMarginUsdForSymbol(config, symbol);
-    const { quantityPrecision, pricePrecision, minQty, stepSize, minNotional } = getSymbolPrecision(exchangeInfo, symbol);
-    const entryPrice = roundPrice(Number(idea.entry.price), pricePrecision);
-    const invalidPrice = roundPrice(Number(idea.invalid.price), pricePrecision);
-    const target1Price = roundPrice(Number(idea.targets[0].price), pricePrecision);
-    const defaultLev = config.default_leverage || 5;
-    const ideaLev = Number(idea.risk?.leverage);
-    const leverage = Math.min(10, Math.max(1, Math.max(defaultLev, ideaLev || defaultLev)));
-    let positionSizeUsd = Math.max(marginUsd * leverage, minNotional);
-    let quantity = positionSizeUsd / entryPrice;
-    quantity = roundQuantity(quantity, quantityPrecision, stepSize);
-    const minQtyByNotional = (stepSize > 0 && minNotional > 0) ? roundUpToStep(minNotional / entryPrice, stepSize) : 0;
-    if (quantity < minQtyByNotional) quantity = minQtyByNotional;
-    if (quantity <= 0) {
-      console.log('Skip', dec.trade_id, symbol, '(quantité nulle après arrondi)');
-      continue;
+    const { getExchangeInfo, getSymbolPrecision, getMarkPrice } = aster;
+    let exchangeInfo;
+    try {
+      exchangeInfo = await getExchangeInfo();
+    } catch (e) {
+      console.error('Impossible de récupérer exchangeInfo (précisions):', e.message);
+      process.exit(1);
     }
-    const actualNotional = quantity * entryPrice;
-    if (actualNotional < minNotional) {
-      console.log('Skip', dec.trade_id, symbol, '(notional après arrondi', actualNotional.toFixed(2), '$ <', minNotional, '$)');
-      continue;
+    const seenKey = new Set();
+    for (const dec of decisionsSlice) {
+      const idea = loadIdea(dec.trade_id);
+      if (!idea || !idea.entry?.price || !idea.invalid?.price || !idea.targets?.length) continue;
+      const symbol = String(idea.symbol || '').toUpperCase();
+      const direction = idea.direction || 'LONG';
+      let entryPriceRaw = Number(idea.entry.price);
+      if (config.entry_price_refresh && typeof getMarkPrice === 'function') {
+        try {
+          const mark = await getMarkPrice(symbol);
+          if (mark > 0) {
+            const pct = (config.tight_spread_pct ?? 0.2) / 100;
+            if (direction === 'LONG') entryPriceRaw = Math.min(entryPriceRaw, mark * (1 - pct));
+            else entryPriceRaw = Math.max(entryPriceRaw, mark * (1 + pct));
+          }
+        } catch (_) {}
+      }
+      const dedupeKey = symbol + '|' + direction + '|' + entryPriceRaw.toFixed(2);
+      if (seenKey.has(dedupeKey)) continue;
+      seenKey.add(dedupeKey);
+      const marginUsd = getMarginUsdForSymbol(config, symbol);
+      const { quantityPrecision, pricePrecision, minQty, stepSize, minNotional } = getSymbolPrecision(exchangeInfo, symbol);
+      const entryPrice = roundPrice(entryPriceRaw, pricePrecision);
+      const invalidPrice = roundPrice(Number(idea.invalid.price), pricePrecision);
+      const target1Price = roundPrice(Number(idea.targets[0].price), pricePrecision);
+      const defaultLev = config.default_leverage || 5;
+      const ideaLev = Number(idea.risk?.leverage);
+      const leverage = Math.min(10, Math.max(1, Math.max(defaultLev, ideaLev || defaultLev)));
+      let positionSizeUsd = Math.max(marginUsd * leverage, minNotional);
+      let quantity = positionSizeUsd / entryPrice;
+      quantity = roundQuantity(quantity, quantityPrecision, stepSize);
+      const minQtyByNotional = (stepSize > 0 && minNotional > 0) ? roundUpToStep(minNotional / entryPrice, stepSize) : 0;
+      if (quantity < minQtyByNotional) quantity = minQtyByNotional;
+      if (quantity <= 0) continue;
+      const actualNotional = quantity * entryPrice;
+      if (actualNotional < minNotional) continue;
+      const isLong = direction === 'LONG';
+      entriesToRun.push({
+        trade_id: dec.trade_id,
+        symbol,
+        side: isLong ? 'BUY' : 'SELL',
+        close_side: isLong ? 'SELL' : 'BUY',
+        entry_price: entryPrice,
+        invalid_price: invalidPrice,
+        target_price: target1Price,
+        leverage,
+        quantity,
+        margin_usd: actualNotional / leverage,
+        notional_usd: actualNotional,
+      });
     }
-    const marginRequired = actualNotional / leverage;
-    console.log(symbol, 'lev', leverage, 'qty', quantity, 'notional', actualNotional.toFixed(2), 'USDT marge ~', marginRequired.toFixed(2));
+  }
 
-    const isLong = idea.direction === 'LONG';
-    const side = isLong ? 'BUY' : 'SELL';
-    const closeSide = isLong ? 'SELL' : 'BUY';
-
+  for (const ent of entriesToRun) {
+    const { trade_id, symbol, side, close_side, entry_price, invalid_price, target_price, leverage, quantity, margin_usd, notional_usd } = ent;
+    console.log(symbol, 'lev', leverage, 'qty', quantity, 'notional', notional_usd.toFixed(2), 'USDT marge ~', margin_usd.toFixed(2));
     try {
       await setLeverage(symbol, leverage).catch((e) => console.warn('setLeverage', symbol, e.message));
       let entryOrder = null;
@@ -264,24 +340,34 @@ async function main() {
           symbol,
           side,
           quantity,
-          stopPrice: entryPrice,
+          stopPrice: entry_price,
         });
       } catch (entryErr) {
         if (/immediately trigger|would immediately/i.test(entryErr.message)) {
-          entryOrder = await placeOrder({
-            symbol,
-            side,
-            type: 'LIMIT',
-            quantity,
-            price: entryPrice,
-          });
+          try {
+            entryOrder = await placeOrder({
+              symbol,
+              side,
+              type: 'LIMIT',
+              quantity,
+              price: entry_price,
+            });
+          } catch (limitErr) {
+            if (/tick size|precision|not increased|price.*tick/i.test(limitErr.message)) {
+              entryOrder = await placeMarketOrder({ symbol, side, quantity });
+              console.log(symbol, 'entrée au market (tick size invalide pour limit).');
+            } else throw limitErr;
+          }
+        } else if (/tick size|precision|not increased|price.*tick/i.test(entryErr.message)) {
+          entryOrder = await placeMarketOrder({ symbol, side, quantity });
+          console.log(symbol, 'entrée au market (tick size invalide pour stop).');
         } else throw entryErr;
       }
       const slOrder = await placeStopMarketOrder({
         symbol,
-        side: closeSide,
+        side: close_side,
         quantity,
-        stopPrice: invalidPrice,
+        stopPrice: invalid_price,
       });
 
       const entryId = entryOrder?.orderId ?? entryOrder?.orderid;
@@ -290,36 +376,40 @@ async function main() {
         pendingTp.push({
           entryOrderId: entryId,
           symbol,
-          side: isLong ? 'long' : 'short',
+          side: side === 'BUY' ? 'long' : 'short',
           quantity: String(quantity),
-          takeProfitPrice: target1Price,
-          trade_id: dec.trade_id,
+          takeProfitPrice: target_price,
+          trade_id,
         });
         savePendingTp(pendingTp);
       }
 
       executed.push({
-        trade_id: dec.trade_id,
+        trade_id,
         symbol,
+        side,
         executed_at: now,
         entry_order_id: entryId ?? null,
         sl_order_id: slOrder?.orderId ?? slOrder?.orderid ?? null,
         tp_order_id: null,
-        margin_usd: marginUsd,
+        margin_usd,
         leverage,
-        position_size_usd: positionSizeUsd,
+        position_size_usd: notional_usd,
         quantity,
       });
       saveExecuted(executed);
-      console.log('OK', dec.trade_id, symbol, side, 'marge', marginUsd, '$ ×', leverage, '=', positionSizeUsd, '$ qty', quantity, 'entry', entryId ?? '—', 'SL', slOrder?.orderId ?? '—', 'TP (scrutator)');
+      console.log('OK', trade_id, symbol, side, 'marge', margin_usd, '$ ×', leverage, '=', notional_usd.toFixed(0), '$ qty', quantity, 'entry', entryId ?? '—', 'SL', slOrder?.orderId ?? '—', 'TP (scrutator)');
     } catch (e) {
-      console.error('Erreur', dec.trade_id, e.message);
+      console.error('Erreur', trade_id, e.message);
     }
   }
 }
 
 main()
-  .then(() => {
+  .then(async () => {
+    try {
+      await require('./sync-executed-orders-with-aster.js').runSync();
+    } catch (_) {}
     try {
       require('child_process').execSync(
         `node "${path.join(__dirname, 'tibo-report.js')}" executor`,

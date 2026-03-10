@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-05T08:30:27.066Z",
+  "symbol": "OPUSDT",
+  "signals": [
+    "funding neutral"
+  ],
+  "metrics": {
+    "funding": 0.0001,
+    "mark_price": 0.1273,
+    "next_funding_time": 1772726400000
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    }
+  ],
+  "low_confidence": false
+}

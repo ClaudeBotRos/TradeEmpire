@@ -1,0 +1,21 @@
+{
+  "trade_id": "idea_ADAUSDT_20260310071604",
+  "outcome": "revoked",
+  "approved_at": "2026-03-10T07:16:04.936Z",
+  "symbol": "ADAUSDT",
+  "direction": "SHORT",
+  "entry": 0.26,
+  "invalid": 0.27,
+  "targets": [
+    {
+      "price": 0.26,
+      "rr": 1.2
+    },
+    {
+      "price": 0.26,
+      "rr": 2.4
+    }
+  ],
+  "note": "Ordre annulé avant exécution (recovery ou manuel) — pas une perte, action saine.",
+  "closed_at": "2026-03-10"
+}

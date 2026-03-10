@@ -1,0 +1,28 @@
+{
+  "timestamp_utc": "2026-03-06T08:30:09.096Z",
+  "symbol": "DOGEUSDT",
+  "timeframe": "4h",
+  "trend": "down",
+  "levels": {
+    "support": [
+      0.08771,
+      0.08847,
+      0.08996,
+      0.09551
+    ],
+    "resistance": [
+      0.1023,
+      0.10244,
+      0.10434,
+      0.10618
+    ]
+  },
+  "volatility": 0.003597,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

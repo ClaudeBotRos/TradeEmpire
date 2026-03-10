@@ -1,6 +1,6 @@
 {
   "trade_id": "idea_BTCUSDT_20260301135025",
-  "outcome": "pending",
+  "outcome": "revoked",
   "approved_at": "2026-03-01T13:50:25.758Z",
   "symbol": "BTCUSDT",
   "direction": "SHORT",
@@ -16,5 +16,7 @@
       "rr": 2.4
     }
   ],
-  "note": "Remplir outcome (win|loss|invalid_hit|target_hit), optionnel: exit_price, closed_at, note."
+  "note": "Ordre annulé avant exécution (recovery ou manuel) — pas une perte, action saine.",
+  "exit_price": 68887.9,
+  "closed_at": "2026-03-09"
 }

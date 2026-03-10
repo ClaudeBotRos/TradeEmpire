@@ -2,8 +2,8 @@
 /**
  * TradeEmpire — Intel (Daphnée) : Calendrier économique traditionnel.
  * Sources (dans l’ordre) :
- * 1. JBlanked API (si JBLANKED_API_KEY dans .env) — calendrier Forex Factory / MQL5, gratuit 1 req/jour.
- * 2. investing.com : l’API historique (getCalendarFilteredData) renvoie 404 ; la page est protégée par Cloudflare → non utilisable.
+ * 1. RapidAPI Ultimate Economic Calendar (si RAPIDAPI_KEY dans .env) — GET economic-events/tradingview.
+ * 2. JBlanked API (si JBLANKED_API_KEY dans .env) — calendrier Forex Factory / MQL5.
  * 3. Fallback : dashboard/config/economic_calendar_events.json (saisie manuelle).
  * Sortie : data/dashboard/intel/economic_calendar.json.
  * Usage: node scripts/economic-calendar-scan.js
@@ -18,6 +18,64 @@ const ROOT = path.join(__dirname, '..');
 const INTEL_DIR = path.join(ROOT, 'data', 'dashboard', 'intel');
 const CALENDAR_PATH = path.join(INTEL_DIR, 'economic_calendar.json');
 const CONFIG_PATH = path.join(ROOT, 'dashboard', 'config', 'economic_calendar_events.json');
+
+const RAPIDAPI_HOST = 'ultimate-economic-calendar.p.rapidapi.com';
+
+/**
+ * Récupère le calendrier depuis RapidAPI — Ultimate Economic Calendar.
+ * .env : RAPIDAPI_KEY (= X-RapidAPI-Key de ta clé RapidAPI).
+ * Endpoint : GET /economic-events/tradingview?from=YYYY-MM-DD&to=YYYY-MM-DD&countries=US,DE
+ */
+async function fetchRapidApiCalendar() {
+  const apiKey = (process.env.RAPIDAPI_KEY || process.env.X_RAPIDAPI_KEY || '').trim();
+  if (!apiKey) return null;
+  const now = new Date();
+  const from = now.toISOString().slice(0, 10);
+  const to = new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const countries = 'US,DE,GB,FR,EU';
+  const url = `https://${RAPIDAPI_HOST}/economic-events/tradingview?from=${from}&to=${to}&countries=${encodeURIComponent(countries)}`;
+  try {
+    const res = await fetch(url, {
+      headers: {
+        'X-RapidAPI-Key': apiKey,
+        'x-rapidapi-host': RAPIDAPI_HOST,
+      },
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const list = data.result || (Array.isArray(data) ? data : (data.data || data.events || data.results || []));
+    if (!Array.isArray(list)) return null;
+    return list.map((row) => {
+      const d = row.date || row.Date || row.timestamp || row.time;
+      let date = null;
+      let timeUtc = null;
+      if (typeof d === 'string') {
+        const [dPart, tPart] = d.split(/[T ]/);
+        date = dPart ? dPart.slice(0, 10) : null;
+        timeUtc = tPart ? tPart.slice(0, 5) : null;
+      } else if (row.datetime) {
+        const s = String(row.datetime);
+        date = s.slice(0, 10);
+        timeUtc = s.length >= 16 ? s.slice(11, 16) : null;
+      }
+      const country = row.country || row.Country || row.currency || row.Currency || row.countryCode || null;
+      const importance = (row.importance || row.impact || row.Impact || 'medium').toString().toLowerCase();
+      return {
+        date,
+        time_utc: timeUtc || row.time || null,
+        country,
+        event: row.title || row.indicator || row.event || row.name || row.Event || row.Name || '',
+        importance: importance === 'high' || importance === 'medium' || importance === 'low' ? importance : 'medium',
+        forecast: row.forecast != null ? String(row.forecast) : (row.Forecast != null ? String(row.Forecast) : null),
+        previous: row.previous != null ? String(row.previous) : (row.Previous != null ? String(row.Previous) : null),
+        actual: row.actual != null ? String(row.actual) : (row.Actual != null ? String(row.Actual) : null),
+        event_id: row.id ?? row.eventId ?? row.event_id ?? null,
+      };
+    });
+  } catch (_) {
+    return null;
+  }
+}
 
 /**
  * Récupère le calendrier depuis JBlanked (Forex Factory).
@@ -129,11 +187,11 @@ function mergeActuals(existingEvents, newEvents) {
 
 async function main() {
   const existing = loadExistingCalendar();
-  let events = await fetchJBlankedCalendar();
-  let source = 'jblanked';
+  let events = await fetchRapidApiCalendar();
+  let source = 'rapidapi';
   if (!events || !events.length) {
-    events = await fetchInvestingCalendar();
-    if (events && events.length) source = 'investing_com';
+    events = await fetchJBlankedCalendar();
+    if (events && events.length) source = 'jblanked';
   }
   if (!events || !events.length) {
     events = loadConfigEvents();

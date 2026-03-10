@@ -1,0 +1,22 @@
+{
+  "trade_id": "idea_ETHUSDT_20260307071558",
+  "outcome": "loss",
+  "approved_at": "2026-03-07T08:32:35.314Z",
+  "symbol": "ETHUSDT",
+  "direction": "LONG",
+  "entry": 1955.95,
+  "invalid": 1936.39,
+  "targets": [
+    {
+      "price": 1979.42,
+      "rr": 1.2
+    },
+    {
+      "price": 2002.89,
+      "rr": 2.4
+    }
+  ],
+  "note": "SL détecté (Chase via ASTER)",
+  "exit_price": 1936.1,
+  "closed_at": "2026-03-08"
+}

@@ -72,6 +72,54 @@ function readJsonFile(dir, filename) {
   }
 }
 
+/** Retourne le répertoire data/dashboard utilisable (existe et contient au moins un fichier connu). */
+function resolveDashboardDataDir() {
+  const candidates = [
+    DATA.dashboard,
+    path.join(process.cwd(), 'data', 'dashboard'),
+    path.join(process.cwd(), 'workspace', 'TradeEmpire', 'trading-empire', 'data', 'dashboard'),
+  ];
+  let dir = __dirname;
+  for (let i = 0; i < 10 && dir !== path.dirname(dir); i++) {
+    candidates.push(path.join(dir, 'data', 'dashboard'));
+    dir = path.dirname(dir);
+  }
+  const probes = ['yield_farmer_report.json', 'uniswap_v3_arbitrum_pools.json', 'roadmap.json', 'hyperliquid_analyst_report.json'];
+  for (const d of candidates) {
+    if (!fs.existsSync(d) || !fs.statSync(d).isDirectory()) continue;
+    for (const probe of probes) {
+      if (fs.existsSync(path.join(d, probe))) return d;
+    }
+  }
+  return DATA.dashboard;
+}
+
+const RESOLVED_DASHBOARD_DIR = resolveDashboardDataDir();
+
+const DATA_DASHBOARD_BY_SCRIPT = path.join(__dirname, '..', 'data', 'dashboard');
+
+/** Lit un JSON depuis data/dashboard (plusieurs chemins possibles). */
+function readDashboardJson(filename) {
+  let out = readJsonFile(DATA_DASHBOARD_BY_SCRIPT, filename);
+  if (out != null) return out;
+  out = readJsonFile(RESOLVED_DASHBOARD_DIR, filename);
+  if (out != null) return out;
+  out = readJsonFile(DATA.dashboard, filename);
+  if (out != null) return out;
+  const altPaths = [
+    path.join(process.cwd(), 'data', 'dashboard', filename),
+    path.join(process.cwd(), 'workspace', 'TradeEmpire', 'trading-empire', 'data', 'dashboard', filename),
+  ];
+  for (const p of altPaths) {
+    if (fs.existsSync(p)) {
+      try {
+        return JSON.parse(fs.readFileSync(p, 'utf8'));
+      } catch (_) {}
+    }
+  }
+  return null;
+}
+
 function readBody(req) {
   return new Promise((resolve, reject) => {
     const chunks = [];
@@ -111,6 +159,40 @@ const server = http.createServer((req, res) => {
   if (pathname === '/api/signals/smart_money') {
     cors();
     res.end(JSON.stringify(readJsonDir(DATA.smart_money)));
+    return;
+  }
+  if (pathname === '/api/smart_money/holders') {
+    cors();
+    const holdersPath = path.join(DATA.smart_money, 'dexscreener_holders.json');
+    if (!fs.existsSync(holdersPath)) {
+      res.statusCode = 404;
+      res.end(JSON.stringify({ error: 'dexscreener_holders.json absent. Exécuter node scripts/dexscreener-top-traders.js <WALLET_URL>.' }));
+      return;
+    }
+    try {
+      const raw = fs.readFileSync(holdersPath, 'utf8');
+      res.end(raw);
+    } catch (_) {
+      res.statusCode = 500;
+      res.end(JSON.stringify({ error: 'Erreur lecture dexscreener_holders.json' }));
+    }
+    return;
+  }
+  if (pathname === '/api/smart_money/leaderboard') {
+    cors();
+    const leaderboardPath = path.join(DATA.smart_money, 'binance_copy_leaderboard.json');
+    if (!fs.existsSync(leaderboardPath)) {
+      res.statusCode = 404;
+      res.end(JSON.stringify({ error: 'binance_copy_leaderboard.json absent. Exécuter node scripts/binance-copy-leaderboard.js.' }));
+      return;
+    }
+    try {
+      const raw = fs.readFileSync(leaderboardPath, 'utf8');
+      res.end(raw);
+    } catch (_) {
+      res.statusCode = 500;
+      res.end(JSON.stringify({ error: 'Erreur lecture binance_copy_leaderboard.json' }));
+    }
     return;
   }
   if (pathname === '/api/signals/sentiment') {
@@ -313,9 +395,49 @@ const server = http.createServer((req, res) => {
     return;
   }
   if (pathname === '/api/costs') {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
     cors();
-    const data = readJsonFile(DATA.dashboard, 'costs.json') || {};
-    res.end(JSON.stringify(data));
+    (async () => {
+      let data = readDashboardJson('costs.json') || {};
+      const hasGains =
+        (typeof (data.gains && data.gains.total_gains_usd) === 'number' && !Number.isNaN(data.gains.total_gains_usd)) ||
+        (typeof (data.trading && data.trading.realized_pnl_usd) === 'number' && !Number.isNaN(data.trading.realized_pnl_usd));
+      if (!hasGains) {
+        let filled = false;
+        try {
+          const aster = require(path.join(__dirname, 'aster-client.js'));
+          const realized = await aster.getRealizedPnlUsd();
+          if (typeof realized === 'number' && !Number.isNaN(realized)) {
+            data = JSON.parse(JSON.stringify(data));
+            if (!data.trading) data.trading = {};
+            if (!data.gains) data.gains = {};
+            data.trading.realized_pnl_usd = realized;
+            data.gains.trading_realized_pnl_usd = realized;
+            data.gains_source = 'aster';
+            filled = true;
+          }
+        } catch (_) {}
+        if (!filled) {
+          const balance = readDashboardJson('executor_balance.json');
+          const wallet = balance && (balance.total_wallet_balance_usdt != null || balance.available_balance_usdt != null)
+            ? parseFloat(balance.total_wallet_balance_usdt ?? balance.available_balance_usdt ?? 0)
+            : NaN;
+          if (Number.isFinite(wallet)) {
+            data = JSON.parse(JSON.stringify(data));
+            if (!data.gains) data.gains = {};
+            data.gains.total_gains_usd = wallet;
+            data.gains_source = 'executor_balance';
+          } else {
+            data = JSON.parse(JSON.stringify(data));
+            data._gains_fetch_error = 'Solde ASTER non dispo (exécuter executor-run.js ou vérifier executor_balance.json).';
+          }
+        }
+      }
+      try {
+        res.end(JSON.stringify(data));
+      } catch (_) {}
+    })();
     return;
   }
   if (pathname === '/api/execution_config') {
@@ -357,6 +479,20 @@ const server = http.createServer((req, res) => {
       return;
     }
   }
+  if (pathname === '/api/executed_orders_open' || (pathname === '/api/executed_orders' && parsed.query && parsed.query.open === '1')) {
+    cors();
+    (async () => {
+      try {
+        const { runSync } = require(path.join(__dirname, 'sync-executed-orders-with-aster.js'));
+        await runSync();
+      } catch (_) {}
+      const data = readJsonFile(DATA.dashboard, 'executed_orders.json') || [];
+      const list = Array.isArray(data) ? data : [];
+      const out = list.filter((e) => e.closed_on_aster !== true);
+      res.end(JSON.stringify(out));
+    })();
+    return;
+  }
   if (pathname === '/api/executed_orders') {
     cors();
     const data = readJsonFile(DATA.dashboard, 'executed_orders.json') || [];
@@ -375,6 +511,31 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify(data || { agent: 'Tibo', updated_at: null, _message: 'Aucun rapport. Exécuter executor-run.js ou executor-tp-scrutator.js pour générer tibo_report.json.' }));
     return;
   }
+  if (pathname === '/api/yield_farmer_report') {
+    cors();
+    const data = readDashboardJson('yield_farmer_report.json') || null;
+    res.end(JSON.stringify(data || { source: 'yield_farmer', _message: 'Exécuter yield-report.js pour générer le rapport (data/dashboard/yield_farmer_report.json).' }));
+    return;
+  }
+  if (pathname === '/api/uniswap_v3_arbitrum_pools') {
+    cors();
+    const data = readDashboardJson('uniswap_v3_arbitrum_pools.json') || null;
+    res.end(JSON.stringify(data || { _message: 'Exécuter yield-fetch-pools-arbitrum.js pour générer la liste des pools (data/dashboard/uniswap_v3_arbitrum_pools.json).' }));
+    return;
+  }
+  if (pathname === '/api/hyperliquid_analyst_report') {
+    cors();
+    const directPath = path.join(ROOT, 'data', 'dashboard', 'hyperliquid_analyst_report.json');
+    let data = null;
+    if (fs.existsSync(directPath)) {
+      try {
+        data = JSON.parse(fs.readFileSync(directPath, 'utf8'));
+      } catch (_) {}
+    }
+    if (data == null) data = readDashboardJson('hyperliquid_analyst_report.json') || null;
+    res.end(JSON.stringify(data || { _message: 'Exécuter hyperliquid-commodities-scan.js puis hyperliquid-analyst-trend.js (ou cron tradeempire-hyperliquid-analyst).' }));
+    return;
+  }
   if (pathname === '/api/niches') {
     cors();
     const nichesDir = path.join(DATA.dashboard, 'niches');
@@ -388,6 +549,9 @@ const server = http.createServer((req, res) => {
     const feedPath = path.join(intelDir, 'intel_feed.json');
     const trendCardsPath = path.join(intelDir, 'trend_cards.json');
     const scanStatusPath = path.join(intelDir, 'intel_scan_status.json');
+    const economicCalendarPath = path.join(intelDir, 'economic_calendar.json');
+    const cryptodailyNewsPath = path.join(intelDir, 'cryptodaily_news.json');
+    const redditIntelPath = path.join(intelDir, 'reddit_intel.json');
     let feed = [];
     if (fs.existsSync(feedPath)) {
       try {
@@ -395,11 +559,17 @@ const server = http.createServer((req, res) => {
         feed = Array.isArray(raw) ? raw : [];
       } catch (_) { feed = []; }
     }
-    let trendCards = { timestamp_utc: null, date: null, cards: [] };
+    let trendCards = { timestamp_utc: null, date: null, cards: [], situation_summary: null, situation_by_source: null };
     if (fs.existsSync(trendCardsPath)) {
       try {
         const raw = JSON.parse(fs.readFileSync(trendCardsPath, 'utf8'));
-        trendCards = { timestamp_utc: raw.timestamp_utc || null, date: raw.date || null, cards: Array.isArray(raw.cards) ? raw.cards : [] };
+        trendCards = {
+          timestamp_utc: raw.timestamp_utc || null,
+          date: raw.date || null,
+          cards: Array.isArray(raw.cards) ? raw.cards : [],
+          situation_summary: raw.situation_summary || null,
+          situation_by_source: raw.situation_by_source && typeof raw.situation_by_source === 'object' ? raw.situation_by_source : null,
+        };
       } catch (_) {}
     }
     let scan_status = null;
@@ -415,12 +585,36 @@ const server = http.createServer((req, res) => {
         youtube: { status: 'unknown', count_ok: 0, count_fail: 0, errors: [] },
       };
     }
+    let economic_calendar = { last_updated_utc: null, source: null, events: [] };
+    if (fs.existsSync(economicCalendarPath)) {
+      try {
+        const raw = JSON.parse(fs.readFileSync(economicCalendarPath, 'utf8'));
+        economic_calendar = { last_updated_utc: raw.last_updated_utc || null, source: raw.source || null, events: Array.isArray(raw.events) ? raw.events : [] };
+      } catch (_) {}
+    }
+    let cryptodaily_news = { last_updated_utc: null, source: null, items: [], error: null };
+    if (fs.existsSync(cryptodailyNewsPath)) {
+      try {
+        const raw = JSON.parse(fs.readFileSync(cryptodailyNewsPath, 'utf8'));
+        cryptodaily_news = { last_updated_utc: raw.last_updated_utc || null, source: raw.source || null, items: Array.isArray(raw.items) ? raw.items : [], error: raw.error || null, count: raw.count };
+      } catch (_) {}
+    }
+    let reddit_intel = { last_updated_utc: null, source: null, subreddits: [], by_query: {}, count: 0 };
+    if (fs.existsSync(redditIntelPath)) {
+      try {
+        const raw = JSON.parse(fs.readFileSync(redditIntelPath, 'utf8'));
+        reddit_intel = { last_updated_utc: raw.last_updated_utc || null, source: raw.source || null, subreddits: Array.isArray(raw.subreddits) ? raw.subreddits : [], by_query: raw.by_query || {}, count: raw.count || 0 };
+      } catch (_) {}
+    }
     const items = [...feed, ...trendCards.cards];
     res.end(JSON.stringify({
       items,
       trend_cards: trendCards,
       trend_cards_date: trendCards.date,
       scan_status: scan_status,
+      economic_calendar: economic_calendar,
+      cryptodaily_news: cryptodaily_news,
+      reddit_intel: reddit_intel,
     }));
     return;
   }
@@ -549,7 +743,11 @@ const server = http.createServer((req, res) => {
   if (pathname === '/api/chase_post_mortems') {
     cors();
     const pmDir = path.join(ROOT, 'data', 'tracker', 'post_mortem');
-    const list = fs.existsSync(pmDir) ? fs.readdirSync(pmDir).filter((f) => f.endsWith('.md')).map((f) => ({ id: f.replace('.md', ''), file: f })) : [];
+    const all = fs.existsSync(pmDir) ? fs.readdirSync(pmDir).filter((f) => f.endsWith('.md')) : [];
+    const dateOnly = all.filter((f) => /^\d{4}-\d{2}-\d{2}\.md$/.test(f));
+    const list = (dateOnly.length ? dateOnly : all)
+      .map((f) => ({ id: f.replace('.md', ''), file: f, label: /^\d{4}-\d{2}-\d{2}$/.test(f.replace('.md', '')) ? `Compte rendu — ${f.replace('.md', '')}` : f.replace('.md', '') }))
+      .sort((a, b) => (a.id > b.id ? -1 : 1));
     res.end(JSON.stringify(list));
     return;
   }
@@ -564,6 +762,41 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.end(fs.readFileSync(pmPath, 'utf8'));
+    return;
+  }
+  if (pathname === '/api/recovery_report') {
+    cors();
+    const p = path.join(DATA.dashboard, 'recovery_report.json');
+    const data = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : { timestamp_utc: null, by_outcome: {}, by_symbol: {}, summary: 'Aucun rapport.' };
+    res.end(JSON.stringify(data));
+    return;
+  }
+  if (pathname === '/api/recovery_intraday_report') {
+    cors();
+    const p = path.join(DATA.dashboard, 'recovery_intraday_report.json');
+    const data = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : { timestamp_utc: null, pending_count: 0, reviews: [], summary: 'Aucune revue intraday.' };
+    res.end(JSON.stringify(data));
+    return;
+  }
+  if (pathname === '/api/scout_proposals') {
+    cors();
+    const p = path.join(DATA.dashboard, 'scout_proposals.json');
+    const data = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : { timestamp_utc: null, proposals: [], summary: 'Aucune proposition.' };
+    res.end(JSON.stringify(data));
+    return;
+  }
+  if (pathname === '/api/scout_validation_status') {
+    cors();
+    const p = path.join(DATA.dashboard, 'scout_validation_status.json');
+    const data = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : { timestamp_utc: null, summary: 'Exécuter node scripts/scout-validation-status.js pour générer le statut.', by_symbol: [] };
+    res.end(JSON.stringify(data));
+    return;
+  }
+  if (pathname === '/api/agent_profit_suggestions') {
+    cors();
+    const p = path.join(DATA.dashboard, 'agent_profit_suggestions.json');
+    const data = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : [];
+    res.end(JSON.stringify(Array.isArray(data) ? data : []));
     return;
   }
 
@@ -657,9 +890,32 @@ const server = http.createServer((req, res) => {
   }
   const ext = path.extname(filePath);
   if (MIME[ext]) res.setHeader('Content-Type', MIME[ext]);
-  res.end(fs.readFileSync(filePath));
+  let body = fs.readFileSync(filePath);
+  if (path.basename(filePath) === 'index.html' && body) {
+    body = body.toString('utf8');
+    const yieldReport = readDashboardJson('yield_farmer_report.json');
+    const yieldPools = readDashboardJson('uniswap_v3_arbitrum_pools.json');
+    let hyperliquidReport = null;
+    const hlPath = path.join(ROOT, 'data', 'dashboard', 'hyperliquid_analyst_report.json');
+    if (fs.existsSync(hlPath)) {
+      try {
+        hyperliquidReport = JSON.parse(fs.readFileSync(hlPath, 'utf8'));
+      } catch (_) {}
+    }
+    if (hyperliquidReport == null) hyperliquidReport = readDashboardJson('hyperliquid_analyst_report.json');
+    const boot = JSON.stringify({ report: yieldReport || null, pools: yieldPools || null });
+    const hlBoot = JSON.stringify(hyperliquidReport || null).replace(/<\/script>/gi, '<\\/script>');
+    const inject = '<script>window.__YIELD_BOOT__=' + boot.replace(/<\/script>/gi, '<\\/script>') + ';</script>\n<script>window.__HYPERLIQUID_BOOT__=' + hlBoot + ';</script>';
+    if (body.includes('</head>')) {
+      body = body.replace('</head>', inject + '\n</head>');
+    } else if (body.includes('<body>')) {
+      body = body.replace('<body>', '<body>\n' + inject);
+    }
+  }
+  res.end(Buffer.isBuffer(body) ? body : Buffer.from(body, 'utf8'));
 });
 
-server.listen(PORT, () => {
-  console.log(`TradeEmpire dashboard: http://127.0.0.1:${PORT}`);
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`TradeEmpire dashboard: http://0.0.0.0:${PORT} (localhost, IP, Tailscale)`);
+  console.log(`Data dashboard dir: ${RESOLVED_DASHBOARD_DIR}`);
 });

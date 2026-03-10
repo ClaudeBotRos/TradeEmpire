@@ -230,6 +230,8 @@
     .cost-table th { color: var(--text-secondary); font-weight: 600; }
     .cost-table .cost-value { font-weight: 600; color: var(--accent); }
     .cost-table .cost-empty { color: var(--text-muted); font-style: italic; }
+    .balance-card .cost-value { font-weight: 600; color: var(--accent); }
+    .balance-card .cost-negative { font-weight: 600; color: #e74c3c; }
     .cost-section-title { font-size: 1rem; font-weight: 600; margin: 1rem 0 0.5rem; color: var(--text); }
     .cost-section-title:first-of-type { margin-top: 0; }
     .loading { color: var(--text-muted); }
@@ -261,7 +263,7 @@
     }
     .team-card:hover { border-color: var(--border); }
     .team-card .team-card-img { display: flex; justify-content: center; margin-bottom: 0.75rem; }
-    .team-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
+    .team-card img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
     .team-card .name { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.25rem; }
     .team-card .skills { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.4; }
     .team-card .team-card-body { text-align: left; margin-top: 0.5rem; padding-top: 0.75rem; }
@@ -303,16 +305,45 @@
     .wire-load-ref { margin-top: 0.5rem; }
     .wire-load-ref button { padding: 0.35rem 0.75rem; font-size: 0.8rem; cursor: pointer; border-radius: 6px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); }
     .wire-load-ref button:hover { background: var(--bg-card-hover); }
+    /* Wire tabs + graphe */
+    .wire-tabs { display: flex; gap: 0; margin-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    .wire-tab { padding: 0.6rem 1.25rem; font-size: 0.9rem; font-weight: 500; cursor: pointer; color: var(--text-secondary); background: transparent; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; font-family: inherit; }
+    .wire-tab:hover { color: var(--text); }
+    .wire-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .wire-panel { display: none; }
+    .wire-panel.active { display: block; }
+    .wire-graph-wrap { background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; min-height: 520px; }
+    .wire-graph-wrap svg { display: block; width: 100%; height: auto; }
+    .wire-graph-node { transition: filter 0.2s; cursor: grab; }
+    .wire-graph-node:hover { filter: brightness(1.15); }
+    .wire-graph-node:active { cursor: grabbing; }
+    .wire-graph-node.core { filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.5)); }
+    .wire-graph-node.core:hover { filter: drop-shadow(0 0 16px rgba(6, 182, 212, 0.7)) brightness(1.1); }
+    .wire-graph-link { fill: none; stroke-width: 2; opacity: 0.85; pointer-events: none; }
+    .wire-graph-link.to-core { stroke: #f97316; }
+    .wire-graph-link.other { stroke: #a855f7; }
+    .wire-graph-link:hover { opacity: 1; stroke-width: 2.5; }
     .intel-card { margin-bottom: 1.25rem; }
     .intel-card .intel-card-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin-bottom: 0.75rem; }
     .intel-card .intel-card-title { font-weight: 700; font-size: 1.05rem; margin: 0; }
     .intel-badge { font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; }
     .intel-badge.source-x { background: var(--accent-dim); color: var(--accent); }
     .intel-badge.source-youtube { background: rgba(255,0,0,0.15); color: #f44; }
+    .intel-badge.source-economic_calendar { background: rgba(100,150,255,0.2); color: #58a; }
+    .intel-badge.source-cryptodaily { background: rgba(120,80,200,0.2); color: #96a; }
+    .intel-badge.source-reddit { background: rgba(255,69,0,0.2); color: #f85; }
     .intel-badge.indispensable { background: rgba(0,200,100,0.2); color: #0c8; }
     .intel-badge.borderline { background: rgba(255,180,0,0.2); color: #fa0; }
     .intel-badge.rejeté { background: rgba(255,80,80,0.2); color: #f55; }
+    .intel-card.intel-card-rejected { opacity: 0.85; border-left: 3px solid rgba(255,80,80,0.5); }
+    .intel-classification-reason { font-size: 0.85rem; margin-top: 0.35rem; color: var(--text-secondary); }
     .intel-card .intel-card-summary { font-size: 0.95rem; line-height: 1.5; color: var(--text-secondary); white-space: pre-wrap; margin: 0.5rem 0; }
+    .intel-econ-calendar { margin-bottom: 1.5rem; }
+    .intel-econ-calendar h3 { font-size: 1rem; margin: 0 0 0.5rem 0; }
+    .intel-econ-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .intel-econ-table th, .intel-econ-table td { padding: 0.35rem 0.5rem; text-align: left; border-bottom: 1px solid var(--border-subtle); }
+    .intel-econ-table th { color: var(--text-muted); font-weight: 600; }
+    .intel-econ-table .econ-date { white-space: nowrap; }
     .intel-scan-status { margin-bottom: 1.25rem; }
     .intel-scan-status .status-row { display: flex; align-items: flex-start; gap: 0.5rem; margin: 0.35rem 0; font-size: 0.9rem; }
     .intel-scan-status .status-ok { color: var(--trend-up); }
@@ -331,6 +362,7 @@
     .idea-card .idea-head { font-weight: 700; margin-bottom: 0.5rem; }
     .idea-card .idea-desc { font-size: 0.9rem; line-height: 1.5; color: var(--text-secondary); margin: 0.75rem 0; padding-left: 0.5rem; border-left: 3px solid var(--border); }
     .idea-card .idea-meta { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .chase-feedback-text { line-height: 1.5; max-width: 42rem; }
     .signal-row {
       display: grid;
       grid-template-columns: 1fr 80px 100px 1fr 1fr auto;
@@ -420,7 +452,7 @@
             </a>
             <a href="#" data-view="intel">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              OpenClaw Intel
+              Daphnée Intel
             </a>
             <a href="#" data-view="cost">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
@@ -429,6 +461,14 @@
             <a href="#" data-view="execution">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
               Exécution
+            </a>
+            <a href="#" data-view="yield">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Yield — Rendements
+            </a>
+            <a href="#" data-view="hyperliquid">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M3 7h4l2-2 2 2h4M3 17h18"/></svg>
+              Hyperliquid — Tendance
             </a>
             <a href="#" data-view="tibo_reports">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
@@ -439,6 +479,10 @@
               Besoins API
             </a>
             <a href="#" data-view="boss_proposals">Propositions BOSS</a>
+            <a href="#" data-view="benefices">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Bénéfices &amp; vue d’ensemble
+            </a>
             <span class="nav-sep"></span>
             <span class="nav-label">Données</span>
             <a href="#" data-view="agent_status">
@@ -473,12 +517,15 @@
       timeline: 'TimeLine',
       wire: 'Wire (échanges entre agents)',
       niches: 'Niches',
-      intel: 'OpenClaw Intel',
+      intel: 'Daphnée Intel',
       cost: 'Cost',
       execution: 'Exécution — Mode réel',
+      yield: 'Yield — Suivi des rendements',
+      hyperliquid: 'Hyperliquid — Tendance & actifs tokenisés',
       tibo_reports: 'Rapports Tibo — Exécution & TP',
       api_requests: 'Besoins API',
       boss_proposals: 'Propositions BOSS (validation humaine)',
+      benefices: 'Bénéfices & vue d’ensemble',
       technicals: 'Signaux techniques',
       smart_money: 'Smart money',
       sentiment: 'Sentiment',
@@ -497,10 +544,26 @@
     }
     function agentName(key) { return agentDisplayNames[key] || key; }
 
+    const DASHBOARD_API_BASE = '';
+
     async function fetchJson(url) {
       const r = await fetch(url);
       if (!r.ok) return null;
       return r.json();
+    }
+
+    async function fetchJsonYield(path) {
+      const tryOne = function(url) {
+        return fetch(url).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; });
+      };
+      const isReport = function(d) { return d && d.timestamp_utc && !d._message; };
+      const isPools = function(d) { return d && Array.isArray(d.top_by_tvl); };
+      const valid = path.indexOf('report') !== -1 ? isReport : isPools;
+      const base = window.location.origin || '';
+      let data = await tryOne(base + path);
+      if (valid(data)) return data;
+      if (base) data = await tryOne(path);
+      return valid(data) ? data : null;
     }
 
     function teamIdToReportKey(id) {
@@ -668,8 +731,102 @@
         return;
       }
       await ensureAgentDisplayNames();
+      agentDisplayNames['BROADCAST'] = 'Broadcast';
       const sorted = [...list].sort((a, b) => (b.timestamp_utc || '').localeCompare(a.timestamp_utc || ''));
-      let html = '<p class="meta" style="margin-bottom:0.75rem;">Cliquez sur un échange pour afficher le détail complet et le contenu référencé.</p><div class="card" style="padding:0;">';
+      const edges = [];
+      const nodeSet = new Set();
+      list.forEach((e) => {
+        if (e.from_agent && e.to_agent) {
+          nodeSet.add(e.from_agent);
+          nodeSet.add(e.to_agent);
+          const key = e.from_agent + '\n' + e.to_agent;
+          if (!edges.some((x) => x.from === e.from_agent && x.to === e.to_agent)) edges.push({ from: e.from_agent, to: e.to_agent });
+        }
+      });
+      const team = await fetchJson('/api/team');
+      if (team && team.length) team.forEach((a) => { nodeSet.add((a.id || '').toUpperCase().replace(/-/g, '_')); });
+      const nodes = Array.from(nodeSet);
+      const W = 920;
+      const H = 560;
+      const cx = W / 2;
+      const cy = H / 2;
+      const centerId = 'ORCHESTRATOR';
+      const orbitNodes = nodes.filter((n) => n !== centerId);
+      const orbitR = 200;
+      const nodeR = 32;
+      const pos = {};
+      pos[centerId] = { x: cx, y: cy };
+      orbitNodes.forEach((n, i) => {
+        const angle = (i / orbitNodes.length) * 2 * Math.PI - Math.PI / 2;
+        pos[n] = { x: cx + orbitR * Math.cos(angle), y: cy + orbitR * Math.sin(angle) };
+      });
+      const nodeColors = {
+        ORCHESTRATOR: '#06b6d4',
+        INTEL: '#a855f7',
+        TECHNICALS: '#eab308',
+        SMART_MONEY: '#22c55e',
+        SENTIMENT_X: '#ec4899',
+        RISK_JOURNAL: '#f97316',
+        BOSS: '#6366f1',
+        CHASE: '#14b8a6',
+        BROADCAST: '#64748b',
+        TIBO: '#ef4444',
+        OPPORTUNITY_SCOUT: '#f59e0b',
+        RECOVERY_ANALYST: '#8b5cf6',
+        YIELD_FARMER: '#10b981',
+        HYPERLIQUID_ANALYST: '#06b6d4',
+        NEWS_SCAN: '#0ea5e9'
+      };
+      const origin = window.location.origin || '';
+      const agentIdToPhoto = function(id) { return id !== 'BROADCAST' ? (origin + '/api/agent-photo/' + id.toLowerCase()) : null; };
+      const size = nodeR * 2;
+      let graphSvg = '<div class="wire-graph-wrap" id="wire-graph-wrap"><svg viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" id="wire-graph-svg">';
+      graphSvg += '<defs>';
+      nodes.forEach((id) => {
+        const photoUrl = agentIdToPhoto(id);
+        if (photoUrl) {
+          const safeId = id.replace(/"/g, '');
+          graphSvg += '<pattern id="wire-pattern-' + safeId + '" patternUnits="userSpaceOnUse" width="' + size + '" height="' + size + '" x="' + (-nodeR) + '" y="' + (-nodeR) + '">';
+          graphSvg += '<image href="' + photoUrl + '" x="0" y="0" width="' + size + '" height="' + size + '" preserveAspectRatio="xMidYMid slice"/>';
+          graphSvg += '</pattern>';
+        }
+      });
+      graphSvg += '</defs>';
+      edges.forEach((e, ei) => {
+        const p1 = pos[e.from];
+        const p2 = pos[e.to];
+        if (!p1 || !p2) return;
+        const midX = (p1.x + p2.x) / 2;
+        const midY = (p1.y + p2.y) / 2;
+        const dx = p2.x - p1.x;
+        const dy = p2.y - p1.y;
+        const perp = 25;
+        const cpx = midX - dy * 0.08 * perp;
+        const cpy = midY + dx * 0.08 * perp;
+        const cls = e.to === centerId ? 'wire-graph-link to-core' : 'wire-graph-link other';
+        graphSvg += '<path id="wire-path-' + ei + '" class="' + cls + '" d="M' + p1.x + ',' + p1.y + ' Q' + cpx + ',' + cpy + ' ' + p2.x + ',' + p2.y + '"/>';
+      });
+      nodes.forEach((id) => {
+        const p = pos[id];
+        if (!p) return;
+        const isCore = id === centerId;
+        const color = nodeColors[id] || '#71717a';
+        const strokeColor = isCore ? '#22d3ee' : 'rgba(255,255,255,0.35)';
+        const hasPhoto = id !== 'BROADCAST';
+        const safeId = id.replace(/"/g, '');
+        graphSvg += '<g class="wire-graph-node' + (isCore ? ' core' : '') + '" transform="translate(' + p.x + ',' + p.y + ')" data-agent-id="' + safeId + '">';
+        graphSvg += '<circle cx="0" cy="0" r="' + nodeR + '" fill="' + color + '" stroke="none"/>';
+        if (hasPhoto) graphSvg += '<circle cx="0" cy="0" r="' + nodeR + '" fill="url(#wire-pattern-' + safeId + ')" stroke="none"/>';
+        graphSvg += '<circle cx="0" cy="0" r="' + nodeR + '" fill="none" stroke="' + strokeColor + '" stroke-width="2"/>';
+        graphSvg += '<text x="0" y="' + (nodeR + 18) + '" text-anchor="middle" fill="#fafafa" font-size="11" font-weight="600">' + (agentName(id).replace(/</g, '&lt;').replace(/>/g, '&gt;')) + '</text>';
+        if (isCore) graphSvg += '<text x="0" y="' + (-nodeR - 8) + '" text-anchor="middle" fill="#a1a1aa" font-size="9">NEURAL COMMAND</text>';
+        graphSvg += '</g>';
+      });
+      graphSvg += '</svg><p class="meta" style="margin:0.75rem 1rem 0;">Glissez les bulles pour réorganiser. Liens orange : vers Orchestrator. Liens violets : autres échanges.</p></div>';
+      const wireGraphState = { pos: {}, edges: edges, nodeR: nodeR, W: W, H: H, centerId: centerId };
+      nodes.forEach((id) => { wireGraphState.pos[id] = { x: pos[id].x, y: pos[id].y }; });
+      let html = '<div class="wire-tabs"><button type="button" class="wire-tab active" data-wire-panel="list">Liste</button><button type="button" class="wire-tab" data-wire-panel="graph">Liens & échanges</button></div>';
+      html += '<div id="wire-panel-list" class="wire-panel active"><p class="meta" style="margin-bottom:0.75rem;">Cliquez sur un échange pour afficher le détail complet et le contenu référencé.</p><div class="card" style="padding:0;">';
       sorted.forEach((e, idx) => {
         const ctx = e.context && Object.keys(e.context).length ? ' <span class="meta">' + JSON.stringify(e.context) + '</span>' : '';
         const ref = e.content_ref ? ` <span class="meta">→ ${e.content_ref}</span>` : '';
@@ -690,8 +847,69 @@
         }
         html += '</div></div>';
       });
-      html += '</div>';
+      html += '</div></div>';
+      html += '<div id="wire-panel-graph" class="wire-panel">' + graphSvg + '</div>';
       content.innerHTML = html;
+      (function initWireGraphDrag() {
+        const wrap = document.getElementById('wire-graph-wrap');
+        const svg = document.getElementById('wire-graph-svg');
+        if (!wrap || !svg) return;
+        const state = wireGraphState;
+        let dragging = null;
+        function svgPoint(evt) {
+          const pt = svg.createSVGPoint();
+          pt.x = evt.clientX;
+          pt.y = evt.clientY;
+          return pt.matrixTransform(svg.getScreenCTM().inverse());
+        }
+        function redrawPaths() {
+          state.edges.forEach((e, i) => {
+            const p1 = state.pos[e.from];
+            const p2 = state.pos[e.to];
+            if (!p1 || !p2) return;
+            const path = document.getElementById('wire-path-' + i);
+            if (!path) return;
+            const midX = (p1.x + p2.x) / 2, midY = (p1.y + p2.y) / 2;
+            const dx = p2.x - p1.x, dy = p2.y - p1.y;
+            const cpx = midX - dy * 0.08 * 25, cpy = midY + dx * 0.08 * 25;
+            path.setAttribute('d', 'M' + p1.x + ',' + p1.y + ' Q' + cpx + ',' + cpy + ' ' + p2.x + ',' + p2.y);
+          });
+        }
+        wrap.querySelectorAll('.wire-graph-node').forEach((g) => {
+          const id = g.getAttribute('data-agent-id');
+          if (!id) return;
+          const t = g.getAttribute('transform');
+          const m = t && t.match(/translate\(([^,]+),([^)]+)\)/);
+          if (m) { state.pos[id] = { x: parseFloat(m[1]), y: parseFloat(m[2]) }; }
+          g.addEventListener('mousedown', function(evt) {
+            evt.preventDefault();
+            const pt = svgPoint(evt);
+            dragging = { id: id, offX: pt.x - state.pos[id].x, offY: pt.y - state.pos[id].y };
+          });
+        });
+        window.addEventListener('mousemove', function(evt) {
+          if (!dragging) return;
+          const pt = svgPoint(evt);
+          const x = Math.max(state.nodeR, Math.min(state.W - state.nodeR, pt.x - dragging.offX));
+          const y = Math.max(state.nodeR, Math.min(state.H - state.nodeR - 30, pt.y - dragging.offY));
+          state.pos[dragging.id] = { x: x, y: y };
+          const g = wrap.querySelector('.wire-graph-node[data-agent-id="' + dragging.id + '"]');
+          if (g) g.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+          redrawPaths();
+        });
+        window.addEventListener('mouseup', function() { dragging = null; });
+        window.addEventListener('mouseleave', function() { dragging = null; });
+      })();
+      content.querySelectorAll('.wire-tab').forEach((tab) => {
+        tab.addEventListener('click', function() {
+          const panelId = this.getAttribute('data-wire-panel');
+          content.querySelectorAll('.wire-tab').forEach((t) => t.classList.remove('active'));
+          content.querySelectorAll('.wire-panel').forEach((p) => p.classList.remove('active'));
+          this.classList.add('active');
+          const panel = panelId === 'list' ? document.getElementById('wire-panel-list') : document.getElementById('wire-panel-graph');
+          if (panel) panel.classList.add('active');
+        });
+      });
       content.querySelectorAll('.wire-item-summary').forEach((el) => {
         el.addEventListener('click', () => {
           const detailId = el.getAttribute('data-detail-id');
@@ -773,8 +991,84 @@
       const scanStatus = (data.scan_status && typeof data.scan_status === 'object') ? data.scan_status : null;
       const lastUpdate = trendCards.date || trendCards.timestamp_utc || (data.trend_cards_date || '');
 
-      let html = '<h2 style="margin-top:0; font-size:1.1rem;">OpenClaw Intel (Daphnée)</h2>';
-      html += '<p class="meta">Trend Cards X + YouTube. Classement : indispensable / borderline / rejeté. Dernière mise à jour des cartes : ' + (lastUpdate || '—') + '.</p>';
+      let html = '<h2 style="margin-top:0; font-size:1.1rem;">Daphnée Intel</h2>';
+      html += '<p class="meta">Trend Cards X + YouTube + calendrier économique. Dernière mise à jour des cartes : ' + (lastUpdate || '—') + '.</p>';
+
+      if (trendCards.situation_summary) {
+        html += '<div class="card" style="margin-bottom:1rem;"><h3 style="margin-top:0; font-size:1rem;">Vue clarifiée — situation du jour</h3>';
+        html += '<p class="intel-card-summary" style="margin:0;">' + (trendCards.situation_summary || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>';
+        if (trendCards.situation_by_source && typeof trendCards.situation_by_source === 'object') {
+          html += '<ul class="meta" style="margin:0.5rem 0 0 1rem; padding-left:1rem; font-size:0.9rem;">';
+          ['x', 'youtube', 'macro', 'cryptodaily', 'reddit'].forEach(function(k) {
+            if (trendCards.situation_by_source[k])
+              html += '<li>' + (trendCards.situation_by_source[k] || '').replace(/</g, '&lt;') + '</li>';
+          });
+          html += '</ul>';
+        }
+        html += '</div>';
+      }
+
+      const ecoCal = (data.economic_calendar && typeof data.economic_calendar === 'object') ? data.economic_calendar : { last_updated_utc: null, source: null, events: [] };
+      const ecoEvents = Array.isArray(ecoCal.events) ? ecoCal.events : [];
+      const todayStr = trendCards.date || new Date().toISOString().slice(0, 10);
+      const yesterdayStr = new Date(new Date().setDate(new Date().getDate() - 1)).toISOString().slice(0, 10);
+      const ecoToday = ecoEvents.filter(function(e) { return e.date === todayStr; });
+      const ecoRecentWithActual = ecoEvents.filter(function(e) { return (e.date === todayStr || e.date === yesterdayStr) && e.actual != null && String(e.actual).trim() !== ''; });
+      if (ecoEvents.length > 0) {
+        html += '<div class="card intel-econ-calendar"><h3>Calendrier économique</h3>';
+        html += '<p class="meta">Source : ' + (ecoCal.source || '—') + ' — Dernière MAJ : ' + (ecoCal.last_updated_utc ? new Date(ecoCal.last_updated_utc).toLocaleString('fr-FR') : '—') + ' (' + ecoEvents.length + ' événements).</p>';
+        if (ecoRecentWithActual.length > 0) {
+          html += '<p class="meta" style="margin-bottom:0.5rem;"><strong>Prévu vs publié (récent)</strong></p>';
+          html += '<table class="intel-econ-table"><thead><tr><th>Date</th><th>Heure</th><th>Pays</th><th>Événement</th><th>Prévu</th><th>Publié</th></tr></thead><tbody>';
+          ecoRecentWithActual.slice(0, 25).forEach(function(e) {
+            html += '<tr><td class="econ-date">' + (e.date || '—').replace(/</g, '&lt;') + '</td><td>' + (e.time_utc || '—').replace(/</g, '&lt;') + '</td><td>' + (e.country || '—').replace(/</g, '&lt;') + '</td><td>' + (e.event || '—').replace(/</g, '&lt;') + '</td><td>' + (e.forecast != null ? String(e.forecast).replace(/</g, '&lt;') : '—') + '</td><td>' + (e.actual != null ? String(e.actual).replace(/</g, '&lt;') : '—') + '</td></tr>';
+          });
+          html += '</tbody></table>';
+        }
+        if (ecoToday.length > 0) {
+          html += '<p class="meta" style="margin-top:1rem; margin-bottom:0.5rem;"><strong>Aujourd\'hui (' + ecoToday.length + ')</strong></p>';
+          html += '<table class="intel-econ-table"><thead><tr><th>Heure</th><th>Pays</th><th>Événement</th><th>Prévu</th><th>Publié</th></tr></thead><tbody>';
+          ecoToday.slice(0, 30).forEach(function(e) {
+            html += '<tr><td>' + (e.time_utc || '—').replace(/</g, '&lt;') + '</td><td>' + (e.country || '—').replace(/</g, '&lt;') + '</td><td>' + (e.event || '—').replace(/</g, '&lt;') + '</td><td>' + (e.forecast != null ? String(e.forecast).replace(/</g, '&lt;') : '—') + '</td><td>' + (e.actual != null ? String(e.actual).replace(/</g, '&lt;') : '—') + '</td></tr>';
+          });
+          html += '</tbody></table>';
+        }
+        html += '</div>';
+      }
+
+      const cryptodaily = (data.cryptodaily_news && typeof data.cryptodaily_news === 'object') ? data.cryptodaily_news : { items: [], error: null, source: null, last_updated_utc: null };
+      const cryptodailyItems = Array.isArray(cryptodaily.items) ? cryptodaily.items : [];
+      if (cryptodailyItems.length > 0 || cryptodaily.error) {
+        html += '<div class="card intel-econ-calendar" style="margin-bottom:1rem;"><h3 style="margin-top:0; font-size:1rem;">Actualités crypto (CryptoDaily)</h3>';
+        html += '<p class="meta">Source : ' + (cryptodaily.source || '—') + ' — MAJ : ' + (cryptodaily.last_updated_utc ? new Date(cryptodaily.last_updated_utc).toLocaleString('fr-FR') : '—');
+        if (cryptodaily.error) html += ' — <span class="status-error">' + String(cryptodaily.error).replace(/</g, '&lt;') + '</span>';
+        html += '</p>';
+        if (cryptodailyItems.length > 0) {
+          html += '<ul style="margin:0.5rem 0; padding-left:1.25rem;">';
+          cryptodailyItems.slice(0, 15).forEach(function(it) {
+            const title = (it.title || '(sans titre)').replace(/</g, '&lt;');
+            const link = it.url ? '<a href="' + it.url.replace(/"/g, '&quot;') + '" target="_blank" rel="noopener">' + title + '</a>' : title;
+            html += '<li style="margin-bottom:0.35rem;">' + link + '</li>';
+          });
+          html += '</ul>';
+        }
+        html += '</div>';
+      }
+
+      const reddit = (data.reddit_intel && typeof data.reddit_intel === 'object') ? data.reddit_intel : { subreddits: [], source: null, last_updated_utc: null };
+      const redditSubs = Array.isArray(reddit.subreddits) ? reddit.subreddits : [];
+      if (redditSubs.length > 0) {
+        html += '<div class="card intel-econ-calendar" style="margin-bottom:1rem;"><h3 style="margin-top:0; font-size:1rem;">Reddit — subreddits crypto similaires</h3>';
+        html += '<p class="meta">Source : ' + (reddit.source || '—') + ' — MAJ : ' + (reddit.last_updated_utc ? new Date(reddit.last_updated_utc).toLocaleString('fr-FR') : '—') + ' (' + redditSubs.length + ' subreddit(s)).</p>';
+        html += '<ul style="margin:0.5rem 0; padding-left:1.25rem;">';
+        redditSubs.slice(0, 20).forEach(function(s) {
+          const name = (s.display_name || s.title || '').replace(/</g, '&lt;');
+          const link = s.url ? '<a href="' + (s.url || '').replace(/"/g, '&quot;') + '" target="_blank" rel="noopener">r/' + name + '</a>' : 'r/' + name;
+          const subs = s.subscribers != null ? ' <span class="meta">(' + (s.subscribers >= 1e6 ? (s.subscribers/1e6).toFixed(1) + 'M' : s.subscribers >= 1e3 ? (s.subscribers/1e3).toFixed(1) + 'k' : s.subscribers) + ')</span>' : '';
+          html += '<li style="margin-bottom:0.35rem;">' + link + subs + '</li>';
+        });
+        html += '</ul></div>';
+      }
 
       if (scanStatus) {
         html += '<div class="card intel-scan-status"><h3 style="margin-top:0; font-size:1rem;">Statut du scraping</h3>';
@@ -810,43 +1104,97 @@
         return;
       }
 
-      html += '<h3 style="font-size:1rem; margin-bottom:0.75rem;">Trend Cards</h3>';
-      cards.forEach(function(item) {
-        const sourceClass = item.source === 'x' ? 'source-x' : (item.source === 'youtube' ? 'source-youtube' : '');
+      const youtubeCards = cards.filter(function(c) { return c.source === 'youtube'; });
+      const youtubeUseful = youtubeCards.filter(function(c) { return c.classification !== 'rejeté'; });
+      const youtubeRejected = youtubeCards.filter(function(c) { return c.classification === 'rejeté'; });
+      const otherCards = cards.filter(function(c) { return c.source !== 'youtube'; });
+
+      function renderIntelCard(item) {
+        const sourceClass = item.source === 'x' ? 'source-x' : (item.source === 'youtube' ? 'source-youtube' : (item.source === 'economic_calendar' ? 'source-economic_calendar' : (item.source === 'cryptodaily' ? 'source-cryptodaily' : (item.source === 'reddit' ? 'source-reddit' : ''))));
         const classClass = (item.classification === 'indispensable' || item.classification === 'rejeté') ? item.classification : 'borderline';
-        const sourceLabel = item.source === 'x' ? 'X' : (item.source === 'youtube' ? 'YouTube' : (item.source || ''));
-        html += '<div class="card intel-card">';
-        html += '<div class="intel-card-head">';
-        html += '<span class="intel-card-title">' + (item.title || item.id || 'Sans titre').replace(/</g, '&lt;') + '</span>';
-        html += '<span class="intel-badge ' + sourceClass + '">' + sourceLabel + '</span>';
-        html += '<span class="intel-badge ' + classClass + '">' + (item.classification || 'borderline') + '</span>';
-        html += '<span class="meta">' + (item.date || (item.timestamp_utc ? new Date(item.timestamp_utc).toLocaleDateString('fr-FR') : '')) + '</span>';
-        if (item.url) html += '<a href="' + item.url.replace(/"/g, '&quot;') + '" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left:auto;">Ouvrir le lien</a>';
-        html += '</div>';
-        if (item.summary) html += '<div class="intel-card-summary">' + (item.summary || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div>';
-        html += '</div>';
-      });
+        const sourceLabel = item.source === 'x' ? 'X' : (item.source === 'youtube' ? 'YouTube' : (item.source === 'economic_calendar' ? 'Calendrier éco' : (item.source === 'cryptodaily' ? 'CryptoDaily' : (item.source === 'reddit' ? 'Reddit' : (item.source || '')))));
+        let cardHtml = '<div class="card intel-card' + (item.classification === 'rejeté' ? ' intel-card-rejected' : '') + '">';
+        cardHtml += '<div class="intel-card-head">';
+        cardHtml += '<span class="intel-card-title">' + (item.title || item.id || 'Sans titre').replace(/</g, '&lt;') + '</span>';
+        cardHtml += '<span class="intel-badge ' + sourceClass + '">' + sourceLabel + '</span>';
+        cardHtml += '<span class="intel-badge ' + classClass + '">' + (item.classification || 'borderline') + '</span>';
+        cardHtml += '<span class="meta">' + (item.date || (item.timestamp_utc ? new Date(item.timestamp_utc).toLocaleDateString('fr-FR') : '')) + '</span>';
+        if (item.url) cardHtml += '<a href="' + item.url.replace(/"/g, '&quot;') + '" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left:auto;">Ouvrir le lien</a>';
+        cardHtml += '</div>';
+        if (item.summary) cardHtml += '<div class="intel-card-summary">' + (item.summary || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div>';
+        if (item.classification_reason) cardHtml += '<div class="meta intel-classification-reason">' + (item.classification_reason || '').replace(/</g, '&lt;') + '</div>';
+        cardHtml += '</div>';
+        return cardHtml;
+      }
+
+      if (youtubeUseful.length > 0) {
+        html += '<h3 style="font-size:1rem; margin-bottom:0.5rem;">Cryptosphère YouTube</h3>';
+        html += '<p class="meta" style="margin-bottom:0.75rem;">' + youtubeUseful.length + ' vidéo(s) utiles' + (youtubeRejected.length > 0 ? ' — ' + youtubeRejected.length + ' écartée(s) (placement / contenu insuffisant)' : '') + '.</p>';
+        youtubeUseful.forEach(function(item) { html += renderIntelCard(item); });
+      }
+      if (otherCards.length > 0) {
+        html += '<h3 style="font-size:1rem; margin-top:1.25rem; margin-bottom:0.5rem;">Autres sources</h3>';
+        otherCards.forEach(function(item) { html += renderIntelCard(item); });
+      }
+      if (youtubeRejected.length > 0) {
+        html += '<details class="intel-rejected-wrap" style="margin-top:1.25rem;">';
+        html += '<summary class="meta" style="cursor:pointer;">Vidéos écartées (' + youtubeRejected.length + ') — placement / inutiles</summary>';
+        youtubeRejected.forEach(function(item) { html += renderIntelCard(item); });
+        html += '</details>';
+      }
       content.innerHTML = html;
     }
 
     async function viewCost() {
-      const data = await fetchJson('/api/costs');
+      const data = await fetchJson('/api/costs?t=' + Date.now());
       if (!data) {
         content.innerHTML = '<p class="empty-state">Aucune donnée (data/dashboard/costs.json).</p>';
         return;
       }
       let html = '';
       const apiCosts = Array.isArray(data.api_costs) ? data.api_costs : [];
-      html += '<p class="meta">Suivi des API payantes et coûts trading. Données : data/dashboard/costs.json</p>';
+      const fixedCosts = data.fixed_costs || [];
+      const t = data.trading || {};
+      const gains = data.gains || {};
+      let totalCosts = 0;
+      apiCosts.forEach((api) => { if (typeof api.cost === 'number' && !isNaN(api.cost)) totalCosts += api.cost; });
+      fixedCosts.forEach((c) => { if (typeof c.amount === 'number' && !isNaN(c.amount)) totalCosts += c.amount; });
+      if (typeof t.fees === 'number' && !isNaN(t.fees)) totalCosts += t.fees;
+      if (typeof t.funding_paid === 'number' && !isNaN(t.funding_paid)) totalCosts += t.funding_paid;
+      const totalGains = (typeof gains.total_gains_usd === 'number' && !isNaN(gains.total_gains_usd)) ? gains.total_gains_usd : (typeof t.realized_pnl_usd === 'number' && !isNaN(t.realized_pnl_usd)) ? t.realized_pnl_usd : null;
+      const balance = totalGains != null ? totalGains - totalCosts : null;
+      const gainsSource = data.gains_source || null;
+      const gainsFetchError = data._gains_fetch_error || null;
+      html += '<p class="meta">Suivi des API payantes et coûts trading. Données : data/dashboard/costs.json. Gains récupérés automatiquement depuis ASTER (PnL réalisé) si disponibles.</p>';
+      html += '<div class="card balance-card"><h3 class="cost-section-title">Balance (gains − coûts)</h3>';
+      html += '<p><strong>Total coûts :</strong> <span class="cost-value">' + totalCosts.toFixed(2) + ' USD</span> (API + fixes + fees + funding)</p>';
+      if (totalGains != null) {
+        const sourceLabel = gainsSource === 'aster' ? 'PnL réalisé ASTER' : gainsSource === 'executor_balance' ? 'Valeur wallet ASTER (executor_balance.json)' : (gainsSource || '');
+        html += '<p><strong>Total gains :</strong> <span class="cost-value">' + totalGains.toFixed(2) + ' USD</span>' + (sourceLabel ? ' <span class="meta">(' + sourceLabel + ')</span>' : '') + '</p>';
+      } else {
+        html += '<p><strong>Total gains :</strong> <span class="cost-empty">' + (gainsFetchError || 'Exécuter executor-run.js pour écrire executor_balance.json (solde ASTER).') + '</span></p>';
+      }
+      if (balance != null) {
+        const balanceClass = balance >= 0 ? 'cost-value' : 'cost-negative';
+        html += '<p><strong>Balance :</strong> <span class="' + balanceClass + '">' + balance.toFixed(2) + ' USD</span>' + (balance >= 0 ? ' (bénéfice)' : ' (déficit)') + '</p>';
+      } else {
+        html += '<p><strong>Balance :</strong> <span class="cost-empty">Récupérer les gains (PnL réalisé ASTER) pour afficher la balance.</span></p>';
+      }
+      html += '</div>';
       html += '<div class="card"><h3 class="cost-section-title">API payantes</h3>';
       if (apiCosts.length) {
-        html += '<table class="cost-table"><thead><tr><th>API</th><th>Type</th><th>Coût</th><th>Dernière MAJ</th><th>Notes</th></tr></thead><tbody>';
+        html += '<table class="cost-table"><thead><tr><th>API</th><th>Type</th><th>Coût</th><th>Usage (mois)</th><th>Dernière MAJ</th><th>Notes</th></tr></thead><tbody>';
         apiCosts.forEach((api) => {
           const costStr = api.cost != null && api.cost !== '' ? (api.currency ? api.currency + ' ' : '') + api.cost : '';
           const costCell = costStr ? '<span class="cost-value">' + costStr + '</span>' : '<span class="cost-empty">Non renseigné</span>';
+          let usageStr = '';
+          if (api.x_project_usage != null) usageStr = api.x_project_usage + ' posts (API X)';
+          if (api.requests_this_month != null) usageStr = (usageStr ? usageStr + ' | ' : '') + api.requests_this_month + ' req. loc.';
+          if (api.usage_monthly_usd != null) usageStr = (usageStr ? usageStr + ' | ' : '') + (api.currency || 'USD') + ' ' + api.usage_monthly_usd;
+          if (api.usage_usd != null && api.usage_monthly_usd == null) usageStr = (usageStr ? usageStr + ' | ' : '') + (api.currency || 'USD') + ' ' + api.usage_usd;
           const updated = api.last_updated ? new Date(api.last_updated).toLocaleDateString('fr-FR') : '—';
           const typeLabel = api.type === 'subscription' ? 'Abonnement' : api.type === 'usage' ? 'Usage' : (api.type || '—');
-          html += '<tr><td><strong>' + (api.name || api.id || '') + '</strong></td><td>' + typeLabel + '</td><td>' + costCell + '</td><td>' + updated + '</td><td class="meta">' + (api.notes || '') + '</td></tr>';
+          html += '<tr><td><strong>' + (api.name || api.id || '') + '</strong></td><td>' + typeLabel + '</td><td>' + costCell + '</td><td class="meta">' + (usageStr || '—') + '</td><td>' + updated + '</td><td class="meta">' + (api.notes || '') + '</td></tr>';
         });
         html += '</tbody></table>';
       } else {
@@ -858,7 +1206,6 @@
         data.fixed_costs.forEach((c) => { html += '<li>' + (c.label || c.name || JSON.stringify(c)) + (c.amount != null ? ' : ' + c.amount + (c.currency || '') : '') + '</li>'; });
         html += '</ul></div>';
       }
-      const t = data.trading || {};
       html += '<div class="card"><h3 class="cost-section-title">Trading</h3>';
       html += '<p class="meta">Fees: ' + (t.fees != null ? t.fees : '—') + ' | Funding payé: ' + (t.funding_paid != null ? t.funding_paid : '—') + ' | Slippage: ' + (t.slippage != null ? t.slippage : '—') + ' | Drawdown: ' + (t.drawdown != null ? t.drawdown : '—') + '</p>';
       if (t.roi_by_strategy && Object.keys(t.roi_by_strategy).length) {
@@ -873,7 +1220,6 @@
 
     async function viewExecution() {
       const config = await fetchJson('/api/execution_config');
-      const executed = await fetchJson('/api/executed_orders') || [];
       const balance = await fetchJson('/api/executor_balance').catch(() => null);
       const notional = (config && config.notional_usd != null) ? config.notional_usd : 5;
       const realMode = config && config.real_mode === true;
@@ -898,15 +1244,44 @@
       html += '</div>';
       html += '<p class="meta" style="margin-top:0.75rem;">Quand le mode réel est activé, le script <code>node scripts/executor-run.js</code> place pour chaque idée approuvée non encore exécutée : ordre limite à l\'entrée, stop market à l\'invalidation, take profit au premier objectif. Notional : ' + notional + ' $ (avant levier).</p>';
       html += '</div>';
-      html += '<div class="card"><h3 class="cost-section-title">Ordres exécutés</h3>';
-      if (executed.length) {
+      let executedOpen = [];
+      try {
+        const res = await fetch('/api/executed_orders_open');
+        if (res.ok) {
+          const data = await res.json();
+          executedOpen = Array.isArray(data) ? data : [];
+        } else {
+          const full = await fetchJson('/api/executed_orders').catch(() => []);
+          executedOpen = Array.isArray(full) ? full.filter((e) => e.closed_on_aster !== true) : [];
+        }
+      } catch (_) {
+        const full = await fetchJson('/api/executed_orders').catch(() => []);
+        executedOpen = Array.isArray(full) ? full.filter((e) => e.closed_on_aster !== true) : [];
+      }
+      const tiboReport = await fetchJson('/api/tibo_report').catch(() => null);
+      html += '<div class="card"><h3 class="cost-section-title">Ordres exécutés (ouverts sur ASTER)</h3>';
+      html += '<p class="meta">Synchronisé avec ASTER : seules les positions encore ouvertes sont affichées.</p>';
+      if (executedOpen && executedOpen.length > 0) {
         html += '<table class="cost-table"><thead><tr><th>trade_id</th><th>Symbole</th><th>Exécuté le</th></tr></thead><tbody>';
-        executed.slice(0, 30).forEach((e) => {
+        executedOpen.slice(0, 30).forEach((e) => {
           html += '<tr><td>' + (e.trade_id || '—') + '</td><td>' + (e.symbol || '—') + '</td><td>' + (e.executed_at ? new Date(e.executed_at).toLocaleString('fr-FR') : '—') + '</td></tr>';
         });
         html += '</tbody></table>';
       } else {
-        html += '<p class="meta">Aucun ordre exécuté par le système.</p>';
+        html += '<p class="meta">Aucune position ouverte sur ASTER (ou sync non disponible).</p>';
+      }
+      html += '</div>';
+      const pendingTp = (tiboReport && Array.isArray(tiboReport.pending_tp_entries)) ? tiboReport.pending_tp_entries : [];
+      html += '<div class="card"><h3 class="cost-section-title">Ordres en attente (TP — scrutator)</h3>';
+      html += '<p class="meta">Entrées exécutées dont le take-profit n’a pas encore été placé par le scrutator.</p>';
+      if (pendingTp && pendingTp.length > 0) {
+        html += '<table class="cost-table"><thead><tr><th>Entry order ID</th><th>Symbole</th><th>trade_id</th><th>TP prix</th><th>Side</th></tr></thead><tbody>';
+        pendingTp.forEach((p) => {
+          html += '<tr><td>' + (p.entryOrderId ?? '—') + '</td><td>' + (p.symbol ?? '—') + '</td><td>' + (p.trade_id ?? '—') + '</td><td>' + (p.takeProfitPrice != null ? p.takeProfitPrice : '—') + '</td><td>' + (p.side ?? '—') + '</td></tr>';
+        });
+        html += '</tbody></table>';
+      } else {
+        html += '<p class="meta">Aucun TP en attente.</p>';
       }
       html += '</div>';
       content.innerHTML = html;
@@ -921,6 +1296,144 @@
           alert('Erreur: ' + (e.message || e));
         }
       });
+    }
+
+    async function viewYield() {
+      const boot = window.__YIELD_BOOT__ || {};
+      let report = await fetchJsonYield('/api/yield_farmer_report');
+      let poolsData = await fetchJsonYield('/api/uniswap_v3_arbitrum_pools');
+      if ((!report || report._message) && boot.report && !boot.report._message) report = boot.report;
+      if ((!poolsData || poolsData._message) && boot.pools && !boot.pools._message) poolsData = boot.pools;
+      if (!report || report._message) {
+        const msg = (report && report._message) ? String(report._message) : 'Aucun rapport Yield. Exécuter <code>yield-report.js</code> (cron 08:00 ou manuellement).';
+        let emptyHtml = renderYieldPoolsArbitrumHtml(poolsData);
+        emptyHtml += '<div class="card"><h3 class="cost-section-title">Rapport Yield</h3><p class="empty-state">' + msg + '</p>';
+        emptyHtml += '<p class="meta">Wallet : 0x6B5F…64947 — Uniswap V3 (USDC/USDT). Le dashboard est servi par le daemon (service <code>tradeempire-dashboard</code>, port 3580). Si les données sont vides : depuis la racine du workspace, exécuter <code>node TradeEmpire/trading-empire/scripts/yield-fetch-pools-arbitrum.js</code> puis <code>node TradeEmpire/trading-empire/scripts/yield-report.js</code>, puis rafraîchir la page.</p></div>';
+        content.innerHTML = emptyHtml;
+        return;
+      }
+      const ts = report.timestamp_utc ? new Date(report.timestamp_utc).toLocaleString('fr-FR') : '—';
+      const wallet = report.wallet_address || '—';
+      const platform = report.platform || '—';
+      const chain = report.chain || 'arbitrum';
+      const pair = report.pair || '—';
+      const capDormant = report.capital_dormant_estime_usdt != null ? parseFloat(report.capital_dormant_estime_usdt).toFixed(2) : '—';
+      const capDispo = report.capital_disponible_source_usdt != null ? parseFloat(report.capital_disponible_source_usdt).toFixed(2) : '—';
+      const reco = report.recommandation_allocation_usdt != null ? parseFloat(report.recommandation_allocation_usdt).toFixed(2) : '—';
+      const apyCible = report.apy_cible_pct != null ? report.apy_cible_pct : '—';
+      const apyMin = report.seuil_apy_min_pct != null ? report.seuil_apy_min_pct : '—';
+      const rendAnnuel = report.rendement_annuel_estime_usdt != null ? parseFloat(report.rendement_annuel_estime_usdt).toFixed(2) : '—';
+      const rendMensuel = report.rendement_mensuel_estime_usdt != null ? parseFloat(report.rendement_mensuel_estime_usdt).toFixed(2) : '—';
+      const capitalAlloue = report.capital_alloue_usdt != null ? parseFloat(report.capital_alloue_usdt).toFixed(2) : '—';
+      const poolActuel = report.pool_actuel || '—';
+      const apyEstime = report.apy_estime_pct != null ? report.apy_estime_pct + ' %' : '—';
+      const alertes = Array.isArray(report.alertes) ? report.alertes : [];
+      const pools = Array.isArray(report.pools_cibles) ? report.pools_cibles : [];
+      let html = '<div class="card"><h3 class="cost-section-title">Yield — Suivi des rendements</h3>';
+      html += '<p class="meta">Dernière mise à jour : ' + ts + '</p>';
+      html += '<p><strong>Wallet :</strong> <code>' + escapeHtml(wallet) + '</code> &nbsp;|&nbsp; <strong>Plateforme :</strong> ' + escapeHtml(platform) + ' &nbsp;|&nbsp; <strong>Chaîne :</strong> ' + escapeHtml(chain) + ' &nbsp;|&nbsp; <strong>Paire :</strong> ' + escapeHtml(pair) + '</p>';
+      html += '</div>';
+      html += '<div class="card"><h3 class="cost-section-title">Capital et recommandation</h3>';
+      html += '<p><strong>Capital disponible (source) :</strong> ' + capDispo + ' USDT</p>';
+      html += '<p><strong>Capital dormant estimé :</strong> ' + capDormant + ' USDT</p>';
+      html += '<p><strong>Recommandation d\'allocation :</strong> ' + reco + ' USDT</p>';
+      html += '<p><strong>APY cible :</strong> ' + apyCible + ' % &nbsp;|&nbsp; <strong>Seuil minimum :</strong> ' + apyMin + ' %</p>';
+      html += '</div>';
+      html += '<div class="card"><h3 class="cost-section-title">Rendements estimés</h3>';
+      html += '<p><strong>Rendement annuel estimé :</strong> ' + rendAnnuel + ' USDT</p>';
+      html += '<p><strong>Rendement mensuel estimé :</strong> ' + rendMensuel + ' USDT</p>';
+      if (capitalAlloue !== '—' || poolActuel !== '—') {
+        html += '<p><strong>Capital alloué (réel) :</strong> ' + capitalAlloue + ' USDT &nbsp;|&nbsp; <strong>Pool actuel :</strong> ' + escapeHtml(poolActuel) + ' &nbsp;|&nbsp; <strong>APY estimé :</strong> ' + apyEstime + '</p>';
+      }
+      html += '</div>';
+      if (pools.length > 0) {
+        html += '<div class="card"><h3 class="cost-section-title">Pools cibles (Uniswap V3)</h3>';
+        html += '<table class="cost-table"><thead><tr><th>Protocole</th><th>Actif / Paire</th><th>APY indicatif %</th><th>Note</th></tr></thead><tbody>';
+        pools.forEach((p) => {
+          html += '<tr><td>' + escapeHtml(p.protocol || '—') + '</td><td>' + escapeHtml(p.asset || p.pair || '—') + '</td><td>' + (p.apy_indicatif_pct != null ? p.apy_indicatif_pct : '—') + '</td><td>' + escapeHtml(p.note || '') + '</td></tr>';
+        });
+        html += '</tbody></table></div>';
+      }
+      if (alertes.length > 0) {
+        html += '<div class="card"><h3 class="cost-section-title">Alertes</h3><ul>';
+        alertes.forEach((a) => { html += '<li>' + escapeHtml(typeof a === 'string' ? a : (a.message || JSON.stringify(a))) + '</li>'; });
+        html += '</ul></div>';
+      }
+      if (report.summary) {
+        html += '<div class="card"><h3 class="cost-section-title">Résumé</h3><p>' + escapeHtml(report.summary) + '</p></div>';
+      }
+      html += renderYieldPoolsArbitrumHtml(poolsData);
+      content.innerHTML = html;
+    }
+
+    function renderYieldPoolsArbitrumHtml(poolsData) {
+      if (!poolsData || poolsData._message) return '<div class="card"><p class="meta">Pools Arbitrum : exécuter <code>yield-fetch-pools-arbitrum.js</code> pour afficher les meilleurs pools Uniswap V3.</p></div>';
+      const updated = poolsData.updated_at ? new Date(poolsData.updated_at).toLocaleString('fr-FR') : '—';
+      let html = '<div class="card"><h3 class="cost-section-title">Meilleurs pools Uniswap V3 — Arbitrum</h3>';
+      html += '<p class="meta">Source DeFiLlama · Mise à jour : ' + escapeHtml(updated) + '</p>';
+      const topTvl = Array.isArray(poolsData.top_by_tvl) ? poolsData.top_by_tvl : [];
+      if (topTvl.length > 0) {
+        html += '<h4 style="margin-top:1em;">Top par TVL</h4>';
+        html += '<table class="cost-table"><thead><tr><th>Paire</th><th>TVL (USD)</th><th>APY %</th><th>Risque IL</th></tr></thead><tbody>';
+        topTvl.slice(0, 12).forEach(function(p) {
+          const tvlStr = p.tvlUsd >= 1e6 ? (p.tvlUsd / 1e6).toFixed(2) + ' M' : (p.tvlUsd >= 1e3 ? (p.tvlUsd / 1e3).toFixed(1) + ' k' : String(Math.round(p.tvlUsd)));
+          html += '<tr><td>' + escapeHtml(p.symbol || '—') + '</td><td>$' + tvlStr + '</td><td>' + (p.apy != null ? Number(p.apy).toFixed(2) : '—') + '</td><td>' + (p.ilRisk === 'yes' ? 'oui' : 'non') + '</td></tr>';
+        });
+        html += '</tbody></table>';
+      }
+      const topStable = Array.isArray(poolsData.top_stablecoin_pools) ? poolsData.top_stablecoin_pools : [];
+      if (topStable.length > 0) {
+        html += '<h4 style="margin-top:1em;">Pools stablecoin (faible IL)</h4>';
+        html += '<table class="cost-table"><thead><tr><th>Paire</th><th>TVL (USD)</th><th>APY %</th></tr></thead><tbody>';
+        topStable.slice(0, 10).forEach(function(p) {
+          const tvlStr = p.tvlUsd >= 1e6 ? (p.tvlUsd / 1e6).toFixed(2) + ' M' : (p.tvlUsd >= 1e3 ? (p.tvlUsd / 1e3).toFixed(1) + ' k' : String(Math.round(p.tvlUsd)));
+          html += '<tr><td>' + escapeHtml(p.symbol || '—') + '</td><td>$' + tvlStr + '</td><td>' + (p.apy != null ? Number(p.apy).toFixed(2) : '—') + '</td></tr>';
+        });
+        html += '</tbody></table>';
+      }
+      html += '</div>';
+      return html;
+    }
+
+    function renderYieldPoolsArbitrum(container, poolsData) {
+      if (!container) return;
+      const html = renderYieldPoolsArbitrumHtml(poolsData);
+      if (html) container.insertAdjacentHTML('beforeend', html);
+    }
+
+    async function viewHyperliquid() {
+      let report = await fetchJson('/api/hyperliquid_analyst_report').catch(() => null);
+      if (!report || report._message) {
+        if (window.__HYPERLIQUID_BOOT__ && !window.__HYPERLIQUID_BOOT__._message) report = window.__HYPERLIQUID_BOOT__;
+        else {
+          const apiOrigin = window.location.origin || '';
+          if (apiOrigin) {
+            const fallback = await fetchJson(apiOrigin + '/api/hyperliquid_analyst_report').catch(() => null);
+            if (fallback && !fallback._message) report = fallback;
+          }
+        }
+      }
+      if (!report || report._message) {
+        const msg = (report && report._message) ? String(report._message) : 'Aucun rapport. Exécuter <code>hyperliquid-commodities-scan.js</code> puis <code>hyperliquid-analyst-trend.js</code> (ou cron <code>tradeempire-hyperliquid-analyst</code>). Ouvrir le dashboard depuis ce serveur (localhost, IP ou Tailscale, port 3580) pour charger les données.';
+        content.innerHTML = '<div class="card"><h3 class="cost-section-title">Hyperliquid — Tendance & actifs tokenisés</h3><p class="empty-state">' + msg + '</p></div>';
+        return;
+      }
+      const ts = report.timestamp_utc ? new Date(report.timestamp_utc).toLocaleString('fr-FR') : '—';
+      let html = '<div class="card"><h3 class="cost-section-title">Hyperliquid — Première tendance</h3>';
+      html += '<p class="meta">Mise à jour : ' + escapeHtml(ts) + '</p>';
+      if (report.first_trend || report.summary) html += '<p>' + escapeHtml(report.first_trend || report.summary) + '</p>';
+      if (report.symbols_analyzed != null) html += '<p><strong>Symboles analysés :</strong> ' + report.symbols_analyzed + ' &nbsp;|&nbsp; <strong>Main dex :</strong> ' + (report.main_dex_count ?? '—') + ' &nbsp;|&nbsp; <strong>HIP-3 :</strong> ' + (report.hip3_count ?? '—') + '</p>';
+      if (report.dexes && report.dexes.length) html += '<p><strong>DEX HIP-3 :</strong> ' + report.dexes.join(', ') + '</p>';
+      html += '</div>';
+      if (report.recommendations && report.recommendations.length > 0) {
+        html += '<div class="card"><h3 class="cost-section-title">Recommandations</h3>';
+        html += '<table class="cost-table"><thead><tr><th>Symbole</th><th>Side</th><th>Raison</th><th>Confiance</th></tr></thead><tbody>';
+        report.recommendations.forEach((r) => {
+          html += '<tr><td>' + escapeHtml(r.symbol || '—') + '</td><td>' + escapeHtml(r.side || '—') + '</td><td>' + escapeHtml(r.reason || '') + '</td><td>' + escapeHtml(r.confidence || '—') + '</td></tr>';
+        });
+        html += '</tbody></table></div>';
+      }
+      content.innerHTML = html;
     }
 
     async function viewTiboReports() {
@@ -1040,7 +1553,7 @@
       }
       if (!proposals.length) {
         let msg = 'Aucune proposition BOSS. Les créations nocturnes sont écrites dans data/dashboard/boss_proposals.json, dashboard/spec/evolutions.md ou data/dashboard/boss_proposals_from_evolutions.json. <strong>Validation humaine requise</strong> avant application.';
-        if (!apiOk) msg += '<br><br><span class="meta">Diagnostic : l’API /api/boss_proposals n’a pas répondu correctement. Ouvrez le dashboard depuis le serveur TradeEmpire (ex. <a href="http://127.0.0.1:3580" target="_blank">http://127.0.0.1:3580</a>) puis rafraîchissez.</span>';
+        if (!apiOk) msg += '<br><br><span class="meta">Diagnostic : l’API /api/boss_proposals n’a pas répondu correctement. Ouvrez le dashboard depuis ce serveur (localhost, IP ou Tailscale, port 3580) puis rafraîchissez.</span>';
         content.innerHTML = '<p class="empty-state">' + msg + '</p>';
         return;
       }
@@ -1090,12 +1603,78 @@
     }
 
     async function viewTechnicals() {
-      const list = await fetchJson('/api/signals/technicals');
-      content.innerHTML = renderSignals(list || [], 'technicals');
+      const list = await fetchJson('/api/signals/technicals') || [];
+      const calendar = list.find((s) => s.file === 'tradingview_events_calendar.json' || (s.by_symbol && s.source));
+      const cryptoInd = list.find((s) => s.file === 'crypto_indicators_rapidapi.json' || (s.by_symbol && s.timeframe && (s.source || '').includes('crypto-technical')));
+      const signals = list.filter((s) => s.symbol != null && s.trend != null);
+      let html = '';
+      if (cryptoInd && cryptoInd.by_symbol) {
+        html += '<div class="card" style="margin-bottom:1rem;"><h3 style="margin-top:0; font-size:1rem;">Indicateurs RSI / MACD / EMA (RapidAPI)</h3>';
+        html += '<p class="meta">Source : ' + (cryptoInd.source || '—') + ' — TF : ' + (cryptoInd.timeframe || '4h') + ' — MAJ : ' + (cryptoInd.last_updated_utc ? new Date(cryptoInd.last_updated_utc).toLocaleString('fr-FR') : '—') + '</p>';
+        html += '<table class="intel-econ-table"><thead><tr><th>Symbole</th><th>RSI</th><th>MACD</th><th>Signal</th><th>EMA</th></tr></thead><tbody>';
+        Object.keys(cryptoInd.by_symbol).forEach(function(sym) {
+          const d = cryptoInd.by_symbol[sym];
+          if (!d) return;
+          const rsi = d.rsi != null ? d.rsi.toFixed(2) : '—';
+          const macd = d.macd != null ? d.macd.toFixed(2) : '—';
+          const sig = d.macd_signal != null ? d.macd_signal.toFixed(2) : '—';
+          const ema = d.ema != null ? d.ema.toFixed(2) : '—';
+          html += '<tr><td><strong>' + String(sym).replace(/</g, '&lt;') + '</strong></td><td>' + rsi + '</td><td>' + macd + '</td><td>' + sig + '</td><td>' + ema + '</td></tr>';
+        });
+        html += '</tbody></table></div>';
+      }
+      if (calendar && calendar.by_symbol) {
+        html += '<div class="card" style="margin-bottom:1rem;"><h3 style="margin-top:0; font-size:1rem;">Calendrier événements par symbole (TradingView)</h3>';
+        html += '<p class="meta">Source : ' + (calendar.source || '—') + ' — MAJ : ' + (calendar.last_updated_utc ? new Date(calendar.last_updated_utc).toLocaleString('fr-FR') : '—') + '</p>';
+        const bySymbol = calendar.by_symbol;
+        Object.keys(bySymbol).forEach(function(sym) {
+          const events = bySymbol[sym];
+          const count = Array.isArray(events) ? events.length : 0;
+          html += '<div class="meta"><strong>' + String(sym).replace(/</g, '&lt;') + '</strong> : ' + count + ' événement(s)</div>';
+        });
+        html += '</div>';
+      }
+      html += renderSignals(signals, 'technicals');
+      content.innerHTML = html;
     }
     async function viewSmartMoney() {
-      const list = await fetchJson('/api/signals/smart_money');
-      content.innerHTML = renderSignals(list || [], 'smart_money');
+      const list = await fetchJson('/api/signals/smart_money') || [];
+      const signalsOnly = list.filter(function(s) { return s.symbol != null && s.file !== 'dexscreener_holders.json' && s.file !== 'binance_copy_leaderboard.json'; });
+      let html = '';
+      try {
+        const holdersRes = await fetch('/api/smart_money/holders');
+        if (holdersRes.ok) {
+          const holdersData = await holdersRes.json();
+          const holders = Array.isArray(holdersData.holders) ? holdersData.holders : [];
+          const err = holdersData.error;
+          html += '<div class="card" style="margin-bottom:1rem;"><h3 style="margin-top:0; font-size:1rem;">Top traders (Dexscreener)</h3>';
+          html += '<p class="meta">Source : ' + (holdersData.source || '—') + ' — MAJ : ' + (holdersData.last_updated_utc ? new Date(holdersData.last_updated_utc).toLocaleString('fr-FR') : '—');
+          if (err) html += ' — <span class="status-error">' + String(err).replace(/</g, '&lt;') + '</span>';
+          html += ' — ' + (holders.length || 0) + ' holder(s).';
+          const walletList = holdersData.wallets && holdersData.wallets.length ? holdersData.wallets : (holdersData.wallet_url ? [{ wallet_url: holdersData.wallet_url }] : []);
+          if (walletList.length > 1) html += ' — ' + walletList.length + ' wallet(s) surveillés.';
+          html += '</p>';
+          if (holdersData.wallet_url) html += '<p class="meta">Wallet : ' + String(holdersData.wallet_url).replace(/</g, '&lt;').slice(0, 80) + '</p>';
+          else if (walletList.length > 1) html += '<p class="meta">Wallets : ' + walletList.length + ' (voir dexscreener_wallets.txt ou DEXSCREENER_WALLET_URLS)</p>';
+          html += '</div>';
+        }
+      } catch (_) {}
+      try {
+        const lbRes = await fetch('/api/smart_money/leaderboard');
+        if (lbRes.ok) {
+          const lbData = await lbRes.json();
+          const leaderboard = Array.isArray(lbData.leaderboard) ? lbData.leaderboard : [];
+          const portfolios = Array.isArray(lbData.portfolios) ? lbData.portfolios : [];
+          const errs = lbData.errors && lbData.errors.length ? lbData.errors.join(' ; ') : null;
+          html += '<div class="card" style="margin-bottom:1rem;"><h3 style="margin-top:0; font-size:1rem;">Binance Copy Trading (leaderboard)</h3>';
+          html += '<p class="meta">Source : ' + (lbData.source || '—') + ' — MAJ : ' + (lbData.last_updated_utc ? new Date(lbData.last_updated_utc).toLocaleString('fr-FR') : '—');
+          if (errs) html += ' — <span class="status-error">' + String(errs).replace(/</g, '&lt;').slice(0, 120) + '</span>';
+          html += ' — Leaderboard : ' + (leaderboard.length || 0) + ' — Portfolios détaillés : ' + (portfolios.length || 0) + '.</p>';
+          html += '</div>';
+        }
+      } catch (_) {}
+      html += renderSignals(signalsOnly, 'smart_money');
+      content.innerHTML = html;
     }
     async function viewSentiment() {
       const list = await fetchJson('/api/signals/sentiment');
@@ -1141,21 +1720,22 @@
     }
     async function viewChase() {
       const [feedback, postMortems] = await Promise.all([fetchJson('/api/chase_feedback'), fetchJson('/api/chase_post_mortems')]);
-      let html = '<p class="meta">Chase (Tracker) : suit les idées APPROVED, post-mortem (bonne/mauvaise) et feedback vers les agents. Remplir data/tracker/outcomes/{trade_id}.json avec outcome (win|loss|invalid_hit|target_hit) puis lancer <code>node scripts/chase-tracker.js</code>.</p>';
+      let html = '<p class="meta">Chase suit les idées approuvées, produit un post-mortem (bonne ou mauvaise idée) pour chaque trade clôturé et envoie un feedback en phrases aux agents pour qu’ils améliorent leur technique.</p>';
       if (feedback && (feedback.post_mortem_count > 0 || Object.keys(feedback.by_agent || {}).length)) {
         html += '<div class="card"><strong>Feedback par agent</strong> (dernier run Chase)</div>';
         for (const [agent, text] of Object.entries(feedback.by_agent || {})) {
-          html += '<div class="card idea-card"><div class="idea-head">' + agent + '</div><div class="idea-meta">' + (text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div></div>';
+          const safe = (text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>');
+          html += '<div class="card idea-card"><div class="idea-head">' + agent + '</div><div class="idea-meta chase-feedback-text">' + safe + '</div></div>';
         }
       }
       if (postMortems && postMortems.length) {
-        html += '<div class="card" style="margin-top:1rem;"><strong>Post-mortems</strong> (' + postMortems.length + ')</div>';
-        postMortems.slice(0, 20).forEach((p) => {
-          html += '<div class="card"><a href="#" class="chase-pm-link" data-id="' + p.id + '">' + p.id + '</a></div>';
+        html += '<div class="card" style="margin-top:1rem;"><strong>Comptes rendus par jour</strong> (' + postMortems.length + ' jour(s))</div>';
+        postMortems.slice(0, 30).forEach((p) => {
+          html += '<div class="card"><a href="#" class="chase-pm-link" data-id="' + escapeHtml(p.id) + '">' + escapeHtml(p.label || p.id) + '</a></div>';
         });
       }
       if ((!feedback || feedback.post_mortem_count === 0) && (!postMortems || !postMortems.length)) {
-        html += '<p class="empty-state">Aucun post-mortem ni feedback. Approuvez des idées (RISK_JOURNAL), remplissez data/tracker/outcomes/{trade_id}.json (outcome: win|loss|invalid_hit|target_hit), puis exécutez chase-tracker.js.</p>';
+        html += '<p class="empty-state">Aucun post-mortem pour l’instant. Une fois des trades clôturés (ou des outcomes remplis), lancez <code>node scripts/chase-tracker.js</code> pour générer les retours en phrases et les feedbacks par agent.</p>';
       }
       content.innerHTML = html;
       content.querySelectorAll('.chase-pm-link').forEach((a) => {
@@ -1169,6 +1749,101 @@
       });
     }
 
+    async function viewBenefices() {
+      const [suggestions, scoutProposals, scoutValidation, recoveryReport, recoveryIntraday] = await Promise.all([
+        fetchJson('/api/agent_profit_suggestions').catch(() => []),
+        fetchJson('/api/scout_proposals').catch(() => null),
+        fetchJson('/api/scout_validation_status').catch(() => null),
+        fetchJson('/api/recovery_report').catch(() => null),
+        fetchJson('/api/recovery_intraday_report').catch(() => null)
+      ]);
+      let html = '';
+
+      html += '<div class="card"><h3 style="margin:0 0 0.75rem 0; font-size:1.1rem;">Charte TradeEmpire</h3>';
+      html += '<p><strong>TradeEmpire est une entreprise à but lucratif.</strong> L’objectif est avant tout de faire des bénéfices. Le BOSS et tous les membres (agents) ne visent que ce but.</p>';
+      html += '<p class="meta">Bénéfices = trading (PnL, exécution) ou toute autre activité (nouveaux revenus, efficacité, coûts). Chaque agent peut suggérer des pistes de bénéfices aux autres via <code>agent_profit_suggestions.json</code> ou boss_proposals. Réf. <code>docs/TRADEEMPIRE_CHARTER.md</code></p></div>';
+
+      html += '<div class="card"><h3 style="margin:0 0 0.75rem 0; font-size:1.1rem;">Suggestions des agents (pistes de bénéfices)</h3>';
+      const suggList = Array.isArray(suggestions) ? suggestions : [];
+      if (suggList.length === 0) {
+        html += '<p class="empty-state" style="padding:1rem 0;">Aucune suggestion enregistrée. Les agents peuvent en ajouter via <code>data/dashboard/agent_profit_suggestions.json</code>.</p>';
+      } else {
+        html += '<p class="meta" style="margin-bottom:0.75rem;">Dernières suggestions (lu par le BOSS pour le brief et les priorités).</p>';
+        suggList.slice(-20).reverse().forEach(function(s) {
+          const from = (s.from_agent_id || 'agent').replace(/_/g, ' ');
+          const date = s.created_at ? new Date(s.created_at).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }) : '—';
+          html += '<div class="boss-proposal-card" style="margin-bottom:0.75rem; padding:0.75rem; background:var(--bg-panel); border-radius:var(--radius-sm); border-left:3px solid var(--accent);">';
+          html += '<div class="boss-proposal-header"><strong>' + escapeHtml(from) + '</strong> <span class="meta">' + date + '</span></div>';
+          html += '<p style="margin:0.35rem 0 0; font-size:0.95rem; color:var(--text-secondary);">' + escapeHtml(s.suggestion || '') + '</p></div>';
+        });
+      }
+      html += '</div>';
+
+      html += '<div class="card"><h3 style="margin:0 0 0.75rem 0; font-size:1.1rem;">Clarissa — Propositions &amp; validation</h3>';
+      if (scoutProposals && scoutProposals.proposals && scoutProposals.proposals.length) {
+        html += '<p class="meta">Dernier run : ' + (scoutProposals.timestamp_utc ? new Date(scoutProposals.timestamp_utc).toLocaleString('fr-FR') : '—') + '</p>';
+        html += '<p><strong>' + scoutProposals.proposals.length + ' proposition(s)</strong> — ' + (scoutProposals.summary || '').replace(/</g, '&lt;') + '</p>';
+        html += '<ul style="margin:0.5rem 0 0 1rem;">';
+        scoutProposals.proposals.slice(0, 12).forEach(function(p) {
+          html += '<li>' + escapeHtml(p.symbol || p.title || '') + (p.reason ? ' — ' + escapeHtml(p.reason) : '') + '</li>';
+        });
+        if (scoutProposals.proposals.length > 12) html += '<li class="meta">… et ' + (scoutProposals.proposals.length - 12) + ' autre(s)</li>';
+        html += '</ul>';
+      } else {
+        html += '<p class="empty-state" style="padding:0.5rem 0;">Aucune proposition Clarissa (exécuter opportunity-scout.js).</p>';
+      }
+      if (scoutValidation && (scoutValidation.by_symbol || []).length) {
+        html += '<h4 style="margin:1.25rem 0 0.5rem; font-size:1rem;">Statut de validation</h4><p class="meta">' + (scoutValidation.summary || '').replace(/</g, '&lt;') + '</p>';
+        html += '<table class="cost-table" style="margin-top:0.5rem;"><thead><tr><th>Symbole</th><th>Statut</th><th>Détail</th></tr></thead><tbody>';
+        (scoutValidation.by_symbol || []).forEach(function(x) {
+          const statusClass = x.status === 'executed' ? 'trend-up' : (x.status === 'approved' ? '' : 'meta');
+          html += '<tr><td>' + escapeHtml(x.symbol || '') + '</td><td class="' + statusClass + '">' + escapeHtml(x.status || '') + '</td><td>' + escapeHtml((x.detail || '').slice(0, 60)) + '</td></tr>';
+        });
+        html += '</tbody></table>';
+      }
+      html += '</div>';
+
+      html += '<div class="card"><h3 style="margin:0 0 0.75rem 0; font-size:1.1rem;">Killian — Outcomes &amp; revue intraday</h3>';
+      if (recoveryReport && (recoveryReport.by_symbol || recoveryReport.by_outcome)) {
+        html += '<p class="meta">Rapport outcomes Chase (agrégation par symbole/cause).' + (recoveryReport.timestamp_utc ? ' — ' + new Date(recoveryReport.timestamp_utc).toLocaleString('fr-FR') : '') + '</p>';
+        html += '<p>' + (recoveryReport.summary || '—').replace(/</g, '&lt;') + '</p>';
+        if (recoveryReport.by_symbol && Object.keys(recoveryReport.by_symbol).length) {
+          html += '<p style="margin-top:0.5rem;"><strong>Par symbole :</strong></p><pre style="font-size:0.85rem; overflow:auto; max-height:12rem;">' + escapeHtml(JSON.stringify(recoveryReport.by_symbol, null, 2)) + '</pre>';
+        }
+      } else {
+        html += '<p class="empty-state" style="padding:0.5rem 0;">Aucun rapport Killian (outcomes).</p>';
+      }
+      if (recoveryIntraday && (recoveryIntraday.reviews || recoveryIntraday.summary)) {
+        html += '<h4 style="margin:1.25rem 0 0.5rem; font-size:1rem;">Revue intraday (ordres ASTER)</h4>';
+        html += '<p>' + (recoveryIntraday.summary || '').replace(/</g, '&lt;') + '</p>';
+        const revs = recoveryIntraday.reviews || [];
+        const keepCount = revs.filter(function(r) { return r.action === 'keep'; }).length;
+        const cancelCount = revs.filter(function(r) { return r.action === 'cancel'; }).length;
+        const newCand = (recoveryIntraday.new_candidates_from_scout || []).length;
+        html += '<p class="meta">Ordres en attente : ' + (recoveryIntraday.pending_count ?? '—') + ' — Keep: ' + keepCount + ', Cancel: ' + cancelCount + ', Candidats Scout: ' + newCand + '</p>';
+        if (revs.length) {
+          html += '<table class="cost-table" style="margin-top:0.5rem;"><thead><tr><th>Symbole</th><th>Action</th><th>Raison</th></tr></thead><tbody>';
+          revs.forEach(function(r) {
+            const actionClass = r.action === 'cancel' ? 'trend-down' : 'trend-up';
+            html += '<tr><td>' + escapeHtml(r.symbol || '') + '</td><td class="' + actionClass + '">' + escapeHtml(r.action || '') + '</td><td>' + escapeHtml((r.reason || '').slice(0, 55)) + '</td></tr>';
+          });
+          html += '</tbody></table>';
+        }
+        if (newCand > 0 && recoveryIntraday.new_candidates_from_scout) {
+          html += '<p style="margin-top:0.75rem;"><strong>Candidats Clarissa (hors ordres actuels) :</strong> ' + recoveryIntraday.new_candidates_from_scout.map(function(c) { return c.symbol || ''; }).join(', ') + '</p>';
+        }
+      }
+      html += '</div>';
+
+      content.innerHTML = html;
+    }
+    function escapeHtml(s) {
+      if (s == null) return '';
+      const t = document.createElement('textarea');
+      t.textContent = s;
+      return t.innerHTML;
+    }
+
     const VIEW_LOADERS = {
       team: viewTeam,
       timeline: viewTimeline,
@@ -1177,9 +1852,12 @@
       intel: viewIntel,
       cost: viewCost,
       execution: viewExecution,
+      yield: viewYield,
+      hyperliquid: viewHyperliquid,
       tibo_reports: viewTiboReports,
       api_requests: viewApiRequests,
       boss_proposals: viewBossProposals,
+      benefices: viewBenefices,
       agent_status: viewAgentStatus,
       technicals: viewTechnicals,
       smart_money: viewSmartMoney,

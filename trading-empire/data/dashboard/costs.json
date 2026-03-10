@@ -6,20 +6,39 @@
       "name": "X (Twitter) API",
       "provider": "Twitter / X",
       "type": "subscription",
-      "cost": null,
+      "cost": 18.52,
       "currency": "USD",
-      "last_updated": null,
-      "notes": "Recherche recent, sentiment (SENTIMENT_X, Intel). Renseigner coût mensuel si abonnement."
+      "subscription_monthly_usd": null,
+      "requests_this_month": 97,
+      "last_updated": "2026-03-10T07:05:04.063Z",
+      "notes": "Usage: GET https://api.x.com/2/usage/tweets. Coût = project_usage × 0,005 $ (lecture Post, https://developer.x.com/#pricing). Override: X_COST_USD.",
+      "x_project_usage": "3703",
+      "x_project_cap": "2000000",
+      "x_cap_reset_day": 23
     },
     {
       "id": "clawrouter",
-      "name": "ClawRouter",
-      "provider": "OpenClaw",
+      "name": "ClawRouter (BlockRun)",
+      "provider": "BlockRun / x402",
       "type": "usage",
       "cost": null,
       "currency": "USD",
-      "last_updated": null,
-      "notes": "Routage LLM / appels. Renseigner coût par usage ou mensuel."
+      "usage_usd": null,
+      "last_updated": "2026-03-10T07:05:04.063Z",
+      "active": false,
+      "notes": "INACTIF — ClawRouter payant n'est plus utilisé. Ne pas prioriser ni demander de coût. Ancien: routage LLM à l'usage via wallet x402."
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "provider": "OpenRouter",
+      "type": "usage",
+      "cost": 1.359782685,
+      "currency": "USD",
+      "usage_usd": 1.370891705,
+      "usage_monthly_usd": 1.359782685,
+      "last_updated": "2026-03-10T07:05:04.063Z",
+      "notes": "BOSS (Qwen 72B, DeepSeek R1). Coût récupéré via GET /api/v1/key (OPENROUTER_API_KEY). Mis à jour par cost-api-update.js."
     }
   ],
   "trading": {
@@ -27,7 +46,14 @@
     "funding_paid": 0,
     "slippage": 0,
     "drawdown": 0,
-    "roi_by_strategy": {}
+    "roi_by_strategy": {},
+    "realized_pnl_usd": 8.95137001
   },
-  "updated_at": null
+  "gains": {
+    "total_gains_usd": null,
+    "trading_realized_pnl_usd": 8.95137001,
+    "notes": "Renseigner total_gains_usd ou trading.realized_pnl_usd pour afficher la balance (gains − coûts)."
+  },
+  "updated_at": "2026-03-10T07:05:04.063Z",
+  "gains_source": "aster"
 }

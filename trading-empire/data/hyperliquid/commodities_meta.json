@@ -1,0 +1,1098 @@
+{
+  "timestamp_utc": "2026-03-10T13:01:08.605Z",
+  "source": "hyperliquid_commodities_scan",
+  "hip3_dexes_count": 8,
+  "commodities_count": 139,
+  "commodities": [
+    {
+      "dexIndex": 0,
+      "dexName": "(main)",
+      "index": 69,
+      "name": "GAS",
+      "maxLeverage": 3,
+      "markPx": "1.5333",
+      "funding": "-0.0000046968",
+      "openInterest": "71450.0",
+      "dayNtlVlm": "70040.35019"
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 0,
+      "name": "xyz:XYZ100",
+      "maxLeverage": 30
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 1,
+      "name": "xyz:TSLA",
+      "maxLeverage": 10
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 2,
+      "name": "xyz:NVDA",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 3,
+      "name": "xyz:GOLD",
+      "maxLeverage": 25
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 4,
+      "name": "xyz:HOOD",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 5,
+      "name": "xyz:INTC",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 6,
+      "name": "xyz:PLTR",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 7,
+      "name": "xyz:COIN",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 8,
+      "name": "xyz:META",
+      "maxLeverage": 10
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 9,
+      "name": "xyz:AAPL",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 10,
+      "name": "xyz:MSFT",
+      "maxLeverage": 10
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 11,
+      "name": "xyz:ORCL",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 12,
+      "name": "xyz:GOOGL",
+      "maxLeverage": 10
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 13,
+      "name": "xyz:AMZN",
+      "maxLeverage": 10
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 14,
+      "name": "xyz:AMD",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 15,
+      "name": "xyz:MU",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 16,
+      "name": "xyz:SNDK",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 17,
+      "name": "xyz:MSTR",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 18,
+      "name": "xyz:CRCL",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 19,
+      "name": "xyz:NFLX",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 20,
+      "name": "xyz:COST",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 21,
+      "name": "xyz:LLY",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 22,
+      "name": "xyz:SKHX",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 23,
+      "name": "xyz:TSM",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 24,
+      "name": "xyz:JPY",
+      "maxLeverage": 50,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 25,
+      "name": "xyz:EUR",
+      "maxLeverage": 50,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 26,
+      "name": "xyz:SILVER",
+      "maxLeverage": 25
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 27,
+      "name": "xyz:RIVN",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 28,
+      "name": "xyz:BABA",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 29,
+      "name": "xyz:CL",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 30,
+      "name": "xyz:COPPER",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 31,
+      "name": "xyz:NATGAS",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 32,
+      "name": "xyz:URANIUM",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 33,
+      "name": "xyz:ALUMINIUM",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 34,
+      "name": "xyz:SMSN",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 35,
+      "name": "xyz:PLATINUM",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 36,
+      "name": "xyz:USAR",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 37,
+      "name": "xyz:CRWV",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 38,
+      "name": "xyz:URNM",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 39,
+      "name": "xyz:PALLADIUM",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 40,
+      "name": "xyz:DXY",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 41,
+      "name": "xyz:GME",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 42,
+      "name": "xyz:KR200",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 43,
+      "name": "xyz:SOFTBANK",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 44,
+      "name": "xyz:JP225",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 45,
+      "name": "xyz:HYUNDAI",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 46,
+      "name": "xyz:KIOXIA",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 47,
+      "name": "xyz:EWY",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 48,
+      "name": "xyz:EWJ",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 49,
+      "name": "xyz:BRENTOIL",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 1,
+      "dexName": "xyz",
+      "index": 50,
+      "name": "xyz:VIX",
+      "maxLeverage": 3,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 0,
+      "name": "flx:TSLA",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 1,
+      "name": "flx:NVDA",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 2,
+      "name": "flx:CRCL",
+      "maxLeverage": 5,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 3,
+      "name": "flx:COIN",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 4,
+      "name": "flx:XMR",
+      "maxLeverage": 10
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 5,
+      "name": "flx:GOLD",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 6,
+      "name": "flx:SILVER",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 7,
+      "name": "flx:OIL",
+      "maxLeverage": 15,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 8,
+      "name": "flx:GAS",
+      "maxLeverage": 1,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 9,
+      "name": "flx:BTC",
+      "maxLeverage": 1,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 10,
+      "name": "flx:COPPER",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 11,
+      "name": "flx:PALLADIUM",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 12,
+      "name": "flx:PLATINUM",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 13,
+      "name": "flx:USDE",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 14,
+      "name": "flx:USA500",
+      "maxLeverage": 15,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 2,
+      "dexName": "flx",
+      "index": 15,
+      "name": "flx:USA100",
+      "maxLeverage": 1,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 0,
+      "name": "vntl:SPACEX",
+      "maxLeverage": 3,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 1,
+      "name": "vntl:OPENAI",
+      "maxLeverage": 3,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 2,
+      "name": "vntl:ANTHROPIC",
+      "maxLeverage": 3,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 3,
+      "name": "vntl:MAG7",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 4,
+      "name": "vntl:SEMIS",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 5,
+      "name": "vntl:ROBOT",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 6,
+      "name": "vntl:INFOTECH",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 7,
+      "name": "vntl:NUCLEAR",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 8,
+      "name": "vntl:DEFENSE",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 9,
+      "name": "vntl:ENERGY",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 10,
+      "name": "vntl:BIOTECH",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 11,
+      "name": "vntl:GOLDJM",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 3,
+      "dexName": "vntl",
+      "index": 12,
+      "name": "vntl:SILVERJM",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 0,
+      "name": "hyna:BTC",
+      "maxLeverage": 40,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 1,
+      "name": "hyna:ETH",
+      "maxLeverage": 25,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 2,
+      "name": "hyna:HYPE",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 3,
+      "name": "hyna:SOL",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 4,
+      "name": "hyna:LIT",
+      "maxLeverage": 3,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 5,
+      "name": "hyna:ZEC",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 6,
+      "name": "hyna:XRP",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 7,
+      "name": "hyna:LIGHTER",
+      "maxLeverage": 5,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 8,
+      "name": "hyna:BNB",
+      "maxLeverage": 10
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 9,
+      "name": "hyna:DOGE",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 10,
+      "name": "hyna:SUI",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 11,
+      "name": "hyna:PUMP",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 12,
+      "name": "hyna:FARTCOIN",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 13,
+      "name": "hyna:ENA",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 14,
+      "name": "hyna:XMR",
+      "maxLeverage": 5,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 15,
+      "name": "hyna:LTC",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 16,
+      "name": "hyna:LINK",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 17,
+      "name": "hyna:XPL",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 18,
+      "name": "hyna:IP",
+      "maxLeverage": 3,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 19,
+      "name": "hyna:BCH",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 20,
+      "name": "hyna:ADA",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 4,
+      "dexName": "hyna",
+      "index": 21,
+      "name": "hyna:1000PEPE",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 0,
+      "name": "km:US500",
+      "maxLeverage": 25,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 1,
+      "name": "km:BABA",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 2,
+      "name": "km:EUR",
+      "maxLeverage": 50,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 3,
+      "name": "km:USBOND",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 4,
+      "name": "km:SMALL2000",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 5,
+      "name": "km:USTECH",
+      "maxLeverage": 25,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 6,
+      "name": "km:USENERGY",
+      "maxLeverage": 15,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 7,
+      "name": "km:USOIL",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 8,
+      "name": "km:TSLA",
+      "maxLeverage": 12,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 9,
+      "name": "km:SILVER",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 10,
+      "name": "km:GOLD",
+      "maxLeverage": 25,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 11,
+      "name": "km:AAPL",
+      "maxLeverage": 15,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 12,
+      "name": "km:GOOGL",
+      "maxLeverage": 15,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 13,
+      "name": "km:SEMI",
+      "maxLeverage": 15,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 14,
+      "name": "km:GLDMINE",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 15,
+      "name": "km:NVDA",
+      "maxLeverage": 12,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 16,
+      "name": "km:TENCENT",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 17,
+      "name": "km:JPN225",
+      "maxLeverage": 25,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 18,
+      "name": "km:MU",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 19,
+      "name": "km:PLTR",
+      "maxLeverage": 12,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 20,
+      "name": "km:XIAOMI",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 21,
+      "name": "km:BMNR",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 5,
+      "dexName": "km",
+      "index": 22,
+      "name": "km:RTX",
+      "maxLeverage": 10,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 6,
+      "dexName": "abcd",
+      "index": 0,
+      "name": "abcd:USA500",
+      "maxLeverage": 25,
+      "onlyIsolated": true
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 0,
+      "name": "cash:USA500",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 1,
+      "name": "cash:TSLA",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 2,
+      "name": "cash:NVDA",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 3,
+      "name": "cash:HOOD",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 4,
+      "name": "cash:GOOGL",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 5,
+      "name": "cash:INTC",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 6,
+      "name": "cash:AMZN",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 7,
+      "name": "cash:MSFT",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 8,
+      "name": "cash:META",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 9,
+      "name": "cash:GOLD",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 10,
+      "name": "cash:SILVER",
+      "maxLeverage": 20
+    },
+    {
+      "dexIndex": 7,
+      "dexName": "cash",
+      "index": 11,
+      "name": "cash:EWY",
+      "maxLeverage": 20,
+      "onlyIsolated": true
+    }
+  ],
+  "hip3_dexes_file": "hip3_dexes.json",
+  "note": "Actifs tokenisés (main + HIP-3 builder-deployed perps). Or, pétrole, matières premières, actions (TSLA, etc.). Consommé par l'agent Hyperliquid Analyst."
+}

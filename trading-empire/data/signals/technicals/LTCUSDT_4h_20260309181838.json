@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-03-09T18:18:38.640Z",
+  "symbol": "LTCUSDT",
+  "timeframe": "4h",
+  "trend": "range",
+  "levels": {
+    "support": [
+      50.18,
+      51.47,
+      51.88
+    ],
+    "resistance": [
+      54.42,
+      56.01,
+      57.66,
+      59
+    ]
+  },
+  "volatility": 1.592292,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

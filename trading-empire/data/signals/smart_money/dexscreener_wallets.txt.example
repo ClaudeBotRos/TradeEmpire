@@ -1,0 +1,5 @@
+# Un URL Dexscreener par ligne (wallets / paires à surveiller).
+# Copier vers dexscreener_wallets.txt et remplir avec tes URLs.
+# Ex. : https://dexscreener.com/solana/AW526gmdn3wvhxa4D5FngY1HH3zAyYBpCSJnkYdXyqpx
+# Tu peux récupérer des URLs depuis la page Dexscreener (top traders, token, etc.)
+# ou via des outils comme Apify "Dexscreener Top Traders Scraper".

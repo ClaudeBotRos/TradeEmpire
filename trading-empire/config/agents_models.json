@@ -1,0 +1,46 @@
+{
+  "_comment": "Tous les agents utilisent le meilleur modèle (Ollama Cloud en priorité). Référence: ollama.com/search?c=cloud. Config globale: openclaw.json agents.defaults.model.",
+  "openclaw_agent_to_model": {
+    "main": "ollama-cloud/qwen3.5:cloud (+ fallbacks 27b, 9b, 80b, 397b, openrouter, blockrun)",
+    "boss": "ollama-cloud/qwen3.5:cloud (idem, chaîne réflexion dédiée)",
+    "tibo": "ollama-cloud/qwen3.5:cloud (+ fallbacks, hérite defaults)"
+  },
+  "tradeempire_role_recommendations": {
+    "BOSS": {
+      "model": "ollama-cloud/qwen3.5:cloud",
+      "reason": "Réflexion: Ollama Cloud (cf. ollama.com/search?c=cloud) — qwen3.5:cloud, puis 27b, 9b, qwen3-next:80b, 397b, puis OpenRouter. Pilote, brief de nuit, décisions stratégiques."
+    },
+    "ORCHESTRATOR": {
+      "model": "ollama-cloud/qwen3.5:cloud",
+      "reason": "Main : meilleur modèle (Ollama Cloud). Consolidation signaux, TRADE_IDEA. Fallbacks auto."
+    },
+    "INTEL": {
+      "model": "ollama-cloud/qwen3.5:cloud",
+      "reason": "Daphnée : même chaîne best model. Veille, filtrage, synthèse."
+    },
+    "RISK_JOURNAL": {
+      "model": "ollama-cloud/qwen3.5:cloud",
+      "reason": "Règles strictes, conformité. Meilleur modèle par défaut."
+    },
+    "TECHNICALS": {
+      "model": "ollama-cloud/qwen3.5:cloud",
+      "reason": "Alicia : best model. Signaux structurés, JSON. Fallbacks si besoin."
+    },
+    "SMART_MONEY": {
+      "model": "ollama-cloud/qwen3.5:cloud",
+      "reason": "Lucas : best model. Données structurées, métriques."
+    },
+    "SENTIMENT_X": {
+      "model": "ollama-cloud/qwen3.5:cloud",
+      "reason": "Texte X, narratifs. Meilleur modèle (Ollama Cloud)."
+    },
+    "CHASE": {
+      "model": "ollama-cloud/qwen3.5:cloud",
+      "reason": "Post-mortem, feedback. Best model par défaut."
+    },
+    "TIBO": {
+      "model": "ollama-cloud/qwen3.5:cloud",
+      "reason": "Exécution, ordres. Hérite defaults (meilleur modèle)."
+    }
+  }
+}

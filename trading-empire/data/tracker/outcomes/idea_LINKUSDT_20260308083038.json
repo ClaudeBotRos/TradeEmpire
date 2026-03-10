@@ -1,0 +1,21 @@
+{
+  "trade_id": "idea_LINKUSDT_20260308083038",
+  "outcome": "revoked",
+  "approved_at": "2026-03-08T08:30:38.129Z",
+  "symbol": "LINKUSDT",
+  "direction": "LONG",
+  "entry": 8.53,
+  "invalid": 8.44,
+  "targets": [
+    {
+      "price": 8.63,
+      "rr": 1.2
+    },
+    {
+      "price": 8.73,
+      "rr": 2.4
+    }
+  ],
+  "note": "Ordre annulé avant exécution (recovery ou manuel) — pas une perte, action saine.",
+  "closed_at": "2026-03-09"
+}

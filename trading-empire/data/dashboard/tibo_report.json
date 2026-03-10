@@ -1,22 +1,65 @@
 {
-  "updated_at": "2026-03-02T14:47:38.329Z",
+  "updated_at": "2026-03-10T14:30:08.369Z",
   "agent": "Tibo",
   "balance_snapshot": {
-    "available_balance_usdt": 39.2775883,
-    "total_wallet_balance_usdt": 2.00640394,
-    "total_unrealized_profit_usdt": -0.24648844,
-    "updated_at": "2026-03-02T14:28:15.741Z"
+    "available_balance_usdt": 93.38913698,
+    "total_wallet_balance_usdt": 8.3196816,
+    "total_unrealized_profit_usdt": 0,
+    "updated_at": "2026-03-10T14:09:32.478Z"
   },
-  "executed_orders_count": 2,
-  "orders_today": 2,
+  "executed_orders_count": 38,
+  "orders_today": 9,
   "orders_today_ids": [
-    "idea_ATOMUSDT_20260302135745",
-    "idea_BTCUSDT_20260301135025"
+    "idea_ADAUSDT_20260310071604",
+    "idea_ATOMUSDT_20260310071604",
+    "idea_BTCUSDT_20260310071604",
+    "idea_LTCUSDT_20260308083038",
+    "idea_LTCUSDT_20260308200745",
+    "idea_DOGEUSDT_20260310084038",
+    "idea_DOTUSDT_20260308071551",
+    "idea_SOLUSDT_20260309083019",
+    "idea_ETHUSDT_20260308200815"
   ],
-  "pending_tp_count": 0,
-  "pending_tp_entries": [],
-  "with_tp_placed": 0,
-  "without_tp_yet": 2,
-  "last_scrutator_run_at": "2026-03-02T14:45:03.031Z",
-  "last_executor_run_at": "2026-03-02T14:45:03.031Z"
+  "pending_tp_count": 7,
+  "pending_tp_entries": [
+    {
+      "entryOrderId": 16719889912,
+      "symbol": "ETHUSDT",
+      "trade_id": "idea_ETHUSDT_20260307071558"
+    },
+    {
+      "entryOrderId": 16719890878,
+      "symbol": "ETHUSDT",
+      "trade_id": "idea_ETHUSDT_20260308083038"
+    },
+    {
+      "entryOrderId": 1407958692,
+      "symbol": "LINKUSDT",
+      "trade_id": "idea_LINKUSDT_20260307071558"
+    },
+    {
+      "entryOrderId": 16738199060,
+      "symbol": "ETHUSDT",
+      "trade_id": "idea_ETHUSDT_20260307083019"
+    },
+    {
+      "entryOrderId": 16738200413,
+      "symbol": "ETHUSDT",
+      "trade_id": "idea_ETHUSDT_20260308071551"
+    },
+    {
+      "entryOrderId": 16738202049,
+      "symbol": "ETHUSDT",
+      "trade_id": "idea_ETHUSDT_20260308200745"
+    },
+    {
+      "entryOrderId": 16782111730,
+      "symbol": "ETHUSDT",
+      "trade_id": "idea_ETHUSDT_20260308200815"
+    }
+  ],
+  "with_tp_placed": 4,
+  "without_tp_yet": 34,
+  "last_scrutator_run_at": "2026-03-10T14:30:08.369Z",
+  "last_executor_run_at": "2026-03-10T14:09:36.036Z"
 }

@@ -1,0 +1,20 @@
+{
+  "trade_id": "idea_SUIUSDT_20260303071556",
+  "outcome": "pending",
+  "approved_at": "2026-03-03T07:15:56.627Z",
+  "symbol": "SUIUSDT",
+  "direction": "SHORT",
+  "entry": 0.97,
+  "invalid": 0.98,
+  "targets": [
+    {
+      "price": 0.96,
+      "rr": 1.2
+    },
+    {
+      "price": 0.94,
+      "rr": 2.4
+    }
+  ],
+  "note": "Remplir outcome (win|loss|invalid_hit|target_hit), optionnel: exit_price, closed_at, note."
+}

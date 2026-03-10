@@ -1,0 +1,14 @@
+[
+  {
+    "symbol": "GAS",
+    "side": "buy",
+    "sz": "6.4931",
+    "limit_px": "1.5401",
+    "from_report": true,
+    "reason": "Premier actif main dex avec données (mark, funding). À affiner par l'agent.",
+    "executed": true,
+    "executed_at": "2026-03-10T11:09:14.921Z",
+    "status": "error",
+    "oid": null
+  }
+]

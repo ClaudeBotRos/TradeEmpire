@@ -1,0 +1,49 @@
+{
+  "trade_id": "idea_LTCUSDT_20260306171419",
+  "symbol": "LTCUSDT",
+  "direction": "LONG",
+  "score_global": 80,
+  "scores": {
+    "macro_trend": 1,
+    "structure_htf": 1,
+    "volume": 0,
+    "funding": 1,
+    "sentiment": 1,
+    "rr": 0.6,
+    "invalidation": 1,
+    "confidence": 0.7
+  },
+  "entry": 51.47,
+  "invalid": 50.96,
+  "targets": [
+    {
+      "price": 52.09,
+      "rr": 1.2
+    },
+    {
+      "price": 52.71,
+      "rr": 2.4
+    }
+  ],
+  "timestamp_utc": "2026-03-06T17:14:19.584Z",
+  "description": "LONG LTCUSDT sur timeframe 4h. Entrée proposée: 51.47, invalidation si le prix atteint 50.96 (niveau d’invalidation). Objectif 1: 52.09 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : Dernières tendances X (crypto/bitcoin) : ETF / spot, bullish, bearish, régulation. 49 tweets récents. | Macro: Aujourd'h….",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "Dernières tendances X (crypto/bitcoin) : ETF / spot, bullish, bearish, régulation. 49 tweets récents. | Macro: Aujourd'hui : US Non-Farm Payrolls | Reddit: CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarkets, crypto_currency, cryptocurrency_ja, ethtrader, btc, EarnCryptocurrency, CryptocurrencyReviews, dogecoin, Buttcoin, Cryp",
+    "themes": [
+      "bullish",
+      "bearish",
+      "ETF",
+      "régulation",
+      "macro",
+      "reddit"
+    ],
+    "aligns_with_narrative": null,
+    "source": "data/dashboard/intel/trend_cards.json"
+  },
+  "status": "REJECTED"
+}

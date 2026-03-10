@@ -1,0 +1,7 @@
+{
+  "trade_id": "idea_OPUSDT_20260305083034",
+  "status": "REJECTED",
+  "timestamp_utc": "2026-03-05T08:30:34.311Z",
+  "reason": "R:R 1.2 below minimum 1.5",
+  "idea_ref": "data/ideas/idea_OPUSDT_20260305083034.json"
+}

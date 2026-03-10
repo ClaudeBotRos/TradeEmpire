@@ -1,0 +1,25 @@
+{
+  "timestamp_utc": "2026-03-10T11:31:22.907Z",
+  "symbol": "INJUSDT",
+  "timeframe": "4h",
+  "trend": "down",
+  "levels": {
+    "support": [
+      2.762,
+      2.868
+    ],
+    "resistance": [
+      3.176,
+      3.408,
+      3.68
+    ]
+  },
+  "volatility": 0.206073,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

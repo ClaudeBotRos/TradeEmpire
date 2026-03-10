@@ -1,0 +1,22 @@
+{
+  "wallet_address": "0x6B5Fb55d58ca32c900957d8cbdF6CdC056d64947",
+  "wallet_description": "Wallet principal pour le yield farming Uniswap V3. La clé privée ne doit jamais être en clair dans le code : utiliser la variable d'environnement YIELD_FARMER_PRIVATE_KEY (ou un keystore sécurisé).",
+  "platform": "uniswap_v3",
+  "platform_description": "Uniswap V3 — fourniture de liquidité (LP) sur paires stables (ex. USDC/USDT) avec gamme concentrée. Plus crédible et pertinent que Binance Earn.",
+  "chain": "arbitrum",
+  "chain_id": 42161,
+  "subgraph_id_arbitrum": "FbCGRftH4a3yZugY7TnbYgPJVEv2LvMT6oF1fxPe9aJM",
+  "rpc_url_env_arbitrum": "ARBITRUM_RPC_URL",
+  "asset": "USDT",
+  "pair": "USDC/USDT",
+  "pair_description": "Paire stablecoin sur Uniswap V3 (fee tier 0.01% ou 0.05%) — risque d'impermanent loss très faible. Alternative : USDT/DAI.",
+  "fee_tier_bps": 1,
+  "fee_tier_description": "0.01% = 1 bp (recommandé pour stables), ou 5 bps (0.05%).",
+  "rpc_url_env": "YIELD_FARMER_RPC_URL",
+  "the_graph_api_key_env": "THE_GRAPH_API_KEY_UNISWAP",
+  "uniswap_api_key_env": "UNISWAP_API_KEY",
+  "uniswap_labs_api_base": "https://trade-api.uniswap.org/v1",
+  "api_docs": "https://api-docs.uniswap.org/introduction",
+  "private_key_env": "YIELD_FARMER_PRIVATE_KEY",
+  "updated_at": "2026-03-09T00:00:00.000Z"
+}

@@ -1,0 +1,7 @@
+# Tâches Yield Farmer
+
+1. **Surveiller les yields disponibles** : exécuter `node TradeEmpire/trading-empire/scripts/yield-fetch-pools-arbitrum.js` pour actualiser les meilleurs pools Arbitrum dans `data/dashboard/uniswap_v3_arbitrum_pools.json` ; consulter ce fichier et docs/MEILLEURS_POOLS_ARBITRUM.md. Compléter avec les autres sources (subgraph Uniswap V3, voir docs/YIELD_FARMING_UNISWAP_V3.md) et mettre à jour `data/dashboard/yield_farmer_report.json` (pools éligibles, APY, risque, capital recommandé). Utiliser aussi `yield-report.js` pour la synthèse.
+2. **Rapport quotidien** : produire un résumé (capital alloué, APY moyen, rendement du jour/semaine, alertes) pour le BOSS et le dashboard. Écrire dans `data/dashboard/yield_farmer_report.json` et optionnellement un résumé court dans `data/dashboard/agent_profit_suggestions.json` ou un brief.
+3. **Alertes** : si un pool en place a un APY < 5 % ou si un risque (impermanent loss, TVL chute) est détecté, le signaler (rapport + optionnellement file WhatsApp via `scripts/notify-user-whatsapp.js`).
+4. **Recommandations d’allocation** : proposer des mouvements (dépôt / retrait / rotation de pool) en fonction du capital dormant et des APY, sans exécuter sans validation (sauf si mode auto validé par l’utilisateur). Documenter dans le rapport.
+5. **Respect du plan** : suivre le plan détaillé `docs/PLAN_YIELD_FARMING.md` (phases, actions, rendements attendus) et mettre à jour le rapport avec les écarts et le suivi des objectifs.

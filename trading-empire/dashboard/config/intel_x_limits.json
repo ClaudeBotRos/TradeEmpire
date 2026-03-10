@@ -1,0 +1,6 @@
+{
+  "x_max_results_intel": 50,
+  "x_max_results_sentiment": 20,
+  "x_max_results_agent_status": 10,
+  "notes": "Défini par BOSS selon la balance (gains − coûts). Si balance négative ou faible, BOSS réduit ces valeurs pour rationnaliser le coût API X. Plages : intel 5–100, sentiment 5–50, agent_status 5–20."
+}

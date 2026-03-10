@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-08T20:14:24.502Z",
+  "symbol": "DOTUSDT",
+  "signals": [
+    "funding neutral"
+  ],
+  "metrics": {
+    "funding": -0.00006393,
+    "mark_price": 1.463,
+    "next_funding_time": 1773014400000
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    }
+  ],
+  "low_confidence": false
+}

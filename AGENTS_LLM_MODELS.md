@@ -1,6 +1,66 @@
 # Attribution de modèles LLM par agent — TradeEmpire
 
-Chaque agent TradeEmpire a une tâche spécifique (BOSS, ORCHESTRATOR, SENTIMENT_X, SMART_MONEY, TECHNICALS, RISK_JOURNAL). L’idéal est d’**attribuer un modèle LLM dédié (ou un profil)** par agent pour optimiser qualité, coût et pertinence.
+Chaque agent TradeEmpire a une tâche spécifique et une **soul** (personnalité). L’idéal est d’**attribuer un modèle LLM adapté** par agent pour qualité, coût et pertinence.
+
+---
+
+## Comment utiliser des modèles différents selon les agents (OpenClaw)
+
+Le schéma OpenClaw attend **`agents.list`** (tableau d’agents), pas des clés comme `agents.main`, `agents.boss`, `agents.tibo`. Chaque élément de `list` a au minimum :
+
+- **`id`** : identifiant de l’agent (ex. `main`, `boss`, `tibo`)
+- **`model`** : chaîne `provider/model` (ex. `blockrun/reasoner`)
+- **`default`** (optionnel) : `true` pour l’agent par défaut (souvent `main`)
+
+Les jobs cron qui précisent `agentId: "boss"` ou `"tibo"` dans `cron/jobs.json` sont routés vers l’agent correspondant ; le modèle utilisé est celui défini dans `agents.list` pour cet `id`. Références : [Multi-Agent](https://docs.openclaw.ai/concepts/multi-agent), [Models](https://docs.openclaw.ai/concepts/models), [Config schema](https://config.clawi.sh/).
+
+---
+
+## Calibration : ClawRouter + OpenRouter uniquement (pas de clé Anthropic)
+
+On n’utilise **pas** de clé API Anthropic. Tous les appels LLM passent par :
+
+- **BlockRun (ClawRouter)** : proxy local `http://127.0.0.1:8402/v1`, auth `x402-proxy-handles-auth`. Modèles : `blockrun/free`, `blockrun/auto`, `blockrun/reasoner`, `blockrun/codex`, etc.
+- **OpenRouter** : pour les tâches longues (ex. BOSS) et modèles listés en `agents.defaults.models` : `openrouter/qwen/qwen-2.5-72b-instruct`, `openrouter/deepseek/deepseek-r1-distill-qwen-32b:free`, `openrouter/openai/gpt-oss-120b:free`.
+
+Pour éviter `FailoverError: No API key found for provider "anthropic"` :
+
+- Les modèles dont l’id commence par `anthropic/` ont été **retirés** du registre (`openclaw.json` et `agents/main/agent/models.json`), pour que le runtime ne tente jamais le provider Anthropic.
+- Les **fallbacks** par défaut sont limités à BlockRun : `agents.defaults.model.fallbacks = ["blockrun/auto", "blockrun/eco"]`.
+- Les agents `main`, `boss`, `tibo` ont des profils d’auth **blockrun** et **openrouter** uniquement (pas de profil `anthropic`).
+
+Aucune clé Anthropic n’est donc nécessaire.
+
+---
+
+## Tâches longues (BOSS) → OpenRouter
+
+Pour les tâches longues (brief de nuit, vision, Kanban), **blockrun/reasoner** pouvait timeouter ou être en rate limit. Le BOSS utilise donc en priorité **OpenRouter** : **primary** `openrouter/qwen/qwen-2.5-72b-instruct` (Qwen 2.5 72B), **fallbacks** : `openrouter/deepseek/deepseek-r1-distill-qwen-32b:free` (gratuit), puis `blockrun/reasoner`, puis `blockrun/auto`. Ainsi en cas d’échec Qwen on tente un autre OpenRouter avant BlockRun (limite le rate_limit).
+
+---
+
+## 0. État actuel (audit)
+
+| Job / rôle | OpenClaw agentId | Modèle effectif | Modèle cible |
+|------------|------------------|------------------|--------------|
+| tradeempire-morning, evening, intel, agent-report | `main` | blockrun/auto | blockrun/auto |
+| tradeempire-boss-night, tradeempire-boss-vision | `boss` | openrouter/qwen/qwen-2.5-72b-instruct | OpenRouter Qwen 72B (fallbacks: r1-qwen32b-free, blockrun/reasoner, blockrun/auto) |
+| tradeempire-executor*, Tibo | `tibo` | blockrun/codex | blockrun/codex |
+
+**Config correcte** : dans `openclaw.json`, utiliser **`agents.list`** (tableau), pas `agents.main` / `agents.boss` / `agents.tibo` (clés non reconnues par le schéma). Chaque entrée a `id` et `model` :
+
+```json
+"agents": {
+  "defaults": { "model": { "primary": "blockrun/free", "fallbacks": [...] }, "models": { ... } },
+  "list": [
+    { "id": "main", "default": true, "model": "blockrun/auto" },
+    { "id": "boss", "model": "blockrun/reasoner" },
+    { "id": "tibo", "model": "blockrun/codex" }
+  ]
+}
+```
+
+Référence détaillée : `trading-empire/config/agents_models.json`. Doc OpenClaw : [Multi-Agent](https://docs.openclaw.ai/concepts/multi-agent), [Models](https://docs.openclaw.ai/concepts/models).
 
 ---
 
@@ -35,15 +95,9 @@ Les alias exacts dépendent du catalogue BlockRun/ClawRouter (reasoner, codex, e
 
 ## 3. Mise en œuvre : options
 
-### Option A — Per-agent dans OpenClaw (si supporté)
+### Option A — Per-agent dans OpenClaw (recommandé, en place)
 
-Si OpenClaw permet un **override de modèle par agent** (ex. `agents.<agentId>.model.primary` ou fichier `agents/<name>/model.json`), configurer pour chaque agent TradeEmpire :
-
-- `agents.boss.model.primary` = `blockrun/reasoner`
-- `agents.orchestrator.model.primary` = `blockrun/auto`
-- etc.
-
-À vérifier dans la doc ou le schéma OpenClaw (chemins du type `agents.defaults` vs `agents.<id>`).
+Utiliser **`agents.list`** dans `openclaw.json` : tableau d’entrées `{ "id": "<agentId>", "model": "provider/model" }`. Exemple : `main` → `blockrun/auto`, `boss` → `blockrun/reasoner`, `tibo` → `blockrun/codex`. Les jobs cron avec `agentId: "boss"` ou `"tibo"` utilisent alors le modèle défini pour cet agent. Chaque agent doit exister sous `~/.openclaw/agents/<id>/agent/` (auth-profiles.json). Doc : [Multi-Agent Routing](https://docs.openclaw.ai/concepts/multi-agent), schéma [config.clawi.sh](https://config.clawi.sh/) (`agents.list`, `agents.list[].model`).
 
 ### Option B — Config TradeEmpire + exécution
 
@@ -87,10 +141,11 @@ En attendant une vraie attribution per-agent : garder **un seul modèle** (ex. `
 
 ## 5. Références
 
-- ClawRouter / BlockRun : `~/.openclaw/blockrun/`, extension `extensions/clawrouter/`, doc wallet `workspace/CLAWROUTER-WALLET.md`.
-- Config agents OpenClaw : `openclaw.json` → `agents.defaults.model.primary`, `agents.defaults.models` (alias).
-- PRD TradeEmpire : §3 (agents), §7 (outils).
+- Config modèles par agent : `trading-empire/config/agents_models.json`.
+- Config agents OpenClaw : `openclaw.json` → `agents.defaults`, `agents.main`, `agents.boss`, `agents.tibo`.
+- ClawRouter / BlockRun : `~/.openclaw/blockrun/`, extension `extensions/clawrouter/`.
 - Routage et déclenchement : `trading-empire/docs/AGENTS_LLM_ROUTING.md`.
+- Soul des agents : `trading-empire/agents/*/soul.md`.
 
 ---
 *Document de référence pour l’implémentation TradeEmpire — modèles LLM par agent.*

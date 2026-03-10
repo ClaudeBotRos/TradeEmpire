@@ -2,6 +2,7 @@
 
 - Lire toutes les idées dans `data/ideas/` dont status === PROPOSED.
 - Lire `rules/risk_rules.md` (max perte par trade, leverage max, R:R minimum).
+- **Adapter en cas de loss (Chase)** : si `chase-feedback-loader` signale des losses récents, renforcer les règles (R:R min 1,5, levier max 1) pour améliorer la technique.
 - Pour chaque idée : vérifier conformité (max_loss_usd, leverage, targets R:R, cohérence entry/invalid selon direction).
 - Décider APPROVED / REJECTED / NEED_MORE_INFO et écrire `data/decisions/{trade_id}_{status}.json`.
 - Mettre à jour le status dans le fichier idée.

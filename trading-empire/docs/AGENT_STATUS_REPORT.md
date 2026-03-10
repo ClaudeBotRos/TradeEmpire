@@ -36,6 +36,13 @@ node TradeEmpire/trading-empire/scripts/agent-status-report.js --light
 | **ORCHESTRATOR** | Fichiers locaux (signaux, idées) | orchestrator-scan.js |
 | **RISK_JOURNAL** | Fichiers locaux (idées, risk_rules.md) | risk-journal-scan.js |
 | **BOSS** | Dashboard (lecture/écriture spec, config) | boss-night.js |
+| **INTEL** | X, YouTube, calendrier éco, CryptoDaily, Reddit | intel-scan.js |
+| **CHASE** | data/decisions, data/ideas, data/tracker | chase-tracker.js |
+| **TIBO** | ASTER (futures), execution_config.json | executor-run.js, executor-tp-scrutator.js |
+| **OPPORTUNITY_SCOUT** (Clarissa) | scout_proposals.json, scout_validation_status.json | scout-validation-status.js |
+| **RECOVERY_ANALYST** (Killian) | recovery_report.json, recovery_intraday_report.json, outcomes | Agrégation outcomes + intraday |
+| **YIELD_FARMER** (Gary) | yield_farmer_report.json, uniswap_v3_arbitrum_pools.json | yield-fetch-pools-arbitrum.js, yield-report.js |
+| **HYPERLIQUID_ANALYST** (Eva) | commodities_meta.json, hyperliquid_analyst_report.json | hyperliquid-commodities-scan.js, hyperliquid-analyst-trend.js |
 
 Statuts : **ok** (tout vert), **warning** (APIs OK mais script non exécuté en --light, ou API optionnelle KO), **error** (échec API ou script).
 

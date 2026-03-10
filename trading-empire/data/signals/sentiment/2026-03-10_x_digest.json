@@ -1,0 +1,32 @@
+{
+  "timestamp_utc": "2026-03-10T08:40:37.986Z",
+  "date": "2026-03-10",
+  "narratives": [
+    "mixed_or_neutral"
+  ],
+  "sentiment_by_symbol": {
+    "BTCUSDT": "neutral",
+    "ETHUSDT": "neutral",
+    "SOLUSDT": "neutral",
+    "DOGEUSDT": "neutral",
+    "XRPUSDT": "neutral",
+    "AVAXUSDT": "neutral",
+    "LINKUSDT": "neutral",
+    "ARBUSDT": "neutral",
+    "OPUSDT": "neutral",
+    "SUIUSDT": "neutral",
+    "ADAUSDT": "neutral",
+    "MATICUSDT": "neutral",
+    "DOTUSDT": "neutral",
+    "ATOMUSDT": "neutral",
+    "LTCUSDT": "neutral"
+  },
+  "risk_signals": [],
+  "sources": [
+    {
+      "type": "x",
+      "ref": "twitter_api_v2_search_recent"
+    }
+  ],
+  "low_confidence": false
+}

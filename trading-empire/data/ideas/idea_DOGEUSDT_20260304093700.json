@@ -1,0 +1,88 @@
+{
+  "timestamp_utc": "2026-03-04T09:37:00.025Z",
+  "symbol": "DOGEUSDT",
+  "timeframe": "4h",
+  "direction": "SHORT",
+  "setup_name": "breakout_retest",
+  "entry": {
+    "type": "limit",
+    "price": 0.1
+  },
+  "invalid": {
+    "type": "price",
+    "price": 0.1,
+    "description": "invalidation level"
+  },
+  "targets": [
+    {
+      "price": 0.1,
+      "rr": 1.2
+    },
+    {
+      "price": 0.1,
+      "rr": 2.4
+    }
+  ],
+  "confidence": 0.7,
+  "evidence": {
+    "technicals": [
+      "trend down",
+      "support levels",
+      "resistance levels"
+    ],
+    "sentiment": [
+      "sentiment neutral",
+      "bullish mentions"
+    ],
+    "smart_money": [
+      "funding neutral"
+    ],
+    "intel": [
+      "Trend Cards du jour prises en compte (thèmes: bullish, bearish, ETF, régulation, DeFi, macro, reddit)"
+    ]
+  },
+  "risk": {
+    "max_loss_usd": 50,
+    "position_size_usd": 500,
+    "leverage": 1
+  },
+  "constraints": {
+    "max_positions_open": 3
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    },
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    },
+    {
+      "type": "stub",
+      "ref": "sentiment_digest"
+    }
+  ],
+  "status": "REJECTED",
+  "trade_id": "idea_DOGEUSDT_20260304093700",
+  "description": "SHORT DOGEUSDT sur timeframe 4h. Entrée proposée: 0.1, invalidation si le prix atteint 0.1 (niveau d’invalidation). Objectif 1: 0.1 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : Dernières tendances X (crypto/bitcoin) : ETF / spot, bullish, bearish, régulation, DeFi. 50 tweets récents. | Macro: Auj….",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "Dernières tendances X (crypto/bitcoin) : ETF / spot, bullish, bearish, régulation, DeFi. 50 tweets récents. | Macro: Aujourd'hui : FR HCOB - Services PMI ; FR HCOB Composite PMI ; DE HCOB Composite Final PMI ; DE HCOB Services PMI ; GB S&P GLOBAL PMI: COMPOSITE - OUTPUT ; GB S&P GLOBAL SERVICE PMI ; GB Reserve Assets Total* ; US MBA 15-Yr Contract Rate ; US MBA 15-Yr Effective Rate ; US MBA 15-Yr FRM Points ; US MBA 30-Yr Mortgage Rate ; US MBA 5-Yr ARM Points ; US MBA 5-Yr Contract Rate ; US MBA 5-Yr Effective Rate ; US MBA Mortgage Applications ; US MBA Purchase Index ; US Mortgage Market Index ; US Mortgage Refinance Index ; US ADP National Employment ; US S&P Global Svcs PMI Final ; US S&P Global Comp PMI Final ; US ISM N-Mfg Bus Act ; US ISM N-Mfg Employment Idx ; US ISM N-Mfg New Orders Idx ; US ISM N-Mfg PMI ; US ISM N-Mfg Price Paid Idx ; US EIA Ethanol Fuel Total* ; US EIA Ethanol Ref Stk* ; US EIA Weekly Crude Imports* ; US EIA Weekly Crude Runs* ; US EIA Weekly Dist Output* ; US EIA Weekly Gasoline O/P* ; US EIA Weekly Heatoil Stock* ; US EIA Weekly Prods Imports* ; US EIA Weekly Rfg Stocks* ; US EIA Wkly Crude Cushing* ; US EIA Wkly Crude Exports * ; US EIA Wkly Crude Stk* ; US EIA Wkly Dist. Stk* ; US EIA Wkly Gsln Stk* ; US EIA Wkly Refn Util* — Prévu vs publié : FR Budget Balance * → publié -9.724 | Reddit: CryptoCurrency, CryptocurrencyICO, crypto_currency, Bitcoin, CryptoMarkets, Cryptocurrency_Daily, EarnCryptocurrency, ethtrader, btc, cryptocurrency_ja, CryptocurrencyReviews, dogecoin, Buttcoin, Cryp",
+    "themes": [
+      "bullish",
+      "bearish",
+      "ETF",
+      "régulation",
+      "DeFi",
+      "macro",
+      "reddit"
+    ],
+    "aligns_with_narrative": null,
+    "source": "data/dashboard/intel/trend_cards.json"
+  }
+}

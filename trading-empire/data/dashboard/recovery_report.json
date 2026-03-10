@@ -1,0 +1,288 @@
+{
+  "timestamp_utc": "2026-03-09T20:15:05.716Z",
+  "total_outcomes": 29,
+  "by_outcome": {
+    "win": 0,
+    "loss": 4,
+    "invalid_hit": 0,
+    "target_hit": 5,
+    "revoked": 20
+  },
+  "by_symbol": {
+    "ADAUSDT": {
+      "win": 0,
+      "loss": 0,
+      "invalid_hit": 0,
+      "target_hit": 0,
+      "revoked": 2,
+      "total": 2,
+      "trades": [
+        {
+          "trade_id": "idea_ADAUSDT_20260308071551",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        },
+        {
+          "trade_id": "idea_ADAUSDT_20260308083038",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        }
+      ]
+    },
+    "ATOMUSDT": {
+      "win": 0,
+      "loss": 0,
+      "invalid_hit": 0,
+      "target_hit": 0,
+      "revoked": 7,
+      "total": 7,
+      "trades": [
+        {
+          "trade_id": "idea_ATOMUSDT_20260302135745",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        },
+        {
+          "trade_id": "idea_ATOMUSDT_20260302175634",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        },
+        {
+          "trade_id": "idea_ATOMUSDT_20260302175652",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        },
+        {
+          "trade_id": "idea_ATOMUSDT_20260302205921",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        },
+        {
+          "trade_id": "idea_ATOMUSDT_20260303071553",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        },
+        {
+          "trade_id": "idea_ATOMUSDT_20260303071556",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        },
+        {
+          "trade_id": "idea_ATOMUSDT_20260303083026",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        }
+      ]
+    },
+    "AVAXUSDT": {
+      "win": 0,
+      "loss": 1,
+      "invalid_hit": 0,
+      "target_hit": 1,
+      "revoked": 1,
+      "total": 3,
+      "trades": [
+        {
+          "trade_id": "idea_AVAXUSDT_20260307071558",
+          "outcome": "loss",
+          "closed_at": "2026-03-08",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_AVAXUSDT_20260307083019",
+          "outcome": "target_hit",
+          "closed_at": "2026-03-08",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_AVAXUSDT_20260308071551",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        }
+      ]
+    },
+    "BTCUSDT": {
+      "win": 0,
+      "loss": 0,
+      "invalid_hit": 0,
+      "target_hit": 0,
+      "revoked": 2,
+      "total": 2,
+      "trades": [
+        {
+          "trade_id": "idea_BTCUSDT_20260301135025",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        },
+        {
+          "trade_id": "idea_BTCUSDT_20260301143801",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        }
+      ]
+    },
+    "DOGEUSDT": {
+      "win": 0,
+      "loss": 0,
+      "invalid_hit": 0,
+      "target_hit": 0,
+      "revoked": 1,
+      "total": 1,
+      "trades": [
+        {
+          "trade_id": "idea_DOGEUSDT_20260309071557",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "SHORT"
+        }
+      ]
+    },
+    "DOTUSDT": {
+      "win": 0,
+      "loss": 1,
+      "invalid_hit": 0,
+      "target_hit": 0,
+      "revoked": 1,
+      "total": 2,
+      "trades": [
+        {
+          "trade_id": "idea_DOTUSDT_20260307071558",
+          "outcome": "loss",
+          "closed_at": "2026-03-08",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_DOTUSDT_20260307083019",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        }
+      ]
+    },
+    "ETHUSDT": {
+      "win": 0,
+      "loss": 1,
+      "invalid_hit": 0,
+      "target_hit": 3,
+      "revoked": 1,
+      "total": 5,
+      "trades": [
+        {
+          "trade_id": "idea_ETHUSDT_20260307071558",
+          "outcome": "loss",
+          "closed_at": "2026-03-08",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_ETHUSDT_20260307083019",
+          "outcome": "target_hit",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_ETHUSDT_20260308071551",
+          "outcome": "target_hit",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_ETHUSDT_20260308083038",
+          "outcome": "target_hit",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_ETHUSDT_20260308200745",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        }
+      ]
+    },
+    "LINKUSDT": {
+      "win": 0,
+      "loss": 1,
+      "invalid_hit": 0,
+      "target_hit": 0,
+      "revoked": 4,
+      "total": 5,
+      "trades": [
+        {
+          "trade_id": "idea_LINKUSDT_20260307071558",
+          "outcome": "loss",
+          "closed_at": "2026-03-08",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_LINKUSDT_20260307083019",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_LINKUSDT_20260308071551",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_LINKUSDT_20260308083038",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        },
+        {
+          "trade_id": "idea_LINKUSDT_20260308200745",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        }
+      ]
+    },
+    "LTCUSDT": {
+      "win": 0,
+      "loss": 0,
+      "invalid_hit": 0,
+      "target_hit": 1,
+      "revoked": 0,
+      "total": 1,
+      "trades": [
+        {
+          "trade_id": "idea_LTCUSDT_20260307071558",
+          "outcome": "target_hit",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        }
+      ]
+    },
+    "SOLUSDT": {
+      "win": 0,
+      "loss": 0,
+      "invalid_hit": 0,
+      "target_hit": 0,
+      "revoked": 1,
+      "total": 1,
+      "trades": [
+        {
+          "trade_id": "idea_SOLUSDT_20260309071557",
+          "outcome": "revoked",
+          "closed_at": "2026-03-09",
+          "direction": "LONG"
+        }
+      ]
+    }
+  },
+  "summary": "29 trade(s) clôturés : 5 gagnant(s) (win+target_hit), 4 perdant(s) (loss+invalid_hit). Par symbole : voir by_symbol."
+}

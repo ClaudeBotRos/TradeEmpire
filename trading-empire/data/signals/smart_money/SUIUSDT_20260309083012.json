@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-09T08:30:12.315Z",
+  "symbol": "SUIUSDT",
+  "signals": [
+    "funding neutral"
+  ],
+  "metrics": {
+    "funding": 0.00006512,
+    "mark_price": 0.90703694,
+    "next_funding_time": 1773072000000
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    }
+  ],
+  "low_confidence": false
+}

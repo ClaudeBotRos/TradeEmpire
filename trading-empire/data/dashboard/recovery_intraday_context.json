@@ -1,0 +1,46 @@
+{
+  "timestamp_utc": "2026-03-08T20:58:35.043Z",
+  "open_orders": [
+    {
+      "orderId": 1526942367,
+      "symbol": "DOTUSDT",
+      "side": "SELL",
+      "price": "1.490",
+      "origQty": "17",
+      "type": "LIMIT"
+    }
+  ],
+  "technicals_by_symbol": {
+    "DOTUSDT": {
+      "trend": "up",
+      "levels": {
+        "support": [
+          1.225,
+          1.275,
+          1.425,
+          1.458,
+          1.473
+        ],
+        "resistance": [
+          1.398,
+          1.681,
+          1.752
+        ]
+      },
+      "timestamp_utc": "2026-03-08T20:58:33.760Z"
+    }
+  },
+  "scout_summary": "Scout : 7 proposition(s) (paires hors watchlist, timeframes supplémentaires). Intel : X : ETF / spot, bullish, régulation. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why",
+  "scout_proposals_relevant": [],
+  "chase_summary": "Aucun nouveau post-mortem. Consolidez les signaux et les idées selon le feedback.",
+  "chase_recent_loss_symbols": [
+    "ADAUSDT",
+    "ATOMUSDT",
+    "AVAXUSDT",
+    "BTCUSDT"
+  ],
+  "chase_recent_win_symbols": [
+    "AVAXUSDT"
+  ],
+  "instruction": "Pour chaque ordre dans open_orders, décide action (keep ou cancel) et reason. Tiens compte de : trend (technicals_by_symbol), Scout (scout_summary), Chase (chase_summary, chase_recent_loss_symbols). Écris le résultat dans data/dashboard/recovery_agent_recommendations.json avec format { \"timestamp_utc\": \"...\", \"recommendations\": [ { \"orderId\", \"symbol\", \"action\": \"keep\"|\"cancel\", \"reason\": \"...\" } ] }."
+}

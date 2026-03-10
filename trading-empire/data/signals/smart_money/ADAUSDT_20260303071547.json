@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-03T07:15:47.770Z",
+  "symbol": "ADAUSDT",
+  "signals": [
+    "funding negative"
+  ],
+  "metrics": {
+    "funding": -0.00014248,
+    "mark_price": 0.27025266,
+    "next_funding_time": 1772524800000
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    }
+  ],
+  "low_confidence": false
+}

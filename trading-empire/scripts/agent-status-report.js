@@ -11,6 +11,7 @@ require('./load-workspace-env.js');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const { logXUsage } = require('./log-x-usage.js');
 
 const ROOT = path.join(__dirname, '..');
 const DATA_DASH = path.join(ROOT, 'data', 'dashboard');
@@ -67,9 +68,11 @@ async function checkHyperliquid() {
 async function checkTwitterAPI() {
   const token = process.env.X_BEARER_TOKEN;
   if (!token) return { ok: false, message: 'X_BEARER_TOKEN non défini', configured: false };
-  // Même requête que sentiment-scan.js pour cohérence (Twitter exige opérateurs valides)
+  const { loadIntelXLimits } = require('./load-intel-x-limits.js');
+  const limits = loadIntelXLimits();
+  const maxResults = limits.x_max_results_agent_status;
   const query = encodeURIComponent('crypto OR bitcoin OR BTC -is:retweet lang:en');
-  const url = `https://api.twitter.com/2/tweets/search/recent?query=${query}&max_results=10&tweet.fields=created_at,text`;
+  const url = `https://api.twitter.com/2/tweets/search/recent?query=${query}&max_results=${maxResults}&tweet.fields=created_at,text`;
   try {
     const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
     const body = await res.text();
@@ -84,7 +87,9 @@ async function checkTwitterAPI() {
       const detail = data.detail || data.title || data.error || body.slice(0, 120);
       return { ok: false, message: `HTTP ${res.status}: ${detail}`, configured: true };
     }
-    return { ok: true, configured: true, tweets: data.data?.length ?? 0 };
+    const tweetsCount = data.data?.length ?? 0;
+    logXUsage(1, tweetsCount);
+    return { ok: true, configured: true, tweets: tweetsCount };
   } catch (e) {
     return { ok: false, message: e.message || String(e), configured: true };
   }
@@ -146,6 +151,10 @@ function runScriptSuccess(scriptName, timeout = 15000) {
 async function runTechnicalsChecks() {
   const api = await checkBinanceKlines();
   const competency = runScriptSuccess('technicals-scan.js');
+  const tvCalendarPath = path.join(TECHNICALS_DIR, 'tradingview_events_calendar.json');
+  const cryptoIndicatorsPath = path.join(TECHNICALS_DIR, 'crypto_indicators_rapidapi.json');
+  const tvCalendarOk = checkFileReadable(tvCalendarPath, 'TradingView events calendar');
+  const cryptoIndicatorsOk = checkFileReadable(cryptoIndicatorsPath, 'Crypto indicators RSI/MACD/EMA');
   const status = api.ok && (competency.ok === true || competency.ok === null) ? (competency.ok === null ? 'warning' : 'ok') : competency.ok === false ? 'error' : 'warning';
   return {
     status,
@@ -154,6 +163,8 @@ async function runTechnicalsChecks() {
     ],
     competencies: [
       { name: 'technicals-scan.js', status: competency.ok === true ? 'ok' : competency.ok === null ? 'skip' : 'error', detail: competency.message },
+      { name: 'tradingview-events-calendar.js', status: tvCalendarOk.ok ? 'ok' : 'skip', detail: tvCalendarOk.ok ? 'Calendrier événements par symbole (RapidAPI)' : 'Exécuter pour alimenter' },
+      { name: 'crypto-indicators-rapidapi.js', status: cryptoIndicatorsOk.ok ? 'ok' : 'skip', detail: cryptoIndicatorsOk.ok ? 'RSI, MACD, EMA (RapidAPI)' : 'Exécuter pour alimenter' },
     ],
     message: status === 'ok' ? 'APIs et script OK' : api.ok ? `Script: ${competency.message}` : `API: ${api.message}`,
   };
@@ -167,11 +178,19 @@ async function runSmartMoneyChecks() {
     { name: 'Binance Futures (funding)', status: binance.ok ? 'ok' : 'error', detail: binance.ok ? 'OK' : binance.message },
     { name: 'Hyperliquid (vaultSummaries)', status: hyperliquid.ok ? 'ok' : 'warning', detail: hyperliquid.ok ? `OK (${hyperliquid.count})` : hyperliquid.message },
   ];
+  const dexscreenerPath = path.join(ROOT, 'data', 'signals', 'smart_money', 'dexscreener_holders.json');
+  const binanceCopyPath = path.join(ROOT, 'data', 'signals', 'smart_money', 'binance_copy_leaderboard.json');
+  const dexscreenerOk = fs.existsSync(dexscreenerPath);
+  const binanceCopyOk = fs.existsSync(binanceCopyPath);
   const status = binance.ok && (competency.ok === true || competency.ok === null) ? (competency.ok === null ? 'warning' : 'ok') : competency.ok === false ? 'error' : 'warning';
   return {
     status,
     api_connections: apis,
-    competencies: [{ name: 'smart-money-scan.js', status: competency.ok === true ? 'ok' : competency.ok === null ? 'skip' : 'error', detail: competency.message }],
+    competencies: [
+      { name: 'smart-money-scan.js', status: competency.ok === true ? 'ok' : competency.ok === null ? 'skip' : 'error', detail: competency.message },
+      { name: 'dexscreener-top-traders.js', status: dexscreenerOk ? 'ok' : 'skip', detail: dexscreenerOk ? 'Dexscreener holders (RapidAPI)' : 'Optionnel : wallet_url requis' },
+      { name: 'binance-copy-leaderboard.js', status: binanceCopyOk ? 'ok' : 'skip', detail: binanceCopyOk ? 'Binance Copy leaderboard (RapidAPI)' : 'Optionnel' },
+    ],
     message: status === 'ok' ? 'APIs et script OK' : !binance.ok ? `Binance: ${binance.message}` : competency.message,
   };
 }
@@ -269,7 +288,11 @@ async function runIntelChecks() {
     { name: 'YouTube (youtube-watcher)', status: configOk ? 'ok' : 'warning', detail: configOk ? 'Transcript (skill)' : 'intel_youtube_urls.json optionnel' },
   ];
   const ecoCalPath = path.join(intelDir, 'economic_calendar.json');
+  const cryptodailyPath = path.join(intelDir, 'cryptodaily_news.json');
+  const redditIntelPath = path.join(intelDir, 'reddit_intel.json');
   const ecoCalOk = fs.existsSync(ecoCalPath);
+  const cryptodailyOk = checkFileReadable(cryptodailyPath, 'CryptoDaily news');
+  const redditOk = checkFileReadable(redditIntelPath, 'Reddit intel');
   const ecoCalCompetency = runScriptSuccess('economic-calendar-scan.js');
   const status = (competency.ok === true || competency.ok === null) && (twitter.ok || !twitter.configured) ? (competency.ok === null ? 'warning' : 'ok') : competency.ok === false ? 'error' : 'warning';
   return {
@@ -278,6 +301,8 @@ async function runIntelChecks() {
     competencies: [
       { name: 'intel-scan.js', status: competency.ok === true ? 'ok' : competency.ok === null ? 'skip' : 'error', detail: competency.message },
       { name: 'economic-calendar-scan.js', status: ecoCalOk ? 'ok' : (ecoCalCompetency.ok === true ? 'ok' : 'skip'), detail: ecoCalOk ? 'Calendrier éco (investing.com)' : 'Exécuter pour alimenter macro' },
+      { name: 'cryptodaily-news.js', status: cryptodailyOk.ok ? 'ok' : 'skip', detail: cryptodailyOk.ok ? 'CryptoDaily (RapidAPI)' : 'Exécuter pour alimenter actualités crypto' },
+      { name: 'reddit-intel.js', status: redditOk.ok ? 'ok' : 'skip', detail: redditOk.ok ? 'Reddit subreddits (RapidAPI)' : 'Exécuter pour alimenter Reddit' },
     ],
     message: status === 'ok' ? 'Trend Cards X + YouTube + calendrier éco OK' : !twitter.configured ? 'X non configuré' : twitter.message || competency.message,
   };
@@ -332,6 +357,94 @@ async function runTiboChecks() {
   };
 }
 
+async function runOpportunityScoutChecks() {
+  const proposalsPath = path.join(DATA_DASH, 'scout_proposals.json');
+  const statusPath = path.join(DATA_DASH, 'scout_validation_status.json');
+  const proposalsOk = fs.existsSync(proposalsPath);
+  const statusOk = fs.existsSync(statusPath);
+  const competency = runScriptSuccess('scout-validation-status.js', 15000);
+  const apis = [
+    { name: 'scout_proposals.json', status: proposalsOk ? 'ok' : 'warning', detail: proposalsOk ? 'Propositions Clarissa (Scout)' : 'Exécuter opportunity-scout cron' },
+    { name: 'scout_validation_status.json', status: statusOk ? 'ok' : 'warning', detail: statusOk ? 'Statut validation' : 'Exécuter scout-validation-status.js' },
+  ];
+  const status = (proposalsOk || statusOk) && (competency.ok === true || competency.ok === null) ? (competency.ok === null ? 'warning' : 'ok') : competency.ok === false ? 'error' : 'warning';
+  return {
+    status,
+    api_connections: apis,
+    competencies: [{ name: 'scout-validation-status.js', status: competency.ok === true ? 'ok' : competency.ok === null ? 'skip' : 'error', detail: competency.message }],
+    message: status === 'ok' ? 'Clarissa (Scout) — Données et script OK' : !proposalsOk && !statusOk ? 'Aucune donnée Scout (lancer cron opportunity-scout)' : competency.message,
+  };
+}
+
+async function runRecoveryAnalystChecks() {
+  const reportPath = path.join(DATA_DASH, 'recovery_report.json');
+  const intradayPath = path.join(DATA_DASH, 'recovery_intraday_report.json');
+  const outcomesDir = path.join(ROOT, 'data', 'tracker', 'outcomes');
+  const reportOk = fs.existsSync(reportPath);
+  const intradayOk = fs.existsSync(intradayPath);
+  const outcomesOk = fs.existsSync(outcomesDir) && fs.statSync(outcomesDir).isDirectory();
+  const apis = [
+    { name: 'recovery_report.json', status: reportOk ? 'ok' : 'warning', detail: reportOk ? 'Rapport Killian (Recovery)' : 'Exécuter recovery-analyst-report.js' },
+    { name: 'recovery_intraday_report.json', status: intradayOk ? 'ok' : 'warning', detail: intradayOk ? 'Revue intraday' : 'Cron recovery-intraday' },
+    { name: 'data/tracker/outcomes', status: outcomesOk ? 'ok' : 'warning', detail: outcomesOk ? 'Outcomes Chase' : 'Sortie Chase' },
+  ];
+  const hasData = reportOk || intradayOk || outcomesOk;
+  const status = hasData ? 'ok' : 'warning';
+  return {
+    status,
+    api_connections: apis,
+    competencies: [{ name: 'Recovery (Killian)', status: hasData ? 'ok' : 'skip', detail: 'Agrégation outcomes + intraday' }],
+    message: status === 'ok' ? 'Killian (Recovery) — Données OK' : 'Aucun rapport recovery (recovery-analyst-report.js, recovery-intraday)',
+  };
+}
+
+async function runYieldFarmerChecks() {
+  const reportPath = path.join(DATA_DASH, 'yield_farmer_report.json');
+  const poolsPath = path.join(DATA_DASH, 'uniswap_v3_arbitrum_pools.json');
+  const reportOk = fs.existsSync(reportPath);
+  const poolsOk = fs.existsSync(poolsPath);
+  const fetchPoolsComp = runScriptSuccess('yield-fetch-pools-arbitrum.js', 20000);
+  const apis = [
+    { name: 'yield_farmer_report.json', status: reportOk ? 'ok' : 'warning', detail: reportOk ? 'Rapport Gary (Yield)' : 'Exécuter yield-report.js' },
+    { name: 'uniswap_v3_arbitrum_pools.json', status: poolsOk ? 'ok' : 'warning', detail: poolsOk ? 'Pools Arbitrum (DeFiLlama)' : 'Exécuter yield-fetch-pools-arbitrum.js' },
+  ];
+  const status = (reportOk || poolsOk) && (fetchPoolsComp.ok === true || fetchPoolsComp.ok === null) ? (fetchPoolsComp.ok === null ? 'warning' : 'ok') : fetchPoolsComp.ok === false ? 'error' : 'warning';
+  return {
+    status,
+    api_connections: apis,
+    competencies: [
+      { name: 'yield-fetch-pools-arbitrum.js', status: fetchPoolsComp.ok === true ? 'ok' : fetchPoolsComp.ok === null ? 'skip' : 'error', detail: fetchPoolsComp.message },
+      { name: 'yield-report.js', status: reportOk ? 'ok' : 'skip', detail: reportOk ? 'Rapport Yield' : 'Cron yield-farmer' },
+    ],
+    message: status === 'ok' ? 'Gary (Yield) — Données et scripts OK' : !poolsOk && !reportOk ? 'Exécuter yield-fetch-pools-arbitrum.js puis yield-report.js' : fetchPoolsComp.message,
+  };
+}
+
+async function runHyperliquidAnalystChecks() {
+  const hlDir = path.join(ROOT, 'data', 'hyperliquid');
+  const commoditiesPath = path.join(hlDir, 'commodities_meta.json');
+  const reportPath = path.join(DATA_DASH, 'hyperliquid_analyst_report.json');
+  const commoditiesOk = fs.existsSync(commoditiesPath);
+  const reportOk = fs.existsSync(reportPath);
+  const scanComp = runScriptSuccess('hyperliquid-commodities-scan.js', 15000);
+  const trendComp = runScriptSuccess('hyperliquid-analyst-trend.js', 10000);
+  const apis = [
+    { name: 'commodities_meta.json', status: commoditiesOk ? 'ok' : 'warning', detail: commoditiesOk ? 'Actifs tokenisés (main + HIP-3)' : 'Exécuter hyperliquid-commodities-scan.js' },
+    { name: 'hyperliquid_analyst_report.json', status: reportOk ? 'ok' : 'warning', detail: reportOk ? 'Rapport Eva (Hyperliquid)' : 'hyperliquid-analyst-trend.js ou cron' },
+  ];
+  const hasData = commoditiesOk || reportOk;
+  const status = hasData && (scanComp.ok === true || scanComp.ok === null) ? (scanComp.ok === null ? 'warning' : 'ok') : scanComp.ok === false ? 'error' : 'warning';
+  return {
+    status,
+    api_connections: apis,
+    competencies: [
+      { name: 'hyperliquid-commodities-scan.js', status: scanComp.ok === true ? 'ok' : scanComp.ok === null ? 'skip' : 'error', detail: scanComp.message },
+      { name: 'hyperliquid-analyst-trend.js', status: reportOk || trendComp.ok === true ? 'ok' : trendComp.ok === null ? 'skip' : 'warning', detail: reportOk ? 'Tendance générée' : trendComp.message },
+    ],
+    message: status === 'ok' ? 'Eva (Hyperliquid) — Données et scripts OK' : !commoditiesOk ? 'Exécuter hyperliquid-commodities-scan.js' : scanComp.message,
+  };
+}
+
 async function main() {
   const timestampUtc = now();
   if (!fs.existsSync(DATA_DASH)) fs.mkdirSync(DATA_DASH, { recursive: true });
@@ -349,6 +462,10 @@ async function main() {
       INTEL: await runIntelChecks(),
       CHASE: await runChaseChecks(),
       TIBO: await runTiboChecks(),
+      OPPORTUNITY_SCOUT: await runOpportunityScoutChecks(),
+      RECOVERY_ANALYST: await runRecoveryAnalystChecks(),
+      YIELD_FARMER: await runYieldFarmerChecks(),
+      HYPERLIQUID_ANALYST: await runHyperliquidAnalystChecks(),
     },
   };
 

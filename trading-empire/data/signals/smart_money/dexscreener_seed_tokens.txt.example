@@ -1,0 +1,7 @@
+# Tokens à analyser pour découvrir les top traders (une ligne par token : chain,address).
+# Copier vers dexscreener_seed_tokens.txt. Avec APIFY_API_TOKEN, smart-money-discover-wallets.js
+# appelle l’acteur Apify "Dexscreener Top Traders Scraper" et remplit dexscreener_wallets.txt.
+# Exemples (chain,address) :
+# solana,4gmic8GGP6q4R3W2yAjASg2et2Ty8swrA2vLe1f421aY
+# solana,So11111111111111111111111111111111111111112
+# ethereum,0xdac17f958d2ee523a2206206994597c13d831ec7

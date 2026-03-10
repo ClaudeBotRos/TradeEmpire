@@ -1,0 +1,20 @@
+{
+  "trade_id": "idea_SOLUSDT_20260309083019",
+  "outcome": "pending",
+  "approved_at": "2026-03-09T08:30:19.504Z",
+  "symbol": "SOLUSDT",
+  "direction": "LONG",
+  "entry": 80.26,
+  "invalid": 79.46,
+  "targets": [
+    {
+      "price": 81.22,
+      "rr": 1.2
+    },
+    {
+      "price": 82.19,
+      "rr": 2.4
+    }
+  ],
+  "note": "Remplir outcome (win|loss|invalid_hit|target_hit), optionnel: exit_price, closed_at, note."
+}

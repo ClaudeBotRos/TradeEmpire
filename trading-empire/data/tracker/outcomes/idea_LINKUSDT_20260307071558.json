@@ -1,0 +1,22 @@
+{
+  "trade_id": "idea_LINKUSDT_20260307071558",
+  "outcome": "loss",
+  "approved_at": "2026-03-07T08:32:35.314Z",
+  "symbol": "LINKUSDT",
+  "direction": "LONG",
+  "entry": 8.67,
+  "invalid": 8.58,
+  "targets": [
+    {
+      "price": 8.77,
+      "rr": 1.2
+    },
+    {
+      "price": 8.88,
+      "rr": 2.4
+    }
+  ],
+  "note": "SL détecté (Chase via ASTER)",
+  "exit_price": 8.564,
+  "closed_at": "2026-03-08"
+}

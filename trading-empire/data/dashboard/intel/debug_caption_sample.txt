@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?><timedtext format="3">
+<head>
+<ws id="0"/>
+<ws id="1" mh="2" ju="0" sd="3"/>
+<wp id="0"/>
+<wp id="1" ap="6" ah="20" av="100" rc="2" cc="40"/>
+</head>
+<body>
+<w t="0" id="1" wp="1" ws="1"/>
+<p t="80" d="2960" w="1"><s ac="0">Welcome</s><s t="160" ac="0"> back</s><s t="320" ac="0"> to</s><s t="400" ac="0"> the</s><s t="480" ac="0"> crypto</s><s t="880" ac="0"> channel</s></p>
+<p t="1189" d="1851" w="1" a="1">
+</p>
+<p t="1199" d="3521" w="1"><s ac="0">everyone.</s><s t="321" ac="0"> My</s><s t="481" ac="0"> name</s><s t="561" ac="0"> is</s><s t="721" ac="0"> Josh</s><s t="960" ac="0"> and</s><s t="1200" ac="0"> right</s><s t="1440" ac="0"> now</s></p>
+<p t="3030" d="1690" w="1" a="1">
+</p>
+<p t="3040" d="3759" w="1"><s ac="0">it</s><s t="240" ac="0"> is</s><s t="399" ac="0"> happening.</s><s t="800" ac="0"> Bitcoin</s><s t="1120" ac="0"> is</s><s t="1279" ac="0"> playing</s><s t="1520" ac="0"> out</s></p>
+<p t="4710" d="2089" w="1" a="1">
+</p>
+<p t="4720" d="4400" w="1"><s ac="0">the</s><s t="240" ac="0"> squeeze</s><s t="639" ac="0"> in</s><s t="800" ac="0"> the</s><s t="960" ac="0"> short</s><s t="1119" ac="0"> term</s><s t="1520" ac="0"> to</s><s t="1760" ac="0"> wipe</s></p>
+<p t="6789" d="2331" w="1" a="1">
+</p>
+<p t="6799" d="4241" w="1"><s ac="0">out</s><s t="161" ac="0"> this</s><s t="560" ac="0"> exact</s><s t="1120" ac="0"> level</s><s t="1361" ac="0"> of</s><s t="1521" ac="0"> liquidity</s><s t="2081" ac="0"> which</s></p>
+<p t="9110" d="1930" w="1" a="1">
+</p>
+<p t="9120" d="3599" w="1"><s ac="0">has</s><s t="160" ac="0"> now</s><s t="399" ac="0"> happened</s><s t="800" ac="0"> and</s><s t="960" ac="0"> we</s><s t="1200" ac="0"> now</s><s t="1360" ac="0"> have</s><s t="1599" ac="0"> new</s></p>
+<p t="11030" d="1689" w="1" a="1">
+</p>
+<p t="11040" d="3519" w="1"><s ac="0">price</s><s t="240" ac="0"> targets</s><s t="639" ac="0"> to</s><s t="800" ac="0"> watch</s><s t="960" ac="0"> out</s><s t="1120" ac="0"> for</s><s t=

@@ -1,0 +1,56 @@
+{
+  "timestamp_utc": "2026-03-10T08:41:12.497Z",
+  "scout_proposals_at": "2026-03-10T08:20:02.458Z",
+  "summary": "0 exécuté(s), 0 approuvé(s), 7 proposé(s) uniquement.",
+  "by_symbol": [
+    {
+      "symbol": "BNBUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension",
+      "status": "proposed_only",
+      "detail": "Proposé par Scout, pas encore validé."
+    },
+    {
+      "symbol": "NEARUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension",
+      "status": "proposed_only",
+      "detail": "Proposé par Scout, pas encore validé."
+    },
+    {
+      "symbol": "INJUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension",
+      "status": "proposed_only",
+      "detail": "Proposé par Scout, pas encore validé."
+    },
+    {
+      "symbol": "TIAUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension",
+      "status": "proposed_only",
+      "detail": "Proposé par Scout, pas encore validé."
+    },
+    {
+      "symbol": "APTUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension",
+      "status": "proposed_only",
+      "detail": "Proposé par Scout, pas encore validé."
+    },
+    {
+      "symbol": "FILUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension",
+      "status": "proposed_only",
+      "detail": "Proposé par Scout, pas encore validé."
+    },
+    {
+      "symbol": "STXUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension",
+      "status": "proposed_only",
+      "detail": "Proposé par Scout, pas encore validé."
+    }
+  ]
+}

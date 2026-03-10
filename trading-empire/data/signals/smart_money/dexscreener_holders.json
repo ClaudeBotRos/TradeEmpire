@@ -1,0 +1,15 @@
+{
+  "last_updated_utc": "2026-03-10T07:15:56.877Z",
+  "source": "dexscreener-top-traders.p.rapidapi.com",
+  "endpoint": "get_holders",
+  "wallet_url": "https://dexscreener.com/solana/AW526gmdn3wvhxa4D5FngY1HH3zAyYBpCSJnkYdXyqpx",
+  "wallets": [
+    {
+      "wallet_url": "https://dexscreener.com/solana/AW526gmdn3wvhxa4D5FngY1HH3zAyYBpCSJnkYdXyqpx",
+      "holders": [],
+      "http_status": 200
+    }
+  ],
+  "holders": [],
+  "count": 0
+}

@@ -1,0 +1,17 @@
+{
+  "use_rss_first": true,
+  "min_items_to_skip_api": 5,
+  "external_aggregate_path": "",
+  "feeds": [
+    { "name": "CoinDesk", "url": "https://www.coindesk.com/arc/outboundfeeds/rss/" },
+    { "name": "The Block", "url": "https://www.theblock.co/rss.xml" },
+    { "name": "Cointelegraph", "url": "https://cointelegraph.com/rss" },
+    { "name": "Decrypt", "url": "https://decrypt.co/feed" },
+    { "name": "CryptoSlate", "url": "https://cryptoslate.com/feed/" },
+    { "name": "Cryptoast", "url": "https://cryptoast.fr/feed/" },
+    { "name": "Journal du Coin", "url": "https://journalducoin.com/feed/" },
+    { "name": "CoinTribune", "url": "https://www.cointribune.com/feed/" },
+    { "name": "Cryptonaute", "url": "https://cryptonaute.fr/feed/" }
+  ],
+  "notes": "Agrégat RSS autonome. Évite les appels CryptoDaily (RapidAPI). external_aggregate_path ou NEWS_AGGREGATE_JSON pour un JSON externe optionnel."
+}

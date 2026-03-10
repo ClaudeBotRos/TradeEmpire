@@ -1,15 +1,60 @@
 {
-  "timestamp_utc": "2026-03-02T13:57:45.862Z",
+  "timestamp_utc": "2026-03-10T08:40:38.598Z",
   "summary": {
     "roadmap_current": "v2",
-    "roadmap_steps_done": 7,
+    "roadmap_steps_done": 8,
+    "roadmap_8_8": true,
+    "trading_reel": true,
     "api_requests_count": 0,
-    "agent_exchanges_count": 48,
+    "agent_exchanges_count": 368,
     "has_kanban": true,
     "has_costs": true,
-    "intel_trend_cards_count": 1,
-    "chase_post_mortem_count": 0
+    "intel_trend_cards_count": 7,
+    "chase_post_mortem_count": 29,
+    "wallet_source": "ASTER",
+    "wallet_balance_usdt": 80.48438145,
+    "pnl_source": "ASTER",
+    "pnl_summary": "33 trade(s) clôturés sur ASTER : 26 gagnant(s), 7 perdant(s). PnL réalisé total : 8.95 USDT.",
+    "realized_pnl_usdt": 8.95137001,
+    "trades_closed_win_loss": {
+      "trades_count": 33,
+      "win_count": 26,
+      "loss_count": 7
+    }
   },
+  "wallet_snapshot": {
+    "total_wallet_balance_usdt": 8.3196816,
+    "available_balance_usdt": 80.48438145,
+    "total_unrealized_profit_usdt": 0,
+    "positions_count": 0,
+    "source": "ASTER",
+    "fetched_at": "2026-03-10T08:40:38.962Z"
+  },
+  "pnl_aster": {
+    "source": "ASTER",
+    "trades_count": 33,
+    "win_count": 26,
+    "loss_count": 7,
+    "realized_pnl_usdt": 8.95137001,
+    "summary": "33 trade(s) clôturés sur ASTER : 26 gagnant(s), 7 perdant(s). PnL réalisé total : 8.95 USDT.",
+    "fetched_at": "2026-03-10T08:40:39.199Z"
+  },
+  "data_ages": {
+    "chase_feedback_utc": "2026-03-09T20:00:15.107Z",
+    "chase_feedback_hours_ago": 12.673358888888888,
+    "recovery_report_utc": "2026-03-09T20:15:05.716Z",
+    "recovery_report_hours_ago": 12.4259675,
+    "costs_updated_at": "2026-03-10T07:05:04.063Z",
+    "costs_hours_ago": 1.5930933333333333,
+    "tibo_report_updated_at": "2026-03-10T08:40:08.889Z"
+  },
+  "notes_contexte": [
+    "**ClawRouter : ON S'EN FOUT. On utilise UNIQUEMENT OpenRouter.** Ne jamais mentionner, évaluer ou prioriser ClawRouter. Il n'est pas dans les coûts passés au BOSS.",
+    "**Roadmap : 8/8 — trading RÉEL en place.** Ne pas dire qu'on attend la décision V2 ou que la V2 n'est pas activée.",
+    "**YouTube / Intel (Daphnée) :** filtrage en place. Ne pas radoter sur les cards borderline ou la qualité YouTube.",
+    "**PnL / trades clôturés :** utilise UNIQUEMENT **pnl_aster** (historique ASTER / position history) si présent pour les chiffres win/loss et PnL réalisé ; sinon recovery_report. Ne pas citer les outcomes locaux (recovery_report) comme source de vérité si pnl_aster est disponible.",
+    "**Chase / recovery :** si les chiffres win/loss sont anciens ou ne reflètent pas la réalité, ne pas les citer comme récents. Indiquer que les données sont à actualiser ou les ignorer. Ne pas présenter des pertes anciennes comme si c'était la semaine en cours."
+  ],
   "roadmap": {
     "steps": [
       {
@@ -49,366 +94,234 @@
       },
       {
         "id": "v2",
-        "label": "V2 Exécution (si décision)",
-        "done": false
+        "label": "V2 Exécution (trading réel)",
+        "done": true
       }
     ],
     "current_step_id": "v2",
-    "updated_at": "2026-03-01"
+    "updated_at": "2026-03-08"
   },
   "api_requests": [],
   "agent_exchanges": [
     {
-      "id": "wire-202603011438002-technicals",
-      "timestamp_utc": "2026-03-01T14:38:00.261Z",
-      "from_agent": "TECHNICALS",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
-      "content_ref": "data/signals/technicals/"
-    },
-    {
-      "id": "wire-202603011438007-smart_money",
-      "timestamp_utc": "2026-03-01T14:38:00.743Z",
-      "from_agent": "SMART_MONEY",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux smart money (funding) écrits.",
-      "content_ref": "data/signals/smart_money/"
-    },
-    {
-      "id": "wire-202603011438012-sentiment_x",
-      "timestamp_utc": "2026-03-01T14:38:01.238Z",
-      "from_agent": "SENTIMENT_X",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux sentiment (narratives X) écrits.",
-      "content_ref": "data/signals/sentiment/"
-    },
-    {
-      "id": "wire-202603011438012-orchestrator",
-      "timestamp_utc": "2026-03-01T14:38:01.275Z",
-      "from_agent": "ORCHESTRATOR",
-      "to_agent": "RISK_JOURNAL",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
-      "content_ref": "data/ideas/"
-    },
-    {
-      "id": "wire-202603011438013-risk_journal",
-      "timestamp_utc": "2026-03-01T14:38:01.312Z",
-      "from_agent": "RISK_JOURNAL",
-      "to_agent": "BROADCAST",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
-      "content_ref": "data/decisions/ et data/journal/"
-    },
-    {
-      "id": "wire-202603011442557-technicals",
-      "timestamp_utc": "2026-03-01T14:42:55.741Z",
-      "from_agent": "TECHNICALS",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
-      "content_ref": "data/signals/technicals/"
-    },
-    {
-      "id": "wire-202603011442562-smart_money",
-      "timestamp_utc": "2026-03-01T14:42:56.205Z",
-      "from_agent": "SMART_MONEY",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux smart money (funding) écrits.",
-      "content_ref": "data/signals/smart_money/"
-    },
-    {
-      "id": "wire-202603011442567-sentiment_x",
-      "timestamp_utc": "2026-03-01T14:42:56.726Z",
-      "from_agent": "SENTIMENT_X",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux sentiment (narratives X) écrits.",
-      "content_ref": "data/signals/sentiment/"
-    },
-    {
-      "id": "wire-202603011442567-orchestrator",
-      "timestamp_utc": "2026-03-01T14:42:56.766Z",
-      "from_agent": "ORCHESTRATOR",
-      "to_agent": "RISK_JOURNAL",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
-      "content_ref": "data/ideas/"
-    },
-    {
-      "id": "wire-202603011442568-risk_journal",
-      "timestamp_utc": "2026-03-01T14:42:56.801Z",
-      "from_agent": "RISK_JOURNAL",
-      "to_agent": "BROADCAST",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
-      "content_ref": "data/decisions/ et data/journal/"
-    },
-    {
-      "id": "wire-202603011443315-technicals",
-      "timestamp_utc": "2026-03-01T14:43:31.552Z",
-      "from_agent": "TECHNICALS",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
-      "content_ref": "data/signals/technicals/"
-    },
-    {
-      "id": "wire-202603011443320-smart_money",
-      "timestamp_utc": "2026-03-01T14:43:32.026Z",
-      "from_agent": "SMART_MONEY",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux smart money (funding) écrits.",
-      "content_ref": "data/signals/smart_money/"
-    },
-    {
-      "id": "wire-202603011443325-sentiment_x",
-      "timestamp_utc": "2026-03-01T14:43:32.537Z",
-      "from_agent": "SENTIMENT_X",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux sentiment (narratives X) écrits.",
-      "content_ref": "data/signals/sentiment/"
-    },
-    {
-      "id": "wire-202603011443325-orchestrator",
-      "timestamp_utc": "2026-03-01T14:43:32.575Z",
-      "from_agent": "ORCHESTRATOR",
-      "to_agent": "RISK_JOURNAL",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
-      "content_ref": "data/ideas/"
-    },
-    {
-      "id": "wire-202603011443326-risk_journal",
-      "timestamp_utc": "2026-03-01T14:43:32.614Z",
-      "from_agent": "RISK_JOURNAL",
-      "to_agent": "BROADCAST",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
-      "content_ref": "data/decisions/ et data/journal/"
-    },
-    {
-      "id": "wire-202603011511250-technicals",
-      "timestamp_utc": "2026-03-01T15:11:25.012Z",
-      "from_agent": "TECHNICALS",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
-      "content_ref": "data/signals/technicals/"
-    },
-    {
-      "id": "wire-202603011511254-smart_money",
-      "timestamp_utc": "2026-03-01T15:11:25.479Z",
-      "from_agent": "SMART_MONEY",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux smart money (funding) écrits.",
-      "content_ref": "data/signals/smart_money/"
-    },
-    {
-      "id": "wire-202603011511259-sentiment_x",
-      "timestamp_utc": "2026-03-01T15:11:25.952Z",
-      "from_agent": "SENTIMENT_X",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux sentiment (narratives X) écrits.",
-      "content_ref": "data/signals/sentiment/"
-    },
-    {
-      "id": "wire-202603011511259-orchestrator",
-      "timestamp_utc": "2026-03-01T15:11:25.989Z",
-      "from_agent": "ORCHESTRATOR",
-      "to_agent": "RISK_JOURNAL",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
-      "content_ref": "data/ideas/"
-    },
-    {
-      "id": "wire-202603011511260-risk_journal",
-      "timestamp_utc": "2026-03-01T15:11:26.026Z",
-      "from_agent": "RISK_JOURNAL",
-      "to_agent": "BROADCAST",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
-      "content_ref": "data/decisions/ et data/journal/"
-    },
-    {
-      "id": "wire-202603011511336-technicals",
-      "timestamp_utc": "2026-03-01T15:11:33.615Z",
-      "from_agent": "TECHNICALS",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
-      "content_ref": "data/signals/technicals/"
-    },
-    {
-      "id": "wire-202603011511341-smart_money",
-      "timestamp_utc": "2026-03-01T15:11:34.104Z",
-      "from_agent": "SMART_MONEY",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux smart money (funding) écrits.",
-      "content_ref": "data/signals/smart_money/"
-    },
-    {
-      "id": "wire-202603011511345-sentiment_x",
-      "timestamp_utc": "2026-03-01T15:11:34.568Z",
-      "from_agent": "SENTIMENT_X",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux sentiment (narratives X) écrits.",
-      "content_ref": "data/signals/sentiment/"
-    },
-    {
-      "id": "wire-202603011511346-orchestrator",
-      "timestamp_utc": "2026-03-01T15:11:34.605Z",
-      "from_agent": "ORCHESTRATOR",
-      "to_agent": "RISK_JOURNAL",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
-      "content_ref": "data/ideas/"
-    },
-    {
-      "id": "wire-202603011511346-risk_journal",
-      "timestamp_utc": "2026-03-01T15:11:34.644Z",
-      "from_agent": "RISK_JOURNAL",
-      "to_agent": "BROADCAST",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
-      "content_ref": "data/decisions/ et data/journal/"
-    },
-    {
-      "id": "wire-202603012049057-intel",
-      "timestamp_utc": "2026-03-01T20:49:05.702Z",
+      "id": "wire-202603091817235-intel",
+      "timestamp_utc": "2026-03-09T18:17:23.501Z",
       "from_agent": "INTEL",
       "to_agent": "BROADCAST",
       "type": "SHARE_SIGNAL",
       "context": {
         "window": "intel_trend_cards"
       },
-      "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+      "content_summary": "X : bullish, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
       "content_ref": "data/dashboard/intel/trend_cards.json"
     },
     {
-      "id": "wire-202603012049058-chase",
-      "timestamp_utc": "2026-03-01T20:49:05.809Z",
+      "id": "wire-202603091817324-chase",
+      "timestamp_utc": "2026-03-09T18:17:32.452Z",
       "from_agent": "CHASE",
       "to_agent": "BROADCAST",
       "type": "SHARE_SIGNAL",
       "context": {
         "window": "chase_feedback"
       },
-      "content_summary": "Post-mortems : 0 | feedback écrit pour 5 agents.",
+      "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
       "content_ref": "data/dashboard/chase_feedback.json"
     },
     {
-      "id": "wire-202603012054001-intel",
-      "timestamp_utc": "2026-03-01T20:54:00.111Z",
+      "id": "wire-202603091818537-intel",
+      "timestamp_utc": "2026-03-09T18:18:53.795Z",
       "from_agent": "INTEL",
       "to_agent": "BROADCAST",
       "type": "SHARE_SIGNAL",
       "context": {
         "window": "intel_trend_cards"
       },
-      "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+      "content_summary": "X : bullish, régulation. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
       "content_ref": "data/dashboard/intel/trend_cards.json"
     },
     {
-      "id": "wire-202603012054001-intel",
-      "timestamp_utc": "2026-03-01T20:54:00.192Z",
+      "id": "wire-202603091819007-chase",
+      "timestamp_utc": "2026-03-09T18:19:00.738Z",
+      "from_agent": "CHASE",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "chase_feedback"
+      },
+      "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+      "content_ref": "data/dashboard/chase_feedback.json"
+    },
+    {
+      "id": "wire-202603091942180-chase",
+      "timestamp_utc": "2026-03-09T19:42:18.010Z",
+      "from_agent": "CHASE",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "chase_feedback"
+      },
+      "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+      "content_ref": "data/dashboard/chase_feedback.json"
+    },
+    {
+      "id": "wire-202603091946394-chase",
+      "timestamp_utc": "2026-03-09T19:46:39.485Z",
+      "from_agent": "CHASE",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "chase_feedback"
+      },
+      "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+      "content_ref": "data/dashboard/chase_feedback.json"
+    },
+    {
+      "id": "wire-202603091950044-chase",
+      "timestamp_utc": "2026-03-09T19:50:04.483Z",
+      "from_agent": "CHASE",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "chase_feedback"
+      },
+      "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+      "content_ref": "data/dashboard/chase_feedback.json"
+    },
+    {
+      "id": "wire-202603091954161-chase",
+      "timestamp_utc": "2026-03-09T19:54:16.196Z",
+      "from_agent": "CHASE",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "chase_feedback"
+      },
+      "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+      "content_ref": "data/dashboard/chase_feedback.json"
+    },
+    {
+      "id": "wire-202603092000151-chase",
+      "timestamp_utc": "2026-03-09T20:00:15.112Z",
+      "from_agent": "CHASE",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "chase_feedback"
+      },
+      "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+      "content_ref": "data/dashboard/chase_feedback.json"
+    },
+    {
+      "id": "wire-202603100700055-tibo",
+      "timestamp_utc": "2026-03-10T07:00:05.512Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 0 ordre(s) aujourd'hui, 4 avec TP, 6 TP en attente. Solde disponible : 108.3943144 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100700269-yield_farmer",
+      "timestamp_utc": "2026-03-10T07:00:26.907Z",
+      "from_agent": "YIELD_FARMER",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "yield_farmer_report"
+      },
+      "content_summary": "Capital dormant estimé : 54 USDT. Recommandation : allouer jusqu'à 54.1971572 USDT sur Uniswap V3 (USDC/USDT, APY cible 5-15%). Rendement annuel estimé (8%) : 4.34 USDT.",
+      "content_ref": "data/dashboard/yield_farmer_report.json"
+    },
+    {
+      "id": "wire-202603100710064-tibo",
+      "timestamp_utc": "2026-03-10T07:10:06.401Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 0 ordre(s) aujourd'hui, 4 avec TP, 6 TP en attente. Solde disponible : 108.3943144 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100710064-tibo",
+      "timestamp_utc": "2026-03-10T07:10:06.496Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 0 ordre(s) aujourd'hui, 4 avec TP, 6 TP en attente. Solde disponible : 108.3943144 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100715158-intel",
+      "timestamp_utc": "2026-03-10T07:15:15.849Z",
       "from_agent": "INTEL",
       "to_agent": "ORCHESTRATOR",
       "type": "SHARE_SIGNAL",
       "context": {
         "window": "morning_brief"
       },
-      "content_summary": "Trend Cards X + YouTube (narrative du jour pour orchestrator).",
+      "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+      "content_ref": "data/dashboard/intel/economic_calendar.json"
+    },
+    {
+      "id": "wire-202603100715166-intel",
+      "timestamp_utc": "2026-03-10T07:15:16.608Z",
+      "from_agent": "INTEL",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+      "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+    },
+    {
+      "id": "wire-202603100715190-intel",
+      "timestamp_utc": "2026-03-10T07:15:19.009Z",
+      "from_agent": "INTEL",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+      "content_ref": "data/dashboard/intel/reddit_intel.json"
+    },
+    {
+      "id": "wire-202603100715237-intel",
+      "timestamp_utc": "2026-03-10T07:15:23.707Z",
+      "from_agent": "INTEL",
+      "to_agent": "BROADCAST",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "intel_trend_cards"
+      },
+      "content_summary": "X : ETF / spot, bullish, régulation. 6 vidéo(s) : Bitcoin, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Cry… Reddit : pas de données.",
       "content_ref": "data/dashboard/intel/trend_cards.json"
     },
     {
-      "id": "wire-202603012054006-technicals",
-      "timestamp_utc": "2026-03-01T20:54:00.659Z",
+      "id": "wire-202603100715237-intel",
+      "timestamp_utc": "2026-03-10T07:15:23.719Z",
+      "from_agent": "INTEL",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+      "content_ref": "data/dashboard/intel/trend_cards.json"
+    },
+    {
+      "id": "wire-202603100715302-technicals",
+      "timestamp_utc": "2026-03-10T07:15:30.237Z",
       "from_agent": "TECHNICALS",
       "to_agent": "ORCHESTRATOR",
       "type": "SHARE_SIGNAL",
@@ -419,8 +332,33 @@
       "content_ref": "data/signals/technicals/"
     },
     {
-      "id": "wire-202603012054011-smart_money",
-      "timestamp_utc": "2026-03-01T20:54:01.153Z",
+      "id": "wire-202603100715422-technicals",
+      "timestamp_utc": "2026-03-10T07:15:42.234Z",
+      "from_agent": "TECHNICALS",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+      "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+    },
+    {
+      "id": "wire-202603100715490-technicals",
+      "timestamp_utc": "2026-03-10T07:15:49.060Z",
+      "from_agent": "TECHNICALS",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief",
+        "chase_adapt": true
+      },
+      "content_summary": "Calendrier événements TradingView (RapidAPI) — activé après loss Chase.",
+      "content_ref": "data/signals/technicals/tradingview_events_calendar.json"
+    },
+    {
+      "id": "wire-202603100715554-smart_money",
+      "timestamp_utc": "2026-03-10T07:15:55.473Z",
       "from_agent": "SMART_MONEY",
       "to_agent": "ORCHESTRATOR",
       "type": "SHARE_SIGNAL",
@@ -431,8 +369,56 @@
       "content_ref": "data/signals/smart_money/"
     },
     {
-      "id": "wire-202603012054016-sentiment_x",
-      "timestamp_utc": "2026-03-01T20:54:01.632Z",
+      "id": "wire-202603100715555-smart_money",
+      "timestamp_utc": "2026-03-10T07:15:55.510Z",
+      "from_agent": "SMART_MONEY",
+      "to_agent": "SMART_MONEY",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+      "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+    },
+    {
+      "id": "wire-202603100715569-smart_money",
+      "timestamp_utc": "2026-03-10T07:15:56.949Z",
+      "from_agent": "SMART_MONEY",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Holders Dexscreener pour les wallets listés.",
+      "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+    },
+    {
+      "id": "wire-202603100715569-smart_money",
+      "timestamp_utc": "2026-03-10T07:15:56.988Z",
+      "from_agent": "SMART_MONEY",
+      "to_agent": "SMART_MONEY",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+      "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+    },
+    {
+      "id": "wire-202603100715577-smart_money",
+      "timestamp_utc": "2026-03-10T07:15:57.725Z",
+      "from_agent": "SMART_MONEY",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+      "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+    },
+    {
+      "id": "wire-202603100715583-sentiment_x",
+      "timestamp_utc": "2026-03-10T07:15:58.343Z",
       "from_agent": "SENTIMENT_X",
       "to_agent": "ORCHESTRATOR",
       "type": "SHARE_SIGNAL",
@@ -443,8 +429,20 @@
       "content_ref": "data/signals/sentiment/"
     },
     {
-      "id": "wire-202603012054016-orchestrator",
-      "timestamp_utc": "2026-03-01T20:54:01.670Z",
+      "id": "wire-202603100716047-sentiment_x",
+      "timestamp_utc": "2026-03-10T07:16:04.733Z",
+      "from_agent": "SENTIMENT_X",
+      "to_agent": "ORCHESTRATOR",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "morning_brief"
+      },
+      "content_summary": "Sentiment enrichi ventes/achats (funding rate).",
+      "content_ref": "data/signals/sentiment/*_sentiment_flow.json"
+    },
+    {
+      "id": "wire-202603100716048-orchestrator",
+      "timestamp_utc": "2026-03-10T07:16:04.807Z",
       "from_agent": "ORCHESTRATOR",
       "to_agent": "RISK_JOURNAL",
       "type": "SHARE_SIGNAL",
@@ -455,8 +453,8 @@
       "content_ref": "data/ideas/"
     },
     {
-      "id": "wire-202603012054017-orchestrator",
-      "timestamp_utc": "2026-03-01T20:54:01.710Z",
+      "id": "wire-202603100716048-orchestrator",
+      "timestamp_utc": "2026-03-10T07:16:04.885Z",
       "from_agent": "ORCHESTRATOR",
       "to_agent": "BROADCAST",
       "type": "SHARE_SIGNAL",
@@ -467,8 +465,8 @@
       "content_ref": "data/dashboard/niches/"
     },
     {
-      "id": "wire-202603012054017-risk_journal",
-      "timestamp_utc": "2026-03-01T20:54:01.750Z",
+      "id": "wire-202603100716049-risk_journal",
+      "timestamp_utc": "2026-03-10T07:16:04.942Z",
       "from_agent": "RISK_JOURNAL",
       "to_agent": "BROADCAST",
       "type": "SHARE_SIGNAL",
@@ -479,160 +477,232 @@
       "content_ref": "data/decisions/ et data/journal/"
     },
     {
-      "id": "wire-202603012054021-intel",
-      "timestamp_utc": "2026-03-01T20:54:02.185Z",
-      "from_agent": "INTEL",
-      "to_agent": "BROADCAST",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "intel_trend_cards"
-      },
-      "content_summary": "Trend Cards : 1 X, 0 YouTube.",
-      "content_ref": "data/dashboard/intel/trend_cards.json"
-    },
-    {
-      "id": "wire-202603012054022-chase",
-      "timestamp_utc": "2026-03-01T20:54:02.284Z",
-      "from_agent": "CHASE",
-      "to_agent": "BROADCAST",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "chase_feedback"
-      },
-      "content_summary": "Post-mortems : 0 | feedback écrit pour 5 agents.",
-      "content_ref": "data/dashboard/chase_feedback.json"
-    },
-    {
-      "id": "wire-202603020715084-intel",
-      "timestamp_utc": "2026-03-02T07:15:08.495Z",
-      "from_agent": "INTEL",
-      "to_agent": "BROADCAST",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "intel_trend_cards"
-      },
-      "content_summary": "Trend Cards : 1 X, 0 YouTube.",
-      "content_ref": "data/dashboard/intel/trend_cards.json"
-    },
-    {
-      "id": "wire-202603020715085-intel",
-      "timestamp_utc": "2026-03-02T07:15:08.576Z",
-      "from_agent": "INTEL",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Trend Cards X + YouTube (narrative du jour pour orchestrator).",
-      "content_ref": "data/dashboard/intel/trend_cards.json"
-    },
-    {
-      "id": "wire-202603020715090-technicals",
-      "timestamp_utc": "2026-03-02T07:15:09.067Z",
-      "from_agent": "TECHNICALS",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
-      "content_ref": "data/signals/technicals/"
-    },
-    {
-      "id": "wire-202603020715095-smart_money",
-      "timestamp_utc": "2026-03-02T07:15:09.573Z",
-      "from_agent": "SMART_MONEY",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux smart money (funding) écrits.",
-      "content_ref": "data/signals/smart_money/"
-    },
-    {
-      "id": "wire-202603020715100-sentiment_x",
-      "timestamp_utc": "2026-03-02T07:15:10.045Z",
-      "from_agent": "SENTIMENT_X",
-      "to_agent": "ORCHESTRATOR",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Signaux sentiment (narratives X) écrits.",
-      "content_ref": "data/signals/sentiment/"
-    },
-    {
-      "id": "wire-202603020715100-orchestrator",
-      "timestamp_utc": "2026-03-02T07:15:10.083Z",
-      "from_agent": "ORCHESTRATOR",
-      "to_agent": "RISK_JOURNAL",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
-      "content_ref": "data/ideas/"
-    },
-    {
-      "id": "wire-202603020715101-orchestrator",
-      "timestamp_utc": "2026-03-02T07:15:10.125Z",
-      "from_agent": "ORCHESTRATOR",
-      "to_agent": "BROADCAST",
-      "type": "SHARE_SIGNAL",
-      "context": {
-        "window": "morning_brief"
-      },
-      "content_summary": "Fiches Niches scorées mises à jour.",
-      "content_ref": "data/dashboard/niches/"
-    },
-    {
-      "id": "wire-202603020715101-risk_journal",
-      "timestamp_utc": "2026-03-02T07:15:10.163Z",
+      "id": "wire-202603100716049-risk_journal",
+      "timestamp_utc": "2026-03-10T07:16:04.945Z",
       "from_agent": "RISK_JOURNAL",
-      "to_agent": "BROADCAST",
+      "to_agent": "BOSS",
       "type": "SHARE_SIGNAL",
       "context": {
         "window": "morning_brief"
       },
-      "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+      "content_summary": "Décisions (APPROVED/REJECTED) et idées du jour — contexte pour BOSS.",
       "content_ref": "data/decisions/ et data/journal/"
     },
     {
-      "id": "wire-202603020800046-intel",
-      "timestamp_utc": "2026-03-02T08:00:04.621Z",
+      "id": "wire-202603100720061-tibo",
+      "timestamp_utc": "2026-03-10T07:20:06.112Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 0 ordre(s) aujourd'hui, 4 avec TP, 6 TP en attente. Solde disponible : 108.3943144 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100725177-tibo",
+      "timestamp_utc": "2026-03-10T07:25:17.707Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100725378-tibo",
+      "timestamp_utc": "2026-03-10T07:25:37.893Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100730072-tibo",
+      "timestamp_utc": "2026-03-10T07:30:07.260Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100740066-tibo",
+      "timestamp_utc": "2026-03-10T07:40:06.631Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100741098-tibo",
+      "timestamp_utc": "2026-03-10T07:41:09.838Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100750089-tibo",
+      "timestamp_utc": "2026-03-10T07:50:08.933Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100755097-tibo",
+      "timestamp_utc": "2026-03-10T07:55:09.776Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100800091-tibo",
+      "timestamp_utc": "2026-03-10T08:00:09.103Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100800254-intel",
+      "timestamp_utc": "2026-03-10T08:00:25.474Z",
       "from_agent": "INTEL",
       "to_agent": "BROADCAST",
       "type": "SHARE_SIGNAL",
       "context": {
         "window": "intel_trend_cards"
       },
-      "content_summary": "Trend Cards : 1 X, 0 YouTube.",
+      "content_summary": "X : ETF / spot, bullish, régulation. 5 vidéo(s) : Bitcoin, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Cry… Reddit : pas de données.",
       "content_ref": "data/dashboard/intel/trend_cards.json"
     },
     {
-      "id": "wire-202603021223197-intel",
-      "timestamp_utc": "2026-03-02T12:23:19.743Z",
-      "from_agent": "INTEL",
-      "to_agent": "BROADCAST",
+      "id": "wire-202603100810062-tibo",
+      "timestamp_utc": "2026-03-10T08:10:06.254Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
       "type": "SHARE_SIGNAL",
       "context": {
-        "window": "intel_trend_cards"
+        "window": "tibo_report"
       },
-      "content_summary": "Trend Cards : 1 X, 0 YouTube.",
-      "content_ref": "data/dashboard/intel/trend_cards.json"
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
     },
     {
-      "id": "wire-202603021238311-intel",
-      "timestamp_utc": "2026-03-02T12:38:31.103Z",
-      "from_agent": "INTEL",
-      "to_agent": "BROADCAST",
+      "id": "wire-202603100810155-tibo",
+      "timestamp_utc": "2026-03-10T08:10:15.535Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
       "type": "SHARE_SIGNAL",
       "context": {
-        "window": "intel_trend_cards"
+        "window": "tibo_report"
       },
-      "content_summary": "Trend Cards : 1 X, 0 YouTube.",
-      "content_ref": "data/dashboard/intel/trend_cards.json"
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100820024-opportunity_scout",
+      "timestamp_utc": "2026-03-10T08:20:02.462Z",
+      "from_agent": "OPPORTUNITY_SCOUT",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "scout_proposals"
+      },
+      "content_summary": "7 proposition(s) de diversification. Détail : /home/rosito/.openclaw/workspace/TradeEmpire/trading-empire/data/dashboard/scout_proposals.json.",
+      "content_ref": "data/dashboard/scout_proposals.json"
+    },
+    {
+      "id": "wire-202603100820064-tibo",
+      "timestamp_utc": "2026-03-10T08:20:06.410Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100825087-tibo",
+      "timestamp_utc": "2026-03-10T08:25:08.778Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100830073-tibo",
+      "timestamp_utc": "2026-03-10T08:30:07.320Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100840080-tibo",
+      "timestamp_utc": "2026-03-10T08:40:08.066Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
+    },
+    {
+      "id": "wire-202603100840088-tibo",
+      "timestamp_utc": "2026-03-10T08:40:08.891Z",
+      "from_agent": "TIBO",
+      "to_agent": "BOSS",
+      "type": "SHARE_SIGNAL",
+      "context": {
+        "window": "tibo_report"
+      },
+      "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+      "content_ref": "data/dashboard/tibo_report.json"
     }
   ],
   "kanban": {
@@ -654,7 +724,56 @@
         "title": "Fait"
       }
     ],
-    "tasks": []
+    "tasks": [
+      {
+        "id": "task-1772463660808",
+        "title": "Visualisation des coûts API",
+        "columnId": "done",
+        "description": "ajouter un tableau récapitulatif des coûts API (section `costs.api_costs`) avec mise à jour automatique chaque nuit.",
+        "source": "boss_proposal",
+        "type": "spec"
+      },
+      {
+        "id": "task-1772463663452",
+        "title": "Intégration des Trend Cards X",
+        "columnId": "done",
+        "description": "créer un widget affichant le titre, le résumé et le lien (si disponible) de la dernière Trend Card X (voir `intel_trend_cards`).",
+        "source": "boss_proposal",
+        "type": "spec"
+      },
+      {
+        "id": "task-1772463665620",
+        "title": "Résumé du feedback Chase",
+        "columnId": "done",
+        "description": "ajouter un panneau résumant le nombre de post‑mortems et les commentaires par agent (source `chase_feedback`).",
+        "source": "boss_proposal",
+        "type": "spec"
+      },
+      {
+        "id": "task-1772463672676",
+        "title": "Statistiques des échanges d’agents",
+        "columnId": "done",
+        "description": "afficher le nombre total d’échanges (`agent_exchanges_count`) et les top 3 paires d’agents les plus actives.",
+        "source": "boss_proposal",
+        "type": "spec"
+      },
+      {
+        "id": "task-1772559121801",
+        "title": "Statistiques des échanges d'agents",
+        "columnId": "done",
+        "description": "afficher le nombre total d'échanges (`agent_exchanges_count`) et les top 3 paires d'agents les plus actives.",
+        "source": "boss_proposal",
+        "type": "spec"
+      },
+      {
+        "id": "task-1772559128026",
+        "title": "Kanban dynamique",
+        "columnId": "done",
+        "description": "mettre à jour la colonne \"À faire\" avec les tâches issues des besoins API priorisés.",
+        "source": "boss_proposal",
+        "type": "spec"
+      }
+    ]
   },
   "costs": {
     "fixed_costs": [],
@@ -664,20 +783,27 @@
         "name": "X (Twitter) API",
         "provider": "Twitter / X",
         "type": "subscription",
-        "cost": null,
+        "cost": 18.52,
         "currency": "USD",
-        "last_updated": null,
-        "notes": "Recherche recent, sentiment (SENTIMENT_X, Intel). Renseigner coût mensuel si abonnement."
+        "subscription_monthly_usd": null,
+        "requests_this_month": 97,
+        "last_updated": "2026-03-10T07:05:04.063Z",
+        "notes": "Usage: GET https://api.x.com/2/usage/tweets. Coût = project_usage × 0,005 $ (lecture Post, https://developer.x.com/#pricing). Override: X_COST_USD.",
+        "x_project_usage": "3703",
+        "x_project_cap": "2000000",
+        "x_cap_reset_day": 23
       },
       {
-        "id": "clawrouter",
-        "name": "ClawRouter",
-        "provider": "OpenClaw",
+        "id": "openrouter",
+        "name": "OpenRouter",
+        "provider": "OpenRouter",
         "type": "usage",
-        "cost": null,
+        "cost": 1.359782685,
         "currency": "USD",
-        "last_updated": null,
-        "notes": "Routage LLM / appels. Renseigner coût par usage ou mensuel."
+        "usage_usd": 1.370891705,
+        "usage_monthly_usd": 1.359782685,
+        "last_updated": "2026-03-10T07:05:04.063Z",
+        "notes": "BOSS (Qwen 72B, DeepSeek R1). Coût récupéré via GET /api/v1/key (OPENROUTER_API_KEY). Mis à jour par cost-api-update.js."
       }
     ],
     "trading": {
@@ -685,42 +811,412 @@
       "funding_paid": 0,
       "slippage": 0,
       "drawdown": 0,
-      "roi_by_strategy": {}
+      "roi_by_strategy": {},
+      "realized_pnl_usd": 8.95137001
     },
-    "updated_at": null
+    "gains": {
+      "total_gains_usd": null,
+      "trading_realized_pnl_usd": 8.95137001,
+      "notes": "Renseigner total_gains_usd ou trading.realized_pnl_usd pour afficher la balance (gains − coûts)."
+    },
+    "updated_at": "2026-03-10T07:05:04.063Z",
+    "gains_source": "aster",
+    "_note": "ClawRouter exclu : on utilise UNIQUEMENT OpenRouter."
   },
   "intel_trend_cards": {
-    "date": "2026-03-02",
-    "cards_count": 1,
+    "date": "2026-03-10",
+    "cards_count": 7,
     "cards": [
       {
-        "id": "x-2026-03-02-1772455111016",
+        "id": "x-2026-03-10-1773129621254",
         "source": "x",
         "title": "Tendances X — crypto du jour",
-        "summary": "Dernières tendances X (crypto/bitcoin) : régulation, DeFi. 25 tweets récents.",
+        "summary": "Dernières tendances X (crypto/bitcoin) : ETF / spot, bullish, régulation. 49 tweets récents.",
         "url": null,
         "classification": "borderline",
-        "date": "2026-03-02",
-        "timestamp_utc": "2026-03-02T12:38:30.616Z"
+        "date": "2026-03-10",
+        "timestamp_utc": "2026-03-10T08:00:20.799Z"
+      },
+      {
+        "id": "yt-2026-03-10-0-1773129622309",
+        "source": "youtube",
+        "title": "BITCOIN PRICE JUST FLIPPED (This is Next)!!! - Bitcoin News Today, Ethereum & Altcoins",
+        "summary": "Welcome back to the crypto channel everyone. My name is Josh and right now Bitcoin is continuing the perfect bounce from this exact area of support after perfectly wiping out the downside liquidity just over the last 1 day. But we're now heading towards this upside liquidity which we are now wiping out at the same time as running into a crucial area of resistance in the immediate short term. An…",
+        "url": "https://www.youtube.com/watch?v=i7V9o6KPUgs",
+        "classification": "borderline",
+        "date": "2026-03-10",
+        "timestamp_utc": "2026-03-10T08:00:20.799Z"
+      },
+      {
+        "id": "yt-2026-03-10-1-1773129622618",
+        "source": "youtube",
+        "title": "Bitcoin Reclaims $69K | Oil Surges & SPX Hits Our Target",
+        "summary": "Heat. Heat. [music] Heat. Heat. Heat. Heat. Heat. Heat. [music] [music] [music] >> [music] [music] >> Heat. Heat. Heat. Heat. Heat. [music] Heat. >> [music] [music] [music] [music] >> Heat. >> [music] >> Heat up here. [music] [music] Heat [music] up here. [music] >> [music] [music] >> Heat. Heat. [music] Heat. Heat. N. [music] [music] >> [music] [music] >> Heat Heat. Heat. [music] [music] Heat.…",
+        "url": "https://www.youtube.com/watch?v=BF0qa5JfC4Y",
+        "classification": "borderline",
+        "date": "2026-03-10",
+        "timestamp_utc": "2026-03-10T08:00:20.799Z"
+      },
+      {
+        "id": "yt-2026-03-10-2-1773129622895",
+        "source": "youtube",
+        "title": "Massive Bitcoin Long (Trump Insiders)",
+        "summary": "Which one's the best crypto asset? Best crypto asset. Which one's the best crypto asset? Best crypto asset. Which one's the best? Which one's the best? Which one's the best? Which one's the best? Which one? Which one's the best? Which one's the best? Which one's the best? Which one's the best? Which one's the best? Which one? What's the second best? >> This is Discover Crypto. We have a huge sh…",
+        "url": "https://www.youtube.com/watch?v=K_op7nsuRV4",
+        "classification": "borderline",
+        "date": "2026-03-10",
+        "timestamp_utc": "2026-03-10T08:00:20.799Z"
+      },
+      {
+        "id": "yt-2026-03-10-3-1773129623047",
+        "source": "youtube",
+        "title": "🚨 URGENT! GOOD NEWS for BITCOIN BUT BEWARE!",
+        "summary": "Trump annonce que la guerre est bientôt terminée, ce qui permet de redonner un petit peu de jeu aux actifs à risquer de faire chuter le pétrole. Bitcoin est sur un niveau qui est extrêmement important. On va voir ce qu'il en est techniquement. Fa un point sur les indices également. Juste avant de commencer, je vous rappelle qu' notre nouveau partenaire. Il y a pas besoin de Kaw ici. Vous avez j…",
+        "url": "https://www.youtube.com/watch?v=GEvAPD8xLzQ",
+        "classification": "borderline",
+        "date": "2026-03-10",
+        "timestamp_utc": "2026-03-10T08:00:20.799Z"
+      },
+      {
+        "id": "yt-2026-03-10-4-1773129623216",
+        "source": "youtube",
+        "title": "Recession Fears Skyrocket!🚀Crypto Market Update",
+        "summary": "Recession fears are starting to surge. Could the Fed actually do a rate increase? We'll break it all down for you today. And I do want to get started. Let's go into self-custody because this is one of the things I think in hard times, one of the things you will do is get into self-custody. If you're in crypto and digital assets, this is a great time to do it. Jump over to tandem.com. You guys c…",
+        "url": "https://www.youtube.com/watch?v=4wAvBx8aZj0",
+        "classification": "borderline",
+        "date": "2026-03-10",
+        "timestamp_utc": "2026-03-10T08:00:20.799Z"
+      },
+      {
+        "id": "cryptodaily-2026-03-10-1773129625470",
+        "source": "cryptodaily",
+        "title": "Actualités crypto (CryptoDaily)",
+        "summary": "Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Crypto HODLers 2026 — PR for Crypto Wallets: What Drives Media Coverage and User Growth — Bitcoin Falls Back Below $69K Major Level: Can Bulls Reclaim It or Is $60K Next? – BTC TA March 9, 2026 — Types of crypto exchanges: choose the right platform 2026",
+        "url": "https://rapidapi.com/cryptocurrency-news2/api/cryptodaily",
+        "classification": "borderline",
+        "date": "2026-03-10",
+        "timestamp_utc": "2026-03-10T08:00:20.799Z"
       }
     ]
   },
   "chase_feedback": {
-    "post_mortem_count": 0,
+    "timestamp_utc": "2026-03-09T20:00:15.107Z",
+    "post_mortem_count": 29,
     "by_agent": {
-      "TECHNICALS": "Retours Chase (post-mortem) : ",
-      "SMART_MONEY": "Retours Chase : ",
-      "SENTIMENT_X": "Retours Chase : ",
-      "ORCHESTRATOR": "Retours Chase : ",
-      "RISK_JOURNAL": "Retours Chase : "
+      "TECHNICALS": "Aucun post-mortem pour l’instant. Continuez à fournir des tendances et des niveaux de qualité.",
+      "SMART_MONEY": "Aucun nouveau post-mortem. Affinez le funding et les signaux smart money.",
+      "SENTIMENT_X": "Aucun nouveau post-mortem. Affinez les narratives et le sentiment.",
+      "ORCHESTRATOR": "Aucun nouveau post-mortem. Consolidez les signaux et les idées selon le feedback.",
+      "RISK_JOURNAL": "Aucun nouveau post-mortem. Maintenez les règles et la validation.",
+      "tibo": "Côté exécution : 10 ordre(s) passés aujourd’hui, 6 TP en attente."
     }
   },
+  "recovery_report": {
+    "timestamp_utc": "2026-03-09T20:15:05.716Z",
+    "summary": "29 trade(s) clôturés : 5 gagnant(s) (win+target_hit), 4 perdant(s) (loss+invalid_hit). Par symbole : voir by_symbol.",
+    "by_outcome": {
+      "win": 0,
+      "loss": 4,
+      "invalid_hit": 0,
+      "target_hit": 5,
+      "revoked": 20
+    },
+    "by_symbol": {
+      "ADAUSDT": {
+        "win": 0,
+        "loss": 0,
+        "invalid_hit": 0,
+        "target_hit": 0,
+        "revoked": 2,
+        "total": 2,
+        "trades": [
+          {
+            "trade_id": "idea_ADAUSDT_20260308071551",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          },
+          {
+            "trade_id": "idea_ADAUSDT_20260308083038",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          }
+        ]
+      },
+      "ATOMUSDT": {
+        "win": 0,
+        "loss": 0,
+        "invalid_hit": 0,
+        "target_hit": 0,
+        "revoked": 7,
+        "total": 7,
+        "trades": [
+          {
+            "trade_id": "idea_ATOMUSDT_20260302135745",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          },
+          {
+            "trade_id": "idea_ATOMUSDT_20260302175634",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          },
+          {
+            "trade_id": "idea_ATOMUSDT_20260302175652",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          },
+          {
+            "trade_id": "idea_ATOMUSDT_20260302205921",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          },
+          {
+            "trade_id": "idea_ATOMUSDT_20260303071553",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          },
+          {
+            "trade_id": "idea_ATOMUSDT_20260303071556",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          },
+          {
+            "trade_id": "idea_ATOMUSDT_20260303083026",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          }
+        ]
+      },
+      "AVAXUSDT": {
+        "win": 0,
+        "loss": 1,
+        "invalid_hit": 0,
+        "target_hit": 1,
+        "revoked": 1,
+        "total": 3,
+        "trades": [
+          {
+            "trade_id": "idea_AVAXUSDT_20260307071558",
+            "outcome": "loss",
+            "closed_at": "2026-03-08",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_AVAXUSDT_20260307083019",
+            "outcome": "target_hit",
+            "closed_at": "2026-03-08",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_AVAXUSDT_20260308071551",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          }
+        ]
+      },
+      "BTCUSDT": {
+        "win": 0,
+        "loss": 0,
+        "invalid_hit": 0,
+        "target_hit": 0,
+        "revoked": 2,
+        "total": 2,
+        "trades": [
+          {
+            "trade_id": "idea_BTCUSDT_20260301135025",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          },
+          {
+            "trade_id": "idea_BTCUSDT_20260301143801",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          }
+        ]
+      },
+      "DOGEUSDT": {
+        "win": 0,
+        "loss": 0,
+        "invalid_hit": 0,
+        "target_hit": 0,
+        "revoked": 1,
+        "total": 1,
+        "trades": [
+          {
+            "trade_id": "idea_DOGEUSDT_20260309071557",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "SHORT"
+          }
+        ]
+      },
+      "DOTUSDT": {
+        "win": 0,
+        "loss": 1,
+        "invalid_hit": 0,
+        "target_hit": 0,
+        "revoked": 1,
+        "total": 2,
+        "trades": [
+          {
+            "trade_id": "idea_DOTUSDT_20260307071558",
+            "outcome": "loss",
+            "closed_at": "2026-03-08",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_DOTUSDT_20260307083019",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          }
+        ]
+      },
+      "ETHUSDT": {
+        "win": 0,
+        "loss": 1,
+        "invalid_hit": 0,
+        "target_hit": 3,
+        "revoked": 1,
+        "total": 5,
+        "trades": [
+          {
+            "trade_id": "idea_ETHUSDT_20260307071558",
+            "outcome": "loss",
+            "closed_at": "2026-03-08",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_ETHUSDT_20260307083019",
+            "outcome": "target_hit",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_ETHUSDT_20260308071551",
+            "outcome": "target_hit",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_ETHUSDT_20260308083038",
+            "outcome": "target_hit",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_ETHUSDT_20260308200745",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          }
+        ]
+      },
+      "LINKUSDT": {
+        "win": 0,
+        "loss": 1,
+        "invalid_hit": 0,
+        "target_hit": 0,
+        "revoked": 4,
+        "total": 5,
+        "trades": [
+          {
+            "trade_id": "idea_LINKUSDT_20260307071558",
+            "outcome": "loss",
+            "closed_at": "2026-03-08",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_LINKUSDT_20260307083019",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_LINKUSDT_20260308071551",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_LINKUSDT_20260308083038",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          },
+          {
+            "trade_id": "idea_LINKUSDT_20260308200745",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          }
+        ]
+      },
+      "LTCUSDT": {
+        "win": 0,
+        "loss": 0,
+        "invalid_hit": 0,
+        "target_hit": 1,
+        "revoked": 0,
+        "total": 1,
+        "trades": [
+          {
+            "trade_id": "idea_LTCUSDT_20260307071558",
+            "outcome": "target_hit",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          }
+        ]
+      },
+      "SOLUSDT": {
+        "win": 0,
+        "loss": 0,
+        "invalid_hit": 0,
+        "target_hit": 0,
+        "revoked": 1,
+        "total": 1,
+        "trades": [
+          {
+            "trade_id": "idea_SOLUSDT_20260309071557",
+            "outcome": "revoked",
+            "closed_at": "2026-03-09",
+            "direction": "LONG"
+          }
+        ]
+      }
+    },
+    "_note": "Outcomes locaux. Pour PnL réel utiliser pnl_aster."
+  },
+  "tibo_report": {
+    "balance_snapshot": {
+      "available_balance_usdt": 108.55581774,
+      "total_wallet_balance_usdt": 8.3196816,
+      "total_unrealized_profit_usdt": 0,
+      "updated_at": "2026-03-10T07:25:07.154Z"
+    },
+    "pending_tp_count": 11,
+    "orders_today": 5,
+    "updated_at": "2026-03-10T08:40:08.889Z"
+  },
+  "agent_profit_suggestions": [],
   "instructions": [
-    "Lire ce contexte et les fichiers dans data/dashboard/ si besoin. Tu disposes aussi de intel_trend_cards (Trend Cards X/YouTube) et chase_feedback (post-mortems et retours par agent) pour les prendre en compte dans tes propositions.",
-    "Mettre à jour dashboard/spec/ (ex. spec/evolutions.md) avec des propositions d’amélioration dashboard.",
-    "Prioriser les Besoins API et écrire le résultat dans dashboard/config/api_needs_priority.md.",
-    "Si tu proposes de nouvelles règles, tâches ou specs (créations nocturnes), écris-les dans data/dashboard/boss_proposals.json : { \"timestamp_utc\": \"<ISO>\", \"proposals\": [ { \"title\": \"...\", \"description\": \"...\", \"type\": \"rule\"|\"task\"|\"spec\" } ] }. Validation humaine requise avant application.",
+    "**ÉTAPE 1 — EN PREMIER** : Rédige ton **brief de nuit complet** : état du système (solde wallet_snapshot, **roadmap 8/8 = trading réel**), ce que tu as fait, priorités. Min. 400 car. **Respecte notes_contexte** : pas de ClawRouter, pas de radotage YouTube borderline, pas de pertes Chase présentées comme récentes si données anciennes. Puis écris le brief en entier dans data/dashboard/last_boss_brief.md. Outil write. Fais ça en premier.",
+    "Évolutions et priorisation API : voir instruction suivante. Propositions d’amélioration dashboard.",
+    "Mettre à jour evolutions.md et api_needs_priority.md. **Uniquement OpenRouter et X** — jamais mentionner ClawRouter.",
+    "Si tu proposes de nouvelles règles, tâches, specs ou **nouveaux agents** (créations nocturnes), écris-les dans data/dashboard/boss_proposals.json : { \"timestamp_utc\": \"<ISO>\", \"proposals\": [ { \"title\": \"...\", \"description\": \"...\", \"type\": \"rule\"|\"task\"|\"spec\"|\"agent\", \"suggested_id\": \"...\" (si type agent) } ] }. Validation humaine requise. Tu peux t'étendre au-delà du trading et créer des agents pour de nouvelles activités.",
     "Kanban : les tâches en colonne \"À faire\" (columnId todo), notamment celles avec source \"boss_proposal\", ont été validées par l’humain. Implémente-les (modifications code, spec, config selon title + description). Après chaque tâche réalisée, ajoute son id dans data/dashboard/kanban_completed.json : { \"completed_ids\": [\"task-xxx\", ...] }. Un script déplacera ces tâches en \"Fait\" après ta réponse.",
-    "Répondre par une ligne de synthèse (ex. « BOSS nuit OK — 2 tâches Kanban implémentées, 3 besoins API priorisés »)."
+    "**Réponse finale** : Ta réponse = exactement le même texte que le brief dans last_boss_brief.md. Rien d'autre. Ce texte part sur WhatsApp. Pas de ClawRouter, pas de YouTube borderline, pas de pertes anciennes présentées comme récentes ; roadmap 8/8 = trading réel."
   ]
 }

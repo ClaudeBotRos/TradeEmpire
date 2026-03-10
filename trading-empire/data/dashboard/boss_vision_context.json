@@ -1,0 +1,119 @@
+{
+  "timestamp_utc": "2026-03-10T09:00:04.947Z",
+  "task": "vision_expansion",
+  "summary": {
+    "roadmap_current": "v2",
+    "api_requests_count": 0,
+    "has_costs": true,
+    "chase_post_mortem_count": 34,
+    "has_wallet_snapshot": true,
+    "pnl_source": "ASTER",
+    "pnl_summary": "33 trade(s) clôturés sur ASTER : 26 gagnant(s), 7 perdant(s). PnL réalisé total : 8.95 USDT.",
+    "realized_pnl_usdt": 8.95137001,
+    "trades_closed_win_loss": {
+      "trades_count": 33,
+      "win_count": 26,
+      "loss_count": 7
+    }
+  },
+  "wallet_snapshot": {
+    "total_wallet_balance_usdt": 8.3196816,
+    "available_balance_usdt": 98.56638946,
+    "total_unrealized_profit_usdt": 0,
+    "positions_count": 0,
+    "source": "ASTER",
+    "fetched_at": "2026-03-10T09:00:05.748Z"
+  },
+  "pnl_aster": {
+    "source": "ASTER",
+    "trades_count": 33,
+    "win_count": 26,
+    "loss_count": 7,
+    "realized_pnl_usdt": 8.95137001,
+    "summary": "33 trade(s) clôturés sur ASTER : 26 gagnant(s), 7 perdant(s). PnL réalisé total : 8.95 USDT.",
+    "fetched_at": "2026-03-10T09:00:06.010Z"
+  },
+  "roadmap_summary": {
+    "current_step_id": "v2",
+    "steps_done": 8
+  },
+  "api_requests": [],
+  "costs_summary": {
+    "api_costs": [
+      {
+        "id": "x_twitter",
+        "name": "X (Twitter) API",
+        "provider": "Twitter / X",
+        "type": "subscription",
+        "cost": 18.52,
+        "currency": "USD",
+        "subscription_monthly_usd": null,
+        "requests_this_month": 97,
+        "last_updated": "2026-03-10T07:05:04.063Z",
+        "notes": "Usage: GET https://api.x.com/2/usage/tweets. Coût = project_usage × 0,005 $ (lecture Post, https://developer.x.com/#pricing). Override: X_COST_USD.",
+        "x_project_usage": "3703",
+        "x_project_cap": "2000000",
+        "x_cap_reset_day": 23
+      },
+      {
+        "id": "clawrouter",
+        "name": "ClawRouter (BlockRun)",
+        "provider": "BlockRun / x402",
+        "type": "usage",
+        "cost": null,
+        "currency": "USD",
+        "usage_usd": null,
+        "last_updated": "2026-03-10T07:05:04.063Z",
+        "active": false,
+        "notes": "INACTIF — ClawRouter payant n'est plus utilisé. Ne pas prioriser ni demander de coût. Ancien: routage LLM à l'usage via wallet x402."
+      },
+      {
+        "id": "openrouter",
+        "name": "OpenRouter",
+        "provider": "OpenRouter",
+        "type": "usage",
+        "cost": 1.359782685,
+        "currency": "USD",
+        "usage_usd": 1.370891705,
+        "usage_monthly_usd": 1.359782685,
+        "last_updated": "2026-03-10T07:05:04.063Z",
+        "notes": "BOSS (Qwen 72B, DeepSeek R1). Coût récupéré via GET /api/v1/key (OPENROUTER_API_KEY). Mis à jour par cost-api-update.js."
+      }
+    ],
+    "updated_at": "2026-03-10T07:05:04.063Z"
+  },
+  "chase_feedback_summary": {
+    "post_mortem_count": 34,
+    "by_agent": {
+      "TECHNICALS": "Les idées ADAUSDT en annulé ou invalidation sans perte, ATOMUSDT en annulé ou invalidation sans perte, BTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte. Continuez à fournir des tendances et des niveaux de qualité ; privilégiez les signaux confirmés par les indicateurs (RSI, MACD) pour les paires qui ont récemment pris une perte.",
+      "SMART_MONEY": "Résultats des trades : ADAUSDT en annulé ou invalidation sans perte, ATOMUSDT en annulé ou invalidation sans perte, BTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte. Affinez le funding et les signaux smart money (Dexscreener, Binance Copy) pour mieux filtrer les idées sur ces paires.",
+      "SENTIMENT_X": "Résultats : ADAUSDT en annulé ou invalidation sans perte, ATOMUSDT en annulé ou invalidation sans perte, BTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte. Affinez les narratives et le sentiment (X) pour aligner les idées avec le marché sur les paires concernées.",
+      "ORCHESTRATOR": "Trades clôturés : ADAUSDT en annulé ou invalidation sans perte, ATOMUSDT en annulé ou invalidation sans perte, BTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte. Consolidez les signaux et ne proposez des idées sur les paires en perte récente que si les critères renforcés sont remplis (indicateurs RapidAPI, alignement Intel, confiance ≥ 75 %).",
+      "RISK_JOURNAL": "Bilan : ADAUSDT en annulé ou invalidation sans perte, ATOMUSDT en annulé ou invalidation sans perte, BTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte. En cas de pertes récentes, les règles sont renforcées (R:R min 1,5, levier max 1). Maintenez la validation stricte.",
+      "tibo": "Exécution : résultats ADAUSDT en annulé ou invalidation sans perte, ATOMUSDT en annulé ou invalidation sans perte, BTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte, LTCUSDT en annulé ou invalidation sans perte. Côté exécution : 5 ordre(s) passés aujourd’hui, 11 TP en attente."
+    }
+  },
+  "recovery_report_summary": {
+    "summary": "29 trade(s) clôturés : 5 gagnant(s) (win+target_hit), 4 perdant(s) (loss+invalid_hit). Par symbole : voir by_symbol.",
+    "by_outcome": {
+      "win": 0,
+      "loss": 4,
+      "invalid_hit": 0,
+      "target_hit": 5,
+      "revoked": 20
+    },
+    "_note": "Données locales (outcomes). Pour PnL réel utiliser pnl_aster."
+  },
+  "scout_proposals_summary": {
+    "proposals_count": 7,
+    "summary": "Scout : 7 proposition(s) (paires hors watchlist, timeframes supplémentaires). Intel : X : ETF / spot, bullish, régulation. 5 vidéo(s) : Bitcoin, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strat"
+  },
+  "agent_profit_suggestions": [],
+  "instructions": [
+    "Tu es le BOSS en mode **visionnaire / expansion**. TradeEmpire est à but lucratif : l’objectif est de faire des bénéfices. Cette tâche a lieu en journée (avant 10h) pour réfléchir à la croissance du capital. Prends en compte **agent_profit_suggestions** (pistes suggérées par les autres agents) pour tes propositions.",
+    "Tu as accès au **solde et au PnL** (wallet_snapshot). **PnL trades clôturés :** utilise UNIQUEMENT **pnl_aster** (historique ASTER / position history) si présent ; sinon recovery_report_summary. Ne pas te baser sur les outcomes locaux seuls si pnl_aster est disponible.",
+    "Tu ne te contentes pas du trading (TradeEmpire) : tu as le droit de t'étendre à d'autres activités que tu peux créer. Tu es en capacité de **créer des agents** pour les nouvelles tâches (propositions → validation humaine).",
+    "Écris tes propositions dans **data/dashboard/boss_expansion_proposals.md** (format libre : idées, pistes, nouvelles activités, nouveaux agents). Pour proposer une règle, tâche, spec ou **nouvel agent** à valider : **data/dashboard/boss_proposals.json** avec proposals[].type = \"rule\"|\"task\"|\"spec\"|\"agent\". Pour un agent : inclure \"suggested_id\", \"title\", \"description\" (rôle, tâches, outils). Une fois validé, tu peux rédiger agents/<id>/tasks.md, tools.md, soul.md.",
+    "Réponds par un **résumé court** (2–4 lignes) : ce que tu as écrit, les pistes principales, ou « Aucune piste nouvelle aujourd'hui » si rien de concret. Ce résumé peut être envoyé sur WhatsApp."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-03-07T08:30:06.221Z",
+  "symbol": "SOLUSDT",
+  "timeframe": "4h",
+  "trend": "up",
+  "levels": {
+    "support": [
+      75.63,
+      77.12,
+      79.61,
+      83.64
+    ],
+    "resistance": [
+      86.72,
+      92.1,
+      94.05
+    ]
+  },
+  "volatility": 3.609911,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

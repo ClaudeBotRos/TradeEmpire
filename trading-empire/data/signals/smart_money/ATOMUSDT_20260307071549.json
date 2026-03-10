@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-07T07:15:49.790Z",
+  "symbol": "ATOMUSDT",
+  "signals": [
+    "funding negative"
+  ],
+  "metrics": {
+    "funding": -0.00033043,
+    "mark_price": 1.807,
+    "next_funding_time": 1772870400000
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    }
+  ],
+  "low_confidence": false
+}

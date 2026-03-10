@@ -2,7 +2,7 @@
 
 ## En bref
 
-- **Oui**, le déclenchement (cron) envoie bien un **agentTurn** à OpenClaw, qui est traité par un **LLM** (modèle par défaut : `blockrun/free` dans `openclaw.json` → `agents.defaults.model.primary`).
+- Le déclenchement (cron) envoie un **agentTurn** à OpenClaw. Modèles : défaut `blockrun/free` ; overrides dans `openclaw.json` : `main` → `blockrun/auto`, `boss` → `blockrun/reasoner`, `tibo` → `blockrun/codex`. Référence : `config/agents_models.json` et `AGENTS_LLM_MODELS.md`.
 - **Oui**, les crons TradeEmpire sont **actifs** (`enabled: true` dans `cron/jobs.json`). Le scheduler OpenClaw doit être lancé pour que les jobs s’exécutent à l’heure.
 - Les **« agents » TradeEmpire** (BOSS, ORCHESTRATOR, TECHNICALS, etc.) sont des **scripts Node.js** : la logique métier (signaux, idées, décisions, journal) ne passe pas par un LLM. C’est l’**agent OpenClaw** (LLM) qui reçoit le tour, exécute la consigne (ex. « lance run-morning.js ») et répond avec la sortie.
 
@@ -39,9 +39,9 @@ Dans `cron/jobs.json`, les jobs TradeEmpire peuvent préciser **agentId** pour c
 |-----|----------------------|------|
 | tradeempire-morning | `main` (ou omis = défaut) | Exécute run-morning + morning-brief, répond avec le brief → WhatsApp. |
 | tradeempire-evening | `main` ou omis | Exécute risk-journal-scan.js. |
-| tradeempire-boss-night | `main` ou `boss` si configuré | Exécute boss-night.js, met à jour spec/config. |
+| tradeempire-boss-night | `boss` | Exécute boss-night.js, brief de nuit → WhatsApp. Modèle `blockrun/reasoner`. |
 
-Si OpenClaw a un agent `boss` avec un modèle dédié (ex. `blockrun/reasoner`), on peut mettre `"agentId": "boss"` sur `tradeempire-boss-night` pour router ce job vers ce modèle. La config des agents se fait dans `openclaw.json` (ou équivalent).
+L’agent OpenClaw `boss` existe (`agents/boss/agent/`) et a `model.primary: blockrun/reasoner` dans `openclaw.json`.
 
 ---
 

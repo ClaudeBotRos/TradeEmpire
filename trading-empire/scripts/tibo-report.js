@@ -62,6 +62,17 @@ function main() {
   const dir = path.dirname(REPORT_PATH);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2), 'utf8');
+  try {
+    const { appendWire } = require('./wire-log.js');
+    appendWire({
+      from_agent: 'TIBO',
+      to_agent: 'BOSS',
+      type: 'SHARE_SIGNAL',
+      context: { window: 'tibo_report' },
+      content_summary: `Rapport exécution : ${ordersToday.length} ordre(s) aujourd'hui, ${withTp.length} avec TP, ${pendingTp.length} TP en attente. Solde disponible : ${(report.balance_snapshot?.available_balance_usdt != null ? report.balance_snapshot.available_balance_usdt : '—')} USDT.`,
+      content_ref: 'data/dashboard/tibo_report.json',
+    });
+  } catch (_) {}
   if (runType) console.log('Tibo report updated (' + runType + ').');
 }
 

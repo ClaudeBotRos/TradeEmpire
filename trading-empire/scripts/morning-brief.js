@@ -2,12 +2,13 @@
 /**
  * TradeEmpire — Brief du matin (ORCHESTRATOR).
  * Lit idées, décisions et journal du jour, produit un résumé pour la notification (canal unique).
- * Écrit data/journal/{date}_brief.md (PRD §4.4) et affiche le brief sur stdout (pour envoi WhatsApp/Telegram).
+ * Écrit data/journal/{date}_brief.md (PRD §4.4), met le brief en file WhatsApp (send-whatsapp-pending l'envoie), et affiche sur stdout.
  * Usage: node scripts/morning-brief.js
  */
 
 const fs = require('fs');
 const path = require('path');
+const { pushToQueue } = require('./whatsapp-queue-push.js');
 
 const ROOT = path.join(__dirname, '..');
 const IDEAS_DIR = path.join(ROOT, 'data', 'ideas');
@@ -60,6 +61,7 @@ function main() {
   const mdContent = `# Brief du jour ${date}\n\n${briefText.replace(/\n/g, '\n\n')}\n\n---\n*Généré par morning-brief.js pour notification canal unique (ORCHESTRATOR).*\n`;
   fs.writeFileSync(briefPath, mdContent, 'utf8');
 
+  pushToQueue('orchestrator', `Brief matin ${date}\n\n${briefText}`);
   console.log(briefText);
 }
 

@@ -1,0 +1,22 @@
+{
+  "trade_id": "idea_AVAXUSDT_20260307071558",
+  "outcome": "loss",
+  "approved_at": "2026-03-07T08:32:35.314Z",
+  "symbol": "AVAXUSDT",
+  "direction": "LONG",
+  "entry": 8.88,
+  "invalid": 8.79,
+  "targets": [
+    {
+      "price": 8.99,
+      "rr": 1.2
+    },
+    {
+      "price": 9.09,
+      "rr": 2.4
+    }
+  ],
+  "note": "SL détecté (Chase via ASTER)",
+  "exit_price": 8.79,
+  "closed_at": "2026-03-08"
+}

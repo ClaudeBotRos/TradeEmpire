@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-08T07:15:43.026Z",
+  "symbol": "SOLUSDT",
+  "signals": [
+    "funding negative"
+  ],
+  "metrics": {
+    "funding": -0.00017251,
+    "mark_price": 82.91,
+    "next_funding_time": 1772956800000
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    }
+  ],
+  "low_confidence": false
+}

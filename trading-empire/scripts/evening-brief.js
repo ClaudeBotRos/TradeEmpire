@@ -2,12 +2,13 @@
 /**
  * TradeEmpire — Récap du soir (post journal).
  * Lit décisions et journal du jour, produit un récap pour la notification (canal unique WhatsApp).
- * Écrit data/journal/{date}_evening_brief.md et affiche le récap sur stdout.
+ * Écrit data/journal/{date}_evening_brief.md, met le récap en file WhatsApp (send-whatsapp-pending l'envoie), et affiche sur stdout.
  * Usage: node scripts/evening-brief.js
  */
 
 const fs = require('fs');
 const path = require('path');
+const { pushToQueue } = require('./whatsapp-queue-push.js');
 
 const ROOT = path.join(__dirname, '..');
 const DECISIONS_DIR = path.join(ROOT, 'data', 'decisions');
@@ -55,6 +56,7 @@ function main() {
   const mdContent = `# Récap soir ${date}\n\n${briefText.replace(/\n/g, '\n\n')}\n\n---\n*Généré par evening-brief.js pour notification canal unique.*\n`;
   fs.writeFileSync(briefPath, mdContent, 'utf8');
 
+  pushToQueue('risk_journal', `Récap soir ${date}\n\n${briefText}`);
   console.log(briefText);
 }
 

@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-03T07:15:42.210Z",
+  "symbol": "AVAXUSDT",
+  "signals": [
+    "funding neutral"
+  ],
+  "metrics": {
+    "funding": -0.0000522,
+    "mark_price": 9.13217265,
+    "next_funding_time": 1772524800000
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    }
+  ],
+  "low_confidence": false
+}

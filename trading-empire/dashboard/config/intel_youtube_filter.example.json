@@ -1,0 +1,27 @@
+{
+  "shill_phrases": [
+    "buy this coin",
+    "buy this token",
+    "this coin will",
+    "this token will",
+    "next 100x",
+    "get in early",
+    "pump this",
+    "link to buy",
+    "where to buy",
+    "invest in this coin",
+    "invest in this token",
+    "best coin to buy",
+    "altcoin to buy",
+    "token to buy",
+    "coin to buy",
+    "this altcoin",
+    "achète ce token",
+    "ce token va",
+    "prochain 100x",
+    "où acheter ce",
+    "lien pour acheter"
+  ],
+  "min_transcript_length": 80,
+  "_comment": "Ne rejeter que le placement crypto (pousser une crypto/token). Les liens d'affiliation exchange/app et codes promo (ex. code HOLY) ne déclenchent pas de rejet."
+}

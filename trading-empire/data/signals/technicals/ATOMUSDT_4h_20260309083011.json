@@ -1,0 +1,24 @@
+{
+  "timestamp_utc": "2026-03-09T08:30:11.288Z",
+  "symbol": "ATOMUSDT",
+  "timeframe": "4h",
+  "trend": "down",
+  "levels": {
+    "support": [
+      1.706,
+      1.763
+    ],
+    "resistance": [
+      1.927,
+      2.413
+    ]
+  },
+  "volatility": 0.184451,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

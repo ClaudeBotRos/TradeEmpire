@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-03-09T18:18:39.227Z",
+  "symbol": "XRPUSDT",
+  "signals": [
+    "funding neutral"
+  ],
+  "metrics": {
+    "funding": -0.00003295,
+    "mark_price": 1.36087985,
+    "next_funding_time": 1773100800000
+  },
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_futures_premiumIndex"
+    }
+  ],
+  "low_confidence": false
+}

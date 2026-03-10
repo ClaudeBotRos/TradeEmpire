@@ -742,5 +742,4490 @@
     },
     "content_summary": "Post-mortems : 0 | feedback écrit pour 6 agents.",
     "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603022055535-intel",
+    "timestamp_utc": "2026-03-02T20:55:53.573Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603030715084-intel",
+    "timestamp_utc": "2026-03-03T07:15:08.482Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603030715088-intel",
+    "timestamp_utc": "2026-03-03T07:15:08.822Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603030715167-intel",
+    "timestamp_utc": "2026-03-03T07:15:16.722Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603030715172-intel",
+    "timestamp_utc": "2026-03-03T07:15:17.231Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603030715172-intel",
+    "timestamp_utc": "2026-03-03T07:15:17.243Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603030715229-intel",
+    "timestamp_utc": "2026-03-03T07:15:22.959Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603030715233-intel",
+    "timestamp_utc": "2026-03-03T07:15:23.326Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603030715237-technicals",
+    "timestamp_utc": "2026-03-03T07:15:23.741Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603030715276-intel",
+    "timestamp_utc": "2026-03-03T07:15:27.696Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603030715281-intel",
+    "timestamp_utc": "2026-03-03T07:15:28.188Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603030715281-intel",
+    "timestamp_utc": "2026-03-03T07:15:28.197Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603030715347-technicals",
+    "timestamp_utc": "2026-03-03T07:15:34.701Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603030715421-technicals",
+    "timestamp_utc": "2026-03-03T07:15:42.181Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603030715477-technicals",
+    "timestamp_utc": "2026-03-03T07:15:47.739Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603030715486-smart_money",
+    "timestamp_utc": "2026-03-03T07:15:48.655Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603030715486-smart_money",
+    "timestamp_utc": "2026-03-03T07:15:48.692Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603030715524-smart_money",
+    "timestamp_utc": "2026-03-03T07:15:52.423Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603030715524-smart_money",
+    "timestamp_utc": "2026-03-03T07:15:52.460Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603030715527-smart_money",
+    "timestamp_utc": "2026-03-03T07:15:52.702Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603030715531-sentiment_x",
+    "timestamp_utc": "2026-03-03T07:15:53.125Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603030715531-orchestrator",
+    "timestamp_utc": "2026-03-03T07:15:53.169Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603030715532-orchestrator",
+    "timestamp_utc": "2026-03-03T07:15:53.228Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603030715532-risk_journal",
+    "timestamp_utc": "2026-03-03T07:15:53.280Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603030715541-smart_money",
+    "timestamp_utc": "2026-03-03T07:15:54.133Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603030715541-smart_money",
+    "timestamp_utc": "2026-03-03T07:15:54.169Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603030715558-smart_money",
+    "timestamp_utc": "2026-03-03T07:15:55.803Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603030715558-smart_money",
+    "timestamp_utc": "2026-03-03T07:15:55.837Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603030715560-smart_money",
+    "timestamp_utc": "2026-03-03T07:15:56.076Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603030715565-sentiment_x",
+    "timestamp_utc": "2026-03-03T07:15:56.505Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603030715565-orchestrator",
+    "timestamp_utc": "2026-03-03T07:15:56.549Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603030715565-orchestrator",
+    "timestamp_utc": "2026-03-03T07:15:56.597Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603030715566-risk_journal",
+    "timestamp_utc": "2026-03-03T07:15:56.639Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603030800091-intel",
+    "timestamp_utc": "2026-03-03T08:00:09.156Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603030830271-intel",
+    "timestamp_utc": "2026-03-03T08:30:27.188Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603030830282-chase",
+    "timestamp_utc": "2026-03-03T08:30:28.264Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 0 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603031740234-chase",
+    "timestamp_utc": "2026-03-03T17:40:23.448Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 1 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603031932380-chase",
+    "timestamp_utc": "2026-03-03T19:32:38.015Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 2 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603031943595-chase",
+    "timestamp_utc": "2026-03-03T19:43:59.526Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 2 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603031951019-intel",
+    "timestamp_utc": "2026-03-03T19:51:01.921Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603031956134-intel",
+    "timestamp_utc": "2026-03-03T19:56:13.418Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603031957337-intel",
+    "timestamp_utc": "2026-03-03T19:57:33.747Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 5 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603031958035-intel",
+    "timestamp_utc": "2026-03-03T19:58:03.599Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 5 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032000029-chase",
+    "timestamp_utc": "2026-03-03T20:00:02.979Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 2 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603032000514-intel",
+    "timestamp_utc": "2026-03-03T20:00:51.440Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032001520-intel",
+    "timestamp_utc": "2026-03-03T20:01:52.013Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032002235-intel",
+    "timestamp_utc": "2026-03-03T20:02:23.598Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032014401-intel",
+    "timestamp_utc": "2026-03-03T20:14:40.106Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032017374-intel",
+    "timestamp_utc": "2026-03-03T20:17:37.421Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032018440-intel",
+    "timestamp_utc": "2026-03-03T20:18:44.093Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032019315-intel",
+    "timestamp_utc": "2026-03-03T20:19:31.577Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032020287-intel",
+    "timestamp_utc": "2026-03-03T20:20:28.742Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032021006-intel",
+    "timestamp_utc": "2026-03-03T20:21:00.626Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032021321-intel",
+    "timestamp_utc": "2026-03-03T20:21:32.117Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032022144-intel",
+    "timestamp_utc": "2026-03-03T20:22:14.426Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032023107-intel",
+    "timestamp_utc": "2026-03-03T20:23:10.782Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032024503-intel",
+    "timestamp_utc": "2026-03-03T20:24:50.339Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 0 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603032025277-intel",
+    "timestamp_utc": "2026-03-03T20:25:27.759Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 18 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603040914449-intel",
+    "timestamp_utc": "2026-03-04T09:14:44.973Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 20 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603040914493-chase",
+    "timestamp_utc": "2026-03-04T09:14:49.398Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 7 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603040937050-intel",
+    "timestamp_utc": "2026-03-04T09:37:05.078Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 20 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603040937093-chase",
+    "timestamp_utc": "2026-03-04T09:37:09.383Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 8 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603042056508-intel",
+    "timestamp_utc": "2026-03-04T20:56:50.863Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 17 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603042059263-intel",
+    "timestamp_utc": "2026-03-04T20:59:26.314Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 22 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603042102473-intel",
+    "timestamp_utc": "2026-03-04T21:02:47.342Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 17 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603042105427-intel",
+    "timestamp_utc": "2026-03-04T21:05:42.790Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 17 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603042107508-intel",
+    "timestamp_utc": "2026-03-04T21:07:50.846Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 17 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603042107511-chase",
+    "timestamp_utc": "2026-03-04T21:07:51.155Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 8 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603042111523-intel",
+    "timestamp_utc": "2026-03-04T21:11:52.369Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 17 YouTube, 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603042113453-intel",
+    "timestamp_utc": "2026-03-04T21:13:45.311Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 17 YouTube, 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603042116142-intel",
+    "timestamp_utc": "2026-03-04T21:16:14.246Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 17 YouTube, 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603042124210-intel",
+    "timestamp_utc": "2026-03-04T21:24:21.099Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 17 YouTube, 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603042126551-intel",
+    "timestamp_utc": "2026-03-04T21:26:55.198Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 17 YouTube, 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603050715467-intel",
+    "timestamp_utc": "2026-03-05T07:15:46.778Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603050715474-intel",
+    "timestamp_utc": "2026-03-05T07:15:47.447Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603050715554-intel",
+    "timestamp_utc": "2026-03-05T07:15:55.494Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603050716004-intel",
+    "timestamp_utc": "2026-03-05T07:16:00.456Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 19 YouTube, 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603050716004-intel",
+    "timestamp_utc": "2026-03-05T07:16:00.481Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603050716069-technicals",
+    "timestamp_utc": "2026-03-05T07:16:06.966Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603050716189-technicals",
+    "timestamp_utc": "2026-03-05T07:16:18.961Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603050716237-technicals",
+    "timestamp_utc": "2026-03-05T07:16:23.784Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief",
+      "chase_adapt": true
+    },
+    "content_summary": "Calendrier événements TradingView (RapidAPI) — activé après loss Chase.",
+    "content_ref": "data/signals/technicals/tradingview_events_calendar.json"
+  },
+  {
+    "id": "wire-202603050716367-smart_money",
+    "timestamp_utc": "2026-03-05T07:16:36.799Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603050716368-smart_money",
+    "timestamp_utc": "2026-03-05T07:16:36.833Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603050716398-smart_money",
+    "timestamp_utc": "2026-03-05T07:16:39.805Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603050716398-smart_money",
+    "timestamp_utc": "2026-03-05T07:16:39.842Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603050716414-smart_money",
+    "timestamp_utc": "2026-03-05T07:16:41.405Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603050716418-sentiment_x",
+    "timestamp_utc": "2026-03-05T07:16:41.839Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603050716418-orchestrator",
+    "timestamp_utc": "2026-03-05T07:16:41.890Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603050716419-orchestrator",
+    "timestamp_utc": "2026-03-05T07:16:41.948Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603050716419-risk_journal",
+    "timestamp_utc": "2026-03-05T07:16:41.997Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603050735383-intel",
+    "timestamp_utc": "2026-03-05T07:35:38.379Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 19 YouTube, 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603050830389-intel",
+    "timestamp_utc": "2026-03-05T08:30:38.984Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 20 YouTube, 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603050830393-chase",
+    "timestamp_utc": "2026-03-05T08:30:39.308Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 8 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603052000357-chase",
+    "timestamp_utc": "2026-03-05T20:00:35.747Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 8 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603060830272-intel",
+    "timestamp_utc": "2026-03-06T08:30:27.207Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 20 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603060830275-chase",
+    "timestamp_utc": "2026-03-06T08:30:27.509Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 8 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603061714278-intel",
+    "timestamp_utc": "2026-03-06T17:14:27.881Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 17 YouTube, 1 macro (calendrier éco), 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603061714281-chase",
+    "timestamp_utc": "2026-03-06T17:14:28.189Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 8 | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603070715123-intel",
+    "timestamp_utc": "2026-03-07T07:15:12.300Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603070715131-intel",
+    "timestamp_utc": "2026-03-07T07:15:13.184Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603070715209-intel",
+    "timestamp_utc": "2026-03-07T07:15:20.923Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603070715264-intel",
+    "timestamp_utc": "2026-03-07T07:15:26.428Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 19 YouTube, 1 CryptoDaily, 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603070715264-intel",
+    "timestamp_utc": "2026-03-07T07:15:26.455Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603070715329-technicals",
+    "timestamp_utc": "2026-03-07T07:15:32.926Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603070715449-technicals",
+    "timestamp_utc": "2026-03-07T07:15:44.929Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603070715497-technicals",
+    "timestamp_utc": "2026-03-07T07:15:49.760Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief",
+      "chase_adapt": true
+    },
+    "content_summary": "Calendrier événements TradingView (RapidAPI) — activé après loss Chase.",
+    "content_ref": "data/signals/technicals/tradingview_events_calendar.json"
+  },
+  {
+    "id": "wire-202603070715563-smart_money",
+    "timestamp_utc": "2026-03-07T07:15:56.362Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603070715563-smart_money",
+    "timestamp_utc": "2026-03-07T07:15:56.397Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603070715574-smart_money",
+    "timestamp_utc": "2026-03-07T07:15:57.452Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603070715574-smart_money",
+    "timestamp_utc": "2026-03-07T07:15:57.487Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603070715581-smart_money",
+    "timestamp_utc": "2026-03-07T07:15:58.172Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603070715586-sentiment_x",
+    "timestamp_utc": "2026-03-07T07:15:58.603Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603070715586-orchestrator",
+    "timestamp_utc": "2026-03-07T07:15:58.656Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603070715587-orchestrator",
+    "timestamp_utc": "2026-03-07T07:15:58.712Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603070715587-risk_journal",
+    "timestamp_utc": "2026-03-07T07:15:58.762Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603070830249-intel",
+    "timestamp_utc": "2026-03-07T08:30:24.997Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "Trend Cards : 1 X, 10 YouTube, 1 CryptoDaily, 1 Reddit.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603070830253-chase",
+    "timestamp_utc": "2026-03-07T08:30:25.306Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 8 (8 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603070841520-intel",
+    "timestamp_utc": "2026-03-07T08:41:52.077Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, bearish, régulation. 10 vidéo(s) : Bitcoin, tension short-term, ETF / institutionnel, altcoins. Macro : pas d’événement du jour. CryptoDaily : How to store cryptocurrency securely in 2026 — Zero-Interest Crypto Loans in 2026: Borrow Against… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603072000092-chase",
+    "timestamp_utc": "2026-03-07T20:00:09.236Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 8 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603080715049-intel",
+    "timestamp_utc": "2026-03-08T07:15:04.936Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603080715057-intel",
+    "timestamp_utc": "2026-03-08T07:15:05.788Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603080715139-intel",
+    "timestamp_utc": "2026-03-08T07:15:13.908Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603080715193-intel",
+    "timestamp_utc": "2026-03-08T07:15:19.392Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top ways to earn crypto in 2026: Choose what fits you — Earn Daily Interest on USDT in 2026: Fixe… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603080715194-intel",
+    "timestamp_utc": "2026-03-08T07:15:19.418Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603080715263-technicals",
+    "timestamp_utc": "2026-03-08T07:15:26.337Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603080715382-technicals",
+    "timestamp_utc": "2026-03-08T07:15:38.282Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603080715429-technicals",
+    "timestamp_utc": "2026-03-08T07:15:42.995Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief",
+      "chase_adapt": true
+    },
+    "content_summary": "Calendrier événements TradingView (RapidAPI) — activé après loss Chase.",
+    "content_ref": "data/signals/technicals/tradingview_events_calendar.json"
+  },
+  {
+    "id": "wire-202603080715493-smart_money",
+    "timestamp_utc": "2026-03-08T07:15:49.382Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603080715494-smart_money",
+    "timestamp_utc": "2026-03-08T07:15:49.417Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603080715506-smart_money",
+    "timestamp_utc": "2026-03-08T07:15:50.600Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603080715506-smart_money",
+    "timestamp_utc": "2026-03-08T07:15:50.636Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603080715513-smart_money",
+    "timestamp_utc": "2026-03-08T07:15:51.334Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603080715517-sentiment_x",
+    "timestamp_utc": "2026-03-08T07:15:51.779Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603080715518-orchestrator",
+    "timestamp_utc": "2026-03-08T07:15:51.836Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603080715518-orchestrator",
+    "timestamp_utc": "2026-03-08T07:15:51.896Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603080715519-risk_journal",
+    "timestamp_utc": "2026-03-08T07:15:51.949Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603080756376-chase",
+    "timestamp_utc": "2026-03-08T07:56:37.678Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 9 (1 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603080830438-intel",
+    "timestamp_utc": "2026-03-08T08:30:43.821Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, bearish. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top ways to earn crypto in 2026: Choose what fits you — Earn Daily Interest on USDT in 2026: Fixe… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603080830475-chase",
+    "timestamp_utc": "2026-03-08T08:30:47.573Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 9 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082000141-chase",
+    "timestamp_utc": "2026-03-08T20:00:14.118Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 14 (5 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082006463-intel",
+    "timestamp_utc": "2026-03-08T20:06:46.334Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603082006473-intel",
+    "timestamp_utc": "2026-03-08T20:06:47.364Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603082006540-intel",
+    "timestamp_utc": "2026-03-08T20:06:54.084Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603082007024-intel",
+    "timestamp_utc": "2026-03-08T20:07:02.498Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082007025-intel",
+    "timestamp_utc": "2026-03-08T20:07:02.524Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082007090-technicals",
+    "timestamp_utc": "2026-03-08T20:07:09.058Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603082007210-technicals",
+    "timestamp_utc": "2026-03-08T20:07:21.039Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603082007257-technicals",
+    "timestamp_utc": "2026-03-08T20:07:25.789Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief",
+      "chase_adapt": true
+    },
+    "content_summary": "Calendrier événements TradingView (RapidAPI) — activé après loss Chase.",
+    "content_ref": "data/signals/technicals/tradingview_events_calendar.json"
+  },
+  {
+    "id": "wire-202603082007348-smart_money",
+    "timestamp_utc": "2026-03-08T20:07:34.813Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603082007348-smart_money",
+    "timestamp_utc": "2026-03-08T20:07:34.849Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603082007386-smart_money",
+    "timestamp_utc": "2026-03-08T20:07:38.655Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603082007386-smart_money",
+    "timestamp_utc": "2026-03-08T20:07:38.695Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603082007389-smart_money",
+    "timestamp_utc": "2026-03-08T20:07:38.941Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603082007393-sentiment_x",
+    "timestamp_utc": "2026-03-08T20:07:39.397Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603082007458-sentiment_x",
+    "timestamp_utc": "2026-03-08T20:07:45.849Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Sentiment enrichi ventes/achats (funding rate).",
+    "content_ref": "data/signals/sentiment/*_sentiment_flow.json"
+  },
+  {
+    "id": "wire-202603082007459-orchestrator",
+    "timestamp_utc": "2026-03-08T20:07:45.906Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603082007459-orchestrator",
+    "timestamp_utc": "2026-03-08T20:07:45.971Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603082007460-risk_journal",
+    "timestamp_utc": "2026-03-08T20:07:46.023Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603082008004-intel",
+    "timestamp_utc": "2026-03-08T20:08:00.407Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, bearish, régulation. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082008237-intel",
+    "timestamp_utc": "2026-03-08T20:08:23.781Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082008276-chase",
+    "timestamp_utc": "2026-03-08T20:08:27.639Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 14 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082008390-chase",
+    "timestamp_utc": "2026-03-08T20:08:39.078Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 14 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082013135-intel",
+    "timestamp_utc": "2026-03-08T20:13:13.521Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603082013142-intel",
+    "timestamp_utc": "2026-03-08T20:13:14.273Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603082013206-intel",
+    "timestamp_utc": "2026-03-08T20:13:20.662Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603082013279-intel",
+    "timestamp_utc": "2026-03-08T20:13:27.942Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082013279-intel",
+    "timestamp_utc": "2026-03-08T20:13:27.952Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082013343-technicals",
+    "timestamp_utc": "2026-03-08T20:13:34.324Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603082013462-technicals",
+    "timestamp_utc": "2026-03-08T20:13:46.271Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603082013511-technicals",
+    "timestamp_utc": "2026-03-08T20:13:51.198Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief",
+      "chase_adapt": true
+    },
+    "content_summary": "Calendrier événements TradingView (RapidAPI) — activé après loss Chase.",
+    "content_ref": "data/signals/technicals/tradingview_events_calendar.json"
+  },
+  {
+    "id": "wire-202603082013576-smart_money",
+    "timestamp_utc": "2026-03-08T20:13:57.606Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603082013576-smart_money",
+    "timestamp_utc": "2026-03-08T20:13:57.644Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603082013589-smart_money",
+    "timestamp_utc": "2026-03-08T20:13:58.927Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603082013589-smart_money",
+    "timestamp_utc": "2026-03-08T20:13:58.962Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603082013592-smart_money",
+    "timestamp_utc": "2026-03-08T20:13:59.202Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603082013596-sentiment_x",
+    "timestamp_utc": "2026-03-08T20:13:59.642Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603082014060-sentiment_x",
+    "timestamp_utc": "2026-03-08T20:14:06.098Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Sentiment enrichi ventes/achats (funding rate).",
+    "content_ref": "data/signals/sentiment/*_sentiment_flow.json"
+  },
+  {
+    "id": "wire-202603082014061-orchestrator",
+    "timestamp_utc": "2026-03-08T20:14:06.161Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603082014062-orchestrator",
+    "timestamp_utc": "2026-03-08T20:14:06.238Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603082014063-risk_journal",
+    "timestamp_utc": "2026-03-08T20:14:06.328Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603082014165-intel",
+    "timestamp_utc": "2026-03-08T20:14:16.564Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082014409-intel",
+    "timestamp_utc": "2026-03-08T20:14:40.986Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, régulation. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082014443-chase",
+    "timestamp_utc": "2026-03-08T20:14:44.347Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 14 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082014561-chase",
+    "timestamp_utc": "2026-03-08T20:14:56.178Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 14 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082051187-intel",
+    "timestamp_utc": "2026-03-08T20:51:18.790Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603082051194-intel",
+    "timestamp_utc": "2026-03-08T20:51:19.488Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603082051252-intel",
+    "timestamp_utc": "2026-03-08T20:51:25.288Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603082051318-intel",
+    "timestamp_utc": "2026-03-08T20:51:31.890Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, bearish, régulation. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082051319-intel",
+    "timestamp_utc": "2026-03-08T20:51:31.921Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082051384-technicals",
+    "timestamp_utc": "2026-03-08T20:51:38.479Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603082051504-technicals",
+    "timestamp_utc": "2026-03-08T20:51:50.494Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603082051553-technicals",
+    "timestamp_utc": "2026-03-08T20:51:55.371Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief",
+      "chase_adapt": true
+    },
+    "content_summary": "Calendrier événements TradingView (RapidAPI) — activé après loss Chase.",
+    "content_ref": "data/signals/technicals/tradingview_events_calendar.json"
+  },
+  {
+    "id": "wire-202603082052019-smart_money",
+    "timestamp_utc": "2026-03-08T20:52:01.903Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603082052019-smart_money",
+    "timestamp_utc": "2026-03-08T20:52:01.941Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603082052027-smart_money",
+    "timestamp_utc": "2026-03-08T20:52:02.768Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603082052028-smart_money",
+    "timestamp_utc": "2026-03-08T20:52:02.805Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603082052030-smart_money",
+    "timestamp_utc": "2026-03-08T20:52:03.056Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603082052034-sentiment_x",
+    "timestamp_utc": "2026-03-08T20:52:03.491Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603082052100-sentiment_x",
+    "timestamp_utc": "2026-03-08T20:52:10.046Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Sentiment enrichi ventes/achats (funding rate).",
+    "content_ref": "data/signals/sentiment/*_sentiment_flow.json"
+  },
+  {
+    "id": "wire-202603082052101-orchestrator",
+    "timestamp_utc": "2026-03-08T20:52:10.104Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603082052101-orchestrator",
+    "timestamp_utc": "2026-03-08T20:52:10.174Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603082052102-risk_journal",
+    "timestamp_utc": "2026-03-08T20:52:10.227Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603082052196-intel",
+    "timestamp_utc": "2026-03-08T20:52:19.682Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, bearish, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082052424-intel",
+    "timestamp_utc": "2026-03-08T20:52:42.418Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, régulation. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : CryptoCurrency, CryptocurrencyICO, Cryptocurrency_Daily, Bitcoin, CryptoMarke…",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082052473-chase",
+    "timestamp_utc": "2026-03-08T20:52:47.385Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 14 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082053100-chase",
+    "timestamp_utc": "2026-03-08T20:53:10.097Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 14 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082058343-intel",
+    "timestamp_utc": "2026-03-08T20:58:34.393Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603082058351-intel",
+    "timestamp_utc": "2026-03-08T20:58:35.143Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603082058375-intel",
+    "timestamp_utc": "2026-03-08T20:58:37.570Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603082058432-intel",
+    "timestamp_utc": "2026-03-08T20:58:43.251Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, bearish, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082058432-intel",
+    "timestamp_utc": "2026-03-08T20:58:43.264Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082058498-technicals",
+    "timestamp_utc": "2026-03-08T20:58:49.894Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603082059018-technicals",
+    "timestamp_utc": "2026-03-08T20:59:01.811Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603082059066-technicals",
+    "timestamp_utc": "2026-03-08T20:59:06.605Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief",
+      "chase_adapt": true
+    },
+    "content_summary": "Calendrier événements TradingView (RapidAPI) — activé après loss Chase.",
+    "content_ref": "data/signals/technicals/tradingview_events_calendar.json"
+  },
+  {
+    "id": "wire-202603082059134-smart_money",
+    "timestamp_utc": "2026-03-08T20:59:13.471Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603082059135-smart_money",
+    "timestamp_utc": "2026-03-08T20:59:13.508Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603082059152-smart_money",
+    "timestamp_utc": "2026-03-08T20:59:15.229Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603082059152-smart_money",
+    "timestamp_utc": "2026-03-08T20:59:15.267Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603082059155-smart_money",
+    "timestamp_utc": "2026-03-08T20:59:15.548Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603082059160-sentiment_x",
+    "timestamp_utc": "2026-03-08T20:59:16.041Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603082059227-sentiment_x",
+    "timestamp_utc": "2026-03-08T20:59:22.744Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Sentiment enrichi ventes/achats (funding rate).",
+    "content_ref": "data/signals/sentiment/*_sentiment_flow.json"
+  },
+  {
+    "id": "wire-202603082059228-orchestrator",
+    "timestamp_utc": "2026-03-08T20:59:22.806Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603082059228-orchestrator",
+    "timestamp_utc": "2026-03-08T20:59:22.883Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603082059229-risk_journal",
+    "timestamp_utc": "2026-03-08T20:59:22.946Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603082059310-intel",
+    "timestamp_utc": "2026-03-08T20:59:31.081Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, régulation. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082059558-intel",
+    "timestamp_utc": "2026-03-08T20:59:55.810Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082100006-chase",
+    "timestamp_utc": "2026-03-08T21:00:00.680Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 14 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082100280-chase",
+    "timestamp_utc": "2026-03-08T21:00:28.098Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 14 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082108552-intel",
+    "timestamp_utc": "2026-03-08T21:08:55.270Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603082108598-chase",
+    "timestamp_utc": "2026-03-08T21:08:59.877Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 14 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603082111169-intel",
+    "timestamp_utc": "2026-03-08T21:11:16.959Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, bearish, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603090715082-intel",
+    "timestamp_utc": "2026-03-09T07:15:08.291Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603090715090-intel",
+    "timestamp_utc": "2026-03-09T07:15:09.014Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603090715115-intel",
+    "timestamp_utc": "2026-03-09T07:15:11.529Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603090715164-intel",
+    "timestamp_utc": "2026-03-09T07:15:16.404Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, ETF / institutionnel, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603090715164-intel",
+    "timestamp_utc": "2026-03-09T07:15:16.428Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603090715236-technicals",
+    "timestamp_utc": "2026-03-09T07:15:23.683Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603090715356-technicals",
+    "timestamp_utc": "2026-03-09T07:15:35.669Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603090715404-technicals",
+    "timestamp_utc": "2026-03-09T07:15:40.484Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief",
+      "chase_adapt": true
+    },
+    "content_summary": "Calendrier événements TradingView (RapidAPI) — activé après loss Chase.",
+    "content_ref": "data/signals/technicals/tradingview_events_calendar.json"
+  },
+  {
+    "id": "wire-202603090715468-smart_money",
+    "timestamp_utc": "2026-03-09T07:15:46.853Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603090715468-smart_money",
+    "timestamp_utc": "2026-03-09T07:15:46.888Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603090715496-smart_money",
+    "timestamp_utc": "2026-03-09T07:15:49.613Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603090715496-smart_money",
+    "timestamp_utc": "2026-03-09T07:15:49.650Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603090715503-smart_money",
+    "timestamp_utc": "2026-03-09T07:15:50.313Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603090715507-sentiment_x",
+    "timestamp_utc": "2026-03-09T07:15:50.765Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603090715570-sentiment_x",
+    "timestamp_utc": "2026-03-09T07:15:57.086Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Sentiment enrichi ventes/achats (funding rate).",
+    "content_ref": "data/signals/sentiment/*_sentiment_flow.json"
+  },
+  {
+    "id": "wire-202603090715571-orchestrator",
+    "timestamp_utc": "2026-03-09T07:15:57.148Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603090715572-orchestrator",
+    "timestamp_utc": "2026-03-09T07:15:57.220Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603090715572-risk_journal",
+    "timestamp_utc": "2026-03-09T07:15:57.273Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603090800148-intel",
+    "timestamp_utc": "2026-03-09T08:00:14.804Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, régulation. 10 vidéo(s) : Bitcoin, tension short-term, ETF / institutionnel, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603090830247-intel",
+    "timestamp_utc": "2026-03-09T08:30:24.755Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, ETF / institutionnel, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603090830340-chase",
+    "timestamp_utc": "2026-03-09T08:30:34.094Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 21 (7 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603090840398-intel",
+    "timestamp_utc": "2026-03-09T08:40:39.827Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, bearish, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603090840476-chase",
+    "timestamp_utc": "2026-03-09T08:40:47.665Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 21 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603091816435-intel",
+    "timestamp_utc": "2026-03-09T18:16:43.568Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603091816591-chase",
+    "timestamp_utc": "2026-03-09T18:16:59.120Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 29 (8 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603091817235-intel",
+    "timestamp_utc": "2026-03-09T18:17:23.501Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, régulation, DeFi. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603091817324-chase",
+    "timestamp_utc": "2026-03-09T18:17:32.452Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603091818537-intel",
+    "timestamp_utc": "2026-03-09T18:18:53.795Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, régulation. 10 vidéo(s) : Bitcoin, tension short-term, altcoins. Macro : pas d’événement du jour. CryptoDaily : Types of crypto exchanges: choose the right platform 2026 — Why Crypto Projects Need Earned Media… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603091819007-chase",
+    "timestamp_utc": "2026-03-09T18:19:00.738Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603091942180-chase",
+    "timestamp_utc": "2026-03-09T19:42:18.010Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603091946394-chase",
+    "timestamp_utc": "2026-03-09T19:46:39.485Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603091950044-chase",
+    "timestamp_utc": "2026-03-09T19:50:04.483Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603091954161-chase",
+    "timestamp_utc": "2026-03-09T19:54:16.196Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603092000151-chase",
+    "timestamp_utc": "2026-03-09T20:00:15.112Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 29 (0 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603100700055-tibo",
+    "timestamp_utc": "2026-03-10T07:00:05.512Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 0 ordre(s) aujourd'hui, 4 avec TP, 6 TP en attente. Solde disponible : 108.3943144 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100700269-yield_farmer",
+    "timestamp_utc": "2026-03-10T07:00:26.907Z",
+    "from_agent": "YIELD_FARMER",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "yield_farmer_report"
+    },
+    "content_summary": "Capital dormant estimé : 54 USDT. Recommandation : allouer jusqu'à 54.1971572 USDT sur Uniswap V3 (USDC/USDT, APY cible 5-15%). Rendement annuel estimé (8%) : 4.34 USDT.",
+    "content_ref": "data/dashboard/yield_farmer_report.json"
+  },
+  {
+    "id": "wire-202603100710064-tibo",
+    "timestamp_utc": "2026-03-10T07:10:06.401Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 0 ordre(s) aujourd'hui, 4 avec TP, 6 TP en attente. Solde disponible : 108.3943144 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100710064-tibo",
+    "timestamp_utc": "2026-03-10T07:10:06.496Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 0 ordre(s) aujourd'hui, 4 avec TP, 6 TP en attente. Solde disponible : 108.3943144 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100715158-intel",
+    "timestamp_utc": "2026-03-10T07:15:15.849Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Calendrier économique (dates/heures clés, actuals).",
+    "content_ref": "data/dashboard/intel/economic_calendar.json"
+  },
+  {
+    "id": "wire-202603100715166-intel",
+    "timestamp_utc": "2026-03-10T07:15:16.608Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Actualités crypto (CryptoDaily RapidAPI).",
+    "content_ref": "data/dashboard/intel/cryptodaily_news.json"
+  },
+  {
+    "id": "wire-202603100715190-intel",
+    "timestamp_utc": "2026-03-10T07:15:19.009Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Reddit — subreddits crypto similaires (RapidAPI).",
+    "content_ref": "data/dashboard/intel/reddit_intel.json"
+  },
+  {
+    "id": "wire-202603100715237-intel",
+    "timestamp_utc": "2026-03-10T07:15:23.707Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, régulation. 6 vidéo(s) : Bitcoin, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Cry… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603100715237-intel",
+    "timestamp_utc": "2026-03-10T07:15:23.719Z",
+    "from_agent": "INTEL",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Trend Cards X + YouTube + macro + CryptoDaily + Reddit (narrative du jour pour orchestrator).",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603100715302-technicals",
+    "timestamp_utc": "2026-03-10T07:15:30.237Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux techniques (OHLCV, trend, levels) écrits.",
+    "content_ref": "data/signals/technicals/"
+  },
+  {
+    "id": "wire-202603100715422-technicals",
+    "timestamp_utc": "2026-03-10T07:15:42.234Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Indicateurs RSI/MACD/EMA (RapidAPI) pour enrichir les idées.",
+    "content_ref": "data/signals/technicals/crypto_indicators_rapidapi.json"
+  },
+  {
+    "id": "wire-202603100715490-technicals",
+    "timestamp_utc": "2026-03-10T07:15:49.060Z",
+    "from_agent": "TECHNICALS",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief",
+      "chase_adapt": true
+    },
+    "content_summary": "Calendrier événements TradingView (RapidAPI) — activé après loss Chase.",
+    "content_ref": "data/signals/technicals/tradingview_events_calendar.json"
+  },
+  {
+    "id": "wire-202603100715554-smart_money",
+    "timestamp_utc": "2026-03-10T07:15:55.473Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux smart money (funding) écrits.",
+    "content_ref": "data/signals/smart_money/"
+  },
+  {
+    "id": "wire-202603100715555-smart_money",
+    "timestamp_utc": "2026-03-10T07:15:55.510Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte wallets Dexscreener (Apify) → dexscreener_wallets.txt.",
+    "content_ref": "data/signals/smart_money/dexscreener_wallets.txt"
+  },
+  {
+    "id": "wire-202603100715569-smart_money",
+    "timestamp_utc": "2026-03-10T07:15:56.949Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Holders Dexscreener pour les wallets listés.",
+    "content_ref": "data/signals/smart_money/dexscreener_holders.json"
+  },
+  {
+    "id": "wire-202603100715569-smart_money",
+    "timestamp_utc": "2026-03-10T07:15:56.988Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "SMART_MONEY",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Découverte portfolio IDs Binance Copy (Apify) → binance_copy_portfolio_ids.txt.",
+    "content_ref": "data/signals/smart_money/binance_copy_portfolio_ids.txt"
+  },
+  {
+    "id": "wire-202603100715577-smart_money",
+    "timestamp_utc": "2026-03-10T07:15:57.725Z",
+    "from_agent": "SMART_MONEY",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Leaderboard Binance Copy Trading (tops + portfolios).",
+    "content_ref": "data/signals/smart_money/binance_copy_leaderboard.json"
+  },
+  {
+    "id": "wire-202603100715583-sentiment_x",
+    "timestamp_utc": "2026-03-10T07:15:58.343Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Signaux sentiment (narratives X) écrits.",
+    "content_ref": "data/signals/sentiment/"
+  },
+  {
+    "id": "wire-202603100716047-sentiment_x",
+    "timestamp_utc": "2026-03-10T07:16:04.733Z",
+    "from_agent": "SENTIMENT_X",
+    "to_agent": "ORCHESTRATOR",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Sentiment enrichi ventes/achats (funding rate).",
+    "content_ref": "data/signals/sentiment/*_sentiment_flow.json"
+  },
+  {
+    "id": "wire-202603100716048-orchestrator",
+    "timestamp_utc": "2026-03-10T07:16:04.807Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "RISK_JOURNAL",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Idées TRADE_IDEA produites à partir des signaux.",
+    "content_ref": "data/ideas/"
+  },
+  {
+    "id": "wire-202603100716048-orchestrator",
+    "timestamp_utc": "2026-03-10T07:16:04.885Z",
+    "from_agent": "ORCHESTRATOR",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Fiches Niches scorées mises à jour.",
+    "content_ref": "data/dashboard/niches/"
+  },
+  {
+    "id": "wire-202603100716049-risk_journal",
+    "timestamp_utc": "2026-03-10T07:16:04.942Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et journal du jour écrits.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603100716049-risk_journal",
+    "timestamp_utc": "2026-03-10T07:16:04.945Z",
+    "from_agent": "RISK_JOURNAL",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "morning_brief"
+    },
+    "content_summary": "Décisions (APPROVED/REJECTED) et idées du jour — contexte pour BOSS.",
+    "content_ref": "data/decisions/ et data/journal/"
+  },
+  {
+    "id": "wire-202603100720061-tibo",
+    "timestamp_utc": "2026-03-10T07:20:06.112Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 0 ordre(s) aujourd'hui, 4 avec TP, 6 TP en attente. Solde disponible : 108.3943144 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100725177-tibo",
+    "timestamp_utc": "2026-03-10T07:25:17.707Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100725378-tibo",
+    "timestamp_utc": "2026-03-10T07:25:37.893Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100730072-tibo",
+    "timestamp_utc": "2026-03-10T07:30:07.260Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100740066-tibo",
+    "timestamp_utc": "2026-03-10T07:40:06.631Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100741098-tibo",
+    "timestamp_utc": "2026-03-10T07:41:09.838Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100750089-tibo",
+    "timestamp_utc": "2026-03-10T07:50:08.933Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100755097-tibo",
+    "timestamp_utc": "2026-03-10T07:55:09.776Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100800091-tibo",
+    "timestamp_utc": "2026-03-10T08:00:09.103Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100800254-intel",
+    "timestamp_utc": "2026-03-10T08:00:25.474Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : ETF / spot, bullish, régulation. 5 vidéo(s) : Bitcoin, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Cry… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603100810062-tibo",
+    "timestamp_utc": "2026-03-10T08:10:06.254Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100810155-tibo",
+    "timestamp_utc": "2026-03-10T08:10:15.535Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100820024-opportunity_scout",
+    "timestamp_utc": "2026-03-10T08:20:02.462Z",
+    "from_agent": "OPPORTUNITY_SCOUT",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "scout_proposals"
+    },
+    "content_summary": "7 proposition(s) de diversification. Détail : /home/rosito/.openclaw/workspace/TradeEmpire/trading-empire/data/dashboard/scout_proposals.json.",
+    "content_ref": "data/dashboard/scout_proposals.json"
+  },
+  {
+    "id": "wire-202603100820064-tibo",
+    "timestamp_utc": "2026-03-10T08:20:06.410Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100825087-tibo",
+    "timestamp_utc": "2026-03-10T08:25:08.778Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100830073-tibo",
+    "timestamp_utc": "2026-03-10T08:30:07.320Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100840080-tibo",
+    "timestamp_utc": "2026-03-10T08:40:08.066Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100840088-tibo",
+    "timestamp_utc": "2026-03-10T08:40:08.891Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 5 ordre(s) aujourd'hui, 4 avec TP, 11 TP en attente. Solde disponible : 108.55581774 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100840442-intel",
+    "timestamp_utc": "2026-03-10T08:40:44.216Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, régulation. 5 vidéo(s) : Bitcoin, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Cry… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603100840598-chase",
+    "timestamp_utc": "2026-03-10T08:40:59.821Z",
+    "from_agent": "CHASE",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Post-mortems : 34 (5 nouveau(x)) | feedback écrit pour 6 agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603100840598-chase",
+    "timestamp_utc": "2026-03-10T08:40:59.829Z",
+    "from_agent": "CHASE",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "chase_feedback"
+    },
+    "content_summary": "Rapport post-mortems : 34 trade(s) clôturés, 5 nouveau(x). Feedback pour risk et agents.",
+    "content_ref": "data/dashboard/chase_feedback.json"
+  },
+  {
+    "id": "wire-202603100841051-tibo",
+    "timestamp_utc": "2026-03-10T08:41:05.166Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 13 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100841124-tibo",
+    "timestamp_utc": "2026-03-10T08:41:12.453Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100841144-hyperliquid_analyst",
+    "timestamp_utc": "2026-03-10T08:41:14.446Z",
+    "from_agent": "HYPERLIQUID_ANALYST",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "hyperliquid_analyst_report"
+    },
+    "content_summary": "Actifs suivis : 139 (main: 1, HIP-3: 138). DEX HIP-3 : xyz, flx, vntl, hyna, km, abcd, cash. Exemples matières premières : xyz:GOLD, xyz:SILVER, xyz:BRENTOIL, xyz:COPPER, flx:OIL, flx:GOLD.",
+    "content_ref": "data/dashboard/hyperliquid_analyst_report.json"
+  },
+  {
+    "id": "wire-202603100850081-tibo",
+    "timestamp_utc": "2026-03-10T08:50:08.108Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100855079-tibo",
+    "timestamp_utc": "2026-03-10T08:55:07.956Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100900059-tibo",
+    "timestamp_utc": "2026-03-10T09:00:05.994Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100910076-tibo",
+    "timestamp_utc": "2026-03-10T09:10:07.697Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100911193-tibo",
+    "timestamp_utc": "2026-03-10T09:11:19.335Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100914117-tibo",
+    "timestamp_utc": "2026-03-10T09:14:11.746Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100920073-tibo",
+    "timestamp_utc": "2026-03-10T09:20:07.382Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100930068-tibo",
+    "timestamp_utc": "2026-03-10T09:30:06.813Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100940064-tibo",
+    "timestamp_utc": "2026-03-10T09:40:06.400Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603100950064-tibo",
+    "timestamp_utc": "2026-03-10T09:50:06.471Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101000065-tibo",
+    "timestamp_utc": "2026-03-10T10:00:06.525Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101010064-tibo",
+    "timestamp_utc": "2026-03-10T10:10:06.466Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101020061-tibo",
+    "timestamp_utc": "2026-03-10T10:20:06.121Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101022237-news_scan",
+    "timestamp_utc": "2026-03-10T10:22:23.742Z",
+    "from_agent": "NEWS_SCAN",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "news_scan"
+    },
+    "content_summary": "Parvati : 31 catalyst(s) (CryptoDaily, Coindesk, X).",
+    "content_ref": "data/dashboard/intel/news_scan_report.json"
+  },
+  {
+    "id": "wire-202603101030057-tibo",
+    "timestamp_utc": "2026-03-10T10:30:05.729Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101031190-news_scan",
+    "timestamp_utc": "2026-03-10T10:31:19.020Z",
+    "from_agent": "NEWS_SCAN",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "news_scan"
+    },
+    "content_summary": "Parvati : 26 catalyst(s) (RSS agrégé, Coindesk, X).",
+    "content_ref": "data/dashboard/intel/news_scan_report.json"
+  },
+  {
+    "id": "wire-202603101035408-news_scan",
+    "timestamp_utc": "2026-03-10T10:35:40.826Z",
+    "from_agent": "NEWS_SCAN",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "news_scan"
+    },
+    "content_summary": "Parvati : 26 catalyst(s) (RSS agrégé, Coindesk, X).",
+    "content_ref": "data/dashboard/intel/news_scan_report.json"
+  },
+  {
+    "id": "wire-202603101040060-tibo",
+    "timestamp_utc": "2026-03-10T10:40:06.059Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101043100-news_scan",
+    "timestamp_utc": "2026-03-10T10:43:10.091Z",
+    "from_agent": "NEWS_SCAN",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "news_scan"
+    },
+    "content_summary": "Parvati : 26 catalyst(s) (RSS agrégé, Coindesk, X).",
+    "content_ref": "data/dashboard/intel/news_scan_report.json"
+  },
+  {
+    "id": "wire-202603101043105-news_scan",
+    "timestamp_utc": "2026-03-10T10:43:10.556Z",
+    "from_agent": "NEWS_SCAN",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "news_scan"
+    },
+    "content_summary": "Parvati : 26 catalyst(s) (RSS agrégé, Coindesk, X).",
+    "content_ref": "data/dashboard/intel/news_scan_report.json"
+  },
+  {
+    "id": "wire-202603101043533-intel",
+    "timestamp_utc": "2026-03-10T10:43:53.380Z",
+    "from_agent": "INTEL",
+    "to_agent": "BROADCAST",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "intel_trend_cards"
+    },
+    "content_summary": "X : bullish, régulation. 5 vidéo(s) : Bitcoin, altcoins. Macro : pas d’événement du jour. CryptoDaily : Top blockchain use cases transforming industries in 2026 — Best Passive Income Strategies for Cry… Reddit : pas de données.",
+    "content_ref": "data/dashboard/intel/trend_cards.json"
+  },
+  {
+    "id": "wire-202603101043553-news_scan",
+    "timestamp_utc": "2026-03-10T10:43:55.380Z",
+    "from_agent": "NEWS_SCAN",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "news_scan"
+    },
+    "content_summary": "Parvati : 26 catalyst(s) (RSS agrégé, Coindesk, X).",
+    "content_ref": "data/dashboard/intel/news_scan_report.json"
+  },
+  {
+    "id": "wire-202603101050057-tibo",
+    "timestamp_utc": "2026-03-10T10:50:05.764Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101100057-tibo",
+    "timestamp_utc": "2026-03-10T11:00:05.738Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 7 ordre(s) aujourd'hui, 4 avec TP, 8 TP en attente. Solde disponible : 108.61413456 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101100138-news_scan",
+    "timestamp_utc": "2026-03-10T11:00:13.828Z",
+    "from_agent": "NEWS_SCAN",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "news_scan"
+    },
+    "content_summary": "Parvati : 26 catalyst(s) (RSS agrégé, Coindesk, X).",
+    "content_ref": "data/dashboard/intel/news_scan_report.json"
+  },
+  {
+    "id": "wire-202603101109126-tibo",
+    "timestamp_utc": "2026-03-10T11:09:12.600Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101110066-tibo",
+    "timestamp_utc": "2026-03-10T11:10:06.658Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101120065-tibo",
+    "timestamp_utc": "2026-03-10T11:20:06.541Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101126074-opportunity_scout",
+    "timestamp_utc": "2026-03-10T11:26:07.486Z",
+    "from_agent": "OPPORTUNITY_SCOUT",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "scout_proposals"
+    },
+    "content_summary": "7 proposition(s) de diversification. Détail : /home/rosito/.openclaw/workspace/TradeEmpire/trading-empire/data/dashboard/scout_proposals.json.",
+    "content_ref": "data/dashboard/scout_proposals.json"
+  },
+  {
+    "id": "wire-202603101130073-tibo",
+    "timestamp_utc": "2026-03-10T11:30:07.326Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101140062-tibo",
+    "timestamp_utc": "2026-03-10T11:40:06.248Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101150064-tibo",
+    "timestamp_utc": "2026-03-10T11:50:06.420Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101158479-tibo",
+    "timestamp_utc": "2026-03-10T11:58:47.972Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101200067-tibo",
+    "timestamp_utc": "2026-03-10T12:00:06.779Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101210064-tibo",
+    "timestamp_utc": "2026-03-10T12:10:06.416Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101220066-tibo",
+    "timestamp_utc": "2026-03-10T12:20:06.694Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101230059-tibo",
+    "timestamp_utc": "2026-03-10T12:30:05.905Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101232181-hyperliquid_analyst",
+    "timestamp_utc": "2026-03-10T12:32:18.129Z",
+    "from_agent": "HYPERLIQUID_ANALYST",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "hyperliquid_analyst_report"
+    },
+    "content_summary": "Actifs suivis : 139 (main: 1, HIP-3: 138). DEX HIP-3 : xyz, flx, vntl, hyna, km, abcd, cash. Exemples : xyz:GOLD, xyz:SILVER, xyz:BRENTOIL, flx:OIL. | Catalysts Parvati liés or/oil/macro : 9 titre(s).",
+    "content_ref": "data/dashboard/hyperliquid_analyst_report.json"
+  },
+  {
+    "id": "wire-202603101233489-hyperliquid_analyst",
+    "timestamp_utc": "2026-03-10T12:33:48.944Z",
+    "from_agent": "HYPERLIQUID_ANALYST",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "hyperliquid_analyst_report"
+    },
+    "content_summary": "Actifs suivis : 139 (main: 1, HIP-3: 138). DEX HIP-3 : xyz, flx, vntl, hyna, km, abcd, cash. Exemples : xyz:GOLD, xyz:SILVER, xyz:BRENTOIL, flx:OIL. | Catalysts Parvati liés or/oil/macro : 9 titre(s).",
+    "content_ref": "data/dashboard/hyperliquid_analyst_report.json"
+  },
+  {
+    "id": "wire-202603101236344-hyperliquid_analyst",
+    "timestamp_utc": "2026-03-10T12:36:34.494Z",
+    "from_agent": "HYPERLIQUID_ANALYST",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "hyperliquid_analyst_report"
+    },
+    "content_summary": "Actifs suivis : 139 (main: 1, HIP-3: 138). DEX HIP-3 : xyz, flx, vntl, hyna, km, abcd, cash. Exemples : xyz:GOLD, xyz:SILVER, xyz:BRENTOIL, flx:OIL. | Catalysts Parvati liés or/oil/macro : 9 titre(s).",
+    "content_ref": "data/dashboard/hyperliquid_analyst_report.json"
+  },
+  {
+    "id": "wire-202603101237258-hyperliquid_analyst",
+    "timestamp_utc": "2026-03-10T12:37:25.853Z",
+    "from_agent": "HYPERLIQUID_ANALYST",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "hyperliquid_analyst_report"
+    },
+    "content_summary": "Actifs suivis : 139 (main: 1, HIP-3: 138). DEX HIP-3 : xyz, flx, vntl, hyna, km, abcd, cash. Exemples : xyz:GOLD, xyz:SILVER, xyz:BRENTOIL, flx:OIL. | Catalysts Parvati liés or/oil/macro : 9 titre(s).",
+    "content_ref": "data/dashboard/hyperliquid_analyst_report.json"
+  },
+  {
+    "id": "wire-202603101240068-tibo",
+    "timestamp_utc": "2026-03-10T12:40:06.845Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101241248-tibo",
+    "timestamp_utc": "2026-03-10T12:41:24.856Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101246355-tibo",
+    "timestamp_utc": "2026-03-10T12:46:35.533Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101250060-tibo",
+    "timestamp_utc": "2026-03-10T12:50:06.093Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101300086-tibo",
+    "timestamp_utc": "2026-03-10T13:00:08.663Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101301286-hyperliquid_analyst",
+    "timestamp_utc": "2026-03-10T13:01:28.665Z",
+    "from_agent": "HYPERLIQUID_ANALYST",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "hyperliquid_analyst_report"
+    },
+    "content_summary": "Actifs suivis : 139 (main: 1, HIP-3: 138). DEX HIP-3 : xyz, flx, vntl, hyna, km, abcd, cash. Exemples : xyz:GOLD, xyz:SILVER, xyz:BRENTOIL, flx:OIL. | Catalysts Parvati liés or/oil/macro : 9 titre(s).",
+    "content_ref": "data/dashboard/hyperliquid_analyst_report.json"
+  },
+  {
+    "id": "wire-202603101301382-tibo",
+    "timestamp_utc": "2026-03-10T13:01:38.222Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101301402-hyperliquid_analyst",
+    "timestamp_utc": "2026-03-10T13:01:40.280Z",
+    "from_agent": "HYPERLIQUID_ANALYST",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "hyperliquid_analyst_report"
+    },
+    "content_summary": "Actifs suivis : 139 (main: 1, HIP-3: 138). DEX HIP-3 : xyz, flx, vntl, hyna, km, abcd, cash. Exemples : xyz:GOLD, xyz:SILVER, xyz:BRENTOIL, flx:OIL. | Catalysts Parvati liés or/oil/macro : 9 titre(s).",
+    "content_ref": "data/dashboard/hyperliquid_analyst_report.json"
+  },
+  {
+    "id": "wire-202603101303234-tibo",
+    "timestamp_utc": "2026-03-10T13:03:23.493Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101310067-tibo",
+    "timestamp_utc": "2026-03-10T13:10:06.792Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101320065-tibo",
+    "timestamp_utc": "2026-03-10T13:20:06.528Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101330077-tibo",
+    "timestamp_utc": "2026-03-10T13:30:07.788Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101340067-tibo",
+    "timestamp_utc": "2026-03-10T13:40:06.731Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101350085-tibo",
+    "timestamp_utc": "2026-03-10T13:50:08.544Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101400068-tibo",
+    "timestamp_utc": "2026-03-10T14:00:06.897Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 8 ordre(s) aujourd'hui, 4 avec TP, 9 TP en attente. Solde disponible : 98.60395764 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101409360-tibo",
+    "timestamp_utc": "2026-03-10T14:09:36.038Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 9 ordre(s) aujourd'hui, 4 avec TP, 10 TP en attente. Solde disponible : 93.38913698 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101410083-tibo",
+    "timestamp_utc": "2026-03-10T14:10:08.368Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 9 ordre(s) aujourd'hui, 4 avec TP, 10 TP en attente. Solde disponible : 93.38913698 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101420088-tibo",
+    "timestamp_utc": "2026-03-10T14:20:08.865Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 9 ordre(s) aujourd'hui, 4 avec TP, 10 TP en attente. Solde disponible : 93.38913698 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
+  },
+  {
+    "id": "wire-202603101426004-opportunity_scout",
+    "timestamp_utc": "2026-03-10T14:26:00.483Z",
+    "from_agent": "OPPORTUNITY_SCOUT",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "scout_proposals"
+    },
+    "content_summary": "4 proposition(s) de diversification. Détail : /home/rosito/.openclaw/workspace/TradeEmpire/trading-empire/data/dashboard/scout_proposals.json.",
+    "content_ref": "data/dashboard/scout_proposals.json"
+  },
+  {
+    "id": "wire-202603101430083-tibo",
+    "timestamp_utc": "2026-03-10T14:30:08.371Z",
+    "from_agent": "TIBO",
+    "to_agent": "BOSS",
+    "type": "SHARE_SIGNAL",
+    "context": {
+      "window": "tibo_report"
+    },
+    "content_summary": "Rapport exécution : 9 ordre(s) aujourd'hui, 4 avec TP, 7 TP en attente. Solde disponible : 93.38913698 USDT.",
+    "content_ref": "data/dashboard/tibo_report.json"
   }
 ]

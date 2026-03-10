@@ -1,0 +1,7 @@
+{
+  "trade_id": "idea_ETHUSDT_20260307071558",
+  "status": "REJECTED",
+  "timestamp_utc": "2026-03-07T07:15:58.756Z",
+  "reason": "R:R 1.2 below minimum 1.5",
+  "idea_ref": "data/ideas/idea_ETHUSDT_20260307071558.json"
+}

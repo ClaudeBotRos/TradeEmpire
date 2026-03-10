@@ -13,11 +13,20 @@ const SMART_MONEY_DIR = path.join(ROOT, 'data', 'signals', 'smart_money');
 const SENTIMENT_DIR = path.join(ROOT, 'data', 'signals', 'sentiment');
 const IDEAS_DIR = path.join(ROOT, 'data', 'ideas');
 const TREND_CARDS_PATH = path.join(ROOT, 'data', 'dashboard', 'intel', 'trend_cards.json');
+const CRYPTO_INDICATORS_PATH = path.join(ROOT, 'data', 'signals', 'technicals', 'crypto_indicators_rapidapi.json');
 const MAX_IDEAS = 7;
 const MIN_RR = 1.2;
 const MAX_LOSS_USD = 50;
 const DEFAULT_LEVERAGE = 1;
 const POSITION_SIZE_USD = 500;
+/** Confiance minimum pour un symbole ayant eu un loss récent (Chase) — on renforce la barre. */
+const MIN_CONFIDENCE_AFTER_LOSS = 0.75;
+let chaseFeedbackLoader;
+try {
+  chaseFeedbackLoader = require('./chase-feedback-loader.js');
+} catch (_) {
+  chaseFeedbackLoader = null;
+}
 
 function loadLatestBySymbol(dir, getSymbol) {
   if (!fs.existsSync(dir)) return {};
@@ -56,7 +65,9 @@ function loadLatestTechnicalsBySymbol() {
 }
 
 function loadSentimentDigest(date) {
-  const filepath = path.join(SENTIMENT_DIR, `${date}_x_digest.json`);
+  const flowPath = path.join(SENTIMENT_DIR, `${date}_sentiment_flow.json`);
+  const digestPath = path.join(SENTIMENT_DIR, `${date}_x_digest.json`);
+  const filepath = fs.existsSync(flowPath) ? flowPath : digestPath;
   if (!fs.existsSync(filepath)) return null;
   try {
     return JSON.parse(fs.readFileSync(filepath, 'utf8'));
@@ -65,17 +76,15 @@ function loadSentimentDigest(date) {
   }
 }
 
-/** Charge les Trend Cards Intel (Daphnée) pour narrative du jour et pondération. */
+/** Charge les Trend Cards Intel (Daphnée) pour narrative du jour et pondération. Préfère situation_summary (vue clarifiée) si présent. */
 function loadTrendCards() {
   if (!fs.existsSync(TREND_CARDS_PATH)) return null;
   try {
     const raw = JSON.parse(fs.readFileSync(TREND_CARDS_PATH, 'utf8'));
     const cards = Array.isArray(raw.cards) ? raw.cards : [];
     const xCard = cards.find((c) => c.source === 'x');
-    let narrativeSummary = '';
     const themes = [];
     if (xCard && xCard.summary) {
-      narrativeSummary = xCard.summary;
       const lower = (xCard.summary || '').toLowerCase();
       if (lower.includes('bullish') || lower.includes('bull')) themes.push('bullish');
       if (lower.includes('bearish') || lower.includes('bear')) themes.push('bearish');
@@ -88,21 +97,38 @@ function loadTrendCards() {
     }
     const youtubeCards = cards.filter((c) => c.source === 'youtube');
     const macroCard = cards.find((c) => c.source === 'economic_calendar');
-    if (macroCard && macroCard.summary) {
-      narrativeSummary = (narrativeSummary ? narrativeSummary + ' | ' : '') + 'Macro: ' + macroCard.summary;
-      if (!themes.includes('macro')) themes.push('macro');
-    }
+    const redditCard = cards.find((c) => c.source === 'reddit');
+    const cryptodailyCard = cards.find((c) => c.source === 'cryptodaily');
+    if (macroCard && !themes.includes('macro')) themes.push('macro');
+    if (redditCard && !themes.includes('reddit')) themes.push('reddit');
+    if (cryptodailyCard && !themes.includes('cryptodaily')) themes.push('cryptodaily');
+
+    const narrativeSummary = (raw.situation_summary && raw.situation_summary.trim())
+      ? raw.situation_summary.trim()
+      : buildLegacyNarrativeSummary(xCard, macroCard, redditCard, cryptodailyCard);
+
     return {
       date: raw.date,
       narrative_summary: narrativeSummary || 'Aucune Trend Card Intel du jour.',
+      situation_by_source: raw.situation_by_source || null,
       themes,
       x_card: xCard || null,
       macro_card: macroCard || null,
+      reddit_card: redditCard || null,
+      cryptodaily_card: cryptodailyCard || null,
       youtube_count: youtubeCards.length,
     };
   } catch (_) {
     return null;
   }
+}
+
+function buildLegacyNarrativeSummary(xCard, macroCard, redditCard, cryptodailyCard) {
+  let s = (xCard && xCard.summary) ? xCard.summary : '';
+  if (macroCard && macroCard.summary) s = (s ? s + ' | ' : '') + 'Macro: ' + macroCard.summary;
+  if (redditCard && redditCard.summary) s = (s ? s + ' | ' : '') + 'Reddit: ' + (redditCard.summary || '').slice(0, 200);
+  if (cryptodailyCard && cryptodailyCard.summary) s = (s ? s + ' | ' : '') + 'CryptoDaily: ' + (cryptodailyCard.summary || '').slice(0, 200);
+  return s;
 }
 
 /** Indique si l'idée est alignée avec la narrative Intel (LONG + bullish, SHORT + bearish). */
@@ -117,17 +143,35 @@ function intelAlignsWithIdea(direction, intel) {
   return null;
 }
 
-function buildEvidence(tech, sm, sentiment, symbol) {
+/** Charge RSI/MACD/EMA par symbole (Alicia — crypto-indicators-rapidapi.js) pour enrichir les idées. */
+function loadCryptoIndicators() {
+  if (!fs.existsSync(CRYPTO_INDICATORS_PATH)) return {};
+  try {
+    const raw = JSON.parse(fs.readFileSync(CRYPTO_INDICATORS_PATH, 'utf8'));
+    return raw.by_symbol && typeof raw.by_symbol === 'object' ? raw.by_symbol : {};
+  } catch (_) {
+    return {};
+  }
+}
+
+function buildEvidence(tech, sm, sentiment, symbol, cryptoIndicators) {
   const technicals = [];
   if (tech) {
     if (tech.trend) technicals.push(`trend ${tech.trend}`);
     if (tech.levels && tech.levels.support?.length) technicals.push('support levels');
     if (tech.levels && tech.levels.resistance?.length) technicals.push('resistance levels');
   }
+  const ind = cryptoIndicators[symbol];
+  if (ind) {
+    if (ind.rsi != null) technicals.push(`RSI ${ind.rsi.toFixed(1)}`);
+    if (ind.macd != null) technicals.push(`MACD ${ind.macd > 0 ? 'bull' : 'bear'}`);
+  }
   const sentimentList = [];
   if (sentiment) {
     const s = sentiment.sentiment_by_symbol?.[symbol] || 'neutral';
     sentimentList.push(`sentiment ${s}`);
+    const pressure = sentiment.buy_sell_pressure_by_symbol?.[symbol];
+    if (pressure && pressure !== 'inconnu') sentimentList.push(`pression ${pressure}`);
     if (sentiment.narratives?.length) sentimentList.push(sentiment.narratives[0]);
   }
   const smartMoney = [];
@@ -139,7 +183,7 @@ function buildEvidence(tech, sm, sentiment, symbol) {
   };
 }
 
-function buildIdea(symbol, timeframe, tech, sm, sentiment) {
+function buildIdea(symbol, timeframe, tech, sm, sentiment, cryptoIndicators) {
   const trend = tech?.trend || 'range';
   if (trend === 'range') return null;
 
@@ -183,7 +227,7 @@ function buildIdea(symbol, timeframe, tech, sm, sentiment) {
       { price: Math.round(target2 * 100) / 100, rr: MIN_RR * 2 },
     ],
     confidence: 0.5 + (sentiment?.low_confidence ? 0 : 0.1) + (sm?.low_confidence ? 0 : 0.1),
-    evidence: buildEvidence(tech, sm, sentiment, symbol),
+    evidence: buildEvidence(tech, sm, sentiment, symbol, cryptoIndicators || {}),
     risk: {
       max_loss_usd: MAX_LOSS_USD,
       position_size_usd: POSITION_SIZE_USD,
@@ -256,6 +300,12 @@ function main() {
   const smartMoneyBySymbol = loadLatestBySymbol(SMART_MONEY_DIR, (d) => d.symbol);
   const sentiment = loadSentimentDigest(date);
   const intel = loadTrendCards();
+  const cryptoIndicators = loadCryptoIndicators();
+
+  const recentLossSymbols = chaseFeedbackLoader ? chaseFeedbackLoader.getRecentLossSymbols() : [];
+  if (recentLossSymbols.length) {
+    console.log('Chase (post-mortem loss) : renforcement des critères pour', recentLossSymbols.join(', '));
+  }
 
   if (!fs.existsSync(IDEAS_DIR)) {
     fs.mkdirSync(IDEAS_DIR, { recursive: true });
@@ -275,9 +325,20 @@ function main() {
     if (ideas.length >= MAX_IDEAS) break;
     const tech = bySymbol[symbol];
     const sm = smartMoneyBySymbol[symbol] || null;
-    let idea = buildIdea(symbol, tech.timeframe, tech, sm, sentiment);
+    let idea = buildIdea(symbol, tech.timeframe, tech, sm, sentiment, cryptoIndicators);
     if (idea) {
       if (intel) idea = enrichIdeaWithIntel(idea, intel);
+      const isRecentLossSymbol = recentLossSymbols.includes((symbol || '').toUpperCase());
+      if (isRecentLossSymbol) {
+        const hasCryptoIndicators = cryptoIndicators && (cryptoIndicators[symbol] || cryptoIndicators[(symbol || '').toUpperCase()]);
+        const intelAligns = idea.intel && idea.intel.aligns_with_narrative !== false;
+        const confidenceOk = (idea.confidence || 0) >= MIN_CONFIDENCE_AFTER_LOSS;
+        if (!hasCryptoIndicators || !confidenceOk) {
+          continue;
+        }
+        if (intel && !intelAligns) continue;
+        (idea.evidence = idea.evidence || {}).chase = ['Critères renforcés après loss (Chase) : indicateurs RapidAPI + confiance ≥ ' + (MIN_CONFIDENCE_AFTER_LOSS * 100) + '%'];
+      }
       ideas.push(idea);
     }
   }

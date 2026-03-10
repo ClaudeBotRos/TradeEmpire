@@ -1,0 +1,30 @@
+{
+  "timestamp_utc": "2026-03-10T14:31:20.089Z",
+  "source": "ASTER",
+  "pending_count": 0,
+  "reviews": [],
+  "summary": "0 ordre(s) ouverts sur ASTER (entrée). 0 à conserver, 0 à annuler.",
+  "new_candidates_from_scout": [
+    {
+      "symbol": "TIAUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension"
+    },
+    {
+      "symbol": "APTUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension"
+    },
+    {
+      "symbol": "FILUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension"
+    },
+    {
+      "symbol": "STXUSDT",
+      "reason": "Paire courante USDT-M non couverte.",
+      "source": "watchlist_extension"
+    }
+  ],
+  "scout_note": "Candidats Scout pour diversification (risk + orchestrator)."
+}

@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "2026-03-10T14:31:18.420Z",
+  "symbol": "BNBUSDT",
+  "timeframe": "4h",
+  "trend": "up",
+  "levels": {
+    "support": [
+      577.06,
+      588.64,
+      607.86
+    ],
+    "resistance": [
+      640.55,
+      649,
+      666.16
+    ]
+  },
+  "volatility": 17.985107,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

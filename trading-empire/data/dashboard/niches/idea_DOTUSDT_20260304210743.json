@@ -1,0 +1,49 @@
+{
+  "trade_id": "idea_DOTUSDT_20260304210743",
+  "symbol": "DOTUSDT",
+  "direction": "LONG",
+  "score_global": 80,
+  "scores": {
+    "macro_trend": 1,
+    "structure_htf": 1,
+    "volume": 0,
+    "funding": 1,
+    "sentiment": 1,
+    "rr": 0.6,
+    "invalidation": 1,
+    "confidence": 0.7
+  },
+  "entry": 1.47,
+  "invalid": 1.46,
+  "targets": [
+    {
+      "price": 1.49,
+      "rr": 1.2
+    },
+    {
+      "price": 1.51,
+      "rr": 2.4
+    }
+  ],
+  "timestamp_utc": "2026-03-04T21:07:43.668Z",
+  "description": "LONG DOTUSDT sur timeframe 4h. Entrée proposée: 1.47, invalidation si le prix atteint 1.46 (niveau d’invalidation). Objectif 1: 1.49 (R:R 1.2 = pour 1 unité de risque, gain cible 1.2 unités). Confidence 70%: score agrégé basé sur la qualité des signaux techniques (trend, levels), du sentiment X et des indicateurs smart money (funding). Plus le score est élevé, plus les sources sont considérées fiables. Contexte Intel (Daphnée) : Dernières tendances X (crypto/bitcoin) : bullish, bearish, régulation, DeFi. 50 tweets récents. | Macro: Aujourd'hui : F….",
+  "glossary": {
+    "rr": "R:R = Risk:Reward. Ratio gain cible / perte max (ex: 1.2 = pour 1€ risqué, gain cible 1,20€).",
+    "confidence": "Confidence = score 0–1 (0–100%) basé sur la qualité des signaux: techniques (trend, niveaux), sentiment X, smart money (funding), et alignement avec les Trend Cards Intel si présentes.",
+    "invalid": "Invalidation = niveau de prix qui invalide l’idée (stop: si atteint, le scénario est considéré faux)."
+  },
+  "intel": {
+    "narrative_summary": "Dernières tendances X (crypto/bitcoin) : bullish, bearish, régulation, DeFi. 50 tweets récents. | Macro: Aujourd'hui : FR HCOB - Services PMI ; FR HCOB Composite PMI ; DE HCOB Composite Final PMI ; DE HCOB Services PMI ; GB S&P GLOBAL PMI: COMPOSITE - OUTPUT ; GB S&P GLOBAL SERVICE PMI ; GB Reserve Assets Total* ; US MBA 15-Yr Contract Rate ; US MBA 15-Yr Effective Rate ; US MBA 15-Yr FRM Points ; US MBA 30-Yr Mortgage Rate ; US MBA 5-Yr ARM Points ; US MBA 5-Yr Contract Rate ; US MBA 5-Yr Effective Rate ; US MBA Mortgage Applications ; US MBA Purchase Index ; US Mortgage Market Index ; US Mortgage Refinance Index ; US Adv Goods Trade Balance ; US Retail Inventories Ex-Auto Adv ; US Wholesale Inventories Adv ; US ADP National Employment ; US S&P Global Svcs PMI Final ; US S&P Global Comp PMI Final ; US ISM N-Mfg Bus Act ; US ISM N-Mfg Employment Idx ; US ISM N-Mfg New Orders Idx ; US ISM N-Mfg PMI ; US ISM N-Mfg Price Paid Idx ; US EIA Ethanol Fuel Total* ; US EIA Ethanol Ref Stk* ; US EIA Weekly Crude Imports* ; US EIA Weekly Crude Runs* ; US EIA Weekly Dist Output* ; US EIA Weekly Gasoline O/P* ; US EIA Weekly Heatoil Stock* ; US EIA Weekly Prods Imports* ; US EIA Weekly Rfg Stocks* ; US EIA Wkly Crude Cushing* ; US EIA Wkly Crude Exports * ; US EIA Wkly Crude Stk* ; US EIA Wkly Dist. Stk* ; US EIA Wkly Gsln Stk* ; US EIA Wkly Refn Util* — Prévu vs publié : FR HCOB Composite PMI → publié 49.9, prévu 49.9 ; DE HCOB Composite Final PMI → publié 53.2, prévu 53.1 ; DE HCOB Services PMI → publié 53.5, prévu 53.4 ; GB S&P GLOBAL PMI: COMPOSITE - OUTPUT → publié 53.7, prévu 53.9 ; GB S&P GLOBAL SERVICE PMI → publié 53.9, prévu 53.9 | Reddit: CryptoCurrency, CryptocurrencyICO, crypto_currency, Bitcoin, CryptoMarkets, Cryptocurrency_Daily, EarnCryptocurrency, ethtrader, btc, cryptocurrency_ja, CryptocurrencyReviews, dogecoin, Buttcoin, Cryp",
+    "themes": [
+      "bullish",
+      "bearish",
+      "régulation",
+      "DeFi",
+      "macro",
+      "reddit"
+    ],
+    "aligns_with_narrative": null,
+    "source": "data/dashboard/intel/trend_cards.json"
+  },
+  "status": "REJECTED"
+}

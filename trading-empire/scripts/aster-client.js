@@ -107,17 +107,17 @@ async function getAccount() {
   };
 }
 
-/** Ordres ouverts (signé). */
+/** Ordres ouverts (signé). Si symbol est omis, renvoie tous les ordres ouverts (API Binance-style). */
 async function getOpenOrders(symbol) {
-  const data = await signedRequest('GET', '/fapi/v1/openOrders', {
-    symbol: String(symbol).toUpperCase(),
-  });
+  const params = symbol ? { symbol: String(symbol).toUpperCase() } : {};
+  const data = await signedRequest('GET', '/fapi/v1/openOrders', params);
   const raw = Array.isArray(data) ? data : (data?.orders ?? []);
   return raw.map((o) => ({
     orderId: o.orderId,
     symbol: o.symbol,
     side: o.side,
     price: o.price ?? '',
+    stopPrice: o.stopPrice ?? '',
     origQty: o.origQty ?? '',
     status: o.status ?? 'NEW',
     type: o.type ?? o.origType ?? 'LIMIT',
@@ -146,6 +146,17 @@ async function placeStopMarketOrder(params) {
     type: 'STOP_MARKET',
     quantity: String(params.quantity),
     stopPrice: String(params.stopPrice),
+  };
+  return signedRequest('POST', '/fapi/v1/order', body);
+}
+
+/** Placer ordre MARKET (exécution immédiate au prix du marché). Utilisé en fallback si tick size invalide. */
+async function placeMarketOrder(params) {
+  const body = {
+    symbol: String(params.symbol).toUpperCase(),
+    side: params.side,
+    type: 'MARKET',
+    quantity: String(params.quantity),
   };
   return signedRequest('POST', '/fapi/v1/order', body);
 }
@@ -182,6 +193,17 @@ async function getOrder(symbol, orderId) {
   return { status: data?.status ?? 'UNKNOWN' };
 }
 
+/** Historique des trades du compte pour un symbole (pour Chase : détecter SL/TP qui a clôturé). */
+async function getUserTrades(symbol, opts = {}) {
+  const params = { symbol: String(symbol).toUpperCase() };
+  if (opts.orderId != null) params.orderId = opts.orderId;
+  if (opts.startTime != null) params.startTime = opts.startTime;
+  if (opts.endTime != null) params.endTime = opts.endTime;
+  if (opts.limit != null) params.limit = Math.min(1000, Math.max(1, opts.limit));
+  const data = await signedRequest('GET', '/fapi/v1/userTrades', params);
+  return Array.isArray(data) ? data : [];
+}
+
 /** Définir le levier (signé). */
 async function setLeverage(symbol, leverage) {
   return signedRequest('POST', '/fapi/v1/leverage', {
@@ -201,6 +223,81 @@ async function getLeverage(symbol) {
   return Number.isFinite(lev) && lev > 0 ? lev : null;
 }
 
+/** Historique des revenus (Binance-style). incomeType: REALIZED_PNL, FUNDING_FEE, COMMISSION, etc. */
+async function getIncome(opts = {}) {
+  const params = {};
+  if (opts.incomeType) params.incomeType = opts.incomeType;
+  if (opts.symbol) params.symbol = String(opts.symbol).toUpperCase();
+  if (opts.startTime != null) params.startTime = opts.startTime;
+  if (opts.endTime != null) params.endTime = opts.endTime;
+  if (opts.limit != null) params.limit = Math.min(1000, Math.max(1, opts.limit));
+  const data = await signedRequest('GET', '/fapi/v1/income', params);
+  return Array.isArray(data) ? data : [];
+}
+
+/** Somme du PnL réalisé USDT (pour dashboard balance). Pagine si besoin sur les 90 derniers jours. */
+async function getRealizedPnlUsd() {
+  const end = Date.now();
+  const start = end - 90 * 24 * 60 * 60 * 1000;
+  let total = 0;
+  let list = await getIncome({ incomeType: 'REALIZED_PNL', startTime: start, endTime: end, limit: 1000 });
+  for (const row of list) {
+    if ((row.asset || '').toUpperCase() === 'USDT') {
+      total += parseFloat(row.income || 0);
+    }
+  }
+  while (list.length === 1000) {
+    const lastTime = list[list.length - 1].time;
+    list = await getIncome({ incomeType: 'REALIZED_PNL', startTime: start, endTime: lastTime - 1, limit: 1000 });
+    for (const row of list) {
+      if ((row.asset || '').toUpperCase() === 'USDT') total += parseFloat(row.income || 0);
+    }
+  }
+  return total;
+}
+
+/** Résumé PnL réalisé depuis l’historique ASTER (position history / income REALIZED_PNL). Chaque ligne = une clôture. */
+async function getRealizedPnlSummary(opts = {}) {
+  const days = opts.days != null ? opts.days : 90;
+  const end = Date.now();
+  const start = end - days * 24 * 60 * 60 * 1000;
+  let allRows = [];
+  let list = await getIncome({ incomeType: 'REALIZED_PNL', startTime: start, endTime: end, limit: 1000 });
+  for (const row of list) {
+    if ((row.asset || '').toUpperCase() === 'USDT') allRows.push(row);
+  }
+  while (list.length === 1000) {
+    const lastTime = list[list.length - 1].time;
+    list = await getIncome({ incomeType: 'REALIZED_PNL', startTime: start, endTime: lastTime - 1, limit: 1000 });
+    for (const row of list) {
+      if ((row.asset || '').toUpperCase() === 'USDT') allRows.push(row);
+    }
+  }
+  let totalUsdt = 0;
+  let winCount = 0;
+  let lossCount = 0;
+  for (const row of allRows) {
+    const inc = parseFloat(row.income || 0);
+    totalUsdt += inc;
+    if (inc > 0) winCount++;
+    else if (inc < 0) lossCount++;
+  }
+  const tradesCount = allRows.length;
+  const summary =
+    tradesCount === 0
+      ? 'Aucun trade clôturé sur ASTER (historique income).'
+      : `${tradesCount} trade(s) clôturés sur ASTER : ${winCount} gagnant(s), ${lossCount} perdant(s). PnL réalisé total : ${totalUsdt.toFixed(2)} USDT.`;
+  return {
+    source: 'ASTER',
+    trades_count: tradesCount,
+    win_count: winCount,
+    loss_count: lossCount,
+    realized_pnl_usdt: totalUsdt,
+    summary,
+    fetched_at: new Date().toISOString(),
+  };
+}
+
 module.exports = {
   getMarkPrice,
   getExchangeInfo,
@@ -208,8 +305,13 @@ module.exports = {
   getAccount,
   getOpenOrders,
   getOrder,
+  getUserTrades,
+  getIncome,
+  getRealizedPnlUsd,
+  getRealizedPnlSummary,
   placeOrder,
   placeStopMarketOrder,
+  placeMarketOrder,
   placeTakeProfitOrder,
   cancelOrder,
   setLeverage,

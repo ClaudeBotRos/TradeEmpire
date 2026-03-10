@@ -29,6 +29,7 @@ Système multi-agents pour idées de trades crypto (voir [PRD](../PRD.md)).
 
 ## Références
 
+- **[Documentation de référence complète](docs/DOC_REFERENCE_COMPLETE.md)** — chemins, daemon, agents, cron, yield, règles pour ne pas se perdre.
 - [PRD](../PRD.md)
 - [Technical Design](../TECHNICAL_DESIGN.md)
 - [Backlog](../BACKLOG.md)

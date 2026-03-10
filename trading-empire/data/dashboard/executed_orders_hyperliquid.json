@@ -1,0 +1,47 @@
+{
+  "updated_at": "2026-03-10T11:09:14.921Z",
+  "orders": [
+    {
+      "symbol": "GAS",
+      "coin": "GAS-PERP",
+      "side": "buy",
+      "sz": "6.5703",
+      "limit_px": "1.522",
+      "requested_at": "2026-03-10T07:25:14.584Z",
+      "status": "error",
+      "oid": null,
+      "response": {
+        "type": "order",
+        "data": {
+          "statuses": [
+            {
+              "error": "Order has invalid size."
+            }
+          ]
+        }
+      },
+      "error": "Order has invalid size."
+    },
+    {
+      "symbol": "GAS",
+      "coin": "GAS-PERP",
+      "side": "buy",
+      "sz": "6.4931",
+      "limit_px": "1.5401",
+      "requested_at": "2026-03-10T11:09:14.920Z",
+      "status": "error",
+      "oid": null,
+      "response": {
+        "type": "order",
+        "data": {
+          "statuses": [
+            {
+              "error": "Order has invalid size."
+            }
+          ]
+        }
+      },
+      "error": "Order has invalid size."
+    }
+  ]
+}

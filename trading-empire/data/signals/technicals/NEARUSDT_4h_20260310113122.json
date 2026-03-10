@@ -1,0 +1,25 @@
+{
+  "timestamp_utc": "2026-03-10T11:31:22.445Z",
+  "symbol": "NEARUSDT",
+  "timeframe": "4h",
+  "trend": "up",
+  "levels": {
+    "support": [
+      0.953,
+      1.028,
+      1.189
+    ],
+    "resistance": [
+      1.26,
+      1.455
+    ]
+  },
+  "volatility": 0.121364,
+  "setup_candidates": [],
+  "sources": [
+    {
+      "type": "exchange",
+      "ref": "binance_klines_4h"
+    }
+  ]
+}

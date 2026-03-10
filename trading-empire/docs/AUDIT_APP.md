@@ -146,6 +146,6 @@ BOSS (nuit) lit roadmap, api_requests, wire, kanban, costs (pas Intel ni Chase)
 ## 10. Tests et rapport agents
 
 - **test-agents.js** : 7 agents (technicals, smart_money, sentiment, orchestrator, risk_journal, intel, chase) ; mode `--full` lance run-morning + intel-scan + chase-tracker puis valide tout + Wire.
-- **agent-status-report.js** : 8 agents (TECHNICALS, SMART_MONEY, SENTIMENT_X, ORCHESTRATOR, RISK_JOURNAL, BOSS, INTEL, CHASE) ; compétences et APIs par agent.
+- **agent-status-report.js** : 12 agents (TECHNICALS, SMART_MONEY, SENTIMENT_X, ORCHESTRATOR, RISK_JOURNAL, BOSS, INTEL, CHASE, TIBO, OPPORTUNITY_SCOUT/Clarissa, RECOVERY_ANALYST/Killian, YIELD_FARMER/Gary, HYPERLIQUID_ANALYST/Eva) ; compétences et APIs par agent.
 
 **Statut** : Complet.

@@ -1,0 +1,28 @@
+{
+  "shill_phrases": [
+    "buy this coin",
+    "buy this token",
+    "this coin will",
+    "this token will",
+    "next 100x",
+    "get in early",
+    "pump this",
+    "link to buy",
+    "where to buy",
+    "invest in this coin",
+    "invest in this token",
+    "best coin to buy",
+    "altcoin to buy",
+    "token to buy",
+    "coin to buy",
+    "this altcoin",
+    "achète ce token",
+    "ce token va",
+    "prochain 100x",
+    "où acheter ce",
+    "lien pour acheter"
+  ],
+  "min_transcript_length": 100,
+  "max_borderline_cards": 5,
+  "_comment": "Calibration YouTube : max_borderline_cards = nombre max de cartes 'borderline' (ni rejetées ni validées) pour limiter le bruit. 5 = suivi plus strict. min_transcript_length = longueur min du transcript pour garder une carte (éviter vidéos trop courtes). Env: INTEL_YOUTUBE_MAX_BORDERLINE_CARDS, INTEL_YOUTUBE_MAX_CARDS."
+}

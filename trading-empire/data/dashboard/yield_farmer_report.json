@@ -1,0 +1,30 @@
+{
+  "timestamp_utc": "2026-03-10T07:00:26.906Z",
+  "source": "yield_farmer",
+  "chain": "arbitrum",
+  "wallet_address": "0x6B5Fb55d58ca32c900957d8cbdF6CdC056d64947",
+  "platform": "uniswap_v3",
+  "asset": "USDT",
+  "pair": "USDC/USDT",
+  "capital_dormant_estime_usdt": 54.1971572,
+  "capital_disponible_source_usdt": 108.3943144,
+  "recommandation_allocation_usdt": 54.1971572,
+  "apy_cible_pct": 8,
+  "seuil_apy_min_pct": 5,
+  "pools_cibles": [
+    {
+      "protocol": "Uniswap V3",
+      "asset": "USDC/USDT",
+      "chain": "arbitrum",
+      "apy_indicatif_pct": 8,
+      "note": "Paire stable USDC/USDT sur Arbitrum, fee 0.01% ou 0.05%. Données APY via The Graph (THE_GRAPH_API_KEY_UNISWAP)."
+    }
+  ],
+  "capital_alloue_usdt": null,
+  "pool_actuel": null,
+  "apy_estime_pct": null,
+  "rendement_annuel_estime_usdt": 4.335772576,
+  "rendement_mensuel_estime_usdt": 0.3613143813333333,
+  "alertes": [],
+  "summary": "Capital dormant estimé : 54 USDT. Recommandation : allouer jusqu'à 54.1971572 USDT sur Uniswap V3 (USDC/USDT, APY cible 5-15%). Rendement annuel estimé (8%) : 4.34 USDT."
+}
